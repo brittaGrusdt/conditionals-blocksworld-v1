@@ -6,6 +6,9 @@
 .DS_Store
 
 notes/
+# don't track UNanonyimzed raw data
+**/results/data-raw/results_12_blocksworld-prior_BG.csv
+**/results/data-raw/results_13_blocksWorld-main_BG.csv
 
 .~lock.*.csv#
 *.dvi
