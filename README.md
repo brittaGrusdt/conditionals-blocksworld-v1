@@ -6,7 +6,7 @@ utterances, in particular conditionals, as informative descriptions of pictures
 showing different arrangements of blocks in order to compare them with the
 predictions of our computational model.
 
-## \_magpie
+## software
 
 This experiment was built using [\_magpie](https://magpie-ea.github.io/magpie-site/index.html)
 and [matter-js](https://brm.io/matter-js/docs/).
