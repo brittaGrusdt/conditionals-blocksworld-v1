@@ -1,0 +1,4809 @@
+"participant_id","stimulus_id","utterance","response"
+"participant1","S1-121","A",0.81
+"participant1","S1-121","A > C",0.89
+"participant1","S1-121","C",0.83
+"participant1","S1-121","C > A",0.82
+"participant1","S10-203","A",0.88
+"participant1","S10-203","A > C",0.88
+"participant1","S10-203","C",0.71
+"participant1","S10-203","C > A",0.84
+"participant1","S12-203","A",0.23
+"participant1","S12-203","A > C",0.24
+"participant1","S12-203","C",0.28
+"participant1","S12-203","C > A",0.15
+"participant1","S15-443","A",0.37
+"participant1","S15-443","A > C",0.83
+"participant1","S15-443","C",0.41
+"participant1","S15-443","C > A",0.85
+"participant1","S20-468","A",0.86
+"participant1","S20-468","A > C",0.84
+"participant1","S20-468","C",0.67
+"participant1","S20-468","C > A",0.85
+"participant1","S22-468","A",0.66
+"participant1","S22-468","A > C",0.61
+"participant1","S22-468","C",0.68
+"participant1","S22-468","C > A",0.66
+"participant1","S30-805","A",0.7
+"participant1","S30-805","A > C",0.7
+"participant1","S30-805","C",0.72
+"participant1","S30-805","C > A",0.67
+"participant1","S30-805-dep","A",0.79
+"participant1","S30-805-dep","A > C",0.24
+"participant1","S30-805-dep","C",0.15
+"participant1","S30-805-dep","C > A",0.78
+"participant1","S32-806","A",0.31
+"participant1","S32-806","A > C",0.24
+"participant1","S32-806","C",0.33
+"participant1","S32-806","C > A",0.79
+"participant1","S34-806","A",0.2
+"participant1","S34-806","A > C",0.78
+"participant1","S34-806","C",0.25
+"participant1","S34-806","C > A",0.77
+"participant1","S42-806","A",0.84
+"participant1","S42-806","A > C",0.87
+"participant1","S42-806","C",0.84
+"participant1","S42-806","C > A",0.84
+"participant1","S44-806","A",0.91
+"participant1","S44-806","A > C",0.8
+"participant1","S44-806","C",0.28
+"participant1","S44-806","C > A",0.88
+"participant1","S54-806","A",0.87
+"participant1","S54-806","A > C",0.81
+"participant1","S54-806","C",0.83
+"participant1","S54-806","C > A",0.85
+"participant1","S55-1006","A",0.19
+"participant1","S55-1006","A > C",0.8
+"participant1","S55-1006","C",0.51
+"participant1","S55-1006","C > A",0.21
+"participant1","S57-1007","A",0.47
+"participant1","S57-1007","A > C",0.84
+"participant1","S57-1007","C",0.11
+"participant1","S57-1007","C > A",0.86
+"participant1","S59-1007","A",0.39
+"participant1","S59-1007","A > C",0.87
+"participant1","S59-1007","C",0.81
+"participant1","S59-1007","C > A",0.32
+"participant1","S63-1039","A",0.75
+"participant1","S63-1039","A > C",0.82
+"participant1","S63-1039","C",0.79
+"participant1","S63-1039","C > A",0.83
+"participant1","S7-130","A",0.77
+"participant1","S7-130","A > C",0.72
+"participant1","S7-130","C",0.8
+"participant1","S7-130","C > A",0.75
+"participant1","S7-130-dep","A",0.78
+"participant1","S7-130-dep","A > C",0.83
+"participant1","S7-130-dep","C",0.77
+"participant1","S7-130-dep","C > A",0.8
+"participant1","S8-202","A",0.85
+"participant1","S8-202","A > C",0.92
+"participant1","S8-202","C",0.92
+"participant1","S8-202","C > A",0.88
+"participant1","S83-1609","A",0.63
+"participant1","S83-1609","A > C",0.81
+"participant1","S83-1609","C",0.58
+"participant1","S83-1609","C > A",0.92
+"participant1","S89-1642","A",0.67
+"participant1","S89-1642","A > C",0.71
+"participant1","S89-1642","C",0.65
+"participant1","S89-1642","C > A",0.7
+"participant1","S89-1642-dep","A",0.82
+"participant1","S89-1642-dep","A > C",0.75
+"participant1","S89-1642-dep","C",0.78
+"participant1","S89-1642-dep","C > A",0.83
+"participant1","S93-1674","A",0.73
+"participant1","S93-1674","A > C",0.83
+"participant1","S93-1674","C",0.76
+"participant1","S93-1674","C > A",0.84
+"participant1","S97-1674","A",0.79
+"participant1","S97-1674","A > C",0.85
+"participant1","S97-1674","C",0.81
+"participant1","S97-1674","C > A",0.8
+"participant10","S1-121","A",1
+"participant10","S1-121","A > C",1
+"participant10","S1-121","C",1
+"participant10","S1-121","C > A",1
+"participant10","S10-203","A",1
+"participant10","S10-203","A > C",0.23
+"participant10","S10-203","C",0.43
+"participant10","S10-203","C > A",1
+"participant10","S12-203","A",1
+"participant10","S12-203","A > C",0.13
+"participant10","S12-203","C",0.59
+"participant10","S12-203","C > A",1
+"participant10","S15-443","A",1
+"participant10","S15-443","A > C",0.87
+"participant10","S15-443","C",0.89
+"participant10","S15-443","C > A",1
+"participant10","S20-468","A",1
+"participant10","S20-468","A > C",0.63
+"participant10","S20-468","C",0.85
+"participant10","S20-468","C > A",1
+"participant10","S22-468","A",1
+"participant10","S22-468","A > C",0.9
+"participant10","S22-468","C",0.89
+"participant10","S22-468","C > A",1
+"participant10","S30-805","A",0.41
+"participant10","S30-805","A > C",0.98
+"participant10","S30-805","C",0.41
+"participant10","S30-805","C > A",0.98
+"participant10","S30-805-dep","A",0
+"participant10","S30-805-dep","A > C",0
+"participant10","S30-805-dep","C",0
+"participant10","S30-805-dep","C > A",0.57
+"participant10","S32-806","A",0.37
+"participant10","S32-806","A > C",0.86
+"participant10","S32-806","C",0.41
+"participant10","S32-806","C > A",0.88
+"participant10","S34-806","A",0.4
+"participant10","S34-806","A > C",0.95
+"participant10","S34-806","C",0.63
+"participant10","S34-806","C > A",0.42
+"participant10","S42-806","A",0
+"participant10","S42-806","A > C",0.91
+"participant10","S42-806","C",0
+"participant10","S42-806","C > A",0.77
+"participant10","S44-806","A",0.6
+"participant10","S44-806","A > C",0.32
+"participant10","S44-806","C",0.19
+"participant10","S44-806","C > A",1
+"participant10","S54-806","A",0
+"participant10","S54-806","A > C",1
+"participant10","S54-806","C",0.03
+"participant10","S54-806","C > A",0.33
+"participant10","S55-1006","A",0.76
+"participant10","S55-1006","A > C",1
+"participant10","S55-1006","C",0.91
+"participant10","S55-1006","C > A",0.81
+"participant10","S57-1007","A",0
+"participant10","S57-1007","A > C",1
+"participant10","S57-1007","C",0.99
+"participant10","S57-1007","C > A",0
+"participant10","S59-1007","A",0.27
+"participant10","S59-1007","A > C",1
+"participant10","S59-1007","C",0.97
+"participant10","S59-1007","C > A",0.31
+"participant10","S63-1039","A",0.32
+"participant10","S63-1039","A > C",0.69
+"participant10","S63-1039","C",0.73
+"participant10","S63-1039","C > A",0.66
+"participant10","S7-130","A",0.97
+"participant10","S7-130","A > C",1
+"participant10","S7-130","C",1
+"participant10","S7-130","C > A",1
+"participant10","S7-130-dep","A",0.98
+"participant10","S7-130-dep","A > C",0.95
+"participant10","S7-130-dep","C",1
+"participant10","S7-130-dep","C > A",0.96
+"participant10","S8-202","A",1
+"participant10","S8-202","A > C",0.06
+"participant10","S8-202","C",0.35
+"participant10","S8-202","C > A",0.97
+"participant10","S83-1609","A",0.9
+"participant10","S83-1609","A > C",0.89
+"participant10","S83-1609","C",0.86
+"participant10","S83-1609","C > A",0.96
+"participant10","S89-1642","A",0.6
+"participant10","S89-1642","A > C",1
+"participant10","S89-1642","C",0.98
+"participant10","S89-1642","C > A",0.69
+"participant10","S89-1642-dep","A",0.43
+"participant10","S89-1642-dep","A > C",1
+"participant10","S89-1642-dep","C",0.25
+"participant10","S89-1642-dep","C > A",1
+"participant10","S93-1674","A",0.78
+"participant10","S93-1674","A > C",0.94
+"participant10","S93-1674","C",0.84
+"participant10","S93-1674","C > A",0.97
+"participant10","S97-1674","A",1
+"participant10","S97-1674","A > C",0.96
+"participant10","S97-1674","C",0.99
+"participant10","S97-1674","C > A",0.99
+"participant11","S1-121","A",0.9
+"participant11","S1-121","A > C",0.86
+"participant11","S1-121","C",0.9
+"participant11","S1-121","C > A",0.87
+"participant11","S10-203","A",0.69
+"participant11","S10-203","A > C",0.45
+"participant11","S10-203","C",0.4
+"participant11","S10-203","C > A",0.65
+"participant11","S12-203","A",0.9
+"participant11","S12-203","A > C",0.91
+"participant11","S12-203","C",0.62
+"participant11","S12-203","C > A",0.87
+"participant11","S15-443","A",0.78
+"participant11","S15-443","A > C",0.81
+"participant11","S15-443","C",0.83
+"participant11","S15-443","C > A",0.81
+"participant11","S20-468","A",0.92
+"participant11","S20-468","A > C",0.84
+"participant11","S20-468","C",0.86
+"participant11","S20-468","C > A",0.86
+"participant11","S22-468","A",0.58
+"participant11","S22-468","A > C",0.68
+"participant11","S22-468","C",0.44
+"participant11","S22-468","C > A",0.43
+"participant11","S30-805","A",0.11
+"participant11","S30-805","A > C",0.15
+"participant11","S30-805","C",0.19
+"participant11","S30-805","C > A",0.22
+"participant11","S30-805-dep","A",0.12
+"participant11","S30-805-dep","A > C",0.1
+"participant11","S30-805-dep","C",0
+"participant11","S30-805-dep","C > A",0.07
+"participant11","S32-806","A",0.39
+"participant11","S32-806","A > C",0.68
+"participant11","S32-806","C",0.66
+"participant11","S32-806","C > A",0.65
+"participant11","S34-806","A",0.47
+"participant11","S34-806","A > C",0.51
+"participant11","S34-806","C",0.53
+"participant11","S34-806","C > A",0.36
+"participant11","S42-806","A",0.07
+"participant11","S42-806","A > C",0.12
+"participant11","S42-806","C",0.04
+"participant11","S42-806","C > A",0.03
+"participant11","S44-806","A",0.46
+"participant11","S44-806","A > C",0.59
+"participant11","S44-806","C",0.26
+"participant11","S44-806","C > A",0.61
+"participant11","S54-806","A",0.25
+"participant11","S54-806","A > C",0.29
+"participant11","S54-806","C",0.27
+"participant11","S54-806","C > A",0.19
+"participant11","S55-1006","A",0.52
+"participant11","S55-1006","A > C",0.67
+"participant11","S55-1006","C",0.73
+"participant11","S55-1006","C > A",0.35
+"participant11","S57-1007","A",0.38
+"participant11","S57-1007","A > C",0.54
+"participant11","S57-1007","C",0.65
+"participant11","S57-1007","C > A",0.5
+"participant11","S59-1007","A",0.29
+"participant11","S59-1007","A > C",0.31
+"participant11","S59-1007","C",0.19
+"participant11","S59-1007","C > A",0.25
+"participant11","S63-1039","A",0.52
+"participant11","S63-1039","A > C",0.66
+"participant11","S63-1039","C",0.65
+"participant11","S63-1039","C > A",0.57
+"participant11","S7-130","A",0.81
+"participant11","S7-130","A > C",0.85
+"participant11","S7-130","C",0.84
+"participant11","S7-130","C > A",0.76
+"participant11","S7-130-dep","A",0.65
+"participant11","S7-130-dep","A > C",0.76
+"participant11","S7-130-dep","C",0.82
+"participant11","S7-130-dep","C > A",0.64
+"participant11","S8-202","A",0.86
+"participant11","S8-202","A > C",0.58
+"participant11","S8-202","C",0.57
+"participant11","S8-202","C > A",0.85
+"participant11","S83-1609","A",0.85
+"participant11","S83-1609","A > C",0.84
+"participant11","S83-1609","C",0.83
+"participant11","S83-1609","C > A",0.78
+"participant11","S89-1642","A",0.38
+"participant11","S89-1642","A > C",0.41
+"participant11","S89-1642","C",0.36
+"participant11","S89-1642","C > A",0.37
+"participant11","S89-1642-dep","A",0.49
+"participant11","S89-1642-dep","A > C",0.6
+"participant11","S89-1642-dep","C",0.59
+"participant11","S89-1642-dep","C > A",0.65
+"participant11","S93-1674","A",0.88
+"participant11","S93-1674","A > C",0.94
+"participant11","S93-1674","C",0.76
+"participant11","S93-1674","C > A",0.93
+"participant11","S97-1674","A",0.4
+"participant11","S97-1674","A > C",0.49
+"participant11","S97-1674","C",0.34
+"participant11","S97-1674","C > A",0.52
+"participant12","S1-121","A",1
+"participant12","S1-121","A > C",1
+"participant12","S1-121","C",1
+"participant12","S1-121","C > A",1
+"participant12","S10-203","A",1
+"participant12","S10-203","A > C",0
+"participant12","S10-203","C",0
+"participant12","S10-203","C > A",0
+"participant12","S12-203","A",1
+"participant12","S12-203","A > C",0
+"participant12","S12-203","C",0
+"participant12","S12-203","C > A",1
+"participant12","S15-443","A",1
+"participant12","S15-443","A > C",0.3
+"participant12","S15-443","C",0.79
+"participant12","S15-443","C > A",1
+"participant12","S20-468","A",1
+"participant12","S20-468","A > C",0.79
+"participant12","S20-468","C",1
+"participant12","S20-468","C > A",1
+"participant12","S22-468","A",1
+"participant12","S22-468","A > C",0.81
+"participant12","S22-468","C",1
+"participant12","S22-468","C > A",0.87
+"participant12","S30-805","A",0
+"participant12","S30-805","A > C",0.86
+"participant12","S30-805","C",0
+"participant12","S30-805","C > A",0.73
+"participant12","S30-805-dep","A",0
+"participant12","S30-805-dep","A > C",0.11
+"participant12","S30-805-dep","C",0
+"participant12","S30-805-dep","C > A",0.67
+"participant12","S32-806","A",0
+"participant12","S32-806","A > C",1
+"participant12","S32-806","C",0
+"participant12","S32-806","C > A",0.78
+"participant12","S34-806","A",0
+"participant12","S34-806","A > C",0.82
+"participant12","S34-806","C",0
+"participant12","S34-806","C > A",0.21
+"participant12","S42-806","A",0
+"participant12","S42-806","A > C",1
+"participant12","S42-806","C",0
+"participant12","S42-806","C > A",1
+"participant12","S44-806","A",0
+"participant12","S44-806","A > C",0.11
+"participant12","S44-806","C",0
+"participant12","S44-806","C > A",1
+"participant12","S54-806","A",0
+"participant12","S54-806","A > C",0.88
+"participant12","S54-806","C",0
+"participant12","S54-806","C > A",0.1
+"participant12","S55-1006","A",0
+"participant12","S55-1006","A > C",1
+"participant12","S55-1006","C",0.73
+"participant12","S55-1006","C > A",0
+"participant12","S57-1007","A",0
+"participant12","S57-1007","A > C",1
+"participant12","S57-1007","C",0.84
+"participant12","S57-1007","C > A",0
+"participant12","S59-1007","A",0
+"participant12","S59-1007","A > C",1
+"participant12","S59-1007","C",1
+"participant12","S59-1007","C > A",0.07
+"participant12","S63-1039","A",0
+"participant12","S63-1039","A > C",0.75
+"participant12","S63-1039","C",0
+"participant12","S63-1039","C > A",0.16
+"participant12","S7-130","A",1
+"participant12","S7-130","A > C",0
+"participant12","S7-130","C",1
+"participant12","S7-130","C > A",0
+"participant12","S7-130-dep","A",1
+"participant12","S7-130-dep","A > C",1
+"participant12","S7-130-dep","C",1
+"participant12","S7-130-dep","C > A",1
+"participant12","S8-202","A",1
+"participant12","S8-202","A > C",0
+"participant12","S8-202","C",0
+"participant12","S8-202","C > A",1
+"participant12","S83-1609","A",0
+"participant12","S83-1609","A > C",1
+"participant12","S83-1609","C",0
+"participant12","S83-1609","C > A",1
+"participant12","S89-1642","A",0.54
+"participant12","S89-1642","A > C",0.79
+"participant12","S89-1642","C",0.52
+"participant12","S89-1642","C > A",0.88
+"participant12","S89-1642-dep","A",0
+"participant12","S89-1642-dep","A > C",1
+"participant12","S89-1642-dep","C",0
+"participant12","S89-1642-dep","C > A",1
+"participant12","S93-1674","A",0
+"participant12","S93-1674","A > C",1
+"participant12","S93-1674","C",0
+"participant12","S93-1674","C > A",1
+"participant12","S97-1674","A",1
+"participant12","S97-1674","A > C",0.7
+"participant12","S97-1674","C",0.79
+"participant12","S97-1674","C > A",1
+"participant13","S1-121","A",1
+"participant13","S1-121","A > C",1
+"participant13","S1-121","C",1
+"participant13","S1-121","C > A",1
+"participant13","S10-203","A",1
+"participant13","S10-203","A > C",0.52
+"participant13","S10-203","C",0.48
+"participant13","S10-203","C > A",1
+"participant13","S12-203","A",1
+"participant13","S12-203","A > C",0.61
+"participant13","S12-203","C",0.56
+"participant13","S12-203","C > A",0.55
+"participant13","S15-443","A",1
+"participant13","S15-443","A > C",1
+"participant13","S15-443","C",0.82
+"participant13","S15-443","C > A",1
+"participant13","S20-468","A",1
+"participant13","S20-468","A > C",0.76
+"participant13","S20-468","C",0.89
+"participant13","S20-468","C > A",0.78
+"participant13","S22-468","A",1
+"participant13","S22-468","A > C",1
+"participant13","S22-468","C",1
+"participant13","S22-468","C > A",0.99
+"participant13","S30-805","A",0.3
+"participant13","S30-805","A > C",0.6
+"participant13","S30-805","C",0.17
+"participant13","S30-805","C > A",0.56
+"participant13","S30-805-dep","A",0.68
+"participant13","S30-805-dep","A > C",0.15
+"participant13","S30-805-dep","C",0
+"participant13","S30-805-dep","C > A",0.16
+"participant13","S32-806","A",0.62
+"participant13","S32-806","A > C",0.82
+"participant13","S32-806","C",0.63
+"participant13","S32-806","C > A",0.77
+"participant13","S34-806","A",0.56
+"participant13","S34-806","A > C",0.25
+"participant13","S34-806","C",0.7
+"participant13","S34-806","C > A",1
+"participant13","S42-806","A",0.5
+"participant13","S42-806","A > C",0.8
+"participant13","S42-806","C",0.54
+"participant13","S42-806","C > A",0.85
+"participant13","S44-806","A",1
+"participant13","S44-806","A > C",0.25
+"participant13","S44-806","C",0.13
+"participant13","S44-806","C > A",0.97
+"participant13","S54-806","A",0.23
+"participant13","S54-806","A > C",0.87
+"participant13","S54-806","C",0.64
+"participant13","S54-806","C > A",0.15
+"participant13","S55-1006","A",0.57
+"participant13","S55-1006","A > C",0.61
+"participant13","S55-1006","C",1
+"participant13","S55-1006","C > A",0.63
+"participant13","S57-1007","A",0.62
+"participant13","S57-1007","A > C",1
+"participant13","S57-1007","C",1
+"participant13","S57-1007","C > A",0.43
+"participant13","S59-1007","A",0.23
+"participant13","S59-1007","A > C",0.97
+"participant13","S59-1007","C",0.96
+"participant13","S59-1007","C > A",0.25
+"participant13","S63-1039","A",0
+"participant13","S63-1039","A > C",0.55
+"participant13","S63-1039","C",0.53
+"participant13","S63-1039","C > A",0.59
+"participant13","S7-130","A",1
+"participant13","S7-130","A > C",1
+"participant13","S7-130","C",1
+"participant13","S7-130","C > A",1
+"participant13","S7-130-dep","A",1
+"participant13","S7-130-dep","A > C",1
+"participant13","S7-130-dep","C",1
+"participant13","S7-130-dep","C > A",1
+"participant13","S8-202","A",1
+"participant13","S8-202","A > C",0.76
+"participant13","S8-202","C",0.31
+"participant13","S8-202","C > A",0.59
+"participant13","S83-1609","A",0.87
+"participant13","S83-1609","A > C",0.68
+"participant13","S83-1609","C",0.55
+"participant13","S83-1609","C > A",0.88
+"participant13","S89-1642","A",0.91
+"participant13","S89-1642","A > C",0.93
+"participant13","S89-1642","C",0.83
+"participant13","S89-1642","C > A",0.92
+"participant13","S89-1642-dep","A",1
+"participant13","S89-1642-dep","A > C",1
+"participant13","S89-1642-dep","C",1
+"participant13","S89-1642-dep","C > A",1
+"participant13","S93-1674","A",0.96
+"participant13","S93-1674","A > C",0.48
+"participant13","S93-1674","C",1
+"participant13","S93-1674","C > A",0.47
+"participant13","S97-1674","A",0.84
+"participant13","S97-1674","A > C",1
+"participant13","S97-1674","C",0.97
+"participant13","S97-1674","C > A",1
+"participant14","S1-121","A",1
+"participant14","S1-121","A > C",1
+"participant14","S1-121","C",1
+"participant14","S1-121","C > A",1
+"participant14","S10-203","A",1
+"participant14","S10-203","A > C",0.23
+"participant14","S10-203","C",0.03
+"participant14","S10-203","C > A",1
+"participant14","S12-203","A",1
+"participant14","S12-203","A > C",0.4
+"participant14","S12-203","C",0.29
+"participant14","S12-203","C > A",1
+"participant14","S15-443","A",1
+"participant14","S15-443","A > C",1
+"participant14","S15-443","C",1
+"participant14","S15-443","C > A",1
+"participant14","S20-468","A",1
+"participant14","S20-468","A > C",1
+"participant14","S20-468","C",1
+"participant14","S20-468","C > A",1
+"participant14","S22-468","A",1
+"participant14","S22-468","A > C",1
+"participant14","S22-468","C",0.97
+"participant14","S22-468","C > A",1
+"participant14","S30-805","A",0.05
+"participant14","S30-805","A > C",1
+"participant14","S30-805","C",0.02
+"participant14","S30-805","C > A",1
+"participant14","S30-805-dep","A",0
+"participant14","S30-805-dep","A > C",0
+"participant14","S30-805-dep","C",0
+"participant14","S30-805-dep","C > A",1
+"participant14","S32-806","A",0
+"participant14","S32-806","A > C",1
+"participant14","S32-806","C",0
+"participant14","S32-806","C > A",1
+"participant14","S34-806","A",0.05
+"participant14","S34-806","A > C",0
+"participant14","S34-806","C",0.02
+"participant14","S34-806","C > A",1
+"participant14","S42-806","A",0
+"participant14","S42-806","A > C",1
+"participant14","S42-806","C",0
+"participant14","S42-806","C > A",1
+"participant14","S44-806","A",0.78
+"participant14","S44-806","A > C",0.23
+"participant14","S44-806","C",0.3
+"participant14","S44-806","C > A",1
+"participant14","S54-806","A",0.01
+"participant14","S54-806","A > C",1
+"participant14","S54-806","C",0.12
+"participant14","S54-806","C > A",0.17
+"participant14","S55-1006","A",0.31
+"participant14","S55-1006","A > C",1
+"participant14","S55-1006","C",0.93
+"participant14","S55-1006","C > A",0.23
+"participant14","S57-1007","A",0.03
+"participant14","S57-1007","A > C",1
+"participant14","S57-1007","C",0.96
+"participant14","S57-1007","C > A",0.16
+"participant14","S59-1007","A",0.14
+"participant14","S59-1007","A > C",1
+"participant14","S59-1007","C",0.97
+"participant14","S59-1007","C > A",0.06
+"participant14","S63-1039","A",0.88
+"participant14","S63-1039","A > C",1
+"participant14","S63-1039","C",0.97
+"participant14","S63-1039","C > A",1
+"participant14","S7-130","A",1
+"participant14","S7-130","A > C",1
+"participant14","S7-130","C",1
+"participant14","S7-130","C > A",1
+"participant14","S7-130-dep","A",1
+"participant14","S7-130-dep","A > C",1
+"participant14","S7-130-dep","C",1
+"participant14","S7-130-dep","C > A",1
+"participant14","S8-202","A",1
+"participant14","S8-202","A > C",0.86
+"participant14","S8-202","C",0.02
+"participant14","S8-202","C > A",1
+"participant14","S83-1609","A",1
+"participant14","S83-1609","A > C",1
+"participant14","S83-1609","C",1
+"participant14","S83-1609","C > A",1
+"participant14","S89-1642","A",1
+"participant14","S89-1642","A > C",1
+"participant14","S89-1642","C",1
+"participant14","S89-1642","C > A",1
+"participant14","S89-1642-dep","A",0.69
+"participant14","S89-1642-dep","A > C",1
+"participant14","S89-1642-dep","C",0.69
+"participant14","S89-1642-dep","C > A",1
+"participant14","S93-1674","A",1
+"participant14","S93-1674","A > C",1
+"participant14","S93-1674","C",1
+"participant14","S93-1674","C > A",1
+"participant14","S97-1674","A",1
+"participant14","S97-1674","A > C",1
+"participant14","S97-1674","C",1
+"participant14","S97-1674","C > A",1
+"participant15","S1-121","A",0.74
+"participant15","S1-121","A > C",0.74
+"participant15","S1-121","C",0.68
+"participant15","S1-121","C > A",0.69
+"participant15","S10-203","A",0.76
+"participant15","S10-203","A > C",0.66
+"participant15","S10-203","C",0.76
+"participant15","S10-203","C > A",0.73
+"participant15","S12-203","A",0.75
+"participant15","S12-203","A > C",0.94
+"participant15","S12-203","C",0.66
+"participant15","S12-203","C > A",0.72
+"participant15","S15-443","A",0.73
+"participant15","S15-443","A > C",0.88
+"participant15","S15-443","C",0.81
+"participant15","S15-443","C > A",0.86
+"participant15","S20-468","A",0.7
+"participant15","S20-468","A > C",0.36
+"participant15","S20-468","C",0.73
+"participant15","S20-468","C > A",0.33
+"participant15","S22-468","A",0.89
+"participant15","S22-468","A > C",0.85
+"participant15","S22-468","C",0.76
+"participant15","S22-468","C > A",0.86
+"participant15","S30-805","A",0.81
+"participant15","S30-805","A > C",0.8
+"participant15","S30-805","C",0.84
+"participant15","S30-805","C > A",0.81
+"participant15","S30-805-dep","A",0.82
+"participant15","S30-805-dep","A > C",0.79
+"participant15","S30-805-dep","C",0.83
+"participant15","S30-805-dep","C > A",0.78
+"participant15","S32-806","A",1
+"participant15","S32-806","A > C",0.92
+"participant15","S32-806","C",0.93
+"participant15","S32-806","C > A",0.89
+"participant15","S34-806","A",0.86
+"participant15","S34-806","A > C",0.92
+"participant15","S34-806","C",0.84
+"participant15","S34-806","C > A",0.86
+"participant15","S42-806","A",0.72
+"participant15","S42-806","A > C",0.73
+"participant15","S42-806","C",0.62
+"participant15","S42-806","C > A",0.65
+"participant15","S44-806","A",0.89
+"participant15","S44-806","A > C",0.78
+"participant15","S44-806","C",0.85
+"participant15","S44-806","C > A",0.8
+"participant15","S54-806","A",0.72
+"participant15","S54-806","A > C",0.26
+"participant15","S54-806","C",0.78
+"participant15","S54-806","C > A",0.2
+"participant15","S55-1006","A",0.8
+"participant15","S55-1006","A > C",0.84
+"participant15","S55-1006","C",0.94
+"participant15","S55-1006","C > A",0.8
+"participant15","S57-1007","A",0.81
+"participant15","S57-1007","A > C",0.9
+"participant15","S57-1007","C",0.92
+"participant15","S57-1007","C > A",0.76
+"participant15","S59-1007","A",0.78
+"participant15","S59-1007","A > C",0.82
+"participant15","S59-1007","C",0.76
+"participant15","S59-1007","C > A",0.76
+"participant15","S63-1039","A",0.82
+"participant15","S63-1039","A > C",0.41
+"participant15","S63-1039","C",0.81
+"participant15","S63-1039","C > A",0.31
+"participant15","S7-130","A",0.94
+"participant15","S7-130","A > C",0.68
+"participant15","S7-130","C",0.95
+"participant15","S7-130","C > A",0.63
+"participant15","S7-130-dep","A",0.64
+"participant15","S7-130-dep","A > C",0.37
+"participant15","S7-130-dep","C",0.73
+"participant15","S7-130-dep","C > A",0.36
+"participant15","S8-202","A",0.77
+"participant15","S8-202","A > C",0.76
+"participant15","S8-202","C",0.81
+"participant15","S8-202","C > A",0.81
+"participant15","S83-1609","A",0.72
+"participant15","S83-1609","A > C",0.31
+"participant15","S83-1609","C",0.74
+"participant15","S83-1609","C > A",0.31
+"participant15","S89-1642","A",0.64
+"participant15","S89-1642","A > C",0.41
+"participant15","S89-1642","C",0.72
+"participant15","S89-1642","C > A",0.34
+"participant15","S89-1642-dep","A",0.81
+"participant15","S89-1642-dep","A > C",0.87
+"participant15","S89-1642-dep","C",0.78
+"participant15","S89-1642-dep","C > A",0.79
+"participant15","S93-1674","A",0.81
+"participant15","S93-1674","A > C",0.27
+"participant15","S93-1674","C",0.81
+"participant15","S93-1674","C > A",0.06
+"participant15","S97-1674","A",0.99
+"participant15","S97-1674","A > C",0.95
+"participant15","S97-1674","C",0.98
+"participant15","S97-1674","C > A",0.95
+"participant16","S1-121","A",0.7
+"participant16","S1-121","A > C",0.32
+"participant16","S1-121","C",0.71
+"participant16","S1-121","C > A",0.22
+"participant16","S10-203","A",0.2
+"participant16","S10-203","A > C",0.72
+"participant16","S10-203","C",0.64
+"participant16","S10-203","C > A",0.07
+"participant16","S12-203","A",0.81
+"participant16","S12-203","A > C",0.19
+"participant16","S12-203","C",0.81
+"participant16","S12-203","C > A",0.04
+"participant16","S15-443","A",0.33
+"participant16","S15-443","A > C",0.32
+"participant16","S15-443","C",0.32
+"participant16","S15-443","C > A",0.22
+"participant16","S20-468","A",1
+"participant16","S20-468","A > C",0.15
+"participant16","S20-468","C",0.74
+"participant16","S20-468","C > A",0.32
+"participant16","S22-468","A",0.27
+"participant16","S22-468","A > C",0.15
+"participant16","S22-468","C",0.63
+"participant16","S22-468","C > A",0.22
+"participant16","S30-805","A",0.81
+"participant16","S30-805","A > C",0
+"participant16","S30-805","C",0.86
+"participant16","S30-805","C > A",0.08
+"participant16","S30-805-dep","A",0.71
+"participant16","S30-805-dep","A > C",0.28
+"participant16","S30-805-dep","C",0.08
+"participant16","S30-805-dep","C > A",0.23
+"participant16","S32-806","A",0.72
+"participant16","S32-806","A > C",0.17
+"participant16","S32-806","C",0.7
+"participant16","S32-806","C > A",0.12
+"participant16","S34-806","A",0.17
+"participant16","S34-806","A > C",0
+"participant16","S34-806","C",0.87
+"participant16","S34-806","C > A",0.97
+"participant16","S42-806","A",0
+"participant16","S42-806","A > C",0.85
+"participant16","S42-806","C",0.06
+"participant16","S42-806","C > A",0.14
+"participant16","S44-806","A",0.81
+"participant16","S44-806","A > C",1
+"participant16","S44-806","C",0.32
+"participant16","S44-806","C > A",0.99
+"participant16","S54-806","A",0.82
+"participant16","S54-806","A > C",0.83
+"participant16","S54-806","C",0.68
+"participant16","S54-806","C > A",1
+"participant16","S55-1006","A",0.34
+"participant16","S55-1006","A > C",0.3
+"participant16","S55-1006","C",0.71
+"participant16","S55-1006","C > A",0.75
+"participant16","S57-1007","A",0.7
+"participant16","S57-1007","A > C",0
+"participant16","S57-1007","C",0.79
+"participant16","S57-1007","C > A",0
+"participant16","S59-1007","A",0.4
+"participant16","S59-1007","A > C",1
+"participant16","S59-1007","C",0.82
+"participant16","S59-1007","C > A",0.98
+"participant16","S63-1039","A",0.96
+"participant16","S63-1039","A > C",0.93
+"participant16","S63-1039","C",1
+"participant16","S63-1039","C > A",0.91
+"participant16","S7-130","A",0.9
+"participant16","S7-130","A > C",0
+"participant16","S7-130","C",0.74
+"participant16","S7-130","C > A",0
+"participant16","S7-130-dep","A",0.93
+"participant16","S7-130-dep","A > C",1
+"participant16","S7-130-dep","C",0.93
+"participant16","S7-130-dep","C > A",1
+"participant16","S8-202","A",0.88
+"participant16","S8-202","A > C",0.9
+"participant16","S8-202","C",0.82
+"participant16","S8-202","C > A",0.77
+"participant16","S83-1609","A",0.21
+"participant16","S83-1609","A > C",0.23
+"participant16","S83-1609","C",0.29
+"participant16","S83-1609","C > A",0.2
+"participant16","S89-1642","A",0.85
+"participant16","S89-1642","A > C",0.12
+"participant16","S89-1642","C",0.56
+"participant16","S89-1642","C > A",0.18
+"participant16","S89-1642-dep","A",0.28
+"participant16","S89-1642-dep","A > C",0.04
+"participant16","S89-1642-dep","C",0.72
+"participant16","S89-1642-dep","C > A",0.06
+"participant16","S93-1674","A",0.84
+"participant16","S93-1674","A > C",0.14
+"participant16","S93-1674","C",0.84
+"participant16","S93-1674","C > A",0.21
+"participant16","S97-1674","A",0.79
+"participant16","S97-1674","A > C",0.84
+"participant16","S97-1674","C",0.28
+"participant16","S97-1674","C > A",0.8
+"participant17","S1-121","A",0.28
+"participant17","S1-121","A > C",0.81
+"participant17","S1-121","C",0.98
+"participant17","S1-121","C > A",1
+"participant17","S10-203","A",1
+"participant17","S10-203","A > C",0.17
+"participant17","S10-203","C",1
+"participant17","S10-203","C > A",1
+"participant17","S12-203","A",0.76
+"participant17","S12-203","A > C",0.01
+"participant17","S12-203","C",0.79
+"participant17","S12-203","C > A",0.87
+"participant17","S15-443","A",0.31
+"participant17","S15-443","A > C",0.78
+"participant17","S15-443","C",0.68
+"participant17","S15-443","C > A",0.76
+"participant17","S20-468","A",0.94
+"participant17","S20-468","A > C",0.75
+"participant17","S20-468","C",0.17
+"participant17","S20-468","C > A",0.72
+"participant17","S22-468","A",0.97
+"participant17","S22-468","A > C",1
+"participant17","S22-468","C",0
+"participant17","S22-468","C > A",1
+"participant17","S30-805","A",0.12
+"participant17","S30-805","A > C",0.02
+"participant17","S30-805","C",1
+"participant17","S30-805","C > A",0.91
+"participant17","S30-805-dep","A",0.27
+"participant17","S30-805-dep","A > C",0.63
+"participant17","S30-805-dep","C",0.68
+"participant17","S30-805-dep","C > A",0.17
+"participant17","S32-806","A",1
+"participant17","S32-806","A > C",1
+"participant17","S32-806","C",1
+"participant17","S32-806","C > A",0.97
+"participant17","S34-806","A",0.04
+"participant17","S34-806","A > C",0.9
+"participant17","S34-806","C",1
+"participant17","S34-806","C > A",0.83
+"participant17","S42-806","A",1
+"participant17","S42-806","A > C",0
+"participant17","S42-806","C",0
+"participant17","S42-806","C > A",1
+"participant17","S44-806","A",0.21
+"participant17","S44-806","A > C",0.9
+"participant17","S44-806","C",0.15
+"participant17","S44-806","C > A",0.97
+"participant17","S54-806","A",0.74
+"participant17","S54-806","A > C",0.85
+"participant17","S54-806","C",0.99
+"participant17","S54-806","C > A",0
+"participant17","S55-1006","A",0.78
+"participant17","S55-1006","A > C",0.82
+"participant17","S55-1006","C",0.9
+"participant17","S55-1006","C > A",0.26
+"participant17","S57-1007","A",0
+"participant17","S57-1007","A > C",1
+"participant17","S57-1007","C",1
+"participant17","S57-1007","C > A",0.2
+"participant17","S59-1007","A",0.82
+"participant17","S59-1007","A > C",0.03
+"participant17","S59-1007","C",0.87
+"participant17","S59-1007","C > A",0.76
+"participant17","S63-1039","A",0.02
+"participant17","S63-1039","A > C",0.04
+"participant17","S63-1039","C",0.36
+"participant17","S63-1039","C > A",0.22
+"participant17","S7-130","A",1
+"participant17","S7-130","A > C",1
+"participant17","S7-130","C",0.83
+"participant17","S7-130","C > A",1
+"participant17","S7-130-dep","A",0
+"participant17","S7-130-dep","A > C",0.05
+"participant17","S7-130-dep","C",0.91
+"participant17","S7-130-dep","C > A",0.92
+"participant17","S8-202","A",0.14
+"participant17","S8-202","A > C",0.91
+"participant17","S8-202","C",0.25
+"participant17","S8-202","C > A",0.15
+"participant17","S83-1609","A",0.38
+"participant17","S83-1609","A > C",0.78
+"participant17","S83-1609","C",0.26
+"participant17","S83-1609","C > A",0.76
+"participant17","S89-1642","A",0.3
+"participant17","S89-1642","A > C",0.89
+"participant17","S89-1642","C",0.67
+"participant17","S89-1642","C > A",0.07
+"participant17","S89-1642-dep","A",0.94
+"participant17","S89-1642-dep","A > C",0
+"participant17","S89-1642-dep","C",1
+"participant17","S89-1642-dep","C > A",0.79
+"participant17","S93-1674","A",0.91
+"participant17","S93-1674","A > C",1
+"participant17","S93-1674","C",0.8
+"participant17","S93-1674","C > A",0.07
+"participant17","S97-1674","A",1
+"participant17","S97-1674","A > C",1
+"participant17","S97-1674","C",0.04
+"participant17","S97-1674","C > A",0.42
+"participant18","S1-121","A",1
+"participant18","S1-121","A > C",1
+"participant18","S1-121","C",1
+"participant18","S1-121","C > A",1
+"participant18","S10-203","A",1
+"participant18","S10-203","A > C",0.7
+"participant18","S10-203","C",0
+"participant18","S10-203","C > A",0
+"participant18","S12-203","A",1
+"participant18","S12-203","A > C",0
+"participant18","S12-203","C",0
+"participant18","S12-203","C > A",0
+"participant18","S15-443","A",1
+"participant18","S15-443","A > C",0.72
+"participant18","S15-443","C",0.08
+"participant18","S15-443","C > A",0.61
+"participant18","S20-468","A",1
+"participant18","S20-468","A > C",0
+"participant18","S20-468","C",0.65
+"participant18","S20-468","C > A",0
+"participant18","S22-468","A",1
+"participant18","S22-468","A > C",1
+"participant18","S22-468","C",1
+"participant18","S22-468","C > A",1
+"participant18","S34-806","A",0
+"participant18","S34-806","A > C",1
+"participant18","S34-806","C",1
+"participant18","S34-806","C > A",1
+"participant18","S54-806","A",0
+"participant18","S54-806","A > C",0.02
+"participant18","S54-806","C",0
+"participant18","S54-806","C > A",0
+"participant18","S55-1006","A",0
+"participant18","S55-1006","A > C",0
+"participant18","S55-1006","C",0.57
+"participant18","S55-1006","C > A",0
+"participant18","S57-1007","A",0
+"participant18","S57-1007","A > C",0
+"participant18","S57-1007","C",1
+"participant18","S57-1007","C > A",0
+"participant18","S59-1007","A",0
+"participant18","S59-1007","A > C",0
+"participant18","S59-1007","C",1
+"participant18","S59-1007","C > A",0
+"participant18","S63-1039","A",1
+"participant18","S63-1039","A > C",1
+"participant18","S63-1039","C",1
+"participant18","S63-1039","C > A",1
+"participant18","S7-130","A",1
+"participant18","S7-130","A > C",1
+"participant18","S7-130","C",1
+"participant18","S7-130","C > A",1
+"participant18","S7-130-dep","A",1
+"participant18","S7-130-dep","A > C",1
+"participant18","S7-130-dep","C",1
+"participant18","S7-130-dep","C > A",1
+"participant18","S8-202","A",1
+"participant18","S8-202","A > C",1
+"participant18","S8-202","C",0
+"participant18","S8-202","C > A",1
+"participant18","S89-1642","A",1
+"participant18","S89-1642","A > C",0
+"participant18","S89-1642","C",1
+"participant18","S89-1642","C > A",1
+"participant18","S93-1674","A",0.01
+"participant18","S93-1674","A > C",0
+"participant18","S93-1674","C",1
+"participant18","S93-1674","C > A",1
+"participant18","S97-1674","A",1
+"participant18","S97-1674","A > C",0.46
+"participant18","S97-1674","C",0.64
+"participant18","S97-1674","C > A",1
+"participant19","S1-121","A",1
+"participant19","S1-121","A > C",0
+"participant19","S1-121","C",1
+"participant19","S1-121","C > A",0
+"participant19","S10-203","A",1
+"participant19","S10-203","A > C",0
+"participant19","S10-203","C",1
+"participant19","S10-203","C > A",0
+"participant19","S12-203","A",1
+"participant19","S12-203","A > C",0
+"participant19","S12-203","C",1
+"participant19","S12-203","C > A",0
+"participant19","S15-443","A",1
+"participant19","S15-443","A > C",0
+"participant19","S15-443","C",1
+"participant19","S15-443","C > A",0
+"participant19","S20-468","A",1
+"participant19","S20-468","A > C",0.77
+"participant19","S20-468","C",1
+"participant19","S20-468","C > A",0
+"participant19","S22-468","A",1
+"participant19","S22-468","A > C",0
+"participant19","S22-468","C",1
+"participant19","S22-468","C > A",0
+"participant19","S30-805","A",1
+"participant19","S30-805","A > C",0
+"participant19","S30-805","C",1
+"participant19","S30-805","C > A",0
+"participant19","S30-805-dep","A",0
+"participant19","S30-805-dep","A > C",1
+"participant19","S30-805-dep","C",0
+"participant19","S30-805-dep","C > A",1
+"participant19","S32-806","A",1
+"participant19","S32-806","A > C",0.17
+"participant19","S32-806","C",1
+"participant19","S32-806","C > A",0.14
+"participant19","S34-806","A",1
+"participant19","S34-806","A > C",0
+"participant19","S34-806","C",1
+"participant19","S34-806","C > A",1
+"participant19","S42-806","A",1
+"participant19","S42-806","A > C",1
+"participant19","S42-806","C",1
+"participant19","S42-806","C > A",1
+"participant19","S44-806","A",0.74
+"participant19","S44-806","A > C",0.19
+"participant19","S44-806","C",0.21
+"participant19","S44-806","C > A",1
+"participant19","S54-806","A",0.33
+"participant19","S54-806","A > C",1
+"participant19","S54-806","C",0.23
+"participant19","S54-806","C > A",0.81
+"participant19","S55-1006","A",1
+"participant19","S55-1006","A > C",0.76
+"participant19","S55-1006","C",1
+"participant19","S55-1006","C > A",0.09
+"participant19","S57-1007","A",1
+"participant19","S57-1007","A > C",0
+"participant19","S57-1007","C",1
+"participant19","S57-1007","C > A",0
+"participant19","S59-1007","A",0
+"participant19","S59-1007","A > C",1
+"participant19","S59-1007","C",1
+"participant19","S59-1007","C > A",0
+"participant19","S63-1039","A",1
+"participant19","S63-1039","A > C",1
+"participant19","S63-1039","C",1
+"participant19","S63-1039","C > A",1
+"participant19","S7-130","A",1
+"participant19","S7-130","A > C",0
+"participant19","S7-130","C",1
+"participant19","S7-130","C > A",0
+"participant19","S7-130-dep","A",1
+"participant19","S7-130-dep","A > C",1
+"participant19","S7-130-dep","C",1
+"participant19","S7-130-dep","C > A",1
+"participant19","S8-202","A",1
+"participant19","S8-202","A > C",1
+"participant19","S8-202","C",1
+"participant19","S8-202","C > A",1
+"participant19","S83-1609","A",1
+"participant19","S83-1609","A > C",0
+"participant19","S83-1609","C",1
+"participant19","S83-1609","C > A",0
+"participant19","S89-1642","A",1
+"participant19","S89-1642","A > C",0
+"participant19","S89-1642","C",1
+"participant19","S89-1642","C > A",0
+"participant19","S89-1642-dep","A",1
+"participant19","S89-1642-dep","A > C",1
+"participant19","S89-1642-dep","C",1
+"participant19","S89-1642-dep","C > A",1
+"participant19","S93-1674","A",1
+"participant19","S93-1674","A > C",0
+"participant19","S93-1674","C",1
+"participant19","S93-1674","C > A",0
+"participant19","S97-1674","A",1
+"participant19","S97-1674","A > C",1
+"participant19","S97-1674","C",1
+"participant19","S97-1674","C > A",1
+"participant2","S1-121","A",1
+"participant2","S1-121","A > C",1
+"participant2","S1-121","C",0.72
+"participant2","S1-121","C > A",1
+"participant2","S10-203","A",1
+"participant2","S10-203","A > C",0
+"participant2","S10-203","C",0
+"participant2","S10-203","C > A",0
+"participant2","S12-203","A",0.97
+"participant2","S12-203","A > C",0.38
+"participant2","S12-203","C",0.84
+"participant2","S12-203","C > A",0.64
+"participant2","S15-443","A",1
+"participant2","S15-443","A > C",1
+"participant2","S15-443","C",1
+"participant2","S15-443","C > A",1
+"participant2","S20-468","A",1
+"participant2","S20-468","A > C",0.29
+"participant2","S20-468","C",1
+"participant2","S20-468","C > A",1
+"participant2","S22-468","A",1
+"participant2","S22-468","A > C",1
+"participant2","S22-468","C",1
+"participant2","S22-468","C > A",1
+"participant2","S30-805","A",0
+"participant2","S30-805","A > C",0
+"participant2","S30-805","C",0
+"participant2","S30-805","C > A",0.67
+"participant2","S32-806","A",0.92
+"participant2","S32-806","A > C",0.58
+"participant2","S32-806","C",0.77
+"participant2","S32-806","C > A",0.25
+"participant2","S34-806","A",0.61
+"participant2","S34-806","A > C",0.78
+"participant2","S34-806","C",0.49
+"participant2","S34-806","C > A",0.63
+"participant2","S42-806","A",0.67
+"participant2","S42-806","A > C",0
+"participant2","S42-806","C",0.76
+"participant2","S42-806","C > A",1
+"participant2","S44-806","A",1
+"participant2","S44-806","A > C",0.44
+"participant2","S44-806","C",1
+"participant2","S44-806","C > A",0.91
+"participant2","S54-806","A",0.16
+"participant2","S54-806","A > C",0
+"participant2","S54-806","C",0.94
+"participant2","S54-806","C > A",0.59
+"participant2","S55-1006","A",1
+"participant2","S55-1006","A > C",0.25
+"participant2","S55-1006","C",1
+"participant2","S55-1006","C > A",1
+"participant2","S57-1007","A",0
+"participant2","S57-1007","A > C",0
+"participant2","S57-1007","C",1
+"participant2","S57-1007","C > A",0
+"participant2","S59-1007","A",0
+"participant2","S59-1007","A > C",0.64
+"participant2","S59-1007","C",0.95
+"participant2","S59-1007","C > A",0.59
+"participant2","S7-130","A",1
+"participant2","S7-130","A > C",1
+"participant2","S7-130","C",1
+"participant2","S7-130","C > A",1
+"participant2","S7-130-dep","A",1
+"participant2","S7-130-dep","A > C",1
+"participant2","S7-130-dep","C",1
+"participant2","S7-130-dep","C > A",1
+"participant2","S8-202","A",0.19
+"participant2","S8-202","A > C",0.29
+"participant2","S8-202","C",0.05
+"participant2","S8-202","C > A",0
+"participant2","S83-1609","A",1
+"participant2","S83-1609","A > C",0.77
+"participant2","S83-1609","C",1
+"participant2","S83-1609","C > A",1
+"participant2","S89-1642","A",0.93
+"participant2","S89-1642","A > C",0.8
+"participant2","S89-1642","C",1
+"participant2","S89-1642","C > A",0.95
+"participant2","S89-1642-dep","A",0
+"participant2","S89-1642-dep","A > C",1
+"participant2","S89-1642-dep","C",0
+"participant2","S89-1642-dep","C > A",0
+"participant2","S93-1674","A",1
+"participant2","S93-1674","A > C",0.39
+"participant2","S93-1674","C",1
+"participant2","S93-1674","C > A",0
+"participant2","S97-1674","A",0.3
+"participant2","S97-1674","A > C",0.7
+"participant2","S97-1674","C",0.26
+"participant2","S97-1674","C > A",0.66
+"participant20","S1-121","A",0.73
+"participant20","S1-121","A > C",0.65
+"participant20","S1-121","C",0.77
+"participant20","S1-121","C > A",0.7
+"participant20","S10-203","A",0.6
+"participant20","S10-203","A > C",0.86
+"participant20","S10-203","C",1
+"participant20","S10-203","C > A",0.23
+"participant20","S12-203","A",0.98
+"participant20","S12-203","A > C",0.16
+"participant20","S12-203","C",0.86
+"participant20","S12-203","C > A",0.18
+"participant20","S15-443","A",0.86
+"participant20","S15-443","A > C",0.81
+"participant20","S15-443","C",0.89
+"participant20","S15-443","C > A",0.75
+"participant20","S20-468","A",0.7
+"participant20","S20-468","A > C",0.82
+"participant20","S20-468","C",1
+"participant20","S20-468","C > A",0.9
+"participant20","S22-468","A",0.84
+"participant20","S22-468","A > C",0.89
+"participant20","S22-468","C",0.84
+"participant20","S22-468","C > A",0.89
+"participant20","S30-805","A",0.9
+"participant20","S30-805","A > C",0.84
+"participant20","S30-805","C",0.9
+"participant20","S30-805","C > A",0.82
+"participant20","S32-806","A",0.67
+"participant20","S32-806","A > C",0.46
+"participant20","S32-806","C",0.83
+"participant20","S32-806","C > A",0.47
+"participant20","S34-806","A",0.26
+"participant20","S34-806","A > C",0.83
+"participant20","S34-806","C",0.64
+"participant20","S34-806","C > A",0.3
+"participant20","S42-806","A",0
+"participant20","S42-806","A > C",0
+"participant20","S42-806","C",0.03
+"participant20","S42-806","C > A",0
+"participant20","S44-806","A",0.78
+"participant20","S44-806","A > C",0.05
+"participant20","S44-806","C",0.08
+"participant20","S44-806","C > A",0.94
+"participant20","S54-806","A",0.1
+"participant20","S54-806","A > C",0.76
+"participant20","S54-806","C",0.22
+"participant20","S54-806","C > A",0.02
+"participant20","S55-1006","A",0.89
+"participant20","S55-1006","A > C",0.14
+"participant20","S55-1006","C",0.82
+"participant20","S55-1006","C > A",0.13
+"participant20","S57-1007","A",1
+"participant20","S57-1007","A > C",1
+"participant20","S57-1007","C",1
+"participant20","S57-1007","C > A",1
+"participant20","S59-1007","A",0.01
+"participant20","S59-1007","A > C",0.86
+"participant20","S59-1007","C",0.81
+"participant20","S59-1007","C > A",0.2
+"participant20","S63-1039","A",0.09
+"participant20","S63-1039","A > C",0
+"participant20","S63-1039","C",0.15
+"participant20","S63-1039","C > A",0
+"participant20","S7-130","A",0.84
+"participant20","S7-130","A > C",0.89
+"participant20","S7-130","C",0.91
+"participant20","S7-130","C > A",0.91
+"participant20","S8-202","A",0.73
+"participant20","S8-202","A > C",0.12
+"participant20","S8-202","C",0.78
+"participant20","S8-202","C > A",0.19
+"participant20","S83-1609","A",0.81
+"participant20","S83-1609","A > C",0.74
+"participant20","S83-1609","C",0.78
+"participant20","S83-1609","C > A",0.74
+"participant20","S89-1642","A",0.96
+"participant20","S89-1642","A > C",0.94
+"participant20","S89-1642","C",0.88
+"participant20","S89-1642","C > A",0.97
+"participant20","S89-1642-dep","A",0.21
+"participant20","S89-1642-dep","A > C",0.21
+"participant20","S89-1642-dep","C",0.76
+"participant20","S89-1642-dep","C > A",0.14
+"participant20","S93-1674","A",0.69
+"participant20","S93-1674","A > C",0.08
+"participant20","S93-1674","C",0.1
+"participant20","S93-1674","C > A",0.78
+"participant21","S1-121","A",1
+"participant21","S1-121","A > C",1
+"participant21","S1-121","C",1
+"participant21","S1-121","C > A",1
+"participant21","S10-203","A",1
+"participant21","S10-203","A > C",0.66
+"participant21","S10-203","C",0.58
+"participant21","S10-203","C > A",0.59
+"participant21","S12-203","A",1
+"participant21","S12-203","A > C",1
+"participant21","S12-203","C",1
+"participant21","S12-203","C > A",1
+"participant21","S15-443","A",1
+"participant21","S15-443","A > C",0.53
+"participant21","S15-443","C",0.55
+"participant21","S15-443","C > A",0.52
+"participant21","S20-468","A",1
+"participant21","S20-468","A > C",0.95
+"participant21","S20-468","C",0.92
+"participant21","S20-468","C > A",0.92
+"participant21","S22-468","A",1
+"participant21","S22-468","A > C",0.6
+"participant21","S22-468","C",1
+"participant21","S22-468","C > A",0.56
+"participant21","S30-805","A",0.73
+"participant21","S30-805","A > C",0.87
+"participant21","S30-805","C",0.91
+"participant21","S30-805","C > A",0.9
+"participant21","S30-805-dep","A",0.45
+"participant21","S30-805-dep","A > C",0.47
+"participant21","S30-805-dep","C",0.21
+"participant21","S30-805-dep","C > A",0.44
+"participant21","S32-806","A",0.47
+"participant21","S32-806","A > C",0.67
+"participant21","S32-806","C",0.47
+"participant21","S32-806","C > A",0.76
+"participant21","S34-806","A",0.47
+"participant21","S34-806","A > C",0.44
+"participant21","S34-806","C",0.56
+"participant21","S34-806","C > A",0.45
+"participant21","S42-806","A",0.57
+"participant21","S42-806","A > C",0.92
+"participant21","S42-806","C",0.55
+"participant21","S42-806","C > A",0.92
+"participant21","S44-806","A",1
+"participant21","S44-806","A > C",0.84
+"participant21","S44-806","C",0.76
+"participant21","S44-806","C > A",0.81
+"participant21","S54-806","A",0.78
+"participant21","S54-806","A > C",0.62
+"participant21","S54-806","C",0.75
+"participant21","S54-806","C > A",0.64
+"participant21","S55-1006","A",0.47
+"participant21","S55-1006","A > C",0.47
+"participant21","S55-1006","C",0.53
+"participant21","S55-1006","C > A",0.49
+"participant21","S57-1007","A",0.53
+"participant21","S57-1007","A > C",1
+"participant21","S57-1007","C",0.83
+"participant21","S57-1007","C > A",0.82
+"participant21","S59-1007","A",0.48
+"participant21","S59-1007","A > C",1
+"participant21","S59-1007","C",0.83
+"participant21","S59-1007","C > A",0.47
+"participant21","S63-1039","A",0.59
+"participant21","S63-1039","A > C",0.55
+"participant21","S63-1039","C",0.57
+"participant21","S63-1039","C > A",0.54
+"participant21","S7-130","A",0.93
+"participant21","S7-130","A > C",0.78
+"participant21","S7-130","C",0.9
+"participant21","S7-130","C > A",0.95
+"participant21","S7-130-dep","A",1
+"participant21","S7-130-dep","A > C",1
+"participant21","S7-130-dep","C",1
+"participant21","S7-130-dep","C > A",1
+"participant21","S8-202","A",1
+"participant21","S8-202","A > C",0.54
+"participant21","S8-202","C",0.55
+"participant21","S8-202","C > A",1
+"participant21","S83-1609","A",1
+"participant21","S83-1609","A > C",1
+"participant21","S83-1609","C",1
+"participant21","S83-1609","C > A",1
+"participant21","S89-1642","A",1
+"participant21","S89-1642","A > C",0.95
+"participant21","S89-1642","C",1
+"participant21","S89-1642","C > A",0.95
+"participant21","S89-1642-dep","A",0.62
+"participant21","S89-1642-dep","A > C",0.53
+"participant21","S89-1642-dep","C",0.59
+"participant21","S89-1642-dep","C > A",0.55
+"participant21","S93-1674","A",0.63
+"participant21","S93-1674","A > C",0.76
+"participant21","S93-1674","C",0.9
+"participant21","S93-1674","C > A",0.74
+"participant21","S97-1674","A",1
+"participant21","S97-1674","A > C",0.58
+"participant21","S97-1674","C",1
+"participant21","S97-1674","C > A",0.58
+"participant22","S1-121","A",1
+"participant22","S1-121","A > C",0.11
+"participant22","S1-121","C",1
+"participant22","S1-121","C > A",1
+"participant22","S10-203","A",0.73
+"participant22","S10-203","A > C",0.66
+"participant22","S10-203","C",0.25
+"participant22","S10-203","C > A",0.52
+"participant22","S12-203","A",1
+"participant22","S12-203","A > C",0.11
+"participant22","S12-203","C",0.15
+"participant22","S12-203","C > A",1
+"participant22","S15-443","A",0.67
+"participant22","S15-443","A > C",0.69
+"participant22","S15-443","C",0.71
+"participant22","S15-443","C > A",0.71
+"participant22","S20-468","A",1
+"participant22","S20-468","A > C",1
+"participant22","S20-468","C",1
+"participant22","S20-468","C > A",1
+"participant22","S22-468","A",0.65
+"participant22","S22-468","A > C",0.3
+"participant22","S22-468","C",0.56
+"participant22","S22-468","C > A",0.29
+"participant22","S30-805","A",0.3
+"participant22","S30-805","A > C",0.31
+"participant22","S30-805","C",0.31
+"participant22","S30-805","C > A",0.31
+"participant22","S30-805-dep","A",0.74
+"participant22","S30-805-dep","A > C",1
+"participant22","S30-805-dep","C",0
+"participant22","S30-805-dep","C > A",0.28
+"participant22","S32-806","A",0.3
+"participant22","S32-806","A > C",0.23
+"participant22","S32-806","C",0.3
+"participant22","S32-806","C > A",0.26
+"participant22","S34-806","A",0
+"participant22","S34-806","A > C",0.07
+"participant22","S34-806","C",0.14
+"participant22","S34-806","C > A",0.1
+"participant22","S42-806","A",0
+"participant22","S42-806","A > C",0.51
+"participant22","S42-806","C",0
+"participant22","S42-806","C > A",1
+"participant22","S44-806","A",1
+"participant22","S44-806","A > C",0.1
+"participant22","S44-806","C",0.07
+"participant22","S44-806","C > A",1
+"participant22","S54-806","A",0.16
+"participant22","S54-806","A > C",1
+"participant22","S54-806","C",0.65
+"participant22","S54-806","C > A",1
+"participant22","S55-1006","A",0.34
+"participant22","S55-1006","A > C",0.29
+"participant22","S55-1006","C",0.66
+"participant22","S55-1006","C > A",0.28
+"participant22","S57-1007","A",0.25
+"participant22","S57-1007","A > C",0.75
+"participant22","S57-1007","C",0.89
+"participant22","S57-1007","C > A",0.11
+"participant22","S59-1007","A",0.21
+"participant22","S59-1007","A > C",1
+"participant22","S59-1007","C",1
+"participant22","S59-1007","C > A",0.2
+"participant22","S63-1039","A",0.52
+"participant22","S63-1039","A > C",0
+"participant22","S63-1039","C",0.53
+"participant22","S63-1039","C > A",0.08
+"participant22","S7-130","A",1
+"participant22","S7-130","A > C",1
+"participant22","S7-130","C",1
+"participant22","S7-130","C > A",1
+"participant22","S7-130-dep","A",1
+"participant22","S7-130-dep","A > C",1
+"participant22","S7-130-dep","C",1
+"participant22","S7-130-dep","C > A",1
+"participant22","S8-202","A",0.78
+"participant22","S8-202","A > C",0
+"participant22","S8-202","C",0
+"participant22","S8-202","C > A",0.33
+"participant22","S83-1609","A",0.76
+"participant22","S83-1609","A > C",0.67
+"participant22","S83-1609","C",0.68
+"participant22","S83-1609","C > A",0.69
+"participant22","S89-1642","A",0.48
+"participant22","S89-1642","A > C",0.3
+"participant22","S89-1642","C",0.49
+"participant22","S89-1642","C > A",0.3
+"participant22","S89-1642-dep","A",1
+"participant22","S89-1642-dep","A > C",1
+"participant22","S89-1642-dep","C",1
+"participant22","S89-1642-dep","C > A",1
+"participant22","S93-1674","A",1
+"participant22","S93-1674","A > C",1
+"participant22","S93-1674","C",1
+"participant22","S93-1674","C > A",1
+"participant22","S97-1674","A",1
+"participant22","S97-1674","A > C",1
+"participant22","S97-1674","C",1
+"participant22","S97-1674","C > A",1
+"participant23","S1-121","A",0.3
+"participant23","S1-121","A > C",0.86
+"participant23","S1-121","C",0.82
+"participant23","S1-121","C > A",0.37
+"participant23","S10-203","A",0.31
+"participant23","S10-203","A > C",0
+"participant23","S10-203","C",0.79
+"participant23","S10-203","C > A",0.2
+"participant23","S12-203","A",1
+"participant23","S12-203","A > C",0.71
+"participant23","S12-203","C",0.8
+"participant23","S12-203","C > A",0.76
+"participant23","S15-443","A",0.76
+"participant23","S15-443","A > C",0.27
+"participant23","S15-443","C",0.42
+"participant23","S15-443","C > A",0.25
+"participant23","S20-468","A",0.37
+"participant23","S20-468","A > C",0.36
+"participant23","S20-468","C",1
+"participant23","S20-468","C > A",0.3
+"participant23","S22-468","A",1
+"participant23","S22-468","A > C",1
+"participant23","S22-468","C",1
+"participant23","S22-468","C > A",1
+"participant23","S30-805","A",0.78
+"participant23","S30-805","A > C",1
+"participant23","S30-805","C",0.87
+"participant23","S30-805","C > A",0.72
+"participant23","S30-805-dep","A",0.71
+"participant23","S30-805-dep","A > C",0.24
+"participant23","S30-805-dep","C",0.36
+"participant23","S30-805-dep","C > A",0.74
+"participant23","S32-806","A",0.29
+"participant23","S32-806","A > C",0.29
+"participant23","S32-806","C",0.8
+"participant23","S32-806","C > A",0.74
+"participant23","S34-806","A",0.24
+"participant23","S34-806","A > C",0.67
+"participant23","S34-806","C",0.36
+"participant23","S34-806","C > A",0.29
+"participant23","S42-806","A",0.84
+"participant23","S42-806","A > C",0.76
+"participant23","S42-806","C",0
+"participant23","S42-806","C > A",1
+"participant23","S44-806","A",0.76
+"participant23","S44-806","A > C",0.74
+"participant23","S44-806","C",1
+"participant23","S44-806","C > A",0.78
+"participant23","S54-806","A",0.26
+"participant23","S54-806","A > C",0.35
+"participant23","S54-806","C",0.35
+"participant23","S54-806","C > A",0.62
+"participant23","S55-1006","A",0.78
+"participant23","S55-1006","A > C",0.14
+"participant23","S55-1006","C",0.71
+"participant23","S55-1006","C > A",0.13
+"participant23","S57-1007","A",0.88
+"participant23","S57-1007","A > C",1
+"participant23","S57-1007","C",1
+"participant23","S57-1007","C > A",0.7
+"participant23","S59-1007","A",0.1
+"participant23","S59-1007","A > C",1
+"participant23","S59-1007","C",0.87
+"participant23","S59-1007","C > A",0.24
+"participant23","S63-1039","A",0.41
+"participant23","S63-1039","A > C",0.13
+"participant23","S63-1039","C",0.31
+"participant23","S63-1039","C > A",0.18
+"participant23","S7-130","A",0.93
+"participant23","S7-130","A > C",0.79
+"participant23","S7-130","C",0.89
+"participant23","S7-130","C > A",0.87
+"participant23","S7-130-dep","A",0.84
+"participant23","S7-130-dep","A > C",0.78
+"participant23","S7-130-dep","C",0.71
+"participant23","S7-130-dep","C > A",0.66
+"participant23","S8-202","A",0.29
+"participant23","S8-202","A > C",0.34
+"participant23","S8-202","C",0.35
+"participant23","S8-202","C > A",0.22
+"participant23","S83-1609","A",0.72
+"participant23","S83-1609","A > C",0
+"participant23","S83-1609","C",0.38
+"participant23","S83-1609","C > A",0.31
+"participant23","S89-1642","A",0.85
+"participant23","S89-1642","A > C",0.68
+"participant23","S89-1642","C",0.75
+"participant23","S89-1642","C > A",0.74
+"participant23","S89-1642-dep","A",0.98
+"participant23","S89-1642-dep","A > C",1
+"participant23","S89-1642-dep","C",0.76
+"participant23","S89-1642-dep","C > A",1
+"participant23","S93-1674","A",0.78
+"participant23","S93-1674","A > C",0
+"participant23","S93-1674","C",0.18
+"participant23","S93-1674","C > A",1
+"participant23","S97-1674","A",0.97
+"participant23","S97-1674","A > C",1
+"participant23","S97-1674","C",0.62
+"participant23","S97-1674","C > A",0.8
+"participant24","S1-121","A",1
+"participant24","S1-121","A > C",1
+"participant24","S1-121","C",1
+"participant24","S1-121","C > A",1
+"participant24","S10-203","A",1
+"participant24","S10-203","A > C",0.03
+"participant24","S10-203","C",0.01
+"participant24","S10-203","C > A",0.06
+"participant24","S12-203","A",1
+"participant24","S12-203","A > C",0
+"participant24","S12-203","C",0
+"participant24","S12-203","C > A",0.66
+"participant24","S15-443","A",1
+"participant24","S15-443","A > C",0.03
+"participant24","S15-443","C",0.95
+"participant24","S15-443","C > A",0.02
+"participant24","S20-468","A",1
+"participant24","S20-468","A > C",0.32
+"participant24","S20-468","C",0.94
+"participant24","S20-468","C > A",1
+"participant24","S22-468","A",1
+"participant24","S22-468","A > C",0.13
+"participant24","S22-468","C",0.6
+"participant24","S22-468","C > A",0.89
+"participant24","S30-805-dep","A",0.06
+"participant24","S30-805-dep","A > C",0
+"participant24","S30-805-dep","C",0
+"participant24","S30-805-dep","C > A",0.61
+"participant24","S32-806","A",0.05
+"participant24","S32-806","A > C",0
+"participant24","S32-806","C",0
+"participant24","S32-806","C > A",0
+"participant24","S34-806","A",0
+"participant24","S34-806","A > C",0
+"participant24","S34-806","C",0
+"participant24","S34-806","C > A",1
+"participant24","S42-806","A",0.69
+"participant24","S42-806","A > C",1
+"participant24","S42-806","C",0.67
+"participant24","S42-806","C > A",1
+"participant24","S44-806","A",0.03
+"participant24","S44-806","A > C",0.03
+"participant24","S44-806","C",0
+"participant24","S44-806","C > A",1
+"participant24","S54-806","A",0
+"participant24","S54-806","A > C",1
+"participant24","S54-806","C",0
+"participant24","S54-806","C > A",0.02
+"participant24","S55-1006","A",0
+"participant24","S55-1006","A > C",0
+"participant24","S55-1006","C",0.7
+"participant24","S55-1006","C > A",0
+"participant24","S59-1007","A",0
+"participant24","S59-1007","A > C",1
+"participant24","S59-1007","C",0.44
+"participant24","S59-1007","C > A",0
+"participant24","S63-1039","A",0
+"participant24","S63-1039","A > C",1
+"participant24","S63-1039","C",0.76
+"participant24","S63-1039","C > A",1
+"participant24","S7-130","A",1
+"participant24","S7-130","A > C",1
+"participant24","S7-130","C",1
+"participant24","S7-130","C > A",1
+"participant24","S7-130-dep","A",1
+"participant24","S7-130-dep","A > C",1
+"participant24","S7-130-dep","C",1
+"participant24","S7-130-dep","C > A",1
+"participant24","S8-202","A",1
+"participant24","S8-202","A > C",1
+"participant24","S8-202","C",0
+"participant24","S8-202","C > A",0.99
+"participant24","S83-1609","A",0.91
+"participant24","S83-1609","A > C",0.06
+"participant24","S83-1609","C",0.79
+"participant24","S83-1609","C > A",0.07
+"participant24","S89-1642","A",0.75
+"participant24","S89-1642","A > C",0.08
+"participant24","S89-1642","C",0.77
+"participant24","S89-1642","C > A",0.04
+"participant24","S89-1642-dep","A",1
+"participant24","S89-1642-dep","A > C",1
+"participant24","S89-1642-dep","C",1
+"participant24","S89-1642-dep","C > A",1
+"participant24","S93-1674","A",0.58
+"participant24","S93-1674","A > C",0.16
+"participant24","S93-1674","C",0.82
+"participant24","S93-1674","C > A",0.38
+"participant24","S97-1674","A",1
+"participant24","S97-1674","A > C",1
+"participant24","S97-1674","C",1
+"participant24","S97-1674","C > A",1
+"participant25","S1-121","A",1
+"participant25","S1-121","A > C",1
+"participant25","S1-121","C",1
+"participant25","S1-121","C > A",1
+"participant25","S10-203","A",1
+"participant25","S10-203","A > C",0.34
+"participant25","S10-203","C",0.76
+"participant25","S10-203","C > A",1
+"participant25","S12-203","A",1
+"participant25","S12-203","A > C",0
+"participant25","S12-203","C",0
+"participant25","S12-203","C > A",1
+"participant25","S15-443","A",1
+"participant25","S15-443","A > C",1
+"participant25","S15-443","C",1
+"participant25","S15-443","C > A",1
+"participant25","S20-468","A",1
+"participant25","S20-468","A > C",1
+"participant25","S20-468","C",1
+"participant25","S20-468","C > A",1
+"participant25","S22-468","A",1
+"participant25","S22-468","A > C",1
+"participant25","S22-468","C",1
+"participant25","S22-468","C > A",1
+"participant25","S30-805","A",0
+"participant25","S30-805","A > C",1
+"participant25","S30-805","C",0
+"participant25","S30-805","C > A",1
+"participant25","S30-805-dep","A",0
+"participant25","S30-805-dep","A > C",0
+"participant25","S30-805-dep","C",0
+"participant25","S30-805-dep","C > A",1
+"participant25","S32-806","A",0.06
+"participant25","S32-806","A > C",0.07
+"participant25","S32-806","C",0.46
+"participant25","S32-806","C > A",0.09
+"participant25","S42-806","A",0
+"participant25","S42-806","A > C",1
+"participant25","S42-806","C",0
+"participant25","S42-806","C > A",1
+"participant25","S44-806","A",0
+"participant25","S44-806","A > C",0
+"participant25","S44-806","C",0
+"participant25","S44-806","C > A",1
+"participant25","S54-806","A",0
+"participant25","S54-806","A > C",1
+"participant25","S54-806","C",0
+"participant25","S54-806","C > A",0
+"participant25","S55-1006","A",0
+"participant25","S55-1006","A > C",1
+"participant25","S55-1006","C",1
+"participant25","S55-1006","C > A",0
+"participant25","S57-1007","A",0.01
+"participant25","S57-1007","A > C",0
+"participant25","S57-1007","C",1
+"participant25","S57-1007","C > A",1
+"participant25","S59-1007","A",0
+"participant25","S59-1007","A > C",1
+"participant25","S59-1007","C",0
+"participant25","S59-1007","C > A",0
+"participant25","S63-1039","A",0
+"participant25","S63-1039","A > C",0.21
+"participant25","S63-1039","C",0.65
+"participant25","S63-1039","C > A",0
+"participant25","S7-130","A",1
+"participant25","S7-130","A > C",1
+"participant25","S7-130","C",1
+"participant25","S7-130","C > A",1
+"participant25","S7-130-dep","A",0
+"participant25","S7-130-dep","A > C",0
+"participant25","S7-130-dep","C",0
+"participant25","S7-130-dep","C > A",1
+"participant25","S8-202","A",1
+"participant25","S8-202","A > C",0
+"participant25","S8-202","C",0
+"participant25","S8-202","C > A",1
+"participant25","S83-1609","A",1
+"participant25","S83-1609","A > C",1
+"participant25","S83-1609","C",1
+"participant25","S83-1609","C > A",1
+"participant25","S89-1642","A",1
+"participant25","S89-1642","A > C",1
+"participant25","S89-1642","C",1
+"participant25","S89-1642","C > A",1
+"participant25","S89-1642-dep","A",0.15
+"participant25","S89-1642-dep","A > C",1
+"participant25","S89-1642-dep","C",0.68
+"participant25","S89-1642-dep","C > A",1
+"participant25","S93-1674","A",0
+"participant25","S93-1674","A > C",0.6
+"participant25","S93-1674","C",0.63
+"participant25","S93-1674","C > A",0
+"participant25","S97-1674","A",0
+"participant25","S97-1674","A > C",1
+"participant25","S97-1674","C",0
+"participant25","S97-1674","C > A",1
+"participant26","S1-121","A",0.82
+"participant26","S1-121","A > C",0.05
+"participant26","S1-121","C",0.87
+"participant26","S1-121","C > A",0.08
+"participant26","S10-203","A",1
+"participant26","S10-203","A > C",0.32
+"participant26","S10-203","C",0.99
+"participant26","S10-203","C > A",0.01
+"participant26","S12-203","A",0.88
+"participant26","S12-203","A > C",0.03
+"participant26","S12-203","C",0.86
+"participant26","S12-203","C > A",0.82
+"participant26","S15-443","A",0.94
+"participant26","S15-443","A > C",0.02
+"participant26","S15-443","C",0.83
+"participant26","S15-443","C > A",0.09
+"participant26","S20-468","A",1
+"participant26","S20-468","A > C",0.22
+"participant26","S20-468","C",1
+"participant26","S20-468","C > A",0.18
+"participant26","S22-468","A",0.98
+"participant26","S22-468","A > C",0.01
+"participant26","S22-468","C",0.98
+"participant26","S22-468","C > A",0.01
+"participant26","S30-805","A",0.93
+"participant26","S30-805","A > C",0.01
+"participant26","S30-805","C",0.88
+"participant26","S30-805","C > A",0.01
+"participant26","S30-805-dep","A",0.77
+"participant26","S30-805-dep","A > C",0
+"participant26","S30-805-dep","C",0.01
+"participant26","S30-805-dep","C > A",0.8
+"participant26","S32-806","A",0.99
+"participant26","S32-806","A > C",0.22
+"participant26","S32-806","C",0.99
+"participant26","S32-806","C > A",0.2
+"participant26","S34-806","A",0.7
+"participant26","S34-806","A > C",0.09
+"participant26","S34-806","C",0.64
+"participant26","S34-806","C > A",1
+"participant26","S42-806","A",0.91
+"participant26","S42-806","A > C",0.85
+"participant26","S42-806","C",0.96
+"participant26","S42-806","C > A",0.95
+"participant26","S44-806","A",0.98
+"participant26","S44-806","A > C",0.22
+"participant26","S44-806","C",0.16
+"participant26","S44-806","C > A",0.87
+"participant26","S54-806","A",0.72
+"participant26","S54-806","A > C",0.93
+"participant26","S54-806","C",0.75
+"participant26","S54-806","C > A",0.19
+"participant26","S55-1006","A",0.86
+"participant26","S55-1006","A > C",0.79
+"participant26","S55-1006","C",0.95
+"participant26","S55-1006","C > A",0.08
+"participant26","S57-1007","A",0.47
+"participant26","S57-1007","A > C",0
+"participant26","S57-1007","C",0.83
+"participant26","S57-1007","C > A",0
+"participant26","S59-1007","A",0.99
+"participant26","S59-1007","A > C",0.87
+"participant26","S59-1007","C",1
+"participant26","S59-1007","C > A",0.99
+"participant26","S63-1039","A",0.3
+"participant26","S63-1039","A > C",0.26
+"participant26","S63-1039","C",0.47
+"participant26","S63-1039","C > A",0.38
+"participant26","S7-130","A",1
+"participant26","S7-130","A > C",0.17
+"participant26","S7-130","C",1
+"participant26","S7-130","C > A",0.16
+"participant26","S7-130-dep","A",1
+"participant26","S7-130-dep","A > C",0.14
+"participant26","S7-130-dep","C",1
+"participant26","S7-130-dep","C > A",0.14
+"participant26","S8-202","A",0.67
+"participant26","S8-202","A > C",0.01
+"participant26","S8-202","C",0.19
+"participant26","S8-202","C > A",0.01
+"participant26","S83-1609","A",0.97
+"participant26","S83-1609","A > C",0.07
+"participant26","S83-1609","C",0.99
+"participant26","S83-1609","C > A",0.08
+"participant26","S89-1642","A",1
+"participant26","S89-1642","A > C",0
+"participant26","S89-1642","C",1
+"participant26","S89-1642","C > A",0.01
+"participant26","S89-1642-dep","A",0.78
+"participant26","S89-1642-dep","A > C",0.2
+"participant26","S89-1642-dep","C",0.78
+"participant26","S89-1642-dep","C > A",0.2
+"participant26","S93-1674","A",0.99
+"participant26","S93-1674","A > C",0
+"participant26","S93-1674","C",0.81
+"participant26","S93-1674","C > A",0.86
+"participant26","S97-1674","A",1
+"participant26","S97-1674","A > C",0.59
+"participant26","S97-1674","C",0.99
+"participant26","S97-1674","C > A",0.65
+"participant27","S1-121","A",0.95
+"participant27","S1-121","A > C",0.93
+"participant27","S1-121","C",0.98
+"participant27","S1-121","C > A",0.92
+"participant27","S10-203","A",0.97
+"participant27","S10-203","A > C",0.41
+"participant27","S10-203","C",0.43
+"participant27","S10-203","C > A",0.93
+"participant27","S12-203","A",0.95
+"participant27","S12-203","A > C",0.96
+"participant27","S12-203","C",0.68
+"participant27","S12-203","C > A",0.93
+"participant27","S15-443","A",0.99
+"participant27","S15-443","A > C",0.78
+"participant27","S15-443","C",0.81
+"participant27","S15-443","C > A",0.96
+"participant27","S20-468","A",0.95
+"participant27","S20-468","A > C",0.61
+"participant27","S20-468","C",0.86
+"participant27","S20-468","C > A",0.73
+"participant27","S22-468","A",0.89
+"participant27","S22-468","A > C",0.66
+"participant27","S22-468","C",0.69
+"participant27","S22-468","C > A",0.81
+"participant27","S30-805","A",0.43
+"participant27","S30-805","A > C",0.54
+"participant27","S30-805","C",0.47
+"participant27","S30-805","C > A",0.53
+"participant27","S30-805-dep","A",0.65
+"participant27","S30-805-dep","A > C",0.6
+"participant27","S30-805-dep","C",0.45
+"participant27","S30-805-dep","C > A",0.94
+"participant27","S32-806","A",0.46
+"participant27","S32-806","A > C",0.48
+"participant27","S32-806","C",0.61
+"participant27","S32-806","C > A",0.54
+"participant27","S34-806","A",0.39
+"participant27","S34-806","A > C",0.33
+"participant27","S34-806","C",0.63
+"participant27","S34-806","C > A",0.69
+"participant27","S42-806","A",0.47
+"participant27","S42-806","A > C",0.98
+"participant27","S42-806","C",0.49
+"participant27","S42-806","C > A",0.94
+"participant27","S44-806","A",0.59
+"participant27","S44-806","A > C",0.67
+"participant27","S44-806","C",0.36
+"participant27","S44-806","C > A",0.96
+"participant27","S54-806","A",0.11
+"participant27","S54-806","A > C",0.89
+"participant27","S54-806","C",0.22
+"participant27","S54-806","C > A",0.84
+"participant27","S55-1006","A",0.6
+"participant27","S55-1006","A > C",0.59
+"participant27","S55-1006","C",0.74
+"participant27","S55-1006","C > A",0.59
+"participant27","S57-1007","A",0.62
+"participant27","S57-1007","A > C",0.89
+"participant27","S57-1007","C",0.87
+"participant27","S57-1007","C > A",0.49
+"participant27","S59-1007","A",0.45
+"participant27","S59-1007","A > C",0.99
+"participant27","S59-1007","C",0.76
+"participant27","S59-1007","C > A",0.55
+"participant27","S63-1039","A",0.38
+"participant27","S63-1039","A > C",0.8
+"participant27","S63-1039","C",0.35
+"participant27","S63-1039","C > A",0.32
+"participant27","S7-130","A",0.9
+"participant27","S7-130","A > C",0.43
+"participant27","S7-130","C",0.86
+"participant27","S7-130","C > A",0.87
+"participant27","S7-130-dep","A",0.55
+"participant27","S7-130-dep","A > C",0.55
+"participant27","S7-130-dep","C",0.56
+"participant27","S7-130-dep","C > A",0.55
+"participant27","S8-202","A",0.77
+"participant27","S8-202","A > C",0.13
+"participant27","S8-202","C",0.4
+"participant27","S8-202","C > A",0.13
+"participant27","S83-1609","A",0.77
+"participant27","S83-1609","A > C",0.91
+"participant27","S83-1609","C",0.77
+"participant27","S83-1609","C > A",0.89
+"participant27","S89-1642","A",0.83
+"participant27","S89-1642","A > C",0.48
+"participant27","S89-1642","C",0.94
+"participant27","S89-1642","C > A",0.46
+"participant27","S89-1642-dep","A",0.52
+"participant27","S89-1642-dep","A > C",0.79
+"participant27","S89-1642-dep","C",0.57
+"participant27","S89-1642-dep","C > A",0.77
+"participant27","S93-1674","A",0.46
+"participant27","S93-1674","A > C",0.32
+"participant27","S93-1674","C",0.45
+"participant27","S93-1674","C > A",0.59
+"participant27","S97-1674","A",0.95
+"participant27","S97-1674","A > C",0.79
+"participant27","S97-1674","C",0.76
+"participant27","S97-1674","C > A",0.94
+"participant28","S1-121","A",0.74
+"participant28","S1-121","A > C",0.78
+"participant28","S1-121","C",0.85
+"participant28","S1-121","C > A",0.96
+"participant28","S10-203","A",0.65
+"participant28","S10-203","A > C",0.69
+"participant28","S10-203","C",0.86
+"participant28","S10-203","C > A",0.71
+"participant28","S12-203","A",0.71
+"participant28","S12-203","A > C",0.69
+"participant28","S12-203","C",0.62
+"participant28","S12-203","C > A",0.78
+"participant28","S15-443","A",0.75
+"participant28","S15-443","A > C",0.88
+"participant28","S15-443","C",0.64
+"participant28","S15-443","C > A",0.8
+"participant28","S20-468","A",0.77
+"participant28","S20-468","A > C",1
+"participant28","S20-468","C",0.94
+"participant28","S20-468","C > A",0.64
+"participant28","S22-468","A",0.74
+"participant28","S22-468","A > C",1
+"participant28","S22-468","C",0.77
+"participant28","S22-468","C > A",0.84
+"participant28","S30-805","A",0.55
+"participant28","S30-805","A > C",0.64
+"participant28","S30-805","C",0.63
+"participant28","S30-805","C > A",0.56
+"participant28","S30-805-dep","A",0.66
+"participant28","S30-805-dep","A > C",0.27
+"participant28","S30-805-dep","C",0.2
+"participant28","S30-805-dep","C > A",0.33
+"participant28","S32-806","A",0.28
+"participant28","S32-806","A > C",0.82
+"participant28","S32-806","C",0.73
+"participant28","S32-806","C > A",0.73
+"participant28","S34-806","A",0.71
+"participant28","S34-806","A > C",0.71
+"participant28","S34-806","C",0.82
+"participant28","S34-806","C > A",0.66
+"participant28","S42-806","A",0.65
+"participant28","S42-806","A > C",0.74
+"participant28","S42-806","C",0.65
+"participant28","S42-806","C > A",0.69
+"participant28","S44-806","A",0.66
+"participant28","S44-806","A > C",0.34
+"participant28","S44-806","C",0.61
+"participant28","S44-806","C > A",0.62
+"participant28","S54-806","A",0.59
+"participant28","S54-806","A > C",0.61
+"participant28","S54-806","C",0.13
+"participant28","S54-806","C > A",0.33
+"participant28","S55-1006","A",0.94
+"participant28","S55-1006","A > C",0.67
+"participant28","S55-1006","C",0.63
+"participant28","S55-1006","C > A",0.92
+"participant28","S57-1007","A",0.68
+"participant28","S57-1007","A > C",0.81
+"participant28","S57-1007","C",0.82
+"participant28","S57-1007","C > A",0.4
+"participant28","S59-1007","A",0.64
+"participant28","S59-1007","A > C",0.35
+"participant28","S59-1007","C",0.34
+"participant28","S59-1007","C > A",0.67
+"participant28","S63-1039","A",0.43
+"participant28","S63-1039","A > C",0.33
+"participant28","S63-1039","C",0.69
+"participant28","S63-1039","C > A",0.37
+"participant28","S7-130","A",0.8
+"participant28","S7-130","A > C",0.89
+"participant28","S7-130","C",0.73
+"participant28","S7-130","C > A",0.84
+"participant28","S7-130-dep","A",0.67
+"participant28","S7-130-dep","A > C",0.85
+"participant28","S7-130-dep","C",0.88
+"participant28","S7-130-dep","C > A",0.62
+"participant28","S8-202","A",0.61
+"participant28","S8-202","A > C",0.53
+"participant28","S8-202","C",0.53
+"participant28","S8-202","C > A",0.72
+"participant28","S83-1609","A",0.6
+"participant28","S83-1609","A > C",0.76
+"participant28","S83-1609","C",0.63
+"participant28","S83-1609","C > A",0.58
+"participant28","S89-1642","A",0.63
+"participant28","S89-1642","A > C",0.87
+"participant28","S89-1642","C",0.89
+"participant28","S89-1642","C > A",0.67
+"participant28","S89-1642-dep","A",0.6
+"participant28","S89-1642-dep","A > C",0.82
+"participant28","S89-1642-dep","C",0.81
+"participant28","S89-1642-dep","C > A",0.63
+"participant28","S93-1674","A",0.56
+"participant28","S93-1674","A > C",0.76
+"participant28","S93-1674","C",0.79
+"participant28","S93-1674","C > A",0.37
+"participant28","S97-1674","A",0.7
+"participant28","S97-1674","A > C",0.7
+"participant28","S97-1674","C",0.67
+"participant28","S97-1674","C > A",0.81
+"participant29","S1-121","A",1
+"participant29","S1-121","A > C",1
+"participant29","S1-121","C",1
+"participant29","S1-121","C > A",1
+"participant29","S10-203","A",1
+"participant29","S10-203","A > C",0.41
+"participant29","S10-203","C",0.55
+"participant29","S10-203","C > A",1
+"participant29","S12-203","A",1
+"participant29","S12-203","A > C",0.94
+"participant29","S12-203","C",0.94
+"participant29","S12-203","C > A",1
+"participant29","S15-443","A",1
+"participant29","S15-443","A > C",0.55
+"participant29","S15-443","C",0.6
+"participant29","S15-443","C > A",1
+"participant29","S20-468","A",1
+"participant29","S20-468","A > C",0.46
+"participant29","S20-468","C",0.75
+"participant29","S20-468","C > A",1
+"participant29","S22-468","A",0.96
+"participant29","S22-468","A > C",0.93
+"participant29","S22-468","C",0.86
+"participant29","S22-468","C > A",1
+"participant29","S30-805","A",0.53
+"participant29","S30-805","A > C",0.7
+"participant29","S30-805","C",0.49
+"participant29","S30-805","C > A",0.93
+"participant29","S30-805-dep","A",0.14
+"participant29","S30-805-dep","A > C",0
+"participant29","S30-805-dep","C",0
+"participant29","S30-805-dep","C > A",0.81
+"participant29","S32-806","A",0.53
+"participant29","S32-806","A > C",0.85
+"participant29","S32-806","C",0.52
+"participant29","S32-806","C > A",1
+"participant29","S34-806","A",0.07
+"participant29","S34-806","A > C",0.16
+"participant29","S34-806","C",0.52
+"participant29","S34-806","C > A",0.52
+"participant29","S42-806","A",0
+"participant29","S42-806","A > C",1
+"participant29","S42-806","C",0
+"participant29","S42-806","C > A",1
+"participant29","S44-806","A",0.97
+"participant29","S44-806","A > C",0.56
+"participant29","S44-806","C",0.4
+"participant29","S44-806","C > A",1
+"participant29","S54-806","A",0
+"participant29","S54-806","A > C",1
+"participant29","S54-806","C",0.16
+"participant29","S54-806","C > A",0.57
+"participant29","S55-1006","A",0.21
+"participant29","S55-1006","A > C",0.22
+"participant29","S55-1006","C",0.53
+"participant29","S55-1006","C > A",0.43
+"participant29","S57-1007","A",0.47
+"participant29","S57-1007","A > C",1
+"participant29","S57-1007","C",0.86
+"participant29","S57-1007","C > A",0.88
+"participant29","S59-1007","A",0.39
+"participant29","S59-1007","A > C",1
+"participant29","S59-1007","C",0.56
+"participant29","S59-1007","C > A",0.65
+"participant29","S63-1039","A",0
+"participant29","S63-1039","A > C",0.2
+"participant29","S63-1039","C",0
+"participant29","S63-1039","C > A",0.81
+"participant29","S7-130","A",1
+"participant29","S7-130","A > C",0.97
+"participant29","S7-130","C",1
+"participant29","S7-130","C > A",0.91
+"participant29","S7-130-dep","A",0.18
+"participant29","S7-130-dep","A > C",1
+"participant29","S7-130-dep","C",0.93
+"participant29","S7-130-dep","C > A",1
+"participant29","S8-202","A",0.91
+"participant29","S8-202","A > C",0
+"participant29","S8-202","C",0.73
+"participant29","S8-202","C > A",0
+"participant29","S83-1609","A",0.89
+"participant29","S83-1609","A > C",1
+"participant29","S83-1609","C",0.77
+"participant29","S83-1609","C > A",1
+"participant29","S89-1642","A",0.79
+"participant29","S89-1642","A > C",0.55
+"participant29","S89-1642","C",0.72
+"participant29","S89-1642","C > A",0.6
+"participant29","S89-1642-dep","A",0.53
+"participant29","S89-1642-dep","A > C",1
+"participant29","S89-1642-dep","C",0.48
+"participant29","S89-1642-dep","C > A",1
+"participant29","S93-1674","A",0.54
+"participant29","S93-1674","A > C",0
+"participant29","S93-1674","C",0.72
+"participant29","S93-1674","C > A",1
+"participant29","S97-1674","A",0.72
+"participant29","S97-1674","A > C",1
+"participant29","S97-1674","C",0.7
+"participant29","S97-1674","C > A",1
+"participant3","S1-121","A",0.78
+"participant3","S1-121","A > C",0.41
+"participant3","S1-121","C",0.71
+"participant3","S1-121","C > A",0.56
+"participant3","S10-203","A",0.73
+"participant3","S10-203","A > C",0.24
+"participant3","S10-203","C",0.41
+"participant3","S10-203","C > A",0.57
+"participant3","S12-203","A",0.71
+"participant3","S12-203","A > C",0.37
+"participant3","S12-203","C",0.42
+"participant3","S12-203","C > A",0.37
+"participant3","S15-443","A",0.69
+"participant3","S15-443","A > C",0.4
+"participant3","S15-443","C",0.55
+"participant3","S15-443","C > A",0.54
+"participant3","S20-468","A",0.74
+"participant3","S20-468","A > C",0.64
+"participant3","S20-468","C",0.54
+"participant3","S20-468","C > A",0.58
+"participant3","S22-468","A",0.67
+"participant3","S22-468","A > C",0.47
+"participant3","S22-468","C",0.51
+"participant3","S22-468","C > A",0.51
+"participant3","S30-805","A",0.39
+"participant3","S30-805","A > C",0.39
+"participant3","S30-805","C",0.41
+"participant3","S30-805","C > A",0.47
+"participant3","S30-805-dep","A",0.61
+"participant3","S30-805-dep","A > C",0.21
+"participant3","S30-805-dep","C",0.24
+"participant3","S30-805-dep","C > A",0.41
+"participant3","S32-806","A",0.37
+"participant3","S32-806","A > C",0.45
+"participant3","S32-806","C",0.42
+"participant3","S32-806","C > A",0.39
+"participant3","S34-806","A",0.39
+"participant3","S34-806","A > C",0.28
+"participant3","S34-806","C",0.28
+"participant3","S34-806","C > A",0.35
+"participant3","S42-806","A",0.62
+"participant3","S42-806","A > C",0.41
+"participant3","S42-806","C",0.39
+"participant3","S42-806","C > A",0.8
+"participant3","S44-806","A",0.66
+"participant3","S44-806","A > C",0.33
+"participant3","S44-806","C",0.27
+"participant3","S44-806","C > A",0.71
+"participant3","S54-806","A",0.49
+"participant3","S54-806","A > C",0.67
+"participant3","S54-806","C",0.56
+"participant3","S54-806","C > A",0.54
+"participant3","S55-1006","A",0.42
+"participant3","S55-1006","A > C",0.55
+"participant3","S55-1006","C",0.69
+"participant3","S55-1006","C > A",0.24
+"participant3","S57-1007","A",0.67
+"participant3","S57-1007","A > C",0.36
+"participant3","S57-1007","C",0.59
+"participant3","S57-1007","C > A",0.53
+"participant3","S59-1007","A",0.47
+"participant3","S59-1007","A > C",0.65
+"participant3","S59-1007","C",0.67
+"participant3","S59-1007","C > A",0.4
+"participant3","S63-1039","A",0.35
+"participant3","S63-1039","A > C",0.28
+"participant3","S63-1039","C",0.34
+"participant3","S63-1039","C > A",0.33
+"participant3","S7-130","A",0.72
+"participant3","S7-130","A > C",0.77
+"participant3","S7-130","C",0.58
+"participant3","S7-130","C > A",0.54
+"participant3","S7-130-dep","A",0.67
+"participant3","S7-130-dep","A > C",0.38
+"participant3","S7-130-dep","C",0.55
+"participant3","S7-130-dep","C > A",0.66
+"participant3","S8-202","A",0.46
+"participant3","S8-202","A > C",0.27
+"participant3","S8-202","C",0.5
+"participant3","S8-202","C > A",0.55
+"participant3","S83-1609","A",0.53
+"participant3","S83-1609","A > C",0.55
+"participant3","S83-1609","C",0.74
+"participant3","S83-1609","C > A",0.54
+"participant3","S89-1642","A",0.66
+"participant3","S89-1642","A > C",0.51
+"participant3","S89-1642","C",0.53
+"participant3","S89-1642","C > A",0.47
+"participant3","S89-1642-dep","A",0.69
+"participant3","S89-1642-dep","A > C",0.4
+"participant3","S89-1642-dep","C",0.57
+"participant3","S89-1642-dep","C > A",0.59
+"participant3","S93-1674","A",0.46
+"participant3","S93-1674","A > C",0.29
+"participant3","S93-1674","C",0.72
+"participant3","S93-1674","C > A",0.47
+"participant3","S97-1674","A",0.42
+"participant3","S97-1674","A > C",0.43
+"participant3","S97-1674","C",0.43
+"participant3","S97-1674","C > A",0.54
+"participant30","S1-121","A",0.76
+"participant30","S1-121","A > C",0.74
+"participant30","S1-121","C",0.76
+"participant30","S1-121","C > A",0.76
+"participant30","S10-203","A",0.66
+"participant30","S10-203","A > C",0.62
+"participant30","S10-203","C",0.61
+"participant30","S10-203","C > A",0.64
+"participant30","S12-203","A",0.61
+"participant30","S12-203","A > C",0.57
+"participant30","S12-203","C",0.63
+"participant30","S12-203","C > A",0.6
+"participant30","S15-443","A",0.6
+"participant30","S15-443","A > C",0.62
+"participant30","S15-443","C",0.62
+"participant30","S15-443","C > A",0.6
+"participant30","S20-468","A",0.6
+"participant30","S20-468","A > C",0.6
+"participant30","S20-468","C",0.57
+"participant30","S20-468","C > A",0.57
+"participant30","S22-468","A",0.65
+"participant30","S22-468","A > C",0.62
+"participant30","S22-468","C",0.64
+"participant30","S22-468","C > A",0.63
+"participant30","S30-805","A",0.56
+"participant30","S30-805","A > C",0.57
+"participant30","S30-805","C",0.57
+"participant30","S30-805","C > A",0.59
+"participant30","S30-805-dep","A",0.52
+"participant30","S30-805-dep","A > C",0.49
+"participant30","S30-805-dep","C",0.51
+"participant30","S30-805-dep","C > A",0.52
+"participant30","S32-806","A",0.58
+"participant30","S32-806","A > C",0.57
+"participant30","S32-806","C",0.56
+"participant30","S32-806","C > A",0.56
+"participant30","S34-806","A",0.53
+"participant30","S34-806","A > C",0.51
+"participant30","S34-806","C",0.53
+"participant30","S34-806","C > A",0.53
+"participant30","S42-806","A",0.49
+"participant30","S42-806","A > C",0.49
+"participant30","S42-806","C",0.49
+"participant30","S42-806","C > A",0.49
+"participant30","S44-806","A",0.59
+"participant30","S44-806","A > C",0.62
+"participant30","S44-806","C",0.58
+"participant30","S44-806","C > A",0.59
+"participant30","S54-806","A",0.52
+"participant30","S54-806","A > C",0.51
+"participant30","S54-806","C",0.49
+"participant30","S54-806","C > A",0.52
+"participant30","S55-1006","A",0.59
+"participant30","S55-1006","A > C",0.62
+"participant30","S55-1006","C",0.59
+"participant30","S55-1006","C > A",0.64
+"participant30","S57-1007","A",0.61
+"participant30","S57-1007","A > C",0.64
+"participant30","S57-1007","C",0.62
+"participant30","S57-1007","C > A",0.64
+"participant30","S59-1007","A",0.51
+"participant30","S59-1007","A > C",0.51
+"participant30","S59-1007","C",0.55
+"participant30","S59-1007","C > A",0.51
+"participant30","S63-1039","A",0.61
+"participant30","S63-1039","A > C",0.62
+"participant30","S63-1039","C",0.62
+"participant30","S63-1039","C > A",0.62
+"participant30","S7-130","A",0.66
+"participant30","S7-130","A > C",0.6
+"participant30","S7-130","C",0.65
+"participant30","S7-130","C > A",0.6
+"participant30","S7-130-dep","A",0.64
+"participant30","S7-130-dep","A > C",0.66
+"participant30","S7-130-dep","C",0.7
+"participant30","S7-130-dep","C > A",0.65
+"participant30","S8-202","A",0.59
+"participant30","S8-202","A > C",0.61
+"participant30","S8-202","C",0.62
+"participant30","S8-202","C > A",0.62
+"participant30","S83-1609","A",0.64
+"participant30","S83-1609","A > C",0.66
+"participant30","S83-1609","C",0.63
+"participant30","S83-1609","C > A",0.61
+"participant30","S89-1642","A",0.6
+"participant30","S89-1642","A > C",0.61
+"participant30","S89-1642","C",0.62
+"participant30","S89-1642","C > A",0.6
+"participant30","S89-1642-dep","A",0.48
+"participant30","S89-1642-dep","A > C",0.49
+"participant30","S89-1642-dep","C",0.49
+"participant30","S89-1642-dep","C > A",0.48
+"participant30","S93-1674","A",0.59
+"participant30","S93-1674","A > C",0.61
+"participant30","S93-1674","C",0.65
+"participant30","S93-1674","C > A",0.56
+"participant30","S97-1674","A",0.5
+"participant30","S97-1674","A > C",0.51
+"participant30","S97-1674","C",0.49
+"participant30","S97-1674","C > A",0.46
+"participant31","S1-121","A",1
+"participant31","S1-121","A > C",1
+"participant31","S1-121","C",1
+"participant31","S1-121","C > A",1
+"participant31","S10-203","A",0.98
+"participant31","S10-203","A > C",0.03
+"participant31","S10-203","C",0.1
+"participant31","S10-203","C > A",1
+"participant31","S12-203","A",1
+"participant31","S12-203","A > C",0
+"participant31","S12-203","C",0.13
+"participant31","S12-203","C > A",0.99
+"participant31","S15-443","A",1
+"participant31","S15-443","A > C",0
+"participant31","S15-443","C",0.34
+"participant31","S15-443","C > A",1
+"participant31","S20-468","A",1
+"participant31","S20-468","A > C",0.02
+"participant31","S20-468","C",0.42
+"participant31","S20-468","C > A",1
+"participant31","S22-468","A",1
+"participant31","S22-468","A > C",0
+"participant31","S22-468","C",0.23
+"participant31","S22-468","C > A",1
+"participant31","S30-805","A",0.42
+"participant31","S30-805","A > C",1
+"participant31","S30-805","C",0.18
+"participant31","S30-805","C > A",0.96
+"participant31","S30-805-dep","A",0.57
+"participant31","S30-805-dep","A > C",0.12
+"participant31","S30-805-dep","C",0.06
+"participant31","S30-805-dep","C > A",0.9
+"participant31","S32-806","A",0.27
+"participant31","S32-806","A > C",0.92
+"participant31","S32-806","C",0.26
+"participant31","S32-806","C > A",0.98
+"participant31","S34-806","A",0.09
+"participant31","S34-806","A > C",1
+"participant31","S34-806","C",0.06
+"participant31","S34-806","C > A",1
+"participant31","S42-806","A",0.28
+"participant31","S42-806","A > C",0.98
+"participant31","S42-806","C",0.15
+"participant31","S42-806","C > A",0.98
+"participant31","S44-806","A",0.17
+"participant31","S44-806","A > C",0
+"participant31","S44-806","C",0.09
+"participant31","S44-806","C > A",1
+"participant31","S54-806","A",0.1
+"participant31","S54-806","A > C",1
+"participant31","S54-806","C",0.08
+"participant31","S54-806","C > A",0
+"participant31","S55-1006","A",0
+"participant31","S55-1006","A > C",1
+"participant31","S55-1006","C",0.28
+"participant31","S55-1006","C > A",0
+"participant31","S57-1007","A",0
+"participant31","S57-1007","A > C",1
+"participant31","S57-1007","C",0.25
+"participant31","S57-1007","C > A",0
+"participant31","S59-1007","A",0.26
+"participant31","S59-1007","A > C",0.91
+"participant31","S59-1007","C",1
+"participant31","S59-1007","C > A",0.14
+"participant31","S63-1039","A",0.06
+"participant31","S63-1039","A > C",1
+"participant31","S63-1039","C",0.28
+"participant31","S63-1039","C > A",0
+"participant31","S7-130","A",1
+"participant31","S7-130","A > C",1
+"participant31","S7-130","C",1
+"participant31","S7-130","C > A",1
+"participant31","S7-130-dep","A",0.19
+"participant31","S7-130-dep","A > C",1
+"participant31","S7-130-dep","C",0.29
+"participant31","S7-130-dep","C > A",1
+"participant31","S8-202","A",0.99
+"participant31","S8-202","A > C",0.1
+"participant31","S8-202","C",0.08
+"participant31","S8-202","C > A",0.84
+"participant31","S83-1609","A",0.35
+"participant31","S83-1609","A > C",0.95
+"participant31","S83-1609","C",0.39
+"participant31","S83-1609","C > A",1
+"participant31","S89-1642","A",0.26
+"participant31","S89-1642","A > C",1
+"participant31","S89-1642","C",0.33
+"participant31","S89-1642","C > A",1
+"participant31","S89-1642-dep","A",0.17
+"participant31","S89-1642-dep","A > C",1
+"participant31","S89-1642-dep","C",0.26
+"participant31","S89-1642-dep","C > A",1
+"participant31","S93-1674","A",0.48
+"participant31","S93-1674","A > C",0.86
+"participant31","S93-1674","C",0.41
+"participant31","S93-1674","C > A",0.66
+"participant31","S97-1674","A",1
+"participant31","S97-1674","A > C",1
+"participant31","S97-1674","C",1
+"participant31","S97-1674","C > A",1
+"participant32","S1-121","A",0.94
+"participant32","S1-121","A > C",0.93
+"participant32","S1-121","C",0.99
+"participant32","S1-121","C > A",0.96
+"participant32","S10-203","A",0.92
+"participant32","S10-203","A > C",0.21
+"participant32","S10-203","C",0.43
+"participant32","S10-203","C > A",0.99
+"participant32","S12-203","A",0.68
+"participant32","S12-203","A > C",0.37
+"participant32","S12-203","C",0.32
+"participant32","S12-203","C > A",0.94
+"participant32","S15-443","A",0.98
+"participant32","S15-443","A > C",0.37
+"participant32","S15-443","C",0.62
+"participant32","S15-443","C > A",0.87
+"participant32","S20-468","A",0.81
+"participant32","S20-468","A > C",0.75
+"participant32","S20-468","C",0.65
+"participant32","S20-468","C > A",0.86
+"participant32","S22-468","A",1
+"participant32","S22-468","A > C",0.38
+"participant32","S22-468","C",0.63
+"participant32","S22-468","C > A",1
+"participant32","S30-805","A",0.18
+"participant32","S30-805","A > C",0.28
+"participant32","S30-805","C",0.06
+"participant32","S30-805","C > A",0.88
+"participant32","S30-805-dep","A",0.01
+"participant32","S30-805-dep","A > C",0.15
+"participant32","S30-805-dep","C",0
+"participant32","S30-805-dep","C > A",0.98
+"participant32","S32-806","A",0.29
+"participant32","S32-806","A > C",0.39
+"participant32","S32-806","C",0.32
+"participant32","S32-806","C > A",0.78
+"participant32","S34-806","A",0.18
+"participant32","S34-806","A > C",0.41
+"participant32","S34-806","C",0.67
+"participant32","S34-806","C > A",0.76
+"participant32","S42-806","A",0.12
+"participant32","S42-806","A > C",1
+"participant32","S42-806","C",0.01
+"participant32","S42-806","C > A",1
+"participant32","S44-806","A",0.6
+"participant32","S44-806","A > C",0.4
+"participant32","S44-806","C",0.34
+"participant32","S44-806","C > A",1
+"participant32","S54-806","A",0.16
+"participant32","S54-806","A > C",0.98
+"participant32","S54-806","C",0.07
+"participant32","S54-806","C > A",0.4
+"participant32","S55-1006","A",0.26
+"participant32","S55-1006","A > C",0.33
+"participant32","S55-1006","C",0.83
+"participant32","S55-1006","C > A",0.36
+"participant32","S57-1007","A",0.18
+"participant32","S57-1007","A > C",1
+"participant32","S57-1007","C",0.58
+"participant32","S57-1007","C > A",0.36
+"participant32","S59-1007","A",0.22
+"participant32","S59-1007","A > C",0.97
+"participant32","S59-1007","C",0.81
+"participant32","S59-1007","C > A",0.31
+"participant32","S63-1039","A",0.77
+"participant32","S63-1039","A > C",0.29
+"participant32","S63-1039","C",0.61
+"participant32","S63-1039","C > A",0.19
+"participant32","S7-130","A",0.98
+"participant32","S7-130","A > C",0.91
+"participant32","S7-130","C",0.95
+"participant32","S7-130","C > A",0.88
+"participant32","S7-130-dep","A",1
+"participant32","S7-130-dep","A > C",0.94
+"participant32","S7-130-dep","C",0.97
+"participant32","S7-130-dep","C > A",0.95
+"participant32","S8-202","A",0.67
+"participant32","S8-202","A > C",0.25
+"participant32","S8-202","C",0.28
+"participant32","S8-202","C > A",0.92
+"participant32","S83-1609","A",0.59
+"participant32","S83-1609","A > C",0.9
+"participant32","S83-1609","C",0.72
+"participant32","S83-1609","C > A",0.76
+"participant32","S89-1642","A",0.72
+"participant32","S89-1642","A > C",0.69
+"participant32","S89-1642","C",0.69
+"participant32","S89-1642","C > A",0.75
+"participant32","S89-1642-dep","A",0.13
+"participant32","S89-1642-dep","A > C",1
+"participant32","S89-1642-dep","C",0.11
+"participant32","S89-1642-dep","C > A",1
+"participant32","S93-1674","A",0.59
+"participant32","S93-1674","A > C",0.59
+"participant32","S93-1674","C",0.64
+"participant32","S93-1674","C > A",0.63
+"participant32","S97-1674","A",1
+"participant32","S97-1674","A > C",1
+"participant32","S97-1674","C",1
+"participant32","S97-1674","C > A",1
+"participant33","S1-121","A",0.64
+"participant33","S1-121","A > C",0.57
+"participant33","S1-121","C",0.64
+"participant33","S1-121","C > A",0.29
+"participant33","S10-203","A",0.59
+"participant33","S10-203","A > C",0.57
+"participant33","S10-203","C",0.62
+"participant33","S10-203","C > A",0.62
+"participant33","S12-203","A",0.58
+"participant33","S12-203","A > C",0.63
+"participant33","S12-203","C",0.58
+"participant33","S12-203","C > A",0.62
+"participant33","S15-443","A",0.56
+"participant33","S15-443","A > C",0.4
+"participant33","S15-443","C",0.56
+"participant33","S15-443","C > A",0.43
+"participant33","S20-468","A",0.56
+"participant33","S20-468","A > C",0.41
+"participant33","S20-468","C",0.55
+"participant33","S20-468","C > A",0.55
+"participant33","S22-468","A",0.67
+"participant33","S22-468","A > C",0.65
+"participant33","S22-468","C",0.72
+"participant33","S22-468","C > A",0.67
+"participant33","S30-805","A",0.56
+"participant33","S30-805","A > C",0.35
+"participant33","S30-805","C",0.57
+"participant33","S30-805","C > A",0.42
+"participant33","S30-805-dep","A",0.44
+"participant33","S30-805-dep","A > C",0.44
+"participant33","S30-805-dep","C",0.4
+"participant33","S30-805-dep","C > A",0.48
+"participant33","S32-806","A",0.6
+"participant33","S32-806","A > C",0.6
+"participant33","S32-806","C",0.58
+"participant33","S32-806","C > A",0.72
+"participant33","S34-806","A",0.55
+"participant33","S34-806","A > C",0.44
+"participant33","S34-806","C",0.38
+"participant33","S34-806","C > A",0.43
+"participant33","S42-806","A",0.88
+"participant33","S42-806","A > C",0.91
+"participant33","S42-806","C",0.89
+"participant33","S42-806","C > A",0.9
+"participant33","S44-806","A",0.79
+"participant33","S44-806","A > C",0.65
+"participant33","S44-806","C",0.56
+"participant33","S44-806","C > A",0.75
+"participant33","S54-806","A",0.6
+"participant33","S54-806","A > C",0.65
+"participant33","S54-806","C",0.61
+"participant33","S54-806","C > A",0.65
+"participant33","S55-1006","A",0.71
+"participant33","S55-1006","A > C",0.89
+"participant33","S55-1006","C",0.65
+"participant33","S55-1006","C > A",0.66
+"participant33","S57-1007","A",0.6
+"participant33","S57-1007","A > C",0.61
+"participant33","S57-1007","C",0.67
+"participant33","S57-1007","C > A",0.59
+"participant33","S59-1007","A",0.59
+"participant33","S59-1007","A > C",0.85
+"participant33","S59-1007","C",0.68
+"participant33","S59-1007","C > A",0.61
+"participant33","S63-1039","A",0.4
+"participant33","S63-1039","A > C",0.36
+"participant33","S63-1039","C",0.3
+"participant33","S63-1039","C > A",0.4
+"participant33","S7-130","A",0.56
+"participant33","S7-130","A > C",0.58
+"participant33","S7-130","C",0.56
+"participant33","S7-130","C > A",0.55
+"participant33","S7-130-dep","A",0.65
+"participant33","S7-130-dep","A > C",0.59
+"participant33","S7-130-dep","C",0.65
+"participant33","S7-130-dep","C > A",0.64
+"participant33","S8-202","A",0.22
+"participant33","S8-202","A > C",0.38
+"participant33","S8-202","C",0.2
+"participant33","S8-202","C > A",0.27
+"participant33","S83-1609","A",0.54
+"participant33","S83-1609","A > C",0.42
+"participant33","S83-1609","C",0.53
+"participant33","S83-1609","C > A",0.54
+"participant33","S89-1642","A",0.56
+"participant33","S89-1642","A > C",0.39
+"participant33","S89-1642","C",0.59
+"participant33","S89-1642","C > A",0.44
+"participant33","S89-1642-dep","A",0.62
+"participant33","S89-1642-dep","A > C",0.33
+"participant33","S89-1642-dep","C",0.58
+"participant33","S89-1642-dep","C > A",0.36
+"participant33","S93-1674","A",0.56
+"participant33","S93-1674","A > C",0.45
+"participant33","S93-1674","C",0.59
+"participant33","S93-1674","C > A",0.47
+"participant33","S97-1674","A",0.84
+"participant33","S97-1674","A > C",0.62
+"participant33","S97-1674","C",0.62
+"participant33","S97-1674","C > A",0.6
+"participant34","S1-121","A",0.91
+"participant34","S1-121","A > C",0.21
+"participant34","S1-121","C",0.91
+"participant34","S1-121","C > A",0.14
+"participant34","S10-203","A",0.89
+"participant34","S10-203","A > C",0.79
+"participant34","S10-203","C",0.86
+"participant34","S10-203","C > A",0.93
+"participant34","S12-203","A",1
+"participant34","S12-203","A > C",1
+"participant34","S12-203","C",1
+"participant34","S12-203","C > A",1
+"participant34","S15-443","A",0.93
+"participant34","S15-443","A > C",0.93
+"participant34","S15-443","C",0.18
+"participant34","S15-443","C > A",0.89
+"participant34","S20-468","A",1
+"participant34","S20-468","A > C",0.99
+"participant34","S20-468","C",0.98
+"participant34","S20-468","C > A",1
+"participant34","S22-468","A",0.95
+"participant34","S22-468","A > C",0.93
+"participant34","S22-468","C",1
+"participant34","S22-468","C > A",0.96
+"participant34","S30-805","A",0.93
+"participant34","S30-805","A > C",1
+"participant34","S30-805","C",1
+"participant34","S30-805","C > A",1
+"participant34","S30-805-dep","A",0.9
+"participant34","S30-805-dep","A > C",0
+"participant34","S30-805-dep","C",0
+"participant34","S30-805-dep","C > A",0.08
+"participant34","S32-806","A",1
+"participant34","S32-806","A > C",0.99
+"participant34","S32-806","C",0.98
+"participant34","S32-806","C > A",1
+"participant34","S34-806","A",0.2
+"participant34","S34-806","A > C",0.83
+"participant34","S34-806","C",0.09
+"participant34","S34-806","C > A",0.79
+"participant34","S42-806","A",0.8
+"participant34","S42-806","A > C",0.96
+"participant34","S42-806","C",0.89
+"participant34","S42-806","C > A",0.92
+"participant34","S44-806","A",1
+"participant34","S44-806","A > C",1
+"participant34","S44-806","C",0
+"participant34","S44-806","C > A",0.05
+"participant34","S54-806","A",0
+"participant34","S54-806","A > C",0.05
+"participant34","S54-806","C",0.87
+"participant34","S54-806","C > A",0.12
+"participant34","S55-1006","A",0.85
+"participant34","S55-1006","A > C",1
+"participant34","S55-1006","C",0
+"participant34","S55-1006","C > A",0
+"participant34","S57-1007","A",1
+"participant34","S57-1007","A > C",1
+"participant34","S57-1007","C",1
+"participant34","S57-1007","C > A",1
+"participant34","S59-1007","A",0
+"participant34","S59-1007","A > C",0.96
+"participant34","S59-1007","C",0.97
+"participant34","S59-1007","C > A",0.24
+"participant34","S63-1039","A",0.24
+"participant34","S63-1039","A > C",0.72
+"participant34","S63-1039","C",0.11
+"participant34","S63-1039","C > A",0.98
+"participant34","S7-130","A",1
+"participant34","S7-130","A > C",1
+"participant34","S7-130","C",1
+"participant34","S7-130","C > A",1
+"participant34","S7-130-dep","A",0.89
+"participant34","S7-130-dep","A > C",0.98
+"participant34","S7-130-dep","C",1
+"participant34","S7-130-dep","C > A",0.92
+"participant34","S8-202","A",1
+"participant34","S8-202","A > C",0.16
+"participant34","S8-202","C",1
+"participant34","S8-202","C > A",0.98
+"participant34","S83-1609","A",0.95
+"participant34","S83-1609","A > C",0.92
+"participant34","S83-1609","C",0.99
+"participant34","S83-1609","C > A",0.98
+"participant34","S89-1642","A",1
+"participant34","S89-1642","A > C",0.89
+"participant34","S89-1642","C",0.94
+"participant34","S89-1642","C > A",0.98
+"participant34","S89-1642-dep","A",0.83
+"participant34","S89-1642-dep","A > C",0.97
+"participant34","S89-1642-dep","C",0.94
+"participant34","S89-1642-dep","C > A",0.87
+"participant34","S93-1674","A",0.02
+"participant34","S93-1674","A > C",0.97
+"participant34","S93-1674","C",1
+"participant34","S93-1674","C > A",0
+"participant34","S97-1674","A",0.92
+"participant34","S97-1674","A > C",1
+"participant34","S97-1674","C",0.86
+"participant34","S97-1674","C > A",1
+"participant35","S1-121","A",0.87
+"participant35","S1-121","A > C",1
+"participant35","S1-121","C",0.82
+"participant35","S1-121","C > A",1
+"participant35","S10-203","A",0.86
+"participant35","S10-203","A > C",0.51
+"participant35","S10-203","C",0.56
+"participant35","S10-203","C > A",0.41
+"participant35","S12-203","A",0.16
+"participant35","S12-203","A > C",0.7
+"participant35","S12-203","C",0.67
+"participant35","S12-203","C > A",0.82
+"participant35","S15-443","A",0.24
+"participant35","S15-443","A > C",0.67
+"participant35","S15-443","C",0.79
+"participant35","S15-443","C > A",0.61
+"participant35","S20-468","A",0.2
+"participant35","S20-468","A > C",0.29
+"participant35","S20-468","C",0.71
+"participant35","S20-468","C > A",0.73
+"participant35","S22-468","A",0.62
+"participant35","S22-468","A > C",0.75
+"participant35","S22-468","C",0.63
+"participant35","S22-468","C > A",0.4
+"participant35","S30-805","A",0.72
+"participant35","S30-805","A > C",0.53
+"participant35","S30-805","C",0.6
+"participant35","S30-805","C > A",0.74
+"participant35","S30-805-dep","A",0.42
+"participant35","S30-805-dep","A > C",0.13
+"participant35","S30-805-dep","C",0.09
+"participant35","S30-805-dep","C > A",0.77
+"participant35","S32-806","A",0.63
+"participant35","S32-806","A > C",0.69
+"participant35","S32-806","C",0.61
+"participant35","S32-806","C > A",0.41
+"participant35","S34-806","A",0.45
+"participant35","S34-806","A > C",0.34
+"participant35","S34-806","C",0.76
+"participant35","S34-806","C > A",0.32
+"participant35","S42-806","A",0.01
+"participant35","S42-806","A > C",0.62
+"participant35","S42-806","C",0.13
+"participant35","S42-806","C > A",0.36
+"participant35","S44-806","A",0.28
+"participant35","S44-806","A > C",0.75
+"participant35","S44-806","C",0.37
+"participant35","S44-806","C > A",0.37
+"participant35","S54-806","A",0.05
+"participant35","S54-806","A > C",0.18
+"participant35","S54-806","C",0.36
+"participant35","S54-806","C > A",0.16
+"participant35","S55-1006","A",0.33
+"participant35","S55-1006","A > C",0.52
+"participant35","S55-1006","C",0.67
+"participant35","S55-1006","C > A",0.63
+"participant35","S57-1007","A",0.79
+"participant35","S57-1007","A > C",0.68
+"participant35","S57-1007","C",0.91
+"participant35","S57-1007","C > A",0.8
+"participant35","S59-1007","A",0.32
+"participant35","S59-1007","A > C",0.27
+"participant35","S59-1007","C",0.7
+"participant35","S59-1007","C > A",0.53
+"participant35","S63-1039","A",0.79
+"participant35","S63-1039","A > C",0.62
+"participant35","S63-1039","C",0.73
+"participant35","S63-1039","C > A",0.6
+"participant35","S7-130","A",0.32
+"participant35","S7-130","A > C",0.2
+"participant35","S7-130","C",0.85
+"participant35","S7-130","C > A",0.42
+"participant35","S7-130-dep","A",0.83
+"participant35","S7-130-dep","A > C",0.72
+"participant35","S7-130-dep","C",1
+"participant35","S7-130-dep","C > A",0.69
+"participant35","S8-202","A",0.29
+"participant35","S8-202","A > C",0.66
+"participant35","S8-202","C",0.69
+"participant35","S8-202","C > A",0.61
+"participant35","S83-1609","A",0.31
+"participant35","S83-1609","A > C",0.31
+"participant35","S83-1609","C",0.09
+"participant35","S83-1609","C > A",0.78
+"participant35","S89-1642","A",0.22
+"participant35","S89-1642","A > C",0.34
+"participant35","S89-1642","C",0.25
+"participant35","S89-1642","C > A",0.4
+"participant35","S89-1642-dep","A",0.24
+"participant35","S89-1642-dep","A > C",0.27
+"participant35","S89-1642-dep","C",0.71
+"participant35","S89-1642-dep","C > A",0.78
+"participant35","S93-1674","A",0.84
+"participant35","S93-1674","A > C",0.28
+"participant35","S93-1674","C",0.63
+"participant35","S93-1674","C > A",0.38
+"participant35","S97-1674","A",0.78
+"participant35","S97-1674","A > C",0.38
+"participant35","S97-1674","C",0.84
+"participant35","S97-1674","C > A",0.83
+"participant36","S1-121","A",0.87
+"participant36","S1-121","A > C",1
+"participant36","S1-121","C",0.93
+"participant36","S1-121","C > A",0.93
+"participant36","S10-203","A",0.73
+"participant36","S10-203","A > C",0.25
+"participant36","S10-203","C",0.96
+"participant36","S10-203","C > A",0.2
+"participant36","S12-203","A",0.97
+"participant36","S12-203","A > C",0.19
+"participant36","S12-203","C",0.98
+"participant36","S12-203","C > A",0.93
+"participant36","S15-443","A",0.73
+"participant36","S15-443","A > C",0.97
+"participant36","S15-443","C",0.88
+"participant36","S15-443","C > A",0.84
+"participant36","S20-468","A",0.83
+"participant36","S20-468","A > C",0.98
+"participant36","S20-468","C",0.85
+"participant36","S20-468","C > A",0.76
+"participant36","S22-468","A",0.9
+"participant36","S22-468","A > C",1
+"participant36","S22-468","C",0.93
+"participant36","S22-468","C > A",1
+"participant36","S30-805","A",0.9
+"participant36","S30-805","A > C",0.09
+"participant36","S30-805","C",0.1
+"participant36","S30-805","C > A",0.22
+"participant36","S30-805-dep","A",0.95
+"participant36","S30-805-dep","A > C",0.95
+"participant36","S30-805-dep","C",0.16
+"participant36","S30-805-dep","C > A",0.97
+"participant36","S32-806","A",0.01
+"participant36","S32-806","A > C",0.96
+"participant36","S32-806","C",0.95
+"participant36","S32-806","C > A",0.15
+"participant36","S34-806","A",0.15
+"participant36","S34-806","A > C",0.17
+"participant36","S34-806","C",0.96
+"participant36","S34-806","C > A",0.9
+"participant36","S42-806","A",0.94
+"participant36","S42-806","A > C",0.85
+"participant36","S42-806","C",0.11
+"participant36","S42-806","C > A",0.89
+"participant36","S44-806","A",1
+"participant36","S44-806","A > C",0.79
+"participant36","S44-806","C",0.94
+"participant36","S44-806","C > A",1
+"participant36","S54-806","A",0.89
+"participant36","S54-806","A > C",0.95
+"participant36","S54-806","C",0.97
+"participant36","S54-806","C > A",0.9
+"participant36","S55-1006","A",0.17
+"participant36","S55-1006","A > C",0.97
+"participant36","S55-1006","C",0.88
+"participant36","S55-1006","C > A",0.23
+"participant36","S57-1007","A",0.99
+"participant36","S57-1007","A > C",0.2
+"participant36","S57-1007","C",0.99
+"participant36","S57-1007","C > A",0.13
+"participant36","S59-1007","A",1
+"participant36","S59-1007","A > C",0.95
+"participant36","S59-1007","C",1
+"participant36","S59-1007","C > A",0.98
+"participant36","S63-1039","A",0.9
+"participant36","S63-1039","A > C",1
+"participant36","S63-1039","C",0.91
+"participant36","S63-1039","C > A",1
+"participant36","S7-130","A",0.23
+"participant36","S7-130","A > C",0.28
+"participant36","S7-130","C",0.87
+"participant36","S7-130","C > A",0.21
+"participant36","S7-130-dep","A",1
+"participant36","S7-130-dep","A > C",0.99
+"participant36","S7-130-dep","C",0.95
+"participant36","S7-130-dep","C > A",1
+"participant36","S8-202","A",0.96
+"participant36","S8-202","A > C",1
+"participant36","S8-202","C",0.95
+"participant36","S8-202","C > A",0.97
+"participant36","S83-1609","A",0.93
+"participant36","S83-1609","A > C",0.19
+"participant36","S83-1609","C",0.12
+"participant36","S83-1609","C > A",1
+"participant36","S89-1642","A",0.15
+"participant36","S89-1642","A > C",0.14
+"participant36","S89-1642","C",0.83
+"participant36","S89-1642","C > A",0.93
+"participant36","S89-1642-dep","A",0.9
+"participant36","S89-1642-dep","A > C",1
+"participant36","S89-1642-dep","C",0.88
+"participant36","S89-1642-dep","C > A",0.96
+"participant36","S93-1674","A",0.84
+"participant36","S93-1674","A > C",0.56
+"participant36","S93-1674","C",0.93
+"participant36","S93-1674","C > A",0.9
+"participant36","S97-1674","A",0.92
+"participant36","S97-1674","A > C",0.98
+"participant36","S97-1674","C",0.99
+"participant36","S97-1674","C > A",1
+"participant37","S1-121","A",0.84
+"participant37","S1-121","A > C",0.58
+"participant37","S1-121","C",0.86
+"participant37","S1-121","C > A",0.58
+"participant37","S10-203","A",0.76
+"participant37","S10-203","A > C",0.45
+"participant37","S10-203","C",0.71
+"participant37","S10-203","C > A",0.43
+"participant37","S12-203","A",0.84
+"participant37","S12-203","A > C",0.66
+"participant37","S12-203","C",0.85
+"participant37","S12-203","C > A",0.59
+"participant37","S15-443","A",0.68
+"participant37","S15-443","A > C",0.64
+"participant37","S15-443","C",0.65
+"participant37","S15-443","C > A",0.55
+"participant37","S20-468","A",0.87
+"participant37","S20-468","A > C",1
+"participant37","S20-468","C",0.88
+"participant37","S20-468","C > A",0.41
+"participant37","S22-468","A",0.74
+"participant37","S22-468","A > C",0.45
+"participant37","S22-468","C",0.78
+"participant37","S22-468","C > A",0.44
+"participant37","S30-805","A",0.6
+"participant37","S30-805","A > C",0.45
+"participant37","S30-805","C",0.58
+"participant37","S30-805","C > A",0.43
+"participant37","S30-805-dep","A",0.63
+"participant37","S30-805-dep","A > C",0.43
+"participant37","S30-805-dep","C",0.2
+"participant37","S30-805-dep","C > A",0.85
+"participant37","S32-806","A",0.75
+"participant37","S32-806","A > C",0.58
+"participant37","S32-806","C",0.66
+"participant37","S32-806","C > A",0.39
+"participant37","S34-806","A",0.79
+"participant37","S34-806","A > C",0.55
+"participant37","S34-806","C",0.92
+"participant37","S34-806","C > A",1
+"participant37","S42-806","A",0.46
+"participant37","S42-806","A > C",0.45
+"participant37","S42-806","C",0.43
+"participant37","S42-806","C > A",0.53
+"participant37","S44-806","A",0.93
+"participant37","S44-806","A > C",0.22
+"participant37","S44-806","C",0.76
+"participant37","S44-806","C > A",1
+"participant37","S54-806","A",0.58
+"participant37","S54-806","A > C",0.99
+"participant37","S54-806","C",0.79
+"participant37","S54-806","C > A",0.64
+"participant37","S55-1006","A",0.61
+"participant37","S55-1006","A > C",0.56
+"participant37","S55-1006","C",0.71
+"participant37","S55-1006","C > A",0.43
+"participant37","S57-1007","A",0.94
+"participant37","S57-1007","A > C",0.55
+"participant37","S57-1007","C",0.61
+"participant37","S57-1007","C > A",0.55
+"participant37","S59-1007","A",0.95
+"participant37","S59-1007","A > C",1
+"participant37","S59-1007","C",1
+"participant37","S59-1007","C > A",0.69
+"participant37","S63-1039","A",0.62
+"participant37","S63-1039","A > C",1
+"participant37","S63-1039","C",0.58
+"participant37","S63-1039","C > A",1
+"participant37","S7-130","A",0.81
+"participant37","S7-130","A > C",0.6
+"participant37","S7-130","C",0.83
+"participant37","S7-130","C > A",0.66
+"participant37","S7-130-dep","A",0.76
+"participant37","S7-130-dep","A > C",0.96
+"participant37","S7-130-dep","C",0.89
+"participant37","S7-130-dep","C > A",1
+"participant37","S8-202","A",0.61
+"participant37","S8-202","A > C",0.44
+"participant37","S8-202","C",0.67
+"participant37","S8-202","C > A",0.39
+"participant37","S83-1609","A",0.74
+"participant37","S83-1609","A > C",0.4
+"participant37","S83-1609","C",0.84
+"participant37","S83-1609","C > A",0.38
+"participant37","S89-1642","A",0.77
+"participant37","S89-1642","A > C",0.45
+"participant37","S89-1642","C",0.79
+"participant37","S89-1642","C > A",0.42
+"participant37","S89-1642-dep","A",0.92
+"participant37","S89-1642-dep","A > C",1
+"participant37","S89-1642-dep","C",0.76
+"participant37","S89-1642-dep","C > A",1
+"participant37","S93-1674","A",0.71
+"participant37","S93-1674","A > C",0.11
+"participant37","S93-1674","C",0.93
+"participant37","S93-1674","C > A",1
+"participant37","S97-1674","A",0.82
+"participant37","S97-1674","A > C",0.99
+"participant37","S97-1674","C",0.8
+"participant37","S97-1674","C > A",1
+"participant38","S1-121","A",1
+"participant38","S1-121","A > C",1
+"participant38","S1-121","C",0.97
+"participant38","S1-121","C > A",1
+"participant38","S10-203","A",1
+"participant38","S10-203","A > C",0
+"participant38","S10-203","C",0
+"participant38","S10-203","C > A",1
+"participant38","S12-203","A",1
+"participant38","S12-203","A > C",0
+"participant38","S12-203","C",0.04
+"participant38","S12-203","C > A",0
+"participant38","S15-443","A",0.98
+"participant38","S15-443","A > C",1
+"participant38","S15-443","C",0.96
+"participant38","S15-443","C > A",0.86
+"participant38","S20-468","A",1
+"participant38","S20-468","A > C",0.3
+"participant38","S20-468","C",0.71
+"participant38","S20-468","C > A",1
+"participant38","S22-468","A",1
+"participant38","S22-468","A > C",1
+"participant38","S22-468","C",0.88
+"participant38","S22-468","C > A",1
+"participant38","S30-805","A",0
+"participant38","S30-805","A > C",1
+"participant38","S30-805","C",0.07
+"participant38","S30-805","C > A",0.94
+"participant38","S30-805-dep","A",0.03
+"participant38","S30-805-dep","A > C",0
+"participant38","S30-805-dep","C",0
+"participant38","S30-805-dep","C > A",0.98
+"participant38","S32-806","A",0.03
+"participant38","S32-806","A > C",1
+"participant38","S32-806","C",0
+"participant38","S32-806","C > A",0.9
+"participant38","S34-806","A",0.74
+"participant38","S34-806","A > C",0.73
+"participant38","S34-806","C",1
+"participant38","S34-806","C > A",0.71
+"participant38","S42-806","A",1
+"participant38","S42-806","A > C",1
+"participant38","S42-806","C",0.91
+"participant38","S42-806","C > A",1
+"participant38","S44-806","A",0.6
+"participant38","S44-806","A > C",0.16
+"participant38","S44-806","C",0.06
+"participant38","S44-806","C > A",0.97
+"participant38","S54-806","A",0
+"participant38","S54-806","A > C",0.99
+"participant38","S54-806","C",0.1
+"participant38","S54-806","C > A",0.4
+"participant38","S55-1006","A",0.01
+"participant38","S55-1006","A > C",0.05
+"participant38","S55-1006","C",0.99
+"participant38","S55-1006","C > A",0.01
+"participant38","S57-1007","A",0.31
+"participant38","S57-1007","A > C",1
+"participant38","S57-1007","C",0.25
+"participant38","S57-1007","C > A",0.99
+"participant38","S59-1007","A",0.12
+"participant38","S59-1007","A > C",0.98
+"participant38","S59-1007","C",0.89
+"participant38","S59-1007","C > A",0.12
+"participant38","S63-1039","A",0.77
+"participant38","S63-1039","A > C",0.99
+"participant38","S63-1039","C",0.72
+"participant38","S63-1039","C > A",1
+"participant38","S7-130","A",1
+"participant38","S7-130","A > C",1
+"participant38","S7-130","C",1
+"participant38","S7-130","C > A",1
+"participant38","S7-130-dep","A",1
+"participant38","S7-130-dep","A > C",1
+"participant38","S7-130-dep","C",1
+"participant38","S7-130-dep","C > A",1
+"participant38","S8-202","A",1
+"participant38","S8-202","A > C",0.64
+"participant38","S8-202","C",0.06
+"participant38","S8-202","C > A",1
+"participant38","S83-1609","A",0.57
+"participant38","S83-1609","A > C",0.95
+"participant38","S83-1609","C",0.59
+"participant38","S83-1609","C > A",1
+"participant38","S89-1642","A",0.6
+"participant38","S89-1642","A > C",1
+"participant38","S89-1642","C",0.64
+"participant38","S89-1642","C > A",0.99
+"participant38","S89-1642-dep","A",0.82
+"participant38","S89-1642-dep","A > C",1
+"participant38","S89-1642-dep","C",0.76
+"participant38","S89-1642-dep","C > A",1
+"participant38","S93-1674","A",0.62
+"participant38","S93-1674","A > C",0.11
+"participant38","S93-1674","C",0.6
+"participant38","S93-1674","C > A",0.15
+"participant38","S97-1674","A",1
+"participant38","S97-1674","A > C",0.63
+"participant38","S97-1674","C",0.88
+"participant38","S97-1674","C > A",1
+"participant39","S1-121","A",1
+"participant39","S1-121","A > C",1
+"participant39","S1-121","C",1
+"participant39","S1-121","C > A",1
+"participant39","S10-203","A",1
+"participant39","S10-203","A > C",1
+"participant39","S10-203","C",0
+"participant39","S10-203","C > A",0.88
+"participant39","S12-203","A",1
+"participant39","S12-203","A > C",0.13
+"participant39","S12-203","C",0.27
+"participant39","S12-203","C > A",0.1
+"participant39","S15-443","A",1
+"participant39","S15-443","A > C",1
+"participant39","S15-443","C",0.57
+"participant39","S15-443","C > A",1
+"participant39","S20-468","A",1
+"participant39","S20-468","A > C",0.93
+"participant39","S20-468","C",0.63
+"participant39","S20-468","C > A",0.95
+"participant39","S22-468","A",1
+"participant39","S22-468","A > C",1
+"participant39","S22-468","C",1
+"participant39","S22-468","C > A",1
+"participant39","S30-805","A",0.28
+"participant39","S30-805","A > C",0.19
+"participant39","S30-805","C",0.13
+"participant39","S30-805","C > A",0.06
+"participant39","S32-806","A",0
+"participant39","S32-806","A > C",0
+"participant39","S32-806","C",0.1
+"participant39","S32-806","C > A",0.16
+"participant39","S44-806","A",0
+"participant39","S44-806","A > C",0.11
+"participant39","S44-806","C",0.07
+"participant39","S44-806","C > A",1
+"participant39","S54-806","A",0
+"participant39","S54-806","A > C",0
+"participant39","S54-806","C",0
+"participant39","S54-806","C > A",1
+"participant39","S55-1006","A",0
+"participant39","S55-1006","A > C",0.78
+"participant39","S55-1006","C",0.82
+"participant39","S55-1006","C > A",0.36
+"participant39","S57-1007","A",0.16
+"participant39","S57-1007","A > C",0.31
+"participant39","S57-1007","C",0.56
+"participant39","S57-1007","C > A",0.64
+"participant39","S59-1007","A",0
+"participant39","S59-1007","A > C",0.29
+"participant39","S59-1007","C",0.18
+"participant39","S59-1007","C > A",0.22
+"participant39","S63-1039","A",0
+"participant39","S63-1039","A > C",0
+"participant39","S63-1039","C",0.87
+"participant39","S63-1039","C > A",1
+"participant39","S7-130","A",0
+"participant39","S7-130","A > C",1
+"participant39","S7-130","C",1
+"participant39","S7-130","C > A",1
+"participant39","S7-130-dep","A",1
+"participant39","S7-130-dep","A > C",1
+"participant39","S7-130-dep","C",1
+"participant39","S7-130-dep","C > A",1
+"participant39","S8-202","A",0.88
+"participant39","S8-202","A > C",0.55
+"participant39","S8-202","C",0.09
+"participant39","S8-202","C > A",0.4
+"participant39","S83-1609","A",0.62
+"participant39","S83-1609","A > C",0.95
+"participant39","S83-1609","C",0.59
+"participant39","S83-1609","C > A",0.84
+"participant39","S93-1674","A",0.65
+"participant39","S93-1674","A > C",0.66
+"participant39","S93-1674","C",1
+"participant39","S93-1674","C > A",0.95
+"participant39","S97-1674","A",0.63
+"participant39","S97-1674","A > C",0.6
+"participant39","S97-1674","C",0.22
+"participant39","S97-1674","C > A",0.12
+"participant4","S1-121","A",0.78
+"participant4","S1-121","A > C",0.46
+"participant4","S1-121","C",0.78
+"participant4","S1-121","C > A",0.6
+"participant4","S10-203","A",0.86
+"participant4","S10-203","A > C",0.64
+"participant4","S10-203","C",0.37
+"participant4","S10-203","C > A",0.4
+"participant4","S12-203","A",0.74
+"participant4","S12-203","A > C",0.61
+"participant4","S12-203","C",0.77
+"participant4","S12-203","C > A",0.44
+"participant4","S15-443","A",1
+"participant4","S15-443","A > C",0.78
+"participant4","S15-443","C",0.58
+"participant4","S15-443","C > A",0.59
+"participant4","S20-468","A",1
+"participant4","S20-468","A > C",0.61
+"participant4","S20-468","C",0.58
+"participant4","S20-468","C > A",0.62
+"participant4","S22-468","A",1
+"participant4","S22-468","A > C",0.19
+"participant4","S22-468","C",0.7
+"participant4","S22-468","C > A",0.14
+"participant4","S30-805","A",0.26
+"participant4","S30-805","A > C",0.1
+"participant4","S30-805","C",0.23
+"participant4","S30-805","C > A",0.15
+"participant4","S30-805-dep","A",0.92
+"participant4","S30-805-dep","A > C",0.1
+"participant4","S30-805-dep","C",0
+"participant4","S30-805-dep","C > A",1
+"participant4","S32-806","A",0.6
+"participant4","S32-806","A > C",0.32
+"participant4","S32-806","C",0.23
+"participant4","S32-806","C > A",0.26
+"participant4","S34-806","A",0.34
+"participant4","S34-806","A > C",0.58
+"participant4","S34-806","C",0.31
+"participant4","S34-806","C > A",0.98
+"participant4","S42-806","A",0.76
+"participant4","S42-806","A > C",0.81
+"participant4","S42-806","C",0.74
+"participant4","S42-806","C > A",1
+"participant4","S44-806","A",0.97
+"participant4","S44-806","A > C",0.03
+"participant4","S44-806","C",0.04
+"participant4","S44-806","C > A",1
+"participant4","S54-806","A",0.2
+"participant4","S54-806","A > C",1
+"participant4","S54-806","C",0.93
+"participant4","S54-806","C > A",0.29
+"participant4","S55-1006","A",0.11
+"participant4","S55-1006","A > C",0.21
+"participant4","S55-1006","C",0.74
+"participant4","S55-1006","C > A",0.24
+"participant4","S57-1007","A",0.82
+"participant4","S57-1007","A > C",0.81
+"participant4","S57-1007","C",0.79
+"participant4","S57-1007","C > A",0.78
+"participant4","S59-1007","A",0.14
+"participant4","S59-1007","A > C",1
+"participant4","S59-1007","C",0.93
+"participant4","S59-1007","C > A",0.21
+"participant4","S63-1039","A",0.87
+"participant4","S63-1039","A > C",0.97
+"participant4","S63-1039","C",0.85
+"participant4","S63-1039","C > A",0.97
+"participant4","S7-130","A",0.93
+"participant4","S7-130","A > C",0.42
+"participant4","S7-130","C",0.94
+"participant4","S7-130","C > A",0.39
+"participant4","S7-130-dep","A",1
+"participant4","S7-130-dep","A > C",1
+"participant4","S7-130-dep","C",1
+"participant4","S7-130-dep","C > A",1
+"participant4","S8-202","A",0.88
+"participant4","S8-202","A > C",0.67
+"participant4","S8-202","C",0.36
+"participant4","S8-202","C > A",0.71
+"participant4","S83-1609","A",0.82
+"participant4","S83-1609","A > C",0.38
+"participant4","S83-1609","C",0.76
+"participant4","S83-1609","C > A",0.37
+"participant4","S89-1642","A",0.62
+"participant4","S89-1642","A > C",0.21
+"participant4","S89-1642","C",0.73
+"participant4","S89-1642","C > A",0.2
+"participant4","S89-1642-dep","A",0.99
+"participant4","S89-1642-dep","A > C",0.99
+"participant4","S89-1642-dep","C",0.99
+"participant4","S89-1642-dep","C > A",0.97
+"participant4","S93-1674","A",0.43
+"participant4","S93-1674","A > C",0.05
+"participant4","S93-1674","C",0.77
+"participant4","S93-1674","C > A",0.64
+"participant4","S97-1674","A",0.79
+"participant4","S97-1674","A > C",0.9
+"participant4","S97-1674","C",0.71
+"participant4","S97-1674","C > A",0.92
+"participant40","S1-121","A",0.84
+"participant40","S1-121","A > C",0.85
+"participant40","S1-121","C",0.82
+"participant40","S1-121","C > A",0.9
+"participant40","S10-203","A",0.79
+"participant40","S10-203","A > C",0.82
+"participant40","S10-203","C",0.78
+"participant40","S10-203","C > A",0.78
+"participant40","S12-203","A",0.79
+"participant40","S12-203","A > C",0.76
+"participant40","S12-203","C",0.8
+"participant40","S12-203","C > A",0.8
+"participant40","S15-443","A",0.84
+"participant40","S15-443","A > C",0.74
+"participant40","S15-443","C",0.73
+"participant40","S15-443","C > A",0.74
+"participant40","S20-468","A",0.94
+"participant40","S20-468","A > C",0.98
+"participant40","S20-468","C",0.95
+"participant40","S20-468","C > A",0.96
+"participant40","S22-468","A",0.79
+"participant40","S22-468","A > C",0.8
+"participant40","S22-468","C",0.78
+"participant40","S22-468","C > A",0.78
+"participant40","S30-805","A",0.83
+"participant40","S30-805","A > C",0.82
+"participant40","S30-805","C",0.75
+"participant40","S30-805","C > A",0.81
+"participant40","S30-805-dep","A",0.82
+"participant40","S30-805-dep","A > C",0.13
+"participant40","S30-805-dep","C",0
+"participant40","S30-805-dep","C > A",0.18
+"participant40","S32-806","A",0.92
+"participant40","S32-806","A > C",1
+"participant40","S32-806","C",0.93
+"participant40","S32-806","C > A",0.92
+"participant40","S34-806","A",0.86
+"participant40","S34-806","A > C",0.81
+"participant40","S34-806","C",0.83
+"participant40","S34-806","C > A",0.84
+"participant40","S42-806","A",0.32
+"participant40","S42-806","A > C",0.33
+"participant40","S42-806","C",0.29
+"participant40","S42-806","C > A",0.22
+"participant40","S44-806","A",1
+"participant40","S44-806","A > C",0.88
+"participant40","S44-806","C",0.11
+"participant40","S44-806","C > A",0.36
+"participant40","S54-806","A",0.21
+"participant40","S54-806","A > C",0.14
+"participant40","S54-806","C",0.16
+"participant40","S54-806","C > A",0.22
+"participant40","S55-1006","A",0.95
+"participant40","S55-1006","A > C",0.68
+"participant40","S55-1006","C",0.58
+"participant40","S55-1006","C > A",0.61
+"participant40","S57-1007","A",0.88
+"participant40","S57-1007","A > C",0.81
+"participant40","S57-1007","C",0.92
+"participant40","S57-1007","C > A",0.79
+"participant40","S59-1007","A",0.16
+"participant40","S59-1007","A > C",0.37
+"participant40","S59-1007","C",0.9
+"participant40","S59-1007","C > A",0.38
+"participant40","S63-1039","A",0.63
+"participant40","S63-1039","A > C",0.75
+"participant40","S63-1039","C",0.61
+"participant40","S63-1039","C > A",0.43
+"participant40","S7-130","A",0.82
+"participant40","S7-130","A > C",0.82
+"participant40","S7-130","C",0.82
+"participant40","S7-130","C > A",0.82
+"participant40","S7-130-dep","A",0.24
+"participant40","S7-130-dep","A > C",0.26
+"participant40","S7-130-dep","C",0.21
+"participant40","S7-130-dep","C > A",0.26
+"participant40","S8-202","A",0.8
+"participant40","S8-202","A > C",0.82
+"participant40","S8-202","C",0.79
+"participant40","S8-202","C > A",0.86
+"participant40","S83-1609","A",0.78
+"participant40","S83-1609","A > C",0.71
+"participant40","S83-1609","C",0.7
+"participant40","S83-1609","C > A",0.74
+"participant40","S89-1642","A",0.76
+"participant40","S89-1642","A > C",0.72
+"participant40","S89-1642","C",0.76
+"participant40","S89-1642","C > A",0.66
+"participant40","S89-1642-dep","A",0.63
+"participant40","S89-1642-dep","A > C",0.59
+"participant40","S89-1642-dep","C",0.6
+"participant40","S89-1642-dep","C > A",0.63
+"participant40","S93-1674","A",0.78
+"participant40","S93-1674","A > C",0.77
+"participant40","S93-1674","C",0.68
+"participant40","S93-1674","C > A",0.76
+"participant40","S97-1674","A",0.91
+"participant40","S97-1674","A > C",0.84
+"participant40","S97-1674","C",0.63
+"participant40","S97-1674","C > A",0.84
+"participant41","S1-121","A",0.82
+"participant41","S1-121","A > C",0.82
+"participant41","S1-121","C",0.83
+"participant41","S1-121","C > A",0.83
+"participant41","S10-203","A",0.89
+"participant41","S10-203","A > C",0.76
+"participant41","S10-203","C",0.94
+"participant41","S10-203","C > A",0.83
+"participant41","S12-203","A",1
+"participant41","S12-203","A > C",0
+"participant41","S12-203","C",0
+"participant41","S12-203","C > A",0
+"participant41","S15-443","A",0.84
+"participant41","S15-443","A > C",0.31
+"participant41","S15-443","C",0.74
+"participant41","S15-443","C > A",0.3
+"participant41","S20-468","A",1
+"participant41","S20-468","A > C",0.92
+"participant41","S20-468","C",0.93
+"participant41","S20-468","C > A",0.79
+"participant41","S22-468","A",0.86
+"participant41","S22-468","A > C",0.84
+"participant41","S22-468","C",0.97
+"participant41","S22-468","C > A",0.91
+"participant41","S30-805","A",1
+"participant41","S30-805","A > C",0
+"participant41","S30-805","C",0
+"participant41","S30-805","C > A",0
+"participant41","S30-805-dep","A",0
+"participant41","S30-805-dep","A > C",0.05
+"participant41","S30-805-dep","C",0
+"participant41","S30-805-dep","C > A",0
+"participant41","S32-806","A",0.25
+"participant41","S32-806","A > C",0.04
+"participant41","S32-806","C",0.71
+"participant41","S32-806","C > A",0.08
+"participant41","S34-806","A",0.21
+"participant41","S34-806","A > C",0.17
+"participant41","S34-806","C",0.07
+"participant41","S34-806","C > A",0.21
+"participant41","S44-806","A",0.88
+"participant41","S44-806","A > C",0.02
+"participant41","S44-806","C",0
+"participant41","S44-806","C > A",0.05
+"participant41","S55-1006","A",0.66
+"participant41","S55-1006","A > C",0
+"participant41","S55-1006","C",0.17
+"participant41","S55-1006","C > A",0.09
+"participant41","S57-1007","A",0.79
+"participant41","S57-1007","A > C",0.81
+"participant41","S57-1007","C",0.84
+"participant41","S57-1007","C > A",0.72
+"participant41","S59-1007","A",0.15
+"participant41","S59-1007","A > C",0.23
+"participant41","S59-1007","C",0.74
+"participant41","S59-1007","C > A",0.15
+"participant41","S63-1039","A",0.01
+"participant41","S63-1039","A > C",0.04
+"participant41","S63-1039","C",0.18
+"participant41","S63-1039","C > A",0
+"participant41","S7-130","A",0.96
+"participant41","S7-130","A > C",0.95
+"participant41","S7-130","C",0.95
+"participant41","S7-130","C > A",0.82
+"participant41","S7-130-dep","A",0.02
+"participant41","S7-130-dep","A > C",0.04
+"participant41","S7-130-dep","C",0.04
+"participant41","S7-130-dep","C > A",0
+"participant41","S8-202","A",0.67
+"participant41","S8-202","A > C",0
+"participant41","S8-202","C",0.21
+"participant41","S8-202","C > A",0.01
+"participant41","S83-1609","A",0.9
+"participant41","S83-1609","A > C",0.78
+"participant41","S83-1609","C",0.93
+"participant41","S83-1609","C > A",0.81
+"participant41","S89-1642","A",1
+"participant41","S89-1642","A > C",0.96
+"participant41","S89-1642","C",1
+"participant41","S89-1642","C > A",1
+"participant41","S89-1642-dep","A",0.21
+"participant41","S89-1642-dep","A > C",0
+"participant41","S89-1642-dep","C",0
+"participant41","S89-1642-dep","C > A",0
+"participant41","S93-1674","A",0
+"participant41","S93-1674","A > C",0
+"participant41","S93-1674","C",0
+"participant41","S93-1674","C > A",0.03
+"participant41","S97-1674","A",0.92
+"participant41","S97-1674","A > C",0.17
+"participant41","S97-1674","C",0.03
+"participant41","S97-1674","C > A",0.02
+"participant42","S1-121","A",0.82
+"participant42","S1-121","A > C",1
+"participant42","S1-121","C",0.77
+"participant42","S1-121","C > A",1
+"participant42","S10-203","A",0.78
+"participant42","S10-203","A > C",0.95
+"participant42","S10-203","C",0.83
+"participant42","S10-203","C > A",0
+"participant42","S12-203","A",0.77
+"participant42","S12-203","A > C",0
+"participant42","S12-203","C",0.71
+"participant42","S12-203","C > A",0
+"participant42","S15-443","A",0.7
+"participant42","S15-443","A > C",0.17
+"participant42","S15-443","C",0.66
+"participant42","S15-443","C > A",0.32
+"participant42","S20-468","A",0.72
+"participant42","S20-468","A > C",0
+"participant42","S20-468","C",0.68
+"participant42","S20-468","C > A",0
+"participant42","S22-468","A",0.74
+"participant42","S22-468","A > C",0
+"participant42","S22-468","C",0.69
+"participant42","S22-468","C > A",0
+"participant42","S30-805","A",0.77
+"participant42","S30-805","A > C",0
+"participant42","S30-805","C",0.71
+"participant42","S30-805","C > A",0
+"participant42","S30-805-dep","A",0.04
+"participant42","S30-805-dep","A > C",0
+"participant42","S30-805-dep","C",0
+"participant42","S30-805-dep","C > A",1
+"participant42","S32-806","A",0.81
+"participant42","S32-806","A > C",0.18
+"participant42","S32-806","C",0.76
+"participant42","S32-806","C > A",0
+"participant42","S34-806","A",0.28
+"participant42","S34-806","A > C",1
+"participant42","S34-806","C",0.21
+"participant42","S34-806","C > A",1
+"participant42","S42-806","A",0.69
+"participant42","S42-806","A > C",1
+"participant42","S42-806","C",0.74
+"participant42","S42-806","C > A",1
+"participant42","S44-806","A",1
+"participant42","S44-806","A > C",0.18
+"participant42","S44-806","C",0.72
+"participant42","S44-806","C > A",1
+"participant42","S54-806","A",0.76
+"participant42","S54-806","A > C",1
+"participant42","S54-806","C",0.88
+"participant42","S54-806","C > A",0
+"participant42","S55-1006","A",0.72
+"participant42","S55-1006","A > C",0
+"participant42","S55-1006","C",0.71
+"participant42","S55-1006","C > A",0
+"participant42","S57-1007","A",0.81
+"participant42","S57-1007","A > C",0
+"participant42","S57-1007","C",0.85
+"participant42","S57-1007","C > A",0
+"participant42","S59-1007","A",0
+"participant42","S59-1007","A > C",1
+"participant42","S59-1007","C",1
+"participant42","S59-1007","C > A",0.07
+"participant42","S63-1039","A",0.84
+"participant42","S63-1039","A > C",1
+"participant42","S63-1039","C",0.71
+"participant42","S63-1039","C > A",0.92
+"participant42","S7-130","A",0.63
+"participant42","S7-130","A > C",0
+"participant42","S7-130","C",0.71
+"participant42","S7-130","C > A",0
+"participant42","S7-130-dep","A",1
+"participant42","S7-130-dep","A > C",1
+"participant42","S7-130-dep","C",1
+"participant42","S7-130-dep","C > A",1
+"participant42","S8-202","A",0.71
+"participant42","S8-202","A > C",1
+"participant42","S8-202","C",0.63
+"participant42","S8-202","C > A",1
+"participant42","S83-1609","A",0.71
+"participant42","S83-1609","A > C",0
+"participant42","S83-1609","C",0.28
+"participant42","S83-1609","C > A",0
+"participant42","S89-1642","A",0.63
+"participant42","S89-1642","A > C",0
+"participant42","S89-1642","C",0.65
+"participant42","S89-1642","C > A",0
+"participant42","S89-1642-dep","A",1
+"participant42","S89-1642-dep","A > C",1
+"participant42","S89-1642-dep","C",1
+"participant42","S89-1642-dep","C > A",1
+"participant42","S93-1674","A",0.77
+"participant42","S93-1674","A > C",0
+"participant42","S93-1674","C",0.77
+"participant42","S93-1674","C > A",1
+"participant42","S97-1674","A",0.91
+"participant42","S97-1674","A > C",1
+"participant42","S97-1674","C",0.94
+"participant42","S97-1674","C > A",1
+"participant43","S1-121","A",1
+"participant43","S1-121","A > C",0.94
+"participant43","S1-121","C",0.98
+"participant43","S1-121","C > A",0.93
+"participant43","S10-203","A",0.71
+"participant43","S10-203","A > C",0.17
+"participant43","S10-203","C",0.26
+"participant43","S10-203","C > A",0.81
+"participant43","S12-203","A",0.76
+"participant43","S12-203","A > C",0.21
+"participant43","S12-203","C",0.27
+"participant43","S12-203","C > A",0.79
+"participant43","S15-443","A",1
+"participant43","S15-443","A > C",0.74
+"participant43","S15-443","C",0.77
+"participant43","S15-443","C > A",0.97
+"participant43","S20-468","A",0.88
+"participant43","S20-468","A > C",0.74
+"participant43","S20-468","C",0.76
+"participant43","S20-468","C > A",0.78
+"participant43","S22-468","A",0.89
+"participant43","S22-468","A > C",0.27
+"participant43","S22-468","C",0.86
+"participant43","S22-468","C > A",0.8
+"participant43","S30-805","A",0.19
+"participant43","S30-805","A > C",0.26
+"participant43","S30-805","C",0.17
+"participant43","S30-805","C > A",0.23
+"participant43","S30-805-dep","A",0.09
+"participant43","S30-805-dep","A > C",0.14
+"participant43","S30-805-dep","C",0.13
+"participant43","S30-805-dep","C > A",0.77
+"participant43","S32-806","A",0.25
+"participant43","S32-806","A > C",0.7
+"participant43","S32-806","C",0.23
+"participant43","S32-806","C > A",0.71
+"participant43","S34-806","A",0.16
+"participant43","S34-806","A > C",0.85
+"participant43","S34-806","C",0.21
+"participant43","S34-806","C > A",0.7
+"participant43","S42-806","A",0.64
+"participant43","S42-806","A > C",0.43
+"participant43","S42-806","C",0.58
+"participant43","S42-806","C > A",0.7
+"participant43","S44-806","A",0.24
+"participant43","S44-806","A > C",0.2
+"participant43","S44-806","C",0.14
+"participant43","S44-806","C > A",0.76
+"participant43","S54-806","A",0.18
+"participant43","S54-806","A > C",0.74
+"participant43","S54-806","C",0.14
+"participant43","S54-806","C > A",0.76
+"participant43","S55-1006","A",0.18
+"participant43","S55-1006","A > C",0.79
+"participant43","S55-1006","C",0.79
+"participant43","S55-1006","C > A",0.25
+"participant43","S57-1007","A",0.2
+"participant43","S57-1007","A > C",0.18
+"participant43","S57-1007","C",0.79
+"participant43","S57-1007","C > A",0.18
+"participant43","S59-1007","A",0.2
+"participant43","S59-1007","A > C",0.7
+"participant43","S59-1007","C",0.8
+"participant43","S59-1007","C > A",0.22
+"participant43","S63-1039","A",0.26
+"participant43","S63-1039","A > C",0.74
+"participant43","S63-1039","C",0.87
+"participant43","S63-1039","C > A",0.33
+"participant43","S7-130","A",0.72
+"participant43","S7-130","A > C",0.79
+"participant43","S7-130","C",0.83
+"participant43","S7-130","C > A",0.83
+"participant43","S7-130-dep","A",0.79
+"participant43","S7-130-dep","A > C",0.75
+"participant43","S7-130-dep","C",0.7
+"participant43","S7-130-dep","C > A",0.76
+"participant43","S8-202","A",0.74
+"participant43","S8-202","A > C",0.29
+"participant43","S8-202","C",0.28
+"participant43","S8-202","C > A",0.78
+"participant43","S83-1609","A",0.63
+"participant43","S83-1609","A > C",0.73
+"participant43","S83-1609","C",0.62
+"participant43","S83-1609","C > A",0.67
+"participant43","S89-1642","A",0.78
+"participant43","S89-1642","A > C",0.76
+"participant43","S89-1642","C",0.8
+"participant43","S89-1642","C > A",0.79
+"participant43","S89-1642-dep","A",0.7
+"participant43","S89-1642-dep","A > C",0.69
+"participant43","S89-1642-dep","C",0.81
+"participant43","S89-1642-dep","C > A",0.72
+"participant43","S93-1674","A",0.22
+"participant43","S93-1674","A > C",0.7
+"participant43","S93-1674","C",0.25
+"participant43","S93-1674","C > A",0.72
+"participant43","S97-1674","A",0.85
+"participant43","S97-1674","A > C",0.72
+"participant43","S97-1674","C",0.78
+"participant43","S97-1674","C > A",1
+"participant44","S1-121","A",1
+"participant44","S1-121","A > C",0.45
+"participant44","S1-121","C",0.74
+"participant44","S1-121","C > A",0
+"participant44","S10-203","A",0.84
+"participant44","S10-203","A > C",1
+"participant44","S10-203","C",0.22
+"participant44","S10-203","C > A",0
+"participant44","S12-203","A",0.93
+"participant44","S12-203","A > C",0
+"participant44","S12-203","C",0.57
+"participant44","S12-203","C > A",0
+"participant44","S15-443","A",0.96
+"participant44","S15-443","A > C",0.04
+"participant44","S15-443","C",0.84
+"participant44","S15-443","C > A",0
+"participant44","S20-468","A",0.95
+"participant44","S20-468","A > C",1
+"participant44","S20-468","C",0.56
+"participant44","S20-468","C > A",0
+"participant44","S22-468","A",0.89
+"participant44","S22-468","A > C",0
+"participant44","S22-468","C",0.6
+"participant44","S22-468","C > A",0
+"participant44","S30-805","A",0.19
+"participant44","S30-805","A > C",0
+"participant44","S30-805","C",0.75
+"participant44","S30-805","C > A",0
+"participant44","S30-805-dep","A",0
+"participant44","S30-805-dep","A > C",0
+"participant44","S30-805-dep","C",0
+"participant44","S30-805-dep","C > A",1
+"participant44","S32-806","A",0.13
+"participant44","S32-806","A > C",0
+"participant44","S32-806","C",0.13
+"participant44","S32-806","C > A",0
+"participant44","S34-806","A",0.05
+"participant44","S34-806","A > C",0
+"participant44","S34-806","C",0.02
+"participant44","S34-806","C > A",1
+"participant44","S42-806","A",0.44
+"participant44","S42-806","A > C",1
+"participant44","S42-806","C",0.41
+"participant44","S42-806","C > A",1
+"participant44","S44-806","A",0.59
+"participant44","S44-806","A > C",0.09
+"participant44","S44-806","C",0.05
+"participant44","S44-806","C > A",1
+"participant44","S54-806","A",0.1
+"participant44","S54-806","A > C",1
+"participant44","S54-806","C",0.58
+"participant44","S54-806","C > A",0.56
+"participant44","S59-1007","A",0.09
+"participant44","S59-1007","A > C",1
+"participant44","S59-1007","C",0.73
+"participant44","S59-1007","C > A",0.03
+"participant44","S63-1039","A",0.15
+"participant44","S63-1039","A > C",1
+"participant44","S63-1039","C",0.89
+"participant44","S63-1039","C > A",1
+"participant44","S7-130","A",0.94
+"participant44","S7-130","A > C",0
+"participant44","S7-130","C",0.89
+"participant44","S7-130","C > A",0
+"participant44","S7-130-dep","A",1
+"participant44","S7-130-dep","A > C",1
+"participant44","S7-130-dep","C",1
+"participant44","S7-130-dep","C > A",0
+"participant44","S8-202","A",1
+"participant44","S8-202","A > C",1
+"participant44","S8-202","C",0
+"participant44","S8-202","C > A",1
+"participant44","S83-1609","A",0.58
+"participant44","S83-1609","A > C",0
+"participant44","S83-1609","C",0.1
+"participant44","S83-1609","C > A",0
+"participant44","S89-1642","A",0.94
+"participant44","S89-1642","A > C",0
+"participant44","S89-1642","C",0.81
+"participant44","S89-1642","C > A",0
+"participant44","S89-1642-dep","A",0
+"participant44","S89-1642-dep","A > C",1
+"participant44","S89-1642-dep","C",0
+"participant44","S89-1642-dep","C > A",1
+"participant44","S93-1674","A",0.43
+"participant44","S93-1674","A > C",0
+"participant44","S93-1674","C",0.71
+"participant44","S93-1674","C > A",0.89
+"participant44","S97-1674","A",0
+"participant44","S97-1674","A > C",0.1
+"participant44","S97-1674","C",0
+"participant44","S97-1674","C > A",0.04
+"participant45","S1-121","A",1
+"participant45","S1-121","A > C",0.65
+"participant45","S1-121","C",1
+"participant45","S1-121","C > A",0.61
+"participant45","S10-203","A",1
+"participant45","S10-203","A > C",0.67
+"participant45","S10-203","C",1
+"participant45","S10-203","C > A",0.64
+"participant45","S12-203","A",1
+"participant45","S12-203","A > C",0.57
+"participant45","S12-203","C",1
+"participant45","S12-203","C > A",0.62
+"participant45","S15-443","A",1
+"participant45","S15-443","A > C",0.42
+"participant45","S15-443","C",1
+"participant45","S15-443","C > A",0.29
+"participant45","S20-468","A",1
+"participant45","S20-468","A > C",1
+"participant45","S20-468","C",1
+"participant45","S20-468","C > A",0
+"participant45","S22-468","A",1
+"participant45","S22-468","A > C",0.54
+"participant45","S22-468","C",1
+"participant45","S22-468","C > A",0.53
+"participant45","S30-805","A",1
+"participant45","S30-805","A > C",0.19
+"participant45","S30-805","C",1
+"participant45","S30-805","C > A",0.19
+"participant45","S30-805-dep","A",1
+"participant45","S30-805-dep","A > C",0.7
+"participant45","S30-805-dep","C",0.91
+"participant45","S30-805-dep","C > A",0.9
+"participant45","S32-806","A",1
+"participant45","S32-806","A > C",0.42
+"participant45","S32-806","C",1
+"participant45","S32-806","C > A",0.31
+"participant45","S34-806","A",1
+"participant45","S34-806","A > C",0
+"participant45","S34-806","C",1
+"participant45","S34-806","C > A",0.74
+"participant45","S42-806","A",1
+"participant45","S42-806","A > C",0.65
+"participant45","S42-806","C",0.65
+"participant45","S42-806","C > A",0.64
+"participant45","S44-806","A",1
+"participant45","S44-806","A > C",0.83
+"participant45","S44-806","C",1
+"participant45","S44-806","C > A",0.76
+"participant45","S54-806","A",0.58
+"participant45","S54-806","A > C",1
+"participant45","S54-806","C",1
+"participant45","S54-806","C > A",0
+"participant45","S55-1006","A",1
+"participant45","S55-1006","A > C",0.19
+"participant45","S55-1006","C",1
+"participant45","S55-1006","C > A",0.24
+"participant45","S57-1007","A",1
+"participant45","S57-1007","A > C",0
+"participant45","S57-1007","C",1
+"participant45","S57-1007","C > A",0
+"participant45","S59-1007","A",0.73
+"participant45","S59-1007","A > C",0.32
+"participant45","S59-1007","C",1
+"participant45","S59-1007","C > A",0.2
+"participant45","S7-130","A",1
+"participant45","S7-130","A > C",0.4
+"participant45","S7-130","C",1
+"participant45","S7-130","C > A",0.43
+"participant45","S7-130-dep","A",1
+"participant45","S7-130-dep","A > C",0
+"participant45","S7-130-dep","C",1
+"participant45","S7-130-dep","C > A",0
+"participant45","S83-1609","A",1
+"participant45","S83-1609","A > C",0
+"participant45","S83-1609","C",1
+"participant45","S83-1609","C > A",0
+"participant45","S89-1642","A",1
+"participant45","S89-1642","A > C",0
+"participant45","S89-1642","C",1
+"participant45","S89-1642","C > A",0
+"participant45","S89-1642-dep","A",1
+"participant45","S89-1642-dep","A > C",0.34
+"participant45","S89-1642-dep","C",1
+"participant45","S89-1642-dep","C > A",0.32
+"participant45","S93-1674","A",1
+"participant45","S93-1674","A > C",0
+"participant45","S93-1674","C",1
+"participant45","S93-1674","C > A",0
+"participant45","S97-1674","A",1
+"participant45","S97-1674","A > C",0.7
+"participant45","S97-1674","C",1
+"participant45","S97-1674","C > A",0.7
+"participant46","S1-121","A",1
+"participant46","S1-121","A > C",0
+"participant46","S1-121","C",1
+"participant46","S1-121","C > A",0
+"participant46","S10-203","A",1
+"participant46","S10-203","A > C",0
+"participant46","S10-203","C",0
+"participant46","S10-203","C > A",0
+"participant46","S12-203","A",1
+"participant46","S12-203","A > C",0
+"participant46","S12-203","C",0.03
+"participant46","S12-203","C > A",0
+"participant46","S15-443","A",1
+"participant46","S15-443","A > C",0
+"participant46","S15-443","C",0
+"participant46","S15-443","C > A",0
+"participant46","S20-468","A",1
+"participant46","S20-468","A > C",0
+"participant46","S20-468","C",0.68
+"participant46","S20-468","C > A",0
+"participant46","S22-468","A",1
+"participant46","S22-468","A > C",0.1
+"participant46","S22-468","C",1
+"participant46","S22-468","C > A",0.03
+"participant46","S30-805-dep","A",0
+"participant46","S30-805-dep","A > C",0
+"participant46","S30-805-dep","C",0
+"participant46","S30-805-dep","C > A",0.21
+"participant46","S34-806","A",0
+"participant46","S34-806","A > C",0
+"participant46","S34-806","C",0
+"participant46","S34-806","C > A",0.87
+"participant46","S42-806","A",0
+"participant46","S42-806","A > C",0.02
+"participant46","S42-806","C",0
+"participant46","S42-806","C > A",0.11
+"participant46","S44-806","A",0.84
+"participant46","S44-806","A > C",0
+"participant46","S44-806","C",0
+"participant46","S44-806","C > A",0.67
+"participant46","S54-806","A",0
+"participant46","S54-806","A > C",0
+"participant46","S54-806","C",0
+"participant46","S54-806","C > A",0.14
+"participant46","S55-1006","A",0
+"participant46","S55-1006","A > C",0
+"participant46","S55-1006","C",0.52
+"participant46","S55-1006","C > A",0
+"participant46","S57-1007","A",0
+"participant46","S57-1007","A > C",0
+"participant46","S57-1007","C",1
+"participant46","S57-1007","C > A",0
+"participant46","S59-1007","A",0
+"participant46","S59-1007","A > C",0.84
+"participant46","S59-1007","C",1
+"participant46","S59-1007","C > A",0
+"participant46","S63-1039","A",0
+"participant46","S63-1039","A > C",0
+"participant46","S63-1039","C",0.78
+"participant46","S63-1039","C > A",0.05
+"participant46","S7-130","A",1
+"participant46","S7-130","A > C",0
+"participant46","S7-130","C",1
+"participant46","S7-130","C > A",0
+"participant46","S7-130-dep","A",1
+"participant46","S7-130-dep","A > C",1
+"participant46","S7-130-dep","C",1
+"participant46","S7-130-dep","C > A",1
+"participant46","S8-202","A",1
+"participant46","S8-202","A > C",0.09
+"participant46","S8-202","C",0
+"participant46","S8-202","C > A",0.83
+"participant46","S83-1609","A",1
+"participant46","S83-1609","A > C",0
+"participant46","S83-1609","C",0.57
+"participant46","S83-1609","C > A",0
+"participant46","S89-1642","A",0.84
+"participant46","S89-1642","A > C",0
+"participant46","S89-1642","C",1
+"participant46","S89-1642","C > A",0
+"participant46","S89-1642-dep","A",0.99
+"participant46","S89-1642-dep","A > C",1
+"participant46","S89-1642-dep","C",1
+"participant46","S89-1642-dep","C > A",1
+"participant46","S93-1674","A",1
+"participant46","S93-1674","A > C",0
+"participant46","S93-1674","C",1
+"participant46","S93-1674","C > A",0
+"participant46","S97-1674","A",1
+"participant46","S97-1674","A > C",1
+"participant46","S97-1674","C",1
+"participant46","S97-1674","C > A",1
+"participant47","S1-121","A",0.67
+"participant47","S1-121","A > C",0.87
+"participant47","S1-121","C",0.65
+"participant47","S1-121","C > A",0.92
+"participant47","S10-203","A",0.85
+"participant47","S10-203","A > C",1
+"participant47","S10-203","C",0.78
+"participant47","S10-203","C > A",0.27
+"participant47","S12-203","A",0.85
+"participant47","S12-203","A > C",0.32
+"participant47","S12-203","C",0.62
+"participant47","S12-203","C > A",1
+"participant47","S15-443","A",0.79
+"participant47","S15-443","A > C",0.64
+"participant47","S15-443","C",0.61
+"participant47","S15-443","C > A",1
+"participant47","S20-468","A",0.61
+"participant47","S20-468","A > C",0.73
+"participant47","S20-468","C",0.58
+"participant47","S20-468","C > A",0.95
+"participant47","S22-468","A",0.78
+"participant47","S22-468","A > C",1
+"participant47","S22-468","C",0.91
+"participant47","S22-468","C > A",0.8
+"participant47","S30-805","A",0.61
+"participant47","S30-805","A > C",0.96
+"participant47","S30-805","C",0.58
+"participant47","S30-805","C > A",0.86
+"participant47","S30-805-dep","A",0.33
+"participant47","S30-805-dep","A > C",0.31
+"participant47","S30-805-dep","C",0.17
+"participant47","S30-805-dep","C > A",0.88
+"participant47","S32-806","A",0.37
+"participant47","S32-806","A > C",0.53
+"participant47","S32-806","C",0.43
+"participant47","S32-806","C > A",0.66
+"participant47","S34-806","A",0.37
+"participant47","S34-806","A > C",0.72
+"participant47","S34-806","C",0.39
+"participant47","S34-806","C > A",0.93
+"participant47","S42-806","A",0.42
+"participant47","S42-806","A > C",0.59
+"participant47","S42-806","C",0.17
+"participant47","S42-806","C > A",0.95
+"participant47","S44-806","A",0.78
+"participant47","S44-806","A > C",0.29
+"participant47","S44-806","C",0.33
+"participant47","S44-806","C > A",0.99
+"participant47","S54-806","A",0.27
+"participant47","S54-806","A > C",0.95
+"participant47","S54-806","C",0.43
+"participant47","S54-806","C > A",0.45
+"participant47","S55-1006","A",0.79
+"participant47","S55-1006","A > C",0.96
+"participant47","S55-1006","C",0.77
+"participant47","S55-1006","C > A",0.9
+"participant47","S57-1007","A",0.41
+"participant47","S57-1007","A > C",1
+"participant47","S57-1007","C",0.67
+"participant47","S57-1007","C > A",0.35
+"participant47","S59-1007","A",0.67
+"participant47","S59-1007","A > C",1
+"participant47","S59-1007","C",0.7
+"participant47","S59-1007","C > A",0.41
+"participant47","S63-1039","A",0.66
+"participant47","S63-1039","A > C",0.83
+"participant47","S63-1039","C",0.68
+"participant47","S63-1039","C > A",0.82
+"participant47","S7-130","A",0.62
+"participant47","S7-130","A > C",0.89
+"participant47","S7-130","C",0.58
+"participant47","S7-130","C > A",0.84
+"participant47","S7-130-dep","A",0.72
+"participant47","S7-130-dep","A > C",0.61
+"participant47","S7-130-dep","C",0.95
+"participant47","S7-130-dep","C > A",0.61
+"participant47","S8-202","A",1
+"participant47","S8-202","A > C",0.31
+"participant47","S8-202","C",0.38
+"participant47","S8-202","C > A",1
+"participant47","S83-1609","A",0.67
+"participant47","S83-1609","A > C",0.99
+"participant47","S83-1609","C",0.75
+"participant47","S83-1609","C > A",0.93
+"participant47","S89-1642","A",0.58
+"participant47","S89-1642","A > C",0.83
+"participant47","S89-1642","C",0.59
+"participant47","S89-1642","C > A",0.84
+"participant47","S89-1642-dep","A",0.76
+"participant47","S89-1642-dep","A > C",0.43
+"participant47","S89-1642-dep","C",0.57
+"participant47","S89-1642-dep","C > A",0.63
+"participant47","S93-1674","A",0.66
+"participant47","S93-1674","A > C",0.81
+"participant47","S93-1674","C",0.73
+"participant47","S93-1674","C > A",0.78
+"participant47","S97-1674","A",0.48
+"participant47","S97-1674","A > C",0.32
+"participant47","S97-1674","C",0.45
+"participant47","S97-1674","C > A",0.73
+"participant48","S1-121","A",0.81
+"participant48","S1-121","A > C",0.78
+"participant48","S1-121","C",0.82
+"participant48","S1-121","C > A",0.81
+"participant48","S10-203","A",0.78
+"participant48","S10-203","A > C",0.86
+"participant48","S10-203","C",0.82
+"participant48","S10-203","C > A",0.78
+"participant48","S12-203","A",0.74
+"participant48","S12-203","A > C",0.8
+"participant48","S12-203","C",0.73
+"participant48","S12-203","C > A",0.76
+"participant48","S15-443","A",0.74
+"participant48","S15-443","A > C",0.79
+"participant48","S15-443","C",0.8
+"participant48","S15-443","C > A",0.78
+"participant48","S20-468","A",0.77
+"participant48","S20-468","A > C",0.81
+"participant48","S20-468","C",0.77
+"participant48","S20-468","C > A",0.82
+"participant48","S22-468","A",0.82
+"participant48","S22-468","A > C",0.85
+"participant48","S22-468","C",0.85
+"participant48","S22-468","C > A",0.83
+"participant48","S30-805","A",0.76
+"participant48","S30-805","A > C",0.81
+"participant48","S30-805","C",0.7
+"participant48","S30-805","C > A",0.74
+"participant48","S30-805-dep","A",0.63
+"participant48","S30-805-dep","A > C",0.24
+"participant48","S30-805-dep","C",0.22
+"participant48","S30-805-dep","C > A",0.23
+"participant48","S32-806","A",0.81
+"participant48","S32-806","A > C",0.85
+"participant48","S32-806","C",0.82
+"participant48","S32-806","C > A",0.8
+"participant48","S34-806","A",0.76
+"participant48","S34-806","A > C",0.81
+"participant48","S34-806","C",0.7
+"participant48","S34-806","C > A",0.81
+"participant48","S42-806","A",0.26
+"participant48","S42-806","A > C",0.33
+"participant48","S42-806","C",0.29
+"participant48","S42-806","C > A",0.27
+"participant48","S44-806","A",0.78
+"participant48","S44-806","A > C",0.93
+"participant48","S44-806","C",0.17
+"participant48","S44-806","C > A",0.88
+"participant48","S54-806","A",0.23
+"participant48","S54-806","A > C",0.76
+"participant48","S54-806","C",0.18
+"participant48","S54-806","C > A",1
+"participant48","S55-1006","A",0.84
+"participant48","S55-1006","A > C",0.81
+"participant48","S55-1006","C",0.8
+"participant48","S55-1006","C > A",0.82
+"participant48","S57-1007","A",0.86
+"participant48","S57-1007","A > C",0.87
+"participant48","S57-1007","C",0.81
+"participant48","S57-1007","C > A",0.85
+"participant48","S59-1007","A",0.17
+"participant48","S59-1007","A > C",0.8
+"participant48","S59-1007","C",0.78
+"participant48","S59-1007","C > A",0.84
+"participant48","S63-1039","A",0.81
+"participant48","S63-1039","A > C",0.86
+"participant48","S63-1039","C",0.81
+"participant48","S63-1039","C > A",0.8
+"participant48","S7-130","A",0.89
+"participant48","S7-130","A > C",0.84
+"participant48","S7-130","C",0.84
+"participant48","S7-130","C > A",0.81
+"participant48","S7-130-dep","A",0.92
+"participant48","S7-130-dep","A > C",0.81
+"participant48","S7-130-dep","C",0.84
+"participant48","S7-130-dep","C > A",0.83
+"participant48","S8-202","A",0.75
+"participant48","S8-202","A > C",0.8
+"participant48","S8-202","C",0.8
+"participant48","S8-202","C > A",0.77
+"participant48","S83-1609","A",0.82
+"participant48","S83-1609","A > C",0.8
+"participant48","S83-1609","C",0.79
+"participant48","S83-1609","C > A",0.77
+"participant48","S89-1642","A",0.8
+"participant48","S89-1642","A > C",0.83
+"participant48","S89-1642","C",0.84
+"participant48","S89-1642","C > A",0.81
+"participant48","S89-1642-dep","A",0.82
+"participant48","S89-1642-dep","A > C",0.85
+"participant48","S89-1642-dep","C",0.85
+"participant48","S89-1642-dep","C > A",0.81
+"participant48","S93-1674","A",0.79
+"participant48","S93-1674","A > C",0.79
+"participant48","S93-1674","C",0.85
+"participant48","S93-1674","C > A",0.8
+"participant48","S97-1674","A",0.24
+"participant48","S97-1674","A > C",0.78
+"participant48","S97-1674","C",0.07
+"participant48","S97-1674","C > A",0.85
+"participant49","S1-121","A",0.93
+"participant49","S1-121","A > C",0.83
+"participant49","S1-121","C",0.86
+"participant49","S1-121","C > A",0.82
+"participant49","S10-203","A",1
+"participant49","S10-203","A > C",0
+"participant49","S10-203","C",0.07
+"participant49","S10-203","C > A",0.81
+"participant49","S12-203","A",1
+"participant49","S12-203","A > C",0.36
+"participant49","S12-203","C",0.15
+"participant49","S12-203","C > A",1
+"participant49","S15-443","A",1
+"participant49","S15-443","A > C",1
+"participant49","S15-443","C",1
+"participant49","S15-443","C > A",1
+"participant49","S20-468","A",1
+"participant49","S20-468","A > C",0.74
+"participant49","S20-468","C",0.74
+"participant49","S20-468","C > A",1
+"participant49","S22-468","A",1
+"participant49","S22-468","A > C",1
+"participant49","S22-468","C",1
+"participant49","S22-468","C > A",1
+"participant49","S30-805","A",0.71
+"participant49","S30-805","A > C",0.71
+"participant49","S30-805","C",0.7
+"participant49","S30-805","C > A",0.77
+"participant49","S30-805-dep","A",0.65
+"participant49","S30-805-dep","A > C",0
+"participant49","S30-805-dep","C",0
+"participant49","S30-805-dep","C > A",0.35
+"participant49","S32-806","A",0.83
+"participant49","S32-806","A > C",1
+"participant49","S32-806","C",0.71
+"participant49","S32-806","C > A",1
+"participant49","S34-806","A",0.19
+"participant49","S34-806","A > C",0.14
+"participant49","S34-806","C",0.68
+"participant49","S34-806","C > A",0.71
+"participant49","S42-806","A",0
+"participant49","S42-806","A > C",1
+"participant49","S42-806","C",0
+"participant49","S42-806","C > A",1
+"participant49","S44-806","A",0
+"participant49","S44-806","A > C",0.66
+"participant49","S44-806","C",0
+"participant49","S44-806","C > A",1
+"participant49","S54-806","A",0
+"participant49","S54-806","A > C",0.87
+"participant49","S54-806","C",0
+"participant49","S54-806","C > A",0
+"participant49","S55-1006","A",0
+"participant49","S55-1006","A > C",1
+"participant49","S55-1006","C",1
+"participant49","S55-1006","C > A",0
+"participant49","S57-1007","A",0.08
+"participant49","S57-1007","A > C",1
+"participant49","S57-1007","C",1
+"participant49","S57-1007","C > A",0.07
+"participant49","S59-1007","A",0
+"participant49","S59-1007","A > C",1
+"participant49","S59-1007","C",1
+"participant49","S59-1007","C > A",0
+"participant49","S7-130","A",1
+"participant49","S7-130","A > C",1
+"participant49","S7-130","C",1
+"participant49","S7-130","C > A",1
+"participant49","S7-130-dep","A",0.96
+"participant49","S7-130-dep","A > C",1
+"participant49","S7-130-dep","C",0.93
+"participant49","S7-130-dep","C > A",1
+"participant49","S83-1609","A",1
+"participant49","S83-1609","A > C",1
+"participant49","S83-1609","C",1
+"participant49","S83-1609","C > A",1
+"participant49","S89-1642","A",1
+"participant49","S89-1642","A > C",1
+"participant49","S89-1642","C",1
+"participant49","S89-1642","C > A",1
+"participant49","S89-1642-dep","A",1
+"participant49","S89-1642-dep","A > C",1
+"participant49","S89-1642-dep","C",1
+"participant49","S89-1642-dep","C > A",1
+"participant49","S93-1674","A",1
+"participant49","S93-1674","A > C",1
+"participant49","S93-1674","C",1
+"participant49","S93-1674","C > A",1
+"participant49","S97-1674","A",1
+"participant49","S97-1674","A > C",1
+"participant49","S97-1674","C",1
+"participant49","S97-1674","C > A",1
+"participant5","S1-121","A",0.72
+"participant5","S1-121","C",0.67
+"participant5","S10-203","A",1
+"participant5","S10-203","C",0
+"participant5","S12-203","A",1
+"participant5","S12-203","C",0
+"participant5","S15-443","A",1
+"participant5","S15-443","C",1
+"participant5","S20-468","A",0.78
+"participant5","S20-468","C",0.36
+"participant5","S22-468","A",1
+"participant5","S22-468","C",1
+"participant5","S30-805-dep","A",0
+"participant5","S30-805-dep","C",0
+"participant5","S42-806","A",0.95
+"participant5","S42-806","C",0.86
+"participant5","S55-1006","A",0
+"participant5","S55-1006","C",1
+"participant5","S57-1007","A",0
+"participant5","S57-1007","C",1
+"participant5","S59-1007","A",0
+"participant5","S59-1007","C",1
+"participant5","S63-1039","A",0
+"participant5","S63-1039","C",1
+"participant5","S7-130","A",1
+"participant5","S7-130","C",1
+"participant5","S7-130-dep","A",1
+"participant5","S7-130-dep","C",1
+"participant5","S8-202","A",0.96
+"participant5","S8-202","C",0.19
+"participant5","S83-1609","A",0.99
+"participant5","S83-1609","C",0.89
+"participant5","S89-1642","A",1
+"participant5","S89-1642","C",1
+"participant5","S89-1642-dep","A",1
+"participant5","S89-1642-dep","C",1
+"participant5","S93-1674","A",0.96
+"participant5","S93-1674","C",1
+"participant5","S97-1674","A",1
+"participant5","S97-1674","C",0.79
+"participant50","S1-121","A",1
+"participant50","S1-121","A > C",0.82
+"participant50","S1-121","C",0.96
+"participant50","S1-121","C > A",0.56
+"participant50","S10-203","A",1
+"participant50","S10-203","A > C",0.6
+"participant50","S10-203","C",0.93
+"participant50","S10-203","C > A",0.66
+"participant50","S12-203","A",0.84
+"participant50","S12-203","A > C",0.09
+"participant50","S12-203","C",0.66
+"participant50","S12-203","C > A",0.24
+"participant50","S15-443","A",0.71
+"participant50","S15-443","A > C",0.14
+"participant50","S15-443","C",0.82
+"participant50","S15-443","C > A",0.23
+"participant50","S20-468","A",0.77
+"participant50","S20-468","A > C",0.02
+"participant50","S20-468","C",0.84
+"participant50","S20-468","C > A",0.08
+"participant50","S22-468","A",0.76
+"participant50","S22-468","A > C",0.15
+"participant50","S22-468","C",0.82
+"participant50","S22-468","C > A",0.07
+"participant50","S30-805","A",1
+"participant50","S30-805","A > C",0
+"participant50","S30-805","C",1
+"participant50","S30-805","C > A",0.03
+"participant50","S30-805-dep","A",0.13
+"participant50","S30-805-dep","A > C",0.06
+"participant50","S30-805-dep","C",0
+"participant50","S30-805-dep","C > A",0.06
+"participant50","S32-806","A",0.7
+"participant50","S32-806","A > C",0.39
+"participant50","S32-806","C",0.7
+"participant50","S32-806","C > A",0.28
+"participant50","S34-806","A",0.72
+"participant50","S34-806","A > C",0.19
+"participant50","S34-806","C",0.09
+"participant50","S34-806","C > A",0.78
+"participant50","S42-806","A",1
+"participant50","S42-806","A > C",0.96
+"participant50","S42-806","C",1
+"participant50","S42-806","C > A",0.98
+"participant50","S44-806","A",0.81
+"participant50","S44-806","A > C",0.22
+"participant50","S44-806","C",0.1
+"participant50","S44-806","C > A",0.93
+"participant50","S54-806","A",0.21
+"participant50","S54-806","A > C",1
+"participant50","S54-806","C",0.73
+"participant50","S54-806","C > A",0.21
+"participant50","S55-1006","A",0.86
+"participant50","S55-1006","A > C",0.13
+"participant50","S55-1006","C",0.79
+"participant50","S55-1006","C > A",0.08
+"participant50","S57-1007","A",0.98
+"participant50","S57-1007","A > C",1
+"participant50","S57-1007","C",1
+"participant50","S57-1007","C > A",1
+"participant50","S59-1007","A",0.23
+"participant50","S59-1007","A > C",0.76
+"participant50","S59-1007","C",0.65
+"participant50","S59-1007","C > A",0
+"participant50","S63-1039","A",0.75
+"participant50","S63-1039","A > C",0.46
+"participant50","S63-1039","C",0.8
+"participant50","S63-1039","C > A",0.53
+"participant50","S7-130","A",0.98
+"participant50","S7-130","A > C",1
+"participant50","S7-130","C",1
+"participant50","S7-130","C > A",1
+"participant50","S7-130-dep","A",0.17
+"participant50","S7-130-dep","A > C",0.24
+"participant50","S7-130-dep","C",0.18
+"participant50","S7-130-dep","C > A",0.81
+"participant50","S8-202","A",0.78
+"participant50","S8-202","A > C",0.12
+"participant50","S8-202","C",0.74
+"participant50","S8-202","C > A",0.15
+"participant50","S83-1609","A",0.86
+"participant50","S83-1609","A > C",0.97
+"participant50","S83-1609","C",0.91
+"participant50","S83-1609","C > A",0.95
+"participant50","S89-1642","A",0.83
+"participant50","S89-1642","A > C",0.06
+"participant50","S89-1642","C",0.84
+"participant50","S89-1642","C > A",0.07
+"participant50","S89-1642-dep","A",0.85
+"participant50","S89-1642-dep","A > C",0.9
+"participant50","S89-1642-dep","C",0.98
+"participant50","S89-1642-dep","C > A",0.91
+"participant50","S93-1674","A",0.86
+"participant50","S93-1674","A > C",0.11
+"participant50","S93-1674","C",0.71
+"participant50","S93-1674","C > A",0.15
+"participant50","S97-1674","A",1
+"participant50","S97-1674","A > C",1
+"participant50","S97-1674","C",1
+"participant50","S97-1674","C > A",1
+"participant6","S1-121","A",1
+"participant6","S1-121","A > C",0.82
+"participant6","S1-121","C",1
+"participant6","S1-121","C > A",0.85
+"participant6","S10-203","A",0.79
+"participant6","S10-203","A > C",0.26
+"participant6","S10-203","C",0.01
+"participant6","S10-203","C > A",0.68
+"participant6","S12-203","A",0.7
+"participant6","S12-203","A > C",0.15
+"participant6","S12-203","C",0.15
+"participant6","S12-203","C > A",1
+"participant6","S15-443","A",0.81
+"participant6","S15-443","A > C",0.22
+"participant6","S15-443","C",0.7
+"participant6","S15-443","C > A",0.36
+"participant6","S20-468","A",1
+"participant6","S20-468","A > C",0.76
+"participant6","S20-468","C",0.28
+"participant6","S20-468","C > A",1
+"participant6","S22-468","A",0.86
+"participant6","S22-468","A > C",0.25
+"participant6","S22-468","C",0.29
+"participant6","S22-468","C > A",1
+"participant6","S30-805","A",0.14
+"participant6","S30-805","A > C",1
+"participant6","S30-805","C",0.17
+"participant6","S30-805","C > A",1
+"participant6","S30-805-dep","A",0.64
+"participant6","S30-805-dep","A > C",0
+"participant6","S30-805-dep","C",0
+"participant6","S30-805-dep","C > A",0.16
+"participant6","S32-806","A",0.32
+"participant6","S32-806","A > C",0.93
+"participant6","S32-806","C",0.36
+"participant6","S32-806","C > A",0.82
+"participant6","S34-806","A",0.08
+"participant6","S34-806","A > C",0.91
+"participant6","S34-806","C",0.73
+"participant6","S34-806","C > A",0.21
+"participant6","S42-806","A",0.69
+"participant6","S42-806","A > C",1
+"participant6","S42-806","C",0.66
+"participant6","S42-806","C > A",1
+"participant6","S44-806","A",0.71
+"participant6","S44-806","A > C",0.15
+"participant6","S44-806","C",0.23
+"participant6","S44-806","C > A",1
+"participant6","S54-806","A",0.28
+"participant6","S54-806","A > C",0.84
+"participant6","S54-806","C",0.86
+"participant6","S54-806","C > A",0.25
+"participant6","S55-1006","A",0.3
+"participant6","S55-1006","A > C",1
+"participant6","S55-1006","C",0.86
+"participant6","S55-1006","C > A",0.11
+"participant6","S57-1007","A",0.21
+"participant6","S57-1007","A > C",1
+"participant6","S57-1007","C",0.84
+"participant6","S57-1007","C > A",0.13
+"participant6","S59-1007","A",0.14
+"participant6","S59-1007","A > C",1
+"participant6","S59-1007","C",1
+"participant6","S59-1007","C > A",0.09
+"participant6","S63-1039","A",0.12
+"participant6","S63-1039","A > C",0
+"participant6","S63-1039","C",0.74
+"participant6","S63-1039","C > A",0.13
+"participant6","S7-130","A",0.86
+"participant6","S7-130","A > C",1
+"participant6","S7-130","C",0.79
+"participant6","S7-130","C > A",1
+"participant6","S7-130-dep","A",1
+"participant6","S7-130-dep","A > C",1
+"participant6","S7-130-dep","C",1
+"participant6","S7-130-dep","C > A",1
+"participant6","S8-202","A",0.9
+"participant6","S8-202","A > C",0.28
+"participant6","S8-202","C",0.22
+"participant6","S8-202","C > A",0.87
+"participant6","S83-1609","A",1
+"participant6","S83-1609","A > C",0.73
+"participant6","S83-1609","C",1
+"participant6","S83-1609","C > A",0.78
+"participant6","S89-1642","A",0.78
+"participant6","S89-1642","A > C",0.22
+"participant6","S89-1642","C",0.51
+"participant6","S89-1642","C > A",0.18
+"participant6","S89-1642-dep","A",1
+"participant6","S89-1642-dep","A > C",1
+"participant6","S89-1642-dep","C",0.72
+"participant6","S89-1642-dep","C > A",1
+"participant6","S93-1674","A",0.68
+"participant6","S93-1674","A > C",0.87
+"participant6","S93-1674","C",1
+"participant6","S93-1674","C > A",0.27
+"participant6","S97-1674","A",1
+"participant6","S97-1674","A > C",1
+"participant6","S97-1674","C",0.63
+"participant6","S97-1674","C > A",1
+"participant7","S1-121","A",0.87
+"participant7","S1-121","A > C",0.67
+"participant7","S1-121","C",0.77
+"participant7","S1-121","C > A",0.93
+"participant7","S10-203","A",0.87
+"participant7","S10-203","A > C",0.59
+"participant7","S10-203","C",0.41
+"participant7","S10-203","C > A",0.97
+"participant7","S12-203","A",0.81
+"participant7","S12-203","A > C",0.64
+"participant7","S12-203","C",0.57
+"participant7","S12-203","C > A",1
+"participant7","S15-443","A",0.99
+"participant7","S15-443","A > C",0.85
+"participant7","S15-443","C",0.71
+"participant7","S15-443","C > A",1
+"participant7","S20-468","A",0.94
+"participant7","S20-468","A > C",0.6
+"participant7","S20-468","C",0.58
+"participant7","S20-468","C > A",0.92
+"participant7","S22-468","A",0.77
+"participant7","S22-468","A > C",0.24
+"participant7","S22-468","C",0.32
+"participant7","S22-468","C > A",0.98
+"participant7","S30-805","A",0.55
+"participant7","S30-805","A > C",0.91
+"participant7","S30-805","C",0.58
+"participant7","S30-805","C > A",0.55
+"participant7","S30-805-dep","A",0.97
+"participant7","S30-805-dep","A > C",0.61
+"participant7","S30-805-dep","C",0.64
+"participant7","S30-805-dep","C > A",1
+"participant7","S32-806","A",0.62
+"participant7","S32-806","A > C",0.93
+"participant7","S32-806","C",0.68
+"participant7","S32-806","C > A",0.59
+"participant7","S34-806","A",0.73
+"participant7","S34-806","A > C",0.34
+"participant7","S34-806","C",0.72
+"participant7","S34-806","C > A",0.79
+"participant7","S42-806","A",1
+"participant7","S42-806","A > C",0.91
+"participant7","S42-806","C",0.93
+"participant7","S42-806","C > A",1
+"participant7","S44-806","A",1
+"participant7","S44-806","A > C",0.87
+"participant7","S44-806","C",0.73
+"participant7","S44-806","C > A",1
+"participant7","S54-806","A",0.6
+"participant7","S54-806","A > C",0.98
+"participant7","S54-806","C",0.98
+"participant7","S54-806","C > A",0.59
+"participant7","S55-1006","A",0.18
+"participant7","S55-1006","A > C",0.85
+"participant7","S55-1006","C",0.63
+"participant7","S55-1006","C > A",0.29
+"participant7","S57-1007","A",0.63
+"participant7","S57-1007","A > C",1
+"participant7","S57-1007","C",0.88
+"participant7","S57-1007","C > A",0.6
+"participant7","S59-1007","A",0.59
+"participant7","S59-1007","A > C",1
+"participant7","S59-1007","C",0.96
+"participant7","S59-1007","C > A",0.6
+"participant7","S63-1039","A",0.9
+"participant7","S63-1039","A > C",0.9
+"participant7","S63-1039","C",0.79
+"participant7","S63-1039","C > A",0.93
+"participant7","S7-130","A",0.98
+"participant7","S7-130","A > C",0.98
+"participant7","S7-130","C",1
+"participant7","S7-130","C > A",0.95
+"participant7","S7-130-dep","A",1
+"participant7","S7-130-dep","A > C",1
+"participant7","S7-130-dep","C",0.86
+"participant7","S7-130-dep","C > A",0.99
+"participant7","S8-202","A",0.98
+"participant7","S8-202","A > C",0.61
+"participant7","S8-202","C",0.37
+"participant7","S8-202","C > A",0.95
+"participant7","S83-1609","A",0.79
+"participant7","S83-1609","A > C",0.96
+"participant7","S83-1609","C",0.83
+"participant7","S83-1609","C > A",0.93
+"participant7","S89-1642","A",0.91
+"participant7","S89-1642","A > C",0.95
+"participant7","S89-1642","C",0.93
+"participant7","S89-1642","C > A",0.86
+"participant7","S89-1642-dep","A",1
+"participant7","S89-1642-dep","A > C",1
+"participant7","S89-1642-dep","C",1
+"participant7","S89-1642-dep","C > A",1
+"participant7","S93-1674","A",0.59
+"participant7","S93-1674","A > C",0.95
+"participant7","S93-1674","C",0.84
+"participant7","S93-1674","C > A",0.61
+"participant7","S97-1674","A",0.91
+"participant7","S97-1674","A > C",0.99
+"participant7","S97-1674","C",0.85
+"participant7","S97-1674","C > A",1
+"participant8","S1-121","A",0.68
+"participant8","S1-121","A > C",0.67
+"participant8","S1-121","C",0.62
+"participant8","S1-121","C > A",0.69
+"participant8","S10-203","A",0.84
+"participant8","S10-203","A > C",0
+"participant8","S10-203","C",0.14
+"participant8","S10-203","C > A",0.21
+"participant8","S12-203","A",1
+"participant8","S12-203","A > C",0.13
+"participant8","S12-203","C",0.14
+"participant8","S12-203","C > A",1
+"participant8","S15-443","A",0.84
+"participant8","S15-443","A > C",0.66
+"participant8","S15-443","C",0.6
+"participant8","S15-443","C > A",0.88
+"participant8","S20-468","A",0.7
+"participant8","S20-468","A > C",0.16
+"participant8","S20-468","C",0.57
+"participant8","S20-468","C > A",0.28
+"participant8","S22-468","A",1
+"participant8","S22-468","A > C",0.73
+"participant8","S22-468","C",0.83
+"participant8","S22-468","C > A",1
+"participant8","S30-805","A",0.16
+"participant8","S30-805","A > C",0.98
+"participant8","S30-805","C",0.22
+"participant8","S30-805","C > A",0.91
+"participant8","S30-805-dep","A",0
+"participant8","S30-805-dep","A > C",0.14
+"participant8","S30-805-dep","C",0
+"participant8","S30-805-dep","C > A",0.79
+"participant8","S32-806","A",0.08
+"participant8","S32-806","A > C",0.79
+"participant8","S32-806","C",0.07
+"participant8","S32-806","C > A",0.81
+"participant8","S34-806","A",0.07
+"participant8","S34-806","A > C",0.96
+"participant8","S34-806","C",0.07
+"participant8","S34-806","C > A",0.1
+"participant8","S42-806","A",0
+"participant8","S42-806","A > C",0.86
+"participant8","S42-806","C",0
+"participant8","S42-806","C > A",1
+"participant8","S44-806","A",0.46
+"participant8","S44-806","A > C",0.3
+"participant8","S44-806","C",0
+"participant8","S44-806","C > A",0.91
+"participant8","S54-806","A",0.01
+"participant8","S54-806","A > C",0.92
+"participant8","S54-806","C",0
+"participant8","S54-806","C > A",0.11
+"participant8","S55-1006","A",0.19
+"participant8","S55-1006","A > C",1
+"participant8","S55-1006","C",0.68
+"participant8","S55-1006","C > A",0.33
+"participant8","S57-1007","A",0.29
+"participant8","S57-1007","A > C",1
+"participant8","S57-1007","C",0.93
+"participant8","S57-1007","C > A",0.29
+"participant8","S59-1007","A",0.06
+"participant8","S59-1007","A > C",0.88
+"participant8","S59-1007","C",0.78
+"participant8","S59-1007","C > A",0.31
+"participant8","S63-1039","A",0
+"participant8","S63-1039","A > C",0
+"participant8","S63-1039","C",0.12
+"participant8","S63-1039","C > A",0
+"participant8","S7-130","A",1
+"participant8","S7-130","A > C",1
+"participant8","S7-130","C",1
+"participant8","S7-130","C > A",1
+"participant8","S7-130-dep","A",0.27
+"participant8","S7-130-dep","A > C",0.93
+"participant8","S7-130-dep","C",0.21
+"participant8","S7-130-dep","C > A",0.86
+"participant8","S8-202","A",0.64
+"participant8","S8-202","A > C",0.32
+"participant8","S8-202","C",0.32
+"participant8","S8-202","C > A",0.33
+"participant8","S83-1609","A",0.69
+"participant8","S83-1609","A > C",0.58
+"participant8","S83-1609","C",0.62
+"participant8","S83-1609","C > A",0.38
+"participant8","S89-1642","A",0.38
+"participant8","S89-1642","A > C",1
+"participant8","S89-1642","C",0.18
+"participant8","S89-1642","C > A",1
+"participant8","S89-1642-dep","A",0.7
+"participant8","S89-1642-dep","A > C",0.81
+"participant8","S89-1642-dep","C",0.28
+"participant8","S89-1642-dep","C > A",1
+"participant8","S93-1674","A",0.63
+"participant8","S93-1674","A > C",0.18
+"participant8","S93-1674","C",0.08
+"participant8","S93-1674","C > A",0.7
+"participant8","S97-1674","A",1
+"participant8","S97-1674","A > C",0.74
+"participant8","S97-1674","C",0.57
+"participant8","S97-1674","C > A",0.65
+"participant9","S1-121","A",1
+"participant9","S1-121","A > C",1
+"participant9","S1-121","C",1
+"participant9","S1-121","C > A",1
+"participant9","S10-203","A",1
+"participant9","S10-203","A > C",0
+"participant9","S10-203","C",0
+"participant9","S10-203","C > A",0
+"participant9","S12-203","A",1
+"participant9","S12-203","A > C",0
+"participant9","S12-203","C",0
+"participant9","S12-203","C > A",0
+"participant9","S15-443","A",1
+"participant9","S15-443","A > C",0
+"participant9","S15-443","C",0
+"participant9","S15-443","C > A",0
+"participant9","S20-468","A",1
+"participant9","S20-468","A > C",1
+"participant9","S20-468","C",1
+"participant9","S20-468","C > A",1
+"participant9","S22-468","A",0.78
+"participant9","S22-468","A > C",0.64
+"participant9","S22-468","C",0.8
+"participant9","S22-468","C > A",0.71
+"participant9","S30-805","A",1
+"participant9","S30-805","A > C",1
+"participant9","S30-805","C",1
+"participant9","S30-805","C > A",1
+"participant9","S32-806","A",1
+"participant9","S32-806","A > C",1
+"participant9","S32-806","C",1
+"participant9","S32-806","C > A",1
+"participant9","S42-806","A",1
+"participant9","S42-806","A > C",1
+"participant9","S42-806","C",1
+"participant9","S42-806","C > A",1
+"participant9","S44-806","A",0.32
+"participant9","S44-806","A > C",0.31
+"participant9","S44-806","C",0
+"participant9","S44-806","C > A",0
+"participant9","S55-1006","A",1
+"participant9","S55-1006","A > C",0
+"participant9","S55-1006","C",0
+"participant9","S55-1006","C > A",0
+"participant9","S57-1007","A",0
+"participant9","S57-1007","A > C",0
+"participant9","S57-1007","C",0.76
+"participant9","S57-1007","C > A",0
+"participant9","S59-1007","A",0
+"participant9","S59-1007","A > C",0
+"participant9","S59-1007","C",0.9
+"participant9","S59-1007","C > A",0
+"participant9","S63-1039","A",0
+"participant9","S63-1039","A > C",0
+"participant9","S63-1039","C",1
+"participant9","S63-1039","C > A",0
+"participant9","S7-130","A",1
+"participant9","S7-130","A > C",1
+"participant9","S7-130","C",1
+"participant9","S7-130","C > A",1
+"participant9","S7-130-dep","A",1
+"participant9","S7-130-dep","A > C",1
+"participant9","S7-130-dep","C",1
+"participant9","S7-130-dep","C > A",1
+"participant9","S8-202","A",1
+"participant9","S8-202","A > C",0
+"participant9","S8-202","C",0
+"participant9","S8-202","C > A",0
+"participant9","S83-1609","A",0.76
+"participant9","S83-1609","A > C",0.77
+"participant9","S83-1609","C",0.77
+"participant9","S83-1609","C > A",0.73
+"participant9","S89-1642","A",1
+"participant9","S89-1642","A > C",1
+"participant9","S89-1642","C",1
+"participant9","S89-1642","C > A",1
+"participant9","S89-1642-dep","A",1
+"participant9","S89-1642-dep","A > C",0.9
+"participant9","S89-1642-dep","C",0.89
+"participant9","S89-1642-dep","C > A",0.93
+"participant9","S93-1674","A",0.11
+"participant9","S93-1674","A > C",0.09
+"participant9","S93-1674","C",0.1
+"participant9","S93-1674","C > A",0.1
+"participant9","S97-1674","A",1
+"participant9","S97-1674","A > C",1
+"participant9","S97-1674","C",1
+"participant9","S97-1674","C > A",1

@@ -1,0 +1,216 @@
+---
+title: "conditionalsRSA-rwebppl"
+author: "Britta Grusdt"
+date: "2/3/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(forcats)
+library(ggplot2)
+library(ggthemes)
+library(here)
+library(rwebppl)
+library(tidyverse)
+source(here("utils.R"))
+source(here("experiments", "blocksworld-main", "analysis", "model-utils.R"))
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+TARGET_DIR <- here("experiments", "blocksworld-main", "results", "model")
+dir.create(TARGET_DIR, recursive = TRUE, showWarnings = FALSE)
+```
+
+# Behavioral data from experiments
+
+```{r eval=FALSE, message=FALSE}
+fn <- here("experiments", "blocksworld-prior", "results", "data-processed",
+           "tables_experimental.csv")
+dat.experiment1 <- read_csv(fn)
+
+fn <- here("experiments", "blocksworld-main", "results", "data-processed", 
+           "data_experimental_means.csv")
+dat.experiment2.means <- read_csv(fn) %>%
+  mutate(utterance=factor(utterance)) %>%
+  add_column(produced_by = "human")
+
+
+# dat.experiment2.normalized <- dat.experiment2.means %>%
+#   group_by(stimulus_id) %>%
+#   mutate(mean=mean/sum(mean))
+# stopifnot(dat.experiment2.normalized %>% filter(is.infinite(mean)) %>% nrow()==0);
+```
+
+# setup to run model
+
+```{r}
+dat.to_wppl <- list()
+tables_to_wppl <- prepare_tables(dat.experiment1)
+
+dat.to_wppl$stimulus_ids = tables_to_wppl %>% pull(stimulus_id) %>% unique()
+dat.to_wppl$tables <- tables_to_wppl
+
+# check for utterances with highest theta
+# (are there any that are not covered by states?)
+dat.utts <- pids_to_cover_utts(dat.experiment1, 0.9)
+stopifnot(dat.utts$utts_not_covered %>% length == 0);
+dat.to_wppl$utterances <- dat.utts$utts_covered
+# dat.to_wppl$par_dirichlet = read_csv("results-dirichlet.csv") %>%
+#                           add_column(alpha=list(alpha_1, alpha_2, alpha_3, alpha_4))
+#                       nest("alpha_1", "alpha_2", "alpha_3", "alpha_4")  %>%
+#                       select(stimulus_id, alpha) %>%
+#                       pivot_wider(names_from = stimulus_id, values_from = alpha) %>% unnest()
+
+```
+
+# RSA model
+Mean squared Errors over grid
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+alphas <- c(7)
+thetas <- c(0, 0.1, 0.7, 0.8)
+cost_conditional <- c(0.25, 0.4)
+cost_other <- c(5, 8, 10)
+sweep <- expand.grid(alpha=alphas, theta=thetas, cost_if=cost_conditional,
+                     cost_other=cost_other) %>% transpose() 
+
+now <- str_replace_all(Sys.time(), "[\\s+:-]", "_")
+target_dir <- paste(TARGET_DIR, "mse-grid", sep=.Platform$file.sep)
+dir.create(target_dir, recursive = TRUE, showWarnings = FALSE)
+
+for(idx_run in seq(1, length(sweep), by = 1)) {
+  if(idx_run %% 5 == 0 ){
+    print(paste('starting run', idx_run))
+  }
+  dat.to_wppl$alpha <- sweep[[idx_run]]$alpha
+  dat.to_wppl$theta <- sweep[[idx_run]]$theta
+  dat.to_wppl$cost_conditional <- sweep[[idx_run]]$cost_if
+  dat.to_wppl$cost_and <- sweep[[idx_run]]$cost_other
+  dat.to_wppl$cost_likely <- sweep[[idx_run]]$cost_other
+  dat.to_wppl$cost_neg <- sweep[[idx_run]]$cost_other
+  
+  model_predictions <- run_model(dat.to_wppl)
+  model <- model_predictions$avg
+  # use UNnormalized participant ratings for MSE!
+  mse <- mse_model_human(dat.experiment2.means, model)
+  
+  save_predictions(model %>% add_column(run=idx_run),
+                   target_dir, "results_model", append_to_file=TRUE)
+  save_params(dat.to_wppl, target_dir, idx_run, mse, append_to_file=TRUE)
+}
+```
+
+## Notes after several runs
+
+- The higher the cost for other utterances than conditional, the better; it
+shouldn't be 0. Around 0.25 seems good
+
+- theta around 0.6-0.7 seems to be good, but still good results for very low
+theta of 0.25 and even for theta = 0
+
+- best result with theta=0.6 with cost_conditional=0.1
+
+- alpha doesn't seem to have a large influence on results
+
+
+# Look at results of parameter grid
+
+```{r, message=FALSE}
+params <- read_csv(paste(target_dir,"parameters.csv",sep=.Platform$file.sep))%>%
+  arrange(MSE) %>% select(-run) %>%
+  mutate(alpha=factor(alpha), theta=factor(theta),
+         cost_conditional=factor(cost_conditional),
+         cost_other=factor(cost_likely)) %>%
+  select(-cost_likely, -cost_neg, -cost_and)
+
+params
+
+p <- params %>% 
+  ggplot(aes(x=alpha, y=MSE)) + geom_point(aes(color=cost_other, shape=cost_conditional)) +
+  facet_grid(theta~cost_conditional, scales = "free")
+p
+ggsave(paste(target_dir, "MSE.png", sep=.Platform$file.sep), p,width=7,height=6)
+
+p <- params %>% 
+  ggplot(aes(x=alpha, y=MSE)) +
+  geom_bar(aes(fill=theta), stat="identity", position="dodge") +
+  facet_wrap(~cost_conditional, scales = "free") +
+  theme(legend.position="bottom")
+p
+
+ggsave(paste(target_dir, "MSE-bars.png", sep=.Platform$file.sep), p, width=10, height=6)
+
+# BEST n
+n <-10
+params %>% slice(1:n) %>% 
+  # filter(MSE < 0.0025 - 0.0025/2) %>% 
+  ggplot(aes(x=alpha, y=MSE)) +
+  geom_point(aes(color=theta, shape=cost_conditional), size=2.5, alpha = 0.75) +
+  ggtitle(paste("Best", n))
+# WORST 10
+params %>% slice(tail(row_number(), n)) %>% 
+  # filter(MSE < 0.0025 - 0.0025/2) %>% 
+  ggplot(aes(x=alpha, y=MSE)) + geom_point(aes(color=theta, shape=cost_conditional), size=2.5) +
+  ggtitle(paste("Worst", n))
+
+```
+
+# optim
+
+```{r, message=FALSE, warning=FALSE}
+  # params <- read_csv(paste("../results/model/", now, "/parameters.csv", sep="")) %>%
+  #   arrange(MSE)
+params <- tibble(alpha=3, theta=0.7, cost_conditional=0.1, cost_other=10)
+now <- str_replace_all(Sys.time(), "[\\s+:-]", "_")
+target_dir <- paste(TARGET_DIR, "/optim/", now, "/", sep="")
+dir.create(target_dir, showWarnings = FALSE, recursive=TRUE)
+fit = optim(
+    # initial parameter values
+    par = c(params$alpha, params$theta, params$cost_conditional),
+    # function to optimize
+    fn = function(par) {
+      dat.to_wppl$alpha <- par[1]
+      dat.to_wppl$theta <- par[2]
+      dat.to_wppl$cost_conditional <- par[3]
+      dat.to_wppl$cost_and <- params$cost_other
+      dat.to_wppl$cost_likely <- params$cost_other
+      dat.to_wppl$cost_neg <- params$cost_other
+      model_predictions <- run_model(dat.to_wppl)
+      model <- model_predictions$avg
+      # return(mse_model_human(dat.experiment2.means, model))
+      return(-cor_model_human(dat.experiment2.means, model))
+    },
+    method="L-BFGS-B",
+    lower=c(1, 0, 0, 0),
+    upper=c(Inf, 0.95, Inf, Inf)
+  )
+fn <- paste(target_dir, "optim.csv", sep=.Platform$file.sep)
+write.table(tibble(alpha=params$alpha, theta=params$theta,
+                   cost_conditional=params$cost_conditional,
+                   cost_other=params$cost_other,
+                   optim_val=fit$value,
+                   optim_alpha=fit$par[1], optim_theta=fit$par[2],
+                   optim_cost_if=fit$par[3],
+                   optim_cost_other=fit$par[4]),
+            file = fn, row.names=FALSE, sep = ",", append = TRUE,
+            col.names=!file.exists(fn))
+write_rds(fit, paste(target_dir, "optim.rds", sep=.Platform$file.sep))
+
+```
+
+Collect params from all optim-runs
+
+```{r, include=FALSE}
+folders <- c("2020_02_15_09_06_47", "2020_02_15_08_05_01", "2020_02_15_00_15_21")
+
+params <- tibble()
+for(fn in folders){
+  p <- read_csv(paste(TARGET_DIR, "optim", fn, "optim.csv", sep=.Platform$file.sep))
+  params <- bind_rows(params, p)
+}
+
+```
+
+
+

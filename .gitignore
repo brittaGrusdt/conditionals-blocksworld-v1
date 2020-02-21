@@ -1,0 +1,14 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+
+.DS_Store
+
+notes/
+
+.~lock.*.csv#
+*.dvi
+*.synctex.gz
+*.aux
+*.log

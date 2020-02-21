@@ -1,0 +1,294 @@
+---
+title: "R Notebook"
+output:
+  html_document:
+    df_print: paged
+---
+
+```{r, message = FALSE}
+library(here)
+library(tidyverse)
+source(here("utils.R"))
+source(here("experiments", "blocksworld-main", "analysis", "model-utils.R"))
+target_dir <- here("experiments", "blocksworld-main", "results", "data-raw")
+```
+
+Anonymize data once
+
+```{r}
+save_raw_without_prolific_id(target_dir, "results_13_blocksWorld-main_BG.csv",
+                             "13_blocksWorld-main_BG")
+```
+
+```{r}
+fn <- paste(target_dir, "results_anonymized_13_blocksWorld-main_BG.csv", 
+            sep=.Platform$file.sep)
+data <- preprocess_data(fn)
+# discard train data
+data <- data %>% filter(trial_name == "slider_main")
+nrow(data)
+
+STIMULI <- data %>% ungroup() %>% pull(stimulus_id) %>% unique()
+```
+
+## Statistics of data
+e.g. time, age, gender
+
+```{r}
+# duration
+df <- data %>% ungroup() %>% select(participant_id, timeSpent, age, gender,
+                                    utterance, response, stimulus_id) %>%
+  group_by(participant_id) %>% distinct()
+
+df %>%  ungroup() %>%  select(timeSpent, age, gender) %>%  distinct() %>%
+  summary()
+
+df <- data %>%
+  select(stimulus_id, participant_id, RT, utterance) %>% 
+  pivot_wider(names_from = utterance, values_from = RT) %>% 
+  pivot_longer(cols = c("b", "g", "bg", "gb"), names_to = "utterance",
+               values_to = "RT") %>% 
+  group_by(stimulus_id, utterance) %>% 
+  mutate(sd_rt=sd(RT), RT=mean(RT), RT=mean(RT)) %>% 
+  select(-participant_id) %>% 
+  distinct()
+
+p <- df %>% ggplot(aes(x=stimulus_id, y=RT, fill=utterance)) +
+  geom_bar(position="dodge", stat="identity") +
+  theme(legend.position="bottom", axis.text.x = element_text(angle=90)) +
+  ggtitle('Average Reaction Times per stimulus') +
+  geom_hline(aes(yintercept = mean(df$RT)))
+
+p
+
+
+```
+
+# Look at comments
+
+```{r}
+dat.comments <- data %>% ungroup() %>% select(comments, participant_id)
+dat.comments %>% select(comments) %>% unique()
+```
+
+```{r}
+c <- dat.comments %>% filter(str_detect(comments, "Initially.*")) %>% distinct() 
+pid <- c %>% pull(participant_id)
+c %>% pull(comments)
+```
+
+## Process data
+Account for different color-groups
+
+```{r}
+# match colors and blocks depending on color-group
+data_processed <- data %>%
+  group_by(participant_id, stimulus_id, color_group) %>% 
+  mutate(utterance =  case_when(color_group=="group1" & utterance=="b" ~ "A",
+                              color_group=="group1" & utterance=="g" ~ "C",
+                              color_group=="group1" & utterance=="bg" ~ "A > C",
+                              color_group=="group1" & utterance=="gb" ~ "C > A",
+                              color_group=="group2" & utterance=="b" ~ "C", 
+                              color_group=="group2" & utterance=="g" ~ "A",
+                              color_group=="group2" & utterance=="bg" ~ "C > A",
+                              color_group=="group2" & utterance=="gb" ~ "A > C"
+                              ),
+       utterance=factor(utterance, levels = c("A", "C", "A > C", "C > A")),
+       response = response/100) %>%
+  ungroup() %>% select(-color_group)
+```
+
+Discard irrelevant columns
+
+```{r}
+data_processed <- data_processed %>% select(-RT, -trial_name, -timeSpent,
+                                            -gender, -age, -utt_idx)
+```
+
+## Filter data
+Are there any unacceptable trials?
+
+```{r}
+# participants who didn't accept any utterance at all
+data_filtered <- data_processed %>% group_by(participant_id, trial_number) %>%
+  mutate(s=sum(response)) %>% filter(s!=0) %>% select(-s)
+
+nrow(data_filtered)
+```
+
+# Critical Trials
+Check for critical trials where minimal requirements are not fulfilled. 
+
+If at least one block clearly touches or clearly doesn't touch the ground, but
+participant put low/high probability on utterance "A/C will touch the ground",
+discard trial, in these cases participants cannot have been concentrated.
+To check this, use normalized data!
+
+Again, control trials seem to be necessary to avoid this.
+
+```{r}
+df <- data_filtered %>%
+  group_by(participant_id, stimulus_id) %>% 
+  filter(sum(response) != 0)
+nrow(df)
+
+data_normalized <- df %>% mutate(n=sum(response), response.norm=response/n) %>%
+  select(-response)
+```
+
+The following picture show the scenes for which requirements were specified.
+
+!["S12-203"](/home/britta/UNI/Osnabrueck/MA-project/conditionals-pilot/images/group1/S12-203.jpg)
+
+!["S22-468"](/home/britta/UNI/Osnabrueck/MA-project/conditionals-pilot/images/group1/S22-468.jpg)
+
+!["S30-805"](/home/britta/UNI/Osnabrueck/MA-project/conditionals-pilot/images/group1/S30-805.jpg)
+
+!["S32-806"](/home/britta/UNI/Osnabrueck/MA-project/conditionals-pilot/images/group1/S32-806.jpg)
+
+!["S57-1007"](/home/britta/UNI/Osnabrueck/MA-project/conditionals-pilot/images/group1/S57-1007.jpg)
+
+!["S7-130"](/home/britta/UNI/Osnabrueck/MA-project/conditionals-pilot/images/group1/S7-130.jpg)
+
+
+```{r, message = FALSE}
+fn <- "scenes_luh_annotations.csv"
+min.require <- read_csv(here("experiments", "stimuli", fn)) %>%
+  select(req.exp2.not.small, req.exp2.not.large, id) %>% 
+  filter((!is.na(req.exp2.not.small) | !is.na(req.exp2.not.large)))
+
+data_normalized_wide <- data_normalized %>%
+  select(-trial_number) %>% 
+  group_by(participant_id, stimulus_id) %>% 
+  pivot_wider(names_from = utterance, values_from = response.norm)
+
+check <- function(data_wide, stimulus){
+  req <- min.require %>% filter(id== (!!stimulus))
+  dat <- tibble()
+  if(nrow(req) != 0){
+    not_small <- req$`req.exp2.not.small`
+    not_large <- req$`req.exp2.not.large`
+    
+    dat <- data_wide %>% filter(stimulus_id==(!!stimulus)) 
+    if(!is.na(not_small)) {
+      if(str_detect(not_small, "A.*")){
+        dat <- dat %>% filter(A < 0.2)
+        if(not_small == "A_C"){
+          dat <- dat %>% filter(C < 0.2)
+        }
+      } 
+      dat <- dat %>% filter(C < 0.2)
+    }
+    if(!is.na(not_large)){
+      if(str_detect(not_large, "A.*")){
+        dat <- dat %>% filter(A > 0.8)
+        if(not_large == "A_C"){
+          dat <- dat %>% filter(C > 0.8)
+        }
+      } 
+      dat <- dat %>% filter(C > 0.8)
+    }
+  }
+  return(dat)
+}
+
+critical <- tibble()
+for (s in STIMULI){
+  t <- check(data_normalized_wide, s)
+  critical <- bind_rows(critical, t)
+}
+
+critical
+data_normalized <- anti_join(data_normalized_wide, critical) %>% 
+  pivot_longer(cols = c("A", "C", "A > C", "C > A"), names_to = "utterance",
+               values_to = "response")
+
+# undo normalization
+data_filtered <- data_normalized %>% mutate(response=response*n)
+nrow(data_filtered)
+```
+
+
+## Discard data if necessary
+
+Filter if something went wrong according to comments
+
+```{r}
+# filter if-trials for that participant
+data_filtered <- data_filtered %>%
+  filter(participant_id != pid | (utterance=="A" | utterance =="C"))
+
+data_filtered <- data_filtered %>%
+  select(-comments, -n) %>% 
+  ungroup() %>% 
+  mutate(utterance=factor(utterance)) %>% 
+  group_by(stimulus_id, participant_id) %>% 
+  arrange(participant_id, stimulus_id, utterance, response)
+
+nrow(data_filtered)
+nrow(data_filtered) / nrow(data)
+
+```
+
+# Save data
+
+```{r}
+dir_name <- here("experiments", "blocksworld-main", "results", "data-processed")
+dir.create(dir_name, showWarnings=FALSE, recursive = TRUE)
+
+save_to <- paste(dir_name, "data_experimental.csv", sep=.Platform$file.sep)
+write.table(data_filtered , file = save_to, sep = ",", row.names=FALSE)
+
+means <- data_filtered %>% group_by(stimulus_id, utterance) %>%
+  summarise(mean=mean(response))
+fn <- "data_experimental_means.csv"
+save_to <- paste(dir_name, fn, sep=.Platform$file.sep)
+write.table(means, file = save_to, sep = ",", row.names=FALSE)
+
+# Also save a normalized version of the data, such that all four responses
+# (slider values) sum up to 1.
+fn <- "data_experimental_normalized.csv"
+save_to <- paste(dir_name, fn, sep=.Platform$file.sep)
+write.table(data_normalized , file = save_to, sep = ",", row.names=FALSE)
+
+means <- data_normalized %>% group_by(stimulus_id, utterance) %>%
+  summarise(mean=mean(response))
+fn <- "data_experimental_normalized_means.csv"
+save_to <- paste(dir_name, fn, sep=.Platform$file.sep)
+write.table(means, file = save_to, sep = ",", row.names=FALSE)
+
+```
+
+# Plot the data
+
+```{r}
+labels <- c(`A > C`="If blue, green", A = "Blue will ttg", C="Green will ttg",
+            `C > A` = "If green, blue")
+dir_name <- here("experiments", "blocksworld-main", "results", "plots")
+dir.create(dir_name, showWarnings=FALSE, recursive = TRUE)
+for (s in STIMULI){
+  df <- data_filtered %>% filter(stimulus_id == s) 
+  df_means <- df %>% group_by(utterance) %>%
+    summarise(m=mean(response), med=median(response))
+  p <- df  %>% 
+    ggplot(aes(x=factor(0), y=response, fill=utterance)) +
+    geom_violin(alpha=0.5) +
+    geom_jitter(width = 0.2, alpha=0.5) + 
+    geom_point(data=df_means,  mapping=aes(x = factor(0), y = m), col="red") +
+    geom_point(data=df_means,  mapping=aes(x=factor(0), y=med), col="yellow") +
+
+    coord_flip() +
+    labs(y="", x="") + 
+    theme_classic() +
+    
+    facet_wrap(~utterance, labeller = labeller(utterance=labels)) + 
+    # ggtitle(s) +
+    theme(legend.position = "none", text = element_text(size=20),
+          axis.text.y=element_blank(), axis.ticks.y =element_blank(),
+          panel.spacing = unit(2, "lines"))
+  fn <- paste("responses-", s, ".jpg", sep="")
+  ggsave(paste(dir_name, fn, sep=.Platform$file.sep), p, width=5, height=4)
+  print(p)
+}
+```
+

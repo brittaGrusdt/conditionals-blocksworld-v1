@@ -1,0 +1,7 @@
+"id","pa","pc","pc_given_a","pa_given_c","dependence.c","dependence.a"
+"S7-130","high","high","high","high",0,0
+"S8-202","high","low","low","low",0,2
+"S12-203","high","low","low","high",0,0
+"S30-805","low","low","low","low",0,0
+"S34-806","low","low","low","high",0,2
+"S54-806","low","low","high","high",2,2

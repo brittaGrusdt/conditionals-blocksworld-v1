@@ -1,0 +1,351 @@
+---
+title: "Experiment 1 - Data Processing"
+output:
+  html_document:
+    df_print: paged
+---
+
+```{r, message = FALSE}
+library(here)
+library(tidyverse)
+source(here("utils.R"))
+target_dir <- here("experiments", "blocksworld-prior", "results", "data-raw")
+```
+
+Anonymize data once
+
+```{r, include = FALSE}
+# save_raw_without_prolific_id(target_dir, "results_12_blocksworld-prior_BG.csv",
+#                              "12_blocksworld-prior_BG")
+```
+
+```{r}
+data_path <- here("experiments", "blocksworld-prior", "results", "data-raw",
+                  "results_anonymized_12_blocksworld-prior_BG.csv");
+data <- preprocess_data(data_path)
+
+# discard training trials
+data <- data %>% filter(trial_name == "slider_main")
+nrow(data)
+
+STIMULI <- data %>% ungroup() %>% pull(stimulus_id) %>% unique()
+TARGET_DIR <- here("experiments", "blocksworld-prior", "results", "plots")
+dir.create(TARGET_DIR, recursive = TRUE, showWarnings = FALSE)
+```
+
+# Look at some statistics
+Duration, age, gender etc.
+
+```{r}
+# duration
+df <- data %>% ungroup() %>% select(participant_id, timeSpent, age, gender) %>%
+  group_by(participant_id) %>% 
+  distinct()
+
+p <- df %>%
+  ggplot(aes(x=factor(0), y=timeSpent)) + geom_boxplot()
+# TODO: points are added twice?!
+p + geom_jitter(shape=16) +
+  geom_hline(aes(yintercept = mean(df$timeSpent) + sd(df$timeSpent),
+                 color="yellow")) +
+  geom_hline(aes(yintercept = mean(df$timeSpent) + 2 * sd(df$timeSpent),
+                 color="red")) +
+  theme(legend.position="none")
+
+df %>% ungroup() %>%  group_by(participant_id) %>%  summary()
+
+# Reaction time per experimental trial
+df <- data %>% ungroup() %>% select(participant_id, stimulus_id, RT) %>%
+  filter(!is.na(stimulus_id) & !is.na(RT)) %>% 
+  group_by(stimulus_id) %>% 
+  distinct()
+# TODO: points are added twice
+p <- df %>%  ggplot(aes(x=stimulus_id, y=RT)) + geom_boxplot() +
+  geom_hline(aes(yintercept = mean(df$RT) + sd(df$RT), color="yellow")) +
+  geom_hline(aes(yintercept = mean(df$RT) + 2* sd(df$RT), color="red")) +
+  theme(legend.position="none", axis.text.x = element_text(angle=90)) +
+  ggtitle("Reaction times per stimulus")  
+ggsave(paste(TARGET_DIR, "Reaction-times.jpg", sep=.Platform$file.sep), p,
+       width=6, height=4)
+p
+```
+
+# Look at comments
+
+```{r}
+data %>% ungroup() %>% select(comments) %>% unique()
+```
+
+## Discard data based on comments and reaction time
+
+- Discard trials were reaction time was more than 3 minutes or less than 5
+seconds (remember there were 4 sliders to move in one trial)
+
+- filter if something went wrong according to comments
+
+```{r}
+data_filtered <- data %>%
+  filter(!(comments=="My final two questions, didn't have an example to show me." &
+             (trial_number == 24 | trial_number == 25)))
+
+nrow(data_filtered)
+
+# TODO: something went wrong with reaction times! (only first trial is saved)
+data_filtered <- data_filtered %>% filter(is.na(RT) | RT <= 3 * 60 * 1000)
+nrow(data_filtered)
+
+data_filtered <- data_filtered %>% filter(is.na(RT) | RT > 5000)
+nrow(data_filtered)
+```
+
+# Process data 
+1. Account for different color-groups
+Select only variables relevant for futher analysis and write to csv
+
+```{r}
+df <- data_filtered %>%
+  select(-utt_idx, -trial_name, -trial_number, -timeSpent, -gender, -age,
+         -comments, -RT) 
+
+# match colors and blocks depending on color-group
+data_processed <- df %>%
+  group_by(participant_id, stimulus_id, color_group) %>% 
+  mutate(utterance =  case_when(color_group=="group1" & utterance=="b" ~ "a",
+                                color_group=="group1" & utterance=="g" ~ "c",
+                                color_group=="group2" & utterance=="b" ~ "c", 
+                                color_group=="group2" & utterance=="g" ~ "a",
+                                utterance=="bg" ~ "ac", 
+                                utterance=="none" ~ "none"
+                                ),
+         utterance=factor(utterance, levels = c("a", "c", "ac", "none")),
+         response = response/100) %>%
+  ungroup() %>% 
+  select(-color_group)
+```
+
+## Normalize data
+2. Normalize, such that all four responses (slider values) sum up to 1.
+There are some single trials where a participant rated all four events to have 0
+probability which need to be excluded when normalized.
+
+```{r}
+df <- data_processed %>%
+  group_by(participant_id, stimulus_id) %>% 
+  filter(sum(response) != 0)
+nrow(df)
+
+data_normalized <- df %>%
+  mutate(n=sum(response), response=response/n)
+
+data_normalized
+stopifnot(data_normalized %>% filter(is.na(response)) %>% nrow() == 0)
+```
+
+
+# Discard data based on minimal requirements
+
+After normalizing, check whether minimal requirements are fulfilled.
+
+If at least one block clearly falls/doesn't fall (touch the ground), but
+participant put high probability on none (neither block touches the ground) or
+ac (both touch the ground), discard trial, in these cases participants cannot
+have been concentrated.
+
+This doesn't really feel good - in future, I might use control trials, e.g.
+after each fifth trial, a control trial (i.e.5 in total) and if more than two
+of the control trials aren't answered meaningful, discard entire data of
+participant?!
+Or maybe it's necessary to make the pictures clearer by adjusting the blocks
+positions for a high/low/uncertain prior to fall to make them distinguishable
+more easily.
+
+The following pictures show all scenes for which I specified such a requirement.
+Below are the stimulus ids of those scenes of which some trials had to be
+discarded.
+
+!["S1-121"](/home/britta/UNI/Osnabrueck/MA-project/conditionals-pilot/images/group1/S1-121.jpg)
+
+!["S10-203"](/home/britta/UNI/Osnabrueck/MA-project/conditionals-pilot/images/group1/S10-203.jpg)
+
+!["S12-203"](/home/britta/UNI/Osnabrueck/MA-project/conditionals-pilot/images/group1/S15-443.jpg)
+
+!["S15-443"](/home/britta/UNI/Osnabrueck/MA-project/conditionals-pilot/images/group1/S12-203.jpg)
+
+!["S20-468"](/home/britta/UNI/Osnabrueck/MA-project/conditionals-pilot/images/group1/S22-468.jpg)
+
+!["S22-468"](/home/britta/UNI/Osnabrueck/MA-project/conditionals-pilot/images/group1/S22-468.jpg)
+
+!["S30-805"](/home/britta/UNI/Osnabrueck/MA-project/conditionals-pilot/images/group1/S30-805.jpg)
+
+!["S32-806"](/home/britta/UNI/Osnabrueck/MA-project/conditionals-pilot/images/group1/S34-806.jpg)
+
+!["S7-130"](/home/britta/UNI/Osnabrueck/MA-project/conditionals-pilot/images/group1/S7-130.jpg)
+
+!["S7-130-dep"](/home/britta/UNI/Osnabrueck/MA-project/conditionals-pilot/images/group1/S7-130-dep.jpg)
+
+
+```{r, message = FALSE}
+fn <- "scenes_luh_annotations.csv"
+min.require <- read_csv(here("experiments", "stimuli", fn)) %>% 
+  select("req.exp1.not.small", "req.exp1.not.large", id) %>% 
+  filter((!is.na(req.exp1.not.small) | !is.na(req.exp1.not.large)))
+
+check <- function(data_wide, stimulus){
+  req <- min.require %>% filter(id== (!!stimulus))
+  dat <- tibble()
+  if(nrow(req) != 0){
+    not_small <- req$`req.exp1.not.small`
+    not_large <- req$`req.exp1.not.large`
+    
+    dat <- data_wide %>% filter(stimulus_id==(!!stimulus)) 
+    if(!is.na(not_small)) {
+      dat <- dat %>% filter(!!sym(not_small) < 0.25)
+    }
+    if(!is.na(not_large)){
+      dat <- dat %>% filter(!!sym(not_large) > 0.75)      
+    }
+  }
+  return(dat)
+}
+
+# some trials have less than 4 utterances since some single responses were
+# excluded, e.g. due to RT. With pivot_wider, we therefore get NA-values,
+# which need to be filtered out again
+data_normalized_wide <- data_normalized %>%
+  pivot_wider(names_from = "utterance", values_from = "response") %>% 
+  filter(!is.na(ac) & !is.na(a) & !(is.na(c)) & !is.na(none)) 
+
+critical <- tibble()
+for (s in STIMULI){
+  t <- check(data_normalized_wide, s)
+  critical <- bind_rows(critical, t)
+}
+
+critical
+critical %>% select(stimulus_id) %>% unique() %>% pull(stimulus_id)
+
+data_normalized_wide <- anti_join(data_normalized_wide, critical)
+data_normalized <- data_normalized_wide %>%
+  pivot_longer(cols = c("a", "c", "ac", "none"), names_to = "utterance",
+               values_to = "response")
+
+# total and relative nb included responses
+nrow(data_normalized)
+nrow(data_normalized) / nrow(data)
+```
+
+# Save data
+
+```{r}
+fn <- here("experiments", "blocksworld-prior", "results", "data-processed",
+           "tables_experimental.csv")
+write.table(data_normalized , file = fn, sep = ",", row.names=FALSE)
+
+means <- data_normalized %>%
+  group_by(stimulus_id, utterance) %>%
+  summarise(mean=mean(response))
+
+fn <- here("experiments", "blocksworld-prior", "results", "data-processed",
+           "tables_experimental_means.csv")
+write.table(means, file = fn, sep = ",", row.names=FALSE)
+```
+
+# Inspect processed data
+
+``` {r}
+# Look for participants who constantly gave all-or-none responses
+df_wide <- data_normalized %>%
+  pivot_wider(names_from = utterance, names_prefix = "utt.", values_from = response) %>%
+  ungroup() %>%
+  filter(n==1)
+
+df <- df_wide %>%
+  group_by(participant_id) %>% 
+  summarise(n_all_none_stimuli = n()) 
+
+df %>% ggplot(aes(n_all_none_stimuli)) + geom_histogram(binwidth = 1)
+
+# which stimuli were rated as all-or-none by how many participants?
+df <- df_wide  %>%
+  group_by(stimulus_id) %>% 
+  summarise(n_participants = n()) 
+
+df %>% ggplot(aes(x=stimulus_id, y=n_participants)) + geom_bar(stat="identity") + 
+  theme(axis.text.x = element_text(angle=90, hjust=1))
+
+```
+
+Plot the data
+
+```{r}
+ids <- data_normalized %>% pull(stimulus_id) %>% unique()
+data_normalized <- data_normalized %>%
+  mutate(utterance = factor(utterance, levels = c("ac", "a", "c", "none")))
+
+labels <- c(ac="Blue and Green", a="Blue and ¬Green", c="¬Blue and Green",
+            none="¬Blue and ¬Green")
+for (s in STIMULI){
+  df <-data_normalized %>% filter(stimulus_id == s) 
+  df_means <- df %>% group_by(utterance) %>% summarise(m=mean(response),
+                                                       med=median(response))
+  
+  p <- df  %>% 
+    ggplot(aes(x=factor(0), y=response, fill=utterance)) +
+    geom_violin(alpha=0.5) +
+    geom_jitter(width = 0.2, alpha=0.5) + 
+    geom_point(data=df_means,  mapping=aes(x = factor(0), y = m), col="red") +
+    geom_point(data=df_means,  mapping=aes(x=factor(0), y = med),col="yellow") +
+    coord_flip() +
+    labs(y="", x="") + 
+    theme_classic() +
+    
+    facet_wrap(~utterance, labeller = labeller(utterance=labels)) + 
+    # ggtitle(s) +
+    theme(legend.position = "none", axis.text.y=element_blank(),
+          axis.ticks.y =element_blank(),
+          text = element_text(size=20),
+          panel.spacing = unit(2, "lines"))
+  
+  fn <- paste("responses-", s, ".png", sep="")
+  ggsave(paste(TARGET_DIR, fn, sep=.Platform$file.sep), p, width=6, height=4)
+  print(p)
+}
+```
+
+
+```{r}
+fn <- here("experiments", "blocksworld-prior", "results", "data-processed",
+           "tables_experimental.csv")
+dat.experiment1 <- read_csv(fn)
+```
+
+```{r}
+dat <- dat.experiment1 %>% 
+  pivot_wider(names_from = utterance, values_from = response) %>% 
+  add_probs() %>% 
+  pivot_longer(cols=starts_with("p_"), names_to = "key", values_to = "prob")
+
+PlotDensity <- function(dat, p1, p2, save_as){
+  p <- dat %>%
+    filter(key==p1 | key == p2) %>% 
+    ggplot(aes(prob, fill=key)) +
+    geom_density(alpha=0.5)
+  
+  ggsave(paste(TARGET_DIR, save_as, sep=.Platform$file.sep), p, width=6, height=4)
+  return(p)
+}
+
+dat %>% PlotDensity("p_a_given_c", "p_c_given_a", "p-conditionals.png")
+dat %>% PlotDensity("p_a", "p_c", "p-marginals.png")
+dat %>% PlotDensity("p_na_given_nc", "p_nc_given_na", "p-neg-conditionals.png")
+dat %>% PlotDensity("p_na", "p_nc", "p-neg-marginals.png")
+```
+
+
+
+
+
+
+
+
+
