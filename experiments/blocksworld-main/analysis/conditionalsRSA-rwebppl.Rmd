@@ -10,15 +10,11 @@ library(ggplot2)
 library(ggthemes)
 library(here)
 library(rwebppl)
-library(svglite)
 library(tidyverse)
 source(here("utils.R"))
 source(here("experiments", "blocksworld-main", "analysis", "model-utils.R"))
 
-
 # for knitting, data must be loaded in chunk where libraries are loaded
-# -- TODO: find out why!!
-
 # load behavioral data from experiments
 fn <- here("experiments", "blocksworld-prior", "results", "data-processed",
            "tables_experimental.csv")
@@ -49,12 +45,8 @@ dat.to_wppl$tables <- tables_to_wppl
 dat.utts <- pids_to_cover_utts(dat.experiment1, 0.9)
 stopifnot(dat.utts$utts_not_covered %>% length == 0);
 
-# dat.to_wppl$par_dirichlet = read_csv("results-dirichlet.csv") %>%
-#                           add_column(alpha=list(alpha_1, alpha_2, alpha_3, alpha_4))
-#                       nest("alpha_1", "alpha_2", "alpha_3", "alpha_4")  %>%
-#                       select(stimulus_id, alpha) %>%
-#                       pivot_wider(names_from = stimulus_id, values_from = alpha) %>% unnest()
-
+fn <- here("experiments", "blocksworld-prior", "analysis", "results-dirichlet-fits.csv")
+dat.to_wppl$par_dirichlet = read_csv(fn) 
 ```
 
 # Empirical vs. Model
@@ -76,7 +68,7 @@ Model data
 
 ```{r}
 # dat.to_wppl$utterances <- all_utterances[which(!str_detect(all_utterances, "likely.*"))]
-model_predictions <- run_model(dat.to_wppl)
+model_predictions <- run_model(dat.to_wppl, prior='dirichlet')
 model <- model_predictions$avg %>% 
   mutate(utterance=factor(utterance, levels = all_utterances))
 
@@ -117,38 +109,38 @@ for(s in stimuli) {
   
   p <-  df %>% filter(stimulus_id == s & mean != 0) %>%
     ggplot(aes(x=utterance, y=mean, fill=produced_by))  +
-    geom_bar(position="dodge", stat="identity") +
+    geom_bar(position="dodge", stat="identity") +  
     labs(y="probability") +
-    theme_classic(base_size = 30) + 
+    theme_classic(base_size = 30) +
     # ggtitle(paste(s, " (corr.", round(val.cor$estimate[[1]], 2), ")", sep="")) +
     theme(legend.position="top", axis.text.x = element_text(angle=60, hjust=1),
           axis.text.y=element_text(size=20))
-  
+
   print(p)
   fn <- paste(target_dir,.Platform$file.sep,"predictions-both-",s,".png",sep="")
   ggsave(fn, p, width=10, height=6)
-      
-    
+
+
   p <-  df %>% filter(produced_by == "human" & stimulus_id == s & mean != 0) %>%
     ggplot(aes(x=utterance, y=mean, fill=produced_by))  +
     geom_bar(position="dodge", stat="identity") +
     labs(y="probability (mean response)") +
-    theme_classic(base_size=25) + 
+    theme_classic(base_size=25) +
     ggtitle(paste(s, " (corr.", round(val.cor$estimate[[1]], 2), ")", sep="")) +
     theme(legend.position="none", axis.text.x = element_text(angle=60, hjust=1))
-  
+
   print(p)
   ggsave(paste(target_dir,.Platform$file.sep,"human-means-", s, ".png", sep=""),
          p, width=10, height=6)
-    
+
   p <-  df %>% filter(produced_by == "model" & stimulus_id == s & mean != 0) %>%
     ggplot(aes(x=utterance, y=mean, fill=produced_by))  +
     geom_bar(position="dodge", stat="identity") +
     labs(y="probability (mean model)") +
-    theme_classic(base_size=25) + 
+    theme_classic(base_size=25) +
     ggtitle(paste(s, " (corr.", round(val.cor$estimate[[1]], 2), ")", sep="")) +
     theme(legend.position="none", axis.text.x = element_text(angle=60, hjust=1))
-  
+
   print(p)
   ggsave(paste(target_dir,.Platform$file.sep, "model-means-", s, ".png", sep=""),
          p, width=10, height=6)

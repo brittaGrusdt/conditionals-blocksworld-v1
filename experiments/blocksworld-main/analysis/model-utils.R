@@ -56,8 +56,65 @@ pids_to_cover_utts <- function(dat.experimental, theta, pid=NA){
   return(result)
 }
 
-get_full_rsa <- function(){
-  model <- '
+rsa_dirichlet_prior <- '
+var par_dirichlet = dataFromR["par_dirichlet"]
+let alpha1 = _.map(par_dirichlet, "alpha_1")
+let alpha2 = _.map(par_dirichlet, "alpha_2")
+let alpha3 = _.map(par_dirichlet, "alpha_3")
+let alpha4 = _.map(par_dirichlet, "alpha_4")
+let stimuli = _.map(par_dirichlet, "stimulus_id")
+let alphas = _.zip(alpha1, alpha2, alpha3, alpha4)
+
+var state_prior = cache(function(){
+  return Infer({model:function(){
+    var idx = sample(RandomInteger({n: alphas.length}))
+    var params = alphas[idx]
+    var stimulus = stimuli[idx]
+    var table = dirichlet({alpha: Vector(params)})
+    var p = Categorical({"vs": ["AC", "A-C", "-AC", "-A-C"], "ps": table})
+    var state = {"table": p,
+                 "pid": "",
+                 "id": stimulus}
+    return {"bn": state}
+  }})
+})
+'
+
+rsa_empirical_prior <- '
+var tables_list = dataFromR["tables"]
+var Tables = map(function(obj){
+  var p = Categorical({"vs": obj["vs"], "ps": obj["ps"]})
+  return {"id": obj["stimulus_id"], "Table": p, "pid": obj["participant_id"]}
+  }, tables_list)
+  
+var state_prior = cache(function(){
+  return Infer({model:function(){
+    var TableID = uniformDraw(Tables)
+    var state = {"table": TableID.Table,
+                 "pid": TableID.pid,
+                 "id": TableID.id}
+    return {"bn": state}
+  }})
+  // make sure that states that have almost 0-probability are excldued,
+  // otherwise these states face a problem for the speaker who cannot say
+  // anything because the log of the literal listener will always be -Infinity
+  //return Infer({model:function(){
+  //  var s = sample(distr)
+  //  condition(Math.exp(distr.score(s)) > 0.0000011)
+  //  return s
+  // }})
+})
+'
+
+get_full_rsa <- function(prior=""){
+  
+  if(prior == "dirichlet"){
+    print('use dirichlet prior')
+    prior_wppl <- rsa_dirichlet_prior
+  } else {
+    prior_wppl <- rsa_empirical_prior
+  }
+  model <- paste(prior_wppl, '
 var theta_likely = 0.499
 //var utterances = dataFromR["utterances"]
 var utterances = ["-A" ,"A", "-C", "C",
@@ -65,12 +122,6 @@ var utterances = ["-A" ,"A", "-C", "C",
 "likely -A", "likely A", "likely -C", "likely C",
 "A > -C", "-C > A", "-A > C", "C > -A",
 "A > C", "C > A", "-A > -C", "-C > -A"]
-
-var tables_list = dataFromR["tables"]
-var Tables = map(function(obj){
-  var p = Categorical({"vs": obj["vs"], "ps": obj["ps"]})
-  return {"id": obj["stimulus_id"], "Table": p, "pid": obj["participant_id"]}
-  }, tables_list)
 
 // model parameters
 var rsa_alpha = dataFromR["alpha"][0]
@@ -93,7 +144,7 @@ var intersect_arrays = function(arrays){
 }
 
 /* computes the probability of P(A) marginalized over all other variables in
-** support of table with P=table and variables=["A"] 
+** support of table with P=table and variables=["A"]
 */
 var marginal = cache(function(table, variables){
   var tokens = table.support()
@@ -106,25 +157,6 @@ var marginal = cache(function(table, variables){
   return reduce(function(x, acc){acc + Math.exp(table.score(x))}, 0, xs)
 })
 
-var state_prior = cache(function(){
-  var distr = Infer({model:function(){
-    var TableID = uniformDraw(Tables)
-    var state = {"table": TableID.Table,
-                 "pid": TableID.pid,
-                 "id": TableID.id}
-    return {"bn": state}
-  }})
-  // make sure that states that have almost 0-probability are excldued,
-  // otherwise these states face a problem for the speaker who cannot say
-  // anything because the log of the literal listener will always be -Infinity
-  //return Infer({model:function(){
-  //  var s = sample(distr)
-  //  condition(Math.exp(distr.score(s)) > 0.0000011)
-  //  return s
-  // }})
-  return distr
-})
-
 var bn_prior = state_prior()
 var all_bns = bn_prior.support()
 
@@ -132,10 +164,10 @@ var utterance_probs = cache(function(utterance, Table){
   if(utterance.indexOf(">") != -1){
     var components = utterance.includes(" > likely ") ? utterance.split(" > likely ") :
     utterance.split(" > ")
-    
+
     var antecedent = components[0].split(" and ").join("")
     var consequent = components[1].split(" and ").join("")
-    
+
     return marginal(Table, [antecedent, consequent]) /
            marginal(Table, [antecedent])
   }
@@ -186,17 +218,16 @@ var speaker = cache(function(state){
  })
 }, 10000)
 
-// Run model for all bns 
+// Run model for all bns
 var distrs = map(function(bn){speaker(bn)}, all_bns)
 var distributions = {"speaker_": distrs, "bns": map(function(obj){obj.bn}, all_bns)}
 distributions
-
-'
+', sep="\n");
 return(model)
 }
 
-run_model <- function(dat.to_wppl){
-  model <- get_full_rsa()
+run_model <- function(dat.to_wppl, prior=''){
+  model <- get_full_rsa(prior)
   predictions_from_wppl <- webppl(model, data = dat.to_wppl, data_var = "dataFromR")
   
   dat <- predictions_from_wppl$bns %>% as_tibble() %>%
