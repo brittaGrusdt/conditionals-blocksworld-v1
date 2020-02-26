@@ -77,7 +77,7 @@ const animation_view  = {
       $('#main').html(view_template);
 
       let sceneData = defineScene(allScenes[CT]);
-      let worldObjects = createScene(allScenes[CT]["platform.type"], sceneData, true);
+      let worldObjects = createSceneObjs(allScenes[CT]["platform.type"], sceneData, true);
 
       let platforms = allScenes[CT]["platform.type"] == "seesaw" ? ["seesaw", ""] :
         allScenes[CT]["platform.type"] == "basic1" ? [[sceneData.p1.x, sceneData.p1.y, sceneData.p1.width, sceneData.p1.height], ""] :
@@ -85,7 +85,8 @@ const animation_view  = {
          [sceneData.p2.x, sceneData.p2.y, sceneData.p2.width, sceneData.p2.height]];
 
       let startTime = Date.now();
-      showScene(worldObjects, document.getElementById('animationDiv'));
+      setupWorld(worldObjects, document.getElementById('animationDiv'));
+      showScene();
 
       let animationRun = false;
       let runButton = $('#runButton');

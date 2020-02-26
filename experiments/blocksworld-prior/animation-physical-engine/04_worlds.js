@@ -124,7 +124,7 @@ randomizeLocationsTraining = function(pType, mapID2Def){
   }
 }
 
-createScene = function(pType, mapID2Definitions, training){
+createSceneObjs = function(pType, mapID2Definitions, training){
   let objs = Object.values(mapID2Definitions);
   let map2WorldObjs = {}
 
@@ -182,5 +182,5 @@ if(MODE === "experiment"){
       sceneProps = dataAll[idxScene]
       }
     let sceneData = defineScene(sceneProps);
-    worldObjects = createScene(sceneProps["platform.type"], sceneData, MODE === "train");
+    worldObjects = createSceneObjs(sceneProps["platform.type"], sceneData, MODE === "train");
 }

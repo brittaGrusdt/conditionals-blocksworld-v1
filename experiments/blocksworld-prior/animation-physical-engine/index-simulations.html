@@ -10,12 +10,11 @@
     <script type="text/javascript" src="01_helper_functions.js"></script>
     <script type="text/javascript" src="02_configuration.js"></script>
     <h1 id="title"></h1>
-    <p id="greenBeforeX">green before x: </p>
-    <p id="greenAfterX">green after x: </p>
-    <p id="greenBeforeY">green before y: </p>
-    <p id="greenAfterY">green after y: </p>
+    <p id="greenBeforeX"></p>
+    <p id="greenAfterX"></p>
+    <p id="greenBeforeY"></p>
+    <p id="greenAfterY"></p>
     <p id="timestamp"></p>
-
     <!-- install two libraries with npm globally: -->
     <!-- npm install -g underscore -->
     <!-- npm install -g matter-js -->
@@ -27,23 +26,16 @@
     <script type="text/javascript" src="03_helpers_towers.js"></script>
     <script type="text/javascript" src="04_worlds.js"></script>
     <script type="text/javascript" src="05_animation.js"></script>
+    <script type="text/javascript" src="simulations.js"></script>
     <script>
-    var nbClicks = 0;
-    function clickOnRun() {
-        nbClicks += 1;
-        if(nbClicks === 1) {
-          runAnimation(worldObjects)
-        }
-    };
+      let results = {};
+      dataAll = dataAll.slice(0,2);
+      console.log(dataAll.length)
+      dataAll.forEach(function(scene){
+        results[scene.id] = simulateProbs(scene, 1, 0.1);
+      });
+      console.log(results)
     </script>
-    <script>
-      setupWorld(worldObjects, document.body);
-      showScene();
-    </script>
-    <button id="runButton" onclick="clickOnRun()">Run</button>
-    <script>
-      let title = document.getElementById("title")
-      title.innerHTML = "Scene: " + idxScene + " id: " + sceneProps.id
-    </script>
+    <!-- <button id="runButton" onclick="clickOnRun()">Run</button> -->
   </body>
 </html>

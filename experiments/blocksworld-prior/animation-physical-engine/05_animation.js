@@ -13,9 +13,40 @@ let render;
 
 let objPropsBefore = {};
 let objPropsAfter = {};
-let animationStarted = false
 
-createWorld = function(place2Render){
+clearWorld = function(worldObjects){
+  removeBodies(worldObjects);
+  // // World.clear(engine.world, deep = true) // doesn't remove static objects
+  engine.events = {};
+  Engine.clear(engine);
+}
+
+savePositionsBodies = function(){
+  engine.world.bodies.forEach(function (body) {
+    objPropsAfter[body.label] = JSON.parse(JSON.stringify(body.position));
+  });
+  // document.getElementById("greenAfterX").innerHTML = "X after:" + objPropsAfter["block1"].x
+  // document.getElementById("greenAfterY").innerHTML = "Y after:" + objPropsAfter["block1"].y
+}
+
+addStopRenderAndClearWorldEvent = function(){
+  // after duration of simulation, freeze and save data
+  Events.on(engine, 'afterUpdate', function (event) {
+    // only do this once after specified nb of ms passed
+    if (engine.timing.timestamp >= SIMULATION.duration) {
+      console.log(engine.timing.timestamp)
+      freezeAnimation();
+      // document.getElementById("timestamp").innerHTML = "timestamp:" + engine.timing.timestamp;
+      // This freezes what is rendered at this point in time
+      Render.stop(render);
+      // save body positions + labels after animation
+      savePositionsBodies();
+      clearWorld(worldObjects);
+    }
+  });
+}
+
+setupEngine = function(place2Render){
   // create engine
   engine = Engine.create({
     timing: {
@@ -36,34 +67,6 @@ createWorld = function(place2Render){
       background: 'transparent'
     }
   });
-
-  // after duration of simulation freeze and save data
-  Events.on(engine, 'afterUpdate', function (event) {
-    //document.getElementById("timestamp").innerHTML =
-    //  "timestamp: " + engine.timing.timestamp;
-
-    // only do this once after specified nb of ms passed
-    if (animationStarted && engine.timing.timestamp >= SIMULATION.duration) {
-      freezeAnimation();
-      Render.stop(render)
-
-      // save body positions + labels after animation
-      engine.world.bodies.forEach(function (body) {
-        objPropsAfter[body.label] = JSON.parse(JSON.stringify(body.position));
-      });
-      //document.getElementById("greenAfterX").innerHTML += Math.round(objPropsAfter["greenBlock"].x, 2);
-      //document.getElementById("greenAfterY").innerHTML += Math.round(objPropsAfter["greenBlock"].y, 2);
-
-      // Stop animation and clear world
-      World.clear(engine.world)
-      Engine.clear(engine);
-      animationStarted = false;
-
-      if(MODE !== "experiment"){
-        addSimulationEffects(objPropsBefore, objPropsAfter, 0.01);
-      }
-    }
-  });
 }
 
 var freezeAnimation = function () {
@@ -76,13 +79,11 @@ var freezeAnimation = function () {
  *
  * animation is started but directly freezed.
  *
- * @param {Array<Matter.Bodies>} objectsStatic static objects in
- * modeled world,e.g. ground, platforms
- * @param {Array<Matter.Bodies>} objectsDynamic dynamic objects in modeled world,
- * e.g. blocks
+ * @param {Array<Matter.Bodies>} worldObjects
+ * @param {Element} place2Render
  */
-var showScene = function (worldObjects, place2Render) {
-  createWorld(place2Render);
+var setupWorld = function(worldObjects, place2Render){
+  setupEngine(place2Render);
   worldObjects.forEach(function(obj){
     if(obj.add2World){
       World.add(engine.world, obj)
@@ -92,25 +93,40 @@ var showScene = function (worldObjects, place2Render) {
   engine.world.bodies.forEach(function (body) {
     objPropsBefore[body.label] = JSON.parse(JSON.stringify(body.position));
   });
+  // document.getElementById("greenBeforeX").innerHTML = 'before x: ' + objPropsBefore["block1"].x
+  // document.getElementById("greenBeforeY").innerHTML = 'before y: ' + objPropsBefore["block1"].y
+}
 
-  //document.getElementById("greenBeforeX").innerHTML +=  objPropsBefore["greenBlock"].x
-  //document.getElementById("greenBeforeY").innerHTML += objPropsBefore["greenBlock"].y
-
-  // run the engine for simulation of our world
-  Engine.run(engine);
-
-  // run the renderer for visualization
+// show simulated world
+var showScene = function (){
   Render.run(render);
-
-  freezeAnimation();
 }
 
 /**
- * starts to run the animation; it requires prior call of showScene.
+ * runs animation of the simulated world;requires prior call of setupWorld.
  */
 var runAnimation = function () {
-  animationStarted = true
-  engine.timing.timeScale = 1
+  addStopRenderAndClearWorldEvent();
+  Engine.run(engine);
+}
+
+function removeBodies(arr) {
+	for (var i=0;i<arr.length;i++) {
+		var body = arr[i];
+		World.remove(engine.world, body);
+	}
+}
+
+var forwardAnimation = function(worldObjects){
+  var n = 0
+  while(n < 500) {
+    Engine.update(engine, 10.0)
+    n = n + 1
+  }
+  savePositionsBodies();
+  let results = addSimulationEffects(objPropsBefore, objPropsAfter);
+  clearWorld(worldObjects);
+  return(results)
 }
 
 /**
@@ -129,35 +145,25 @@ var runAnimation = function () {
 * @param {number} objPropsAfter.x x position of block
 * @param {number} objPropsAfter.y y position of block
 *
-* @param {number} theta threshold of relative minimal offset (in percent) for a
-* block to count as fallen
-*
 * @return {Array<Object>} objPropsAfter with the following added properties
 * for relevant blocks in world (i.e. not ground or platforms):
 * ratioX, ratioY, fallen.
 */
-var addSimulationEffects = function(objPropsBefore, objPropsAfter, theta){
-  var entries = Object.entries(objPropsBefore);
+var addSimulationEffects = function(objPropsBefore, objPropsAfter){
+  let results = [];
+  let dataBlocks = _.pick(objPropsBefore, 'block1', 'block2');
+  var entries = Object.entries(dataBlocks);
   for (var i=0; i< entries.length; i++){
       let label = entries[i][0];
       let obj = entries[i][1];
       let posBefore = objPropsBefore[label];
-      if((label === "ground") || label.startsWith("platform")){
+      if(label !== "block1" && label !== "block2"){
         continue;
       }
       var posAfter = objPropsAfter[label]
-      var ratioX = posAfter.x / posBefore.x
-      var ratioY = posAfter.y / posBefore.y
-
-      var fallen = false;
-      if((ratioY < 1-theta || ratioY > 1 + theta)){
-        fallen = true;
-      }
-
-      objPropsAfter[label].ratioX = ratioX;
-      objPropsAfter[label].ratioY = ratioY;
-      objPropsAfter[label].fallen = fallen;
+      var movementX = Math.abs(Math.round(posAfter.x) - posBefore.x)
+      var movementY = Math.round(posAfter.y) - posBefore.y
+      results.push({label, movedX: movementX, movedY: movementY});
   }
-
-  return(objPropsAfter)
+  return(results)
 }
