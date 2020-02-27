@@ -28,13 +28,28 @@
     <script type="text/javascript" src="05_animation.js"></script>
     <script type="text/javascript" src="simulations.js"></script>
     <script>
-      let results = {};
-      dataAll = dataAll.slice(0,2);
-      console.log(dataAll.length)
+    clickOnGetData = function(){
+      let results = [];
       dataAll.forEach(function(scene){
-        results[scene.id] = simulateProbs(scene, 1, 0.1);
+        let sceneDef = defineScene(scene);
+        let platforms = scene["platform.type"] == "basic2" ?
+        [sceneDef.p1, sceneDef.p2] : scene["platform.type"] == "seesaw" ?
+        [sceneDef.plank] : [sceneDef.p1];
+        let blockData = [scene.id, scene["AC.position"], sceneDef.b1, sceneDef.b2];
+        results.push(blockData.concat(platforms))
       });
-      console.log(results)
+      downloadSceneDefinitions(results);
+    }
+    </script>
+    <button id="downloadButton" onclick="clickOnGetData()">Get Data</button>
+    <script>
+      let results = {};
+      // dataAll = dataAll.slice(0,2);
+      // console.log(dataAll.length)
+      // dataAll.forEach(function(scene){
+      //   results[scene.id] = simulateProbs(scene, 1, 0.1);
+      // });
+      // console.log(results)
     </script>
     <!-- <button id="runButton" onclick="clickOnRun()">Run</button> -->
   </body>

@@ -30,3 +30,23 @@ getMinMax = function(obj, base){
 randomNbInRange = function(minMax){
    return Math.random() * (minMax[1] - minMax[0]) + minMax[0];
 }
+
+downloadSceneDefinitions = function(data) {
+    let csv = 'stimulus, position, before_x, before_y, width, height, id\n';
+    data.forEach(function(trial) {
+      console.log(trial)
+      for (var i=2; i< trial.length; i++){
+        let vals = [trial[0], trial[1]]
+        vals = vals.concat(trial[i].x, trial[i].y, trial[i].width,
+          trial[i].height, trial[i].properties.label);
+        csv += vals.join(',');
+        csv += "\n";
+      }
+    });
+    // console.log(csv);
+    var hiddenElement = document.createElement('a');
+    hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(csv);
+    hiddenElement.target = '_blank';
+    hiddenElement.download = 'sceneData.csv';
+    hiddenElement.click();
+}

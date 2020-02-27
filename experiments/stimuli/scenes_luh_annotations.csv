@@ -1,4 +1,4 @@
-id,req.exp1.not.small,req.exp1.not.large,req.exp2.not.small,req.exp2.not.large,pa,pc,pc_given_a,pa_given_c,Comment-dependency,dependence.c,dependence.a,AC.position,A.orientation,C.orientation,platform.type,platform1.height,platform1.width,platform2.height,platform2.width,platform.dist,comment1,comment2
+id,must_not_be_small,must_not_be_large,req.exp2.not.small,req.exp2.not.large,pa,pc,pc_given_a,pa_given_c,Comment-dependency,dependence.c,dependence.a,AC.position,A.orientation,C.orientation,platform.type,platform1.height,platform1.width,platform2.height,platform2.width,platform.dist,comment1,comment2
 S1-121,,none,,,high,high,uncertain,uncertain,slightly_dep,1,1,-1,vertical,vertical,basic2,high,narrow,high,narrow,short,"
 Needs training example",both become less likely given the other
 S10-203,,none,,,high,low,low,uncertain,slightly_dep,0,1,-1,vertical,vertical,basic2,high,narrow,default,narrow,short,p(A|C) uncertain because of space,-1
@@ -23,7 +23,7 @@ S59-1007,,,,,low,uncertain,high,low,causally_dep,1,0,stack_C_on_A,horizontal,ver
 S63-1039,,,,,low,uncertain,high,uncertain,causally_dep,1,1,-1,vertical,vertical,basic2,default,very_narrow,default,very_narrow,extreme_short,"New
 similar to S10-203",horizontal
 S7-130,ac,none,A_C,,high,high,high,high,independent,0,0,side,vertical,vertical,basic1,default,default,-1,-1,-1,-1,-1
-S8-202,,,,,high,low,low,low,slightly_causally_dep,0,2,,vertical,vertical,basic2,default,default,default,default,very_short,similar to S55-1006,-1
+S8-202,,,,,high,low,low,low,slightly_causally_dep,0,2,-1,vertical,vertical,basic2,default,default,default,default,very_short,similar to S55-1006,-1
 S83-1609,,,,,uncertain,uncertain,low,low,slightly_dep,1,1,-1,vertical,vertical,basic2,default,default,default,default,short,-1,"both become less likely given the other, 
 Similar to S15-443"
 S89-1642,,,,,uncertain,uncertain,uncertain,uncertain,independent,0,0,side,vertical,vertical,basic1,default,default,-1,-1,-1,-1,-1

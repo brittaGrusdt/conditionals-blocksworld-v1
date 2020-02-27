@@ -241,7 +241,7 @@ getRandomTrainData = function(){
 
 
 /**
-*
+* returns an object, keys: labels, values: x-y-width-height-properties 
 */
 defineScene = function(data){
   objs = getObjects(data);
