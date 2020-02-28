@@ -22,6 +22,7 @@ for (i in seq(1, length(ids))) {
   block2 <- data %>% filter(id=="block2")
   
   pos <- data$position %>% unique()
+  stim <- data$stimulus %>% unique()
   obj_ids <- data %>% pull("id") %>% unique()
   if(pos == "-1") {
     # on two separate platforms
@@ -44,11 +45,8 @@ for (i in seq(1, length(ids))) {
       x_block2 <- wiggle(block2, platform, N, sigma)
     }
   }
-  data <- data %>% mutate(wiggles = case_when(id=="block1" ~ list(x_block1),
-                                              id=="block2" ~ list(x_block2),
-                                              TRUE ~ list(NA_real_))) %>% 
-          unnest(wiggles)
-  new_data <- bind_rows(new_data, data)
+  wiggles <- tibble(block1=x_block1, block2=x_block2) %>% add_column(stimulus=stim)
+  new_data <- bind_rows(new_data, wiggles)
 }
 
 fn <- here("experiments", "blocksworld-prior", "analysis", "wiggles.csv")
