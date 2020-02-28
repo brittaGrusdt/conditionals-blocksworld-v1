@@ -1,3 +1,10 @@
+require('./03_helpers_towers.js')
+require('./04_worlds.js')
+require('./05_animation.js')
+getEffects = function(data){
+  console.log(data)
+}
+
 /**
 * Estimates probability tables P(A, C) with A/C: first/second block falls.
 *
@@ -15,60 +22,36 @@
 * e.g. {"gb": 0.2, "ngnb": 0.2, "gnb": ... }) // oder gibt es sowas wie eine namedList?
 *
 */
-var simulateProbs = function(scene, n, sigma){
+var simulateProbs = function(scene, wiggles){
   let sceneData = defineScene(scene);
   worldObjects = createSceneObjs(scene["platform.type"], sceneData, false);
   let results = [];
-  for(var i=0; i<n; i++){
-    // TODO wiggle; sample
+  for(var i=0; i<wiggles.length; i++){
+    // adjust wiggled block positions
+    sceneData.b1.x = wiggles[i].block1
+    sceneData.b2.x = wiggles[i].block2
     setupWorld(worldObjects, document.body)
     let data = forwardAnimation(worldObjects);
-    results.push(data);
+    // did blocks touch the ground?
+    let effects = getEffects(data);
+    results.push(effects);
   }
+  // compute frequency
+
   return(results)
 };
 
+const neatCsv = require('neat-csv');
+const fs = require('fs');
+fs.readFile('../analysis/wiggles.csv', async (err, data) => {
+  if (err) {
+    console.error(err)
+    return
+  }
+  let wiggles = await neatCsv(data);
+  console.log(wiggles)
+})
 
-
-// worlds.js
-
-// OLD
-// var ground = makeBlock(
-//   CONFIG.ground, {static: true, color: "black", label: "ground"});
-//
-// var platform = makeBlock(CONFIG.platform,
-//   {static: true, color: "darkgray", label: "platform"}
-// );
-//
-// var allRelevantBlocks = createColorCounterbalancedBlocks(platform)
-// var distractorTowers = createDistractorTowers();
-//
-// ////////////////////////////////////////////////////////////////////////////////
-// // 3. properties for a random particular single scene
-// let relationBlocks = "stacked"
-// // let relationBlocks = "side"
-// // let colorCode = 0
-// let colorCode = 1
-// let relationDistractor = "close"
-// // let relationDistractor = "far"
-// ////////////////////////////////////////////////////////////////////////////////
-//
-// // 4. choose scene
-// let nSituations = allRelevantBlocks[relationBlocks][colorCode].length
-// idxScene = Math.floor(Math.random() * nSituations);
-// idxScene=85
-// let situation1 = allRelevantBlocks[relationBlocks][colorCode][idxScene]
-//
-// let distractorElems = distractorTowers[relationDistractor]
-// let nDistractors = distractorElems.distractors.length
-// let idxDistractor = Math.floor(Math.random() * nDistractors);
-// let distractor1 = distractorElems.distractors[idxDistractor].distractor
-//
-// // 5. create + simulate world
-// let allBlocks = [situation1.block1, situation1.block2]
-// let worldDynamic = allBlocks.concat([distractor1])
-//
-// let objsStatic = [ground, platform]
-// let worldStatic = objsStatic.concat(distractorElems.platform)
-//
-// let worldObjects = worldDynamic.concat(worldStatic)
+dataAll.forEach(function(scene){
+  simulateProbs(scene);
+});
