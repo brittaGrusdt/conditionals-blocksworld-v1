@@ -40,17 +40,19 @@
       });
       downloadSceneDefinitions(results);
     }
+    clickOnForward = function(){
+      forwardAnimation(worldObjects);
+    }
     </script>
     <button id="downloadButton" onclick="clickOnGetData()">Get Data</button>
     <script>
-      let results = {};
-      // dataAll = dataAll.slice(0,2);
-      // console.log(dataAll.length)
-      // dataAll.forEach(function(scene){
-      //   results[scene.id] = simulateProbs(scene, 1, 0.1);
-      // });
-      // console.log(results)
+      let idx = Math.floor(Math.random()*10);
+      let scene = dataAll[idx];
+      let sceneData = defineScene(scene);
+      worldObjects = createSceneObjs(scene["platform.type"], sceneData, false);
+      setupWorld(worldObjects, document.body)
+      showScene();
     </script>
-    <!-- <button id="runButton" onclick="clickOnRun()">Run</button> -->
+    <button id="forwardButton" onclick="clickOnForward()">Forward</button>
   </body>
 </html>

@@ -125,7 +125,6 @@ var forwardAnimation = function(worldObjects){
   }
   savePositionsBodies();
   let results = addSimulationEffects(objPropsBefore, objPropsAfter);
-  clearWorld(worldObjects);
   return(results)
 }
 
