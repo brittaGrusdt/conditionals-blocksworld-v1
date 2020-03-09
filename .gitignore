@@ -15,3 +15,6 @@ notes/
 *.synctex.gz
 *.aux
 *.log
+
+# only track package.json and package-lock.json, but not node_modules folder
+**/node_modules/
