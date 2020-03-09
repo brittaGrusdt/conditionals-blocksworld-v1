@@ -1,16 +1,17 @@
 {
-  "name": "departurepoint",
+  "name": "simulations",
   "version": "1.0.0",
   "description": "",
-  "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "MIT",
+  "license": "ISC",
   "dependencies": {
-    "magpie-modules": "^0.1.1",
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
     "matter-js": "^0.14.2",
+    "neat-csv": "^5.2.0",
     "underscore": "^1.9.2"
   }
 }
