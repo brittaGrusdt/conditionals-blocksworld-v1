@@ -1,7 +1,10 @@
 library(tidyverse)
 library(greta)
+library(here)
+fn <- here("experiments", "blocksworld-prior", "results", "data-processed",
+           "tables_experimental.csv")
 
-table_data <- read_csv("tables_experimental.csv") %>% 
+table_data <- read_csv(fn) %>% 
   pivot_wider(names_from = "utterance", values_from = "response") %>% 
   arrange(stimulus_id)
 
