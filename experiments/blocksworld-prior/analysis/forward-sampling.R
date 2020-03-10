@@ -2,7 +2,7 @@ library(here)
 library(tidyverse)
 library(truncnorm)
 
-N = 10
+N = 100
 sigma = 1
 scenes <- read_csv(here("experiments", "blocksworld-prior", "analysis", "sceneData.csv")) %>%
   group_by(stimulus)

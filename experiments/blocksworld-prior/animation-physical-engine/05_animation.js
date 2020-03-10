@@ -11,8 +11,8 @@ var Engine = Matter.Engine,
 let engine;
 let render;
 
-let objPropsBefore = {};
-let objPropsAfter = {};
+let globalObjPropsBefore = {};
+let globalObjPropsAfter = {};
 
 clearWorld = function(worldObjects){
   removeBodies(worldObjects);
@@ -21,12 +21,12 @@ clearWorld = function(worldObjects){
   Engine.clear(engine);
 }
 
-savePositionsBodies = function(){
+savePositionsAfterSimulation = function(){
   engine.world.bodies.forEach(function (body) {
-    objPropsAfter[body.label] = JSON.parse(JSON.stringify(body.position));
+    globalObjPropsAfter[body.label] = JSON.parse(JSON.stringify(body.position));
   });
-  // document.getElementById("greenAfterX").innerHTML = "X after:" + objPropsAfter["block1"].x
-  // document.getElementById("greenAfterY").innerHTML = "Y after:" + objPropsAfter["block1"].y
+  // document.getElementById("greenAfterX").innerHTML = "X after:" + globalObjPropsAfter["block1"].x
+  // document.getElementById("greenAfterY").innerHTML = "Y after:" + globalObjPropsAfter["block1"].y
 }
 
 addStopRenderAndClearWorldEvent = function(){
@@ -40,13 +40,13 @@ addStopRenderAndClearWorldEvent = function(){
       // This freezes what is rendered at this point in time
       Render.stop(render);
       // save body positions + labels after animation
-      savePositionsBodies();
+      savePositionsAfterSimulation();
       clearWorld(worldObjects);
     }
   });
 }
 
-setupEngine = function(place2Render){
+setupEngineWithRenderer = function(place2Render){
   // create engine
   engine = Engine.create({
     timing: {
@@ -69,6 +69,15 @@ setupEngine = function(place2Render){
   });
 }
 
+setupEngine = function(place2Render){
+  // create engine
+  engine = Engine.create({
+    timing: {
+      timeScale: 1
+    }
+  });
+}
+
 var freezeAnimation = function () {
   engine.timing.timeScale = 0
 }
@@ -82,8 +91,9 @@ var freezeAnimation = function () {
  * @param {Array<Matter.Bodies>} worldObjects
  * @param {Element} place2Render
  */
-var setupWorld = function(worldObjects, place2Render){
-  setupEngine(place2Render);
+var setupWorld = function(worldObjects, place2Render=null){
+  place2Render === null ? setupEngine() : setupEngineWithRenderer(place2Render);
+  // setupEngine(place2Render);
   worldObjects.forEach(function(obj){
     if(obj.add2World){
       World.add(engine.world, obj)
@@ -91,10 +101,10 @@ var setupWorld = function(worldObjects, place2Render){
   })
   // save start positions of objects + labels
   engine.world.bodies.forEach(function (body) {
-    objPropsBefore[body.label] = JSON.parse(JSON.stringify(body.position));
+    globalObjPropsBefore[body.label] = JSON.parse(JSON.stringify(body.position));
   });
-  // document.getElementById("greenBeforeX").innerHTML = 'before x: ' + objPropsBefore["block1"].x
-  // document.getElementById("greenBeforeY").innerHTML = 'before y: ' + objPropsBefore["block1"].y
+  // document.getElementById("greenBeforeX").innerHTML = 'before x: ' + globalObjPropsBefore["block1"].x
+  // document.getElementById("greenBeforeY").innerHTML = 'before y: ' + globalObjPropsBefore["block1"].y
 }
 
 // show simulated world
@@ -123,9 +133,7 @@ var forwardAnimation = function(worldObjects){
     Engine.update(engine, 10.0)
     n = n + 1
   }
-  savePositionsBodies();
-  let results = addSimulationEffects(objPropsBefore, objPropsAfter);
-  return(results)
+  savePositionsAfterSimulation();
 }
 
 /**
@@ -134,35 +142,36 @@ var forwardAnimation = function(worldObjects){
 * Adds ratio of x/y-values, and based on this whether object fell, of all bodies
 * other than ground or platforms.
 *
-* @param {Object<string, Object>} objPropsBefore position of objects for each
-* block before (single) simulation, keys are labels of blocks, e.g.'greenBlock'
-* @param {number} objPropsBefore.x x position of block
-* @param {number} objPropsBefore.y y position of block
-*
-* @param {Object<string, Object>} objPropsAfter position of objects for each
-* block after (single) simulation, keys are labels of blocks, e.g.'greenBlock'
-* @param {number} objPropsAfter.x x position of block
-* @param {number} objPropsAfter.y y position of block
-*
-* @return {Array<Object>} objPropsAfter with the following added properties
-* for relevant blocks in world (i.e. not ground or platforms):
-* ratioX, ratioY, fallen.
+* @return {Array<Object>} list of objects containing the objects label, whether
+* it fell, whether it touches the ground, how much it moved in x-direction and
+* how much it moved in y-direction.
 */
-var addSimulationEffects = function(objPropsBefore, objPropsAfter){
-  let results = [];
-  let dataBlocks = _.pick(objPropsBefore, 'block1', 'block2');
+var simulationEffects = function(){
+  let results = {};
+  let dataBlocks = _.pick(globalObjPropsBefore, 'block1', 'block2');
   var entries = Object.entries(dataBlocks);
   for (var i=0; i< entries.length; i++){
       let label = entries[i][0];
-      let obj = entries[i][1];
-      let posBefore = objPropsBefore[label];
-      if(label !== "block1" && label !== "block2"){
-        continue;
-      }
-      var posAfter = objPropsAfter[label]
-      var movementX = Math.abs(Math.round(posAfter.x) - posBefore.x)
-      var movementY = Math.round(posAfter.y) - posBefore.y
-      results.push({label, movedX: movementX, movedY: movementY});
+      // console.log(label)
+      let posBefore = entries[i][1];
+      var posAfter = globalObjPropsAfter[label]
+      // console.log(posAfter)
+
+      // does the block touch the ground? (lies either on long or short side)
+      let yHorizontal = GROUND.y - GROUND.height / 2 - BLOCKS.width / 2;
+      let yVertical = GROUND.y - GROUND.height / 2 - BLOCKS.height / 2;
+      let onGroundVertical = Math.round(posAfter.y - yVertical) == 0;
+      let onGroundHorizontal = Math.round(posAfter.y - yHorizontal) == 0;
+      let onGround = onGroundVertical || onGroundHorizontal;
+
+      // how much did the block move?
+      var movedX = Math.abs(Math.round(posAfter.x - posBefore.x))
+      var movedY = Math.round(posAfter.y - posBefore.y)
+
+      // did the block fall?
+      var fell = movedY != 0;
+
+      results[label] = {onGround, fell, movedX, movedY};
   }
   return(results)
 }
