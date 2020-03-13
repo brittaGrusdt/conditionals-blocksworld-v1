@@ -35,7 +35,7 @@ randomNbInRange = function(minMax){
 }
 
 downloadSceneDefinitions = function(data) {
-    let csv = 'stimulus, position, before_x, before_y, width, height, id\n';
+    let csv = 'stimulus,position,before_x,before_y,width,height,id\n';
     data.forEach(function(trial) {
       console.log(trial)
       for (var i=2; i< trial.length; i++){
