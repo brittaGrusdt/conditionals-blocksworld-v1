@@ -1,4 +1,4 @@
-id,must_not_be_small,must_not_be_large,req.exp2.not.small,req.exp2.not.large,pa,pc,pc_given_a,pa_given_c,Comment-dependency,dependence.c,dependence.a,AC.position,A.orientation,C.orientation,platform.type,platform1.height,platform1.width,platform2.height,platform2.width,platform.dist,comment1,comment2
+id,req.exp1.not.small,req.exp1.not.large,req.exp2.not.small,req.exp2.not.large,pa,pc,pc_given_a,pa_given_c,Comment-dependency,dependence.c,dependence.a,AC.position,A.orientation,C.orientation,platform.type,platform1.height,platform1.width,platform2.height,platform2.width,platform.dist,comment1,comment2
 S1-121,,none,,,high,high,uncertain,uncertain,slightly_dep,1,1,-1,vertical,vertical,basic2,high,narrow,high,narrow,short,"
 Needs training example",both become less likely given the other
 S10-203,,none,,,high,low,low,uncertain,slightly_dep,0,1,-1,vertical,vertical,basic2,high,narrow,default,narrow,short,p(A|C) uncertain because of space,-1

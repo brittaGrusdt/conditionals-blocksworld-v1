@@ -163,25 +163,25 @@ The following pictures show all scenes for which I specified such a requirement.
 Below are the stimulus ids of those scenes of which some trials had to be
 discarded.
 
-!["S1-121"](/home/britta/UNI/Osnabrueck/MA-project/conditionals-pilot/images/group1/S1-121.jpg)
+!["S1-121"](/home/britta/UNI/Osnabrueck/conditionals-blocksworld/experiments/stimuli/images/group1/S1-121.jpg)
 
-!["S10-203"](/home/britta/UNI/Osnabrueck/MA-project/conditionals-pilot/images/group1/S10-203.jpg)
+!["S10-203"](/home/britta/UNI/Osnabrueck/conditionals-blocksworld/experiments/stimuli/images/group1/S10-203.jpg)
 
-!["S12-203"](/home/britta/UNI/Osnabrueck/MA-project/conditionals-pilot/images/group1/S15-443.jpg)
+!["S12-203"](/home/britta/UNI/Osnabrueck/conditionals-blocksworld/experiments/stimuli/images/group1/S15-443.jpg)
 
-!["S15-443"](/home/britta/UNI/Osnabrueck/MA-project/conditionals-pilot/images/group1/S12-203.jpg)
+!["S15-443"](/home/britta/UNI/Osnabrueck/conditionals-blocksworld/experiments/stimuli/images/group1/S12-203.jpg)
 
-!["S20-468"](/home/britta/UNI/Osnabrueck/MA-project/conditionals-pilot/images/group1/S22-468.jpg)
+!["S20-468"](/home/britta/UNI/Osnabrueck/conditionals-blocksworld/experiments/stimuli/images/group1/S22-468.jpg)
 
-!["S22-468"](/home/britta/UNI/Osnabrueck/MA-project/conditionals-pilot/images/group1/S22-468.jpg)
+!["S22-468"](/home/britta/UNI/Osnabrueck/conditionals-blocksworld/experiments/stimuli/images/group1/S22-468.jpg)
 
-!["S30-805"](/home/britta/UNI/Osnabrueck/MA-project/conditionals-pilot/images/group1/S30-805.jpg)
+!["S30-805"](/home/britta/UNI/Osnabrueck/conditionals-blocksworld/experiments/stimuli/images/group1/S30-805.jpg)
 
-!["S32-806"](/home/britta/UNI/Osnabrueck/MA-project/conditionals-pilot/images/group1/S34-806.jpg)
+!["S32-806"](/home/britta/UNI/Osnabrueck/conditionals-blocksworld/experiments/stimuli/images/group1/S34-806.jpg)
 
-!["S7-130"](/home/britta/UNI/Osnabrueck/MA-project/conditionals-pilot/images/group1/S7-130.jpg)
+!["S7-130"](/home/britta/UNI/Osnabrueck/conditionals-blocksworld/experiments/stimuli/images/group1/S7-130.jpg)
 
-!["S7-130-dep"](/home/britta/UNI/Osnabrueck/MA-project/conditionals-pilot/images/group1/S7-130-dep.jpg)
+!["S7-130-dep"](/home/britta/UNI/Osnabrueck/conditionals-blocksworld/experiments/stimuli/images/group1/S7-130-dep.jpg)
 
 
 ```{r, message = FALSE}
@@ -248,6 +248,12 @@ means <- data_normalized %>%
 fn <- here("experiments", "blocksworld-prior", "results", "data-processed",
            "tables_experimental_means.csv")
 write.table(means, file = fn, sep = ",", row.names=FALSE)
+
+
+fn <- here("experiments", "blocksworld-prior", "results", "data-processed",
+           "tables_experimental_means_wide.csv")
+write.table(means %>% pivot_wider(names_from = utterance, values_from = mean),
+            file = fn, sep = ",", row.names=FALSE)
 ```
 
 # Inspect processed data
@@ -340,9 +346,6 @@ dat %>% PlotDensity("p_a", "p_c", "p-marginals.png")
 dat %>% PlotDensity("p_na_given_nc", "p_nc_given_na", "p-neg-conditionals.png")
 dat %>% PlotDensity("p_na", "p_nc", "p-neg-marginals.png")
 ```
-
-
-
 
 
 
