@@ -15,7 +15,8 @@ let render;
 let globalObjPropsBefore = {};
 let globalObjPropsAfter = {};
 
-clearWorld = function(worldObjects){
+clearWorld = function(){
+  let worldObjects = engine.world.bodies;
   removeBodies(worldObjects);
   // // World.clear(engine.world, deep = true) // doesn't remove static objects
   engine.events = {};
@@ -35,7 +36,6 @@ addStopRenderAndClearWorldEvent = function(){
   Events.on(engine, 'afterUpdate', function (event) {
     // only do this once after specified nb of ms passed
     if (engine.timing.timestamp >= SIMULATION.duration) {
-      console.log(engine.timing.timestamp)
       freezeAnimation();
       // document.getElementById("timestamp").innerHTML = "timestamp:" + engine.timing.timestamp;
       // This freezes what is rendered at this point in time
@@ -129,7 +129,7 @@ function removeBodies(arr) {
 	}
 }
 
-var forwardAnimation = function(worldObjects){
+var forwardAnimation = function(){
   var n = 0
   while(n < 500) {
     Engine.update(engine, 10.0)

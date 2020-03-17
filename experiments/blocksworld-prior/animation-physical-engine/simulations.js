@@ -67,7 +67,7 @@ var simulateProbs = function(scene, wiggles){
     sceneData.b2.x = Number(parseFloat(wiggles.block2[i]));
     worldObjects = createSceneObjs(scene["platform.type"], sceneData, false);
     setupWorld(worldObjects);
-    forwardAnimation(worldObjects);
+    forwardAnimation();
     let effects = simulationEffects();
     clearWorld(worldObjects);
     // frequencies block1, block2 touching ground

@@ -93,7 +93,7 @@ const animation_view  = {
       runButton.on('click', function(e){
         if(!animationRun && repliedAll()) {
           animationRun = true;
-          runAnimation(worldObjects);
+          runAnimation();
           toggleNextIfDone($("#buttonNextAnimation"), true);
         }
       });
