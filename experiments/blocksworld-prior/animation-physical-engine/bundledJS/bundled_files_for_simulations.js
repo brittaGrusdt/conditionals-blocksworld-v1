@@ -54,9 +54,9 @@ downloadSceneDefinitions = function(data) {
     hiddenElement.click();
 }
 
-let MODE = "train";
+// let MODE = "train";
 // let MODE = "experiment";
-// let MODE = "";
+let MODE = "";
 
 // // canvas size
 const CANVAS = {"width": 800, "height": 300}
@@ -74,11 +74,17 @@ const COLOR = {"platforms": "#B6AFBD",  // "#FFBC42",
                "blocks": ["#1BB635", "#0496FF"],  // green, blue
                "seesaw": {"plank": "darkorange", "stick": "darkgray"}}
 
-const DENSITIES = {"default": 0.001, "blocks": 0.1, "seesawPlank": 0.2, "platforms": 0.4}
-const FRICTIONS = {"default": 0.8, "platforms": 0.8}
+// density spruce (Fichte): 0.47 g/cm3
+// density ash (Esche): 1.47 * d_spruce
+// density steel: 16.7 * d_spruce
+let density = 0.001;
+const DENSITIES = {"default": density, "blocks": density,
+  "seesawPlank": density * 1.47, "platforms": density * 16.7}
+
+// const FRICTIONS = {"default": 0.01}
 const RESTITUITIONS = {"default": 0} // default is inelastic
 
-const BLOCKS = {"width": 40, "height": 80,
+const BLOCKS = {"width": 50, "height": 70,
                 "minDist2Edge": 5,"step": 10
                };
 // proportion of this value of the width of the block will touch the base
@@ -184,14 +190,17 @@ function initWorldObj(kind, label, color, x=0, y=0, width=0, height=0){
                             render: {"fillStyle": color},
                             restituition: RESTITUITIONS.default,
                             density: DENSITIES.default,
-                            isStatic: false,
-                            friction: FRICTIONS.default
+                            isStatic: false
+                            // friction: FRICTIONS.default
+                            // frictionStatic: 0.5 ,//(default),
+                            // fricitionAir: 0.5
                            }
             };
   if (kind == "block"){
     obj.properties.density = DENSITIES.blocks;
   } else if (kind == "platform") {
     obj.properties.density = DENSITIES.platforms;
+    // obj.properties.frictionStatic = 1;
   }
   if (kind == "static"){
     obj.properties.isStatic = true;
@@ -201,51 +210,6 @@ function initWorldObj(kind, label, color, x=0, y=0, width=0, height=0){
   }
   return obj
 }
-
-
-
-// OLD
-// const canvH = 400;
-// const canvW = 800;
-//
-// groundH = 20;
-//
-// platformH = 100;
-// platformW = 150;
-// const platformY = canvH - (platformH / 2) - groundH;
-// const platformX = canvW / 3
-//
-// const platform2H = platformH + platformH / 1.5
-// const CONFIG = {
-//   "simulation": {"duration": 1000},
-//
-//   "blocks": {"width": 40, "height": 60, "dist2Edge": 5, "step": 10, "friction": 0.75},
-//
-//   "canvas": {"width": canvW, "height": canvH},
-//
-//   "ground": {"width": canvW, "height": groundH,
-//              "x": canvW / 2, "y": canvH - groundH / 2
-//             },
-//
-//   "platform": {"width": platformW, "height": platformH,
-//                "x": platformX, "y": platformY,
-//                "yTop": platformY - platformH / 2
-//              },
-//
-//   "platform2": {"close": {"width": platformW, "height": platform2H,
-//                           "x": (platformX + (platformW / 2)) + 1.5 * platformW,
-//                           "y": canvH - (platform2H / 2) - groundH
-//                           },
-//                 "far": {"width": platformW, "height": platform2H,
-//                         "x": (platformX + (platformW / 2)) + 3 * platformW,
-//                         "y": canvH - (platform2H / 2) - groundH
-//                         }
-//                 }
-//
-// };
-//
-// CONFIG.distractors = {"width": CONFIG.blocks.width,
-//                       "height": CONFIG.blocks.height * 3}
 
 const Constraint = Matter.Constraint;
 /**
@@ -539,7 +503,8 @@ dataAll.forEach(function(trial){
 platformConstraints = function(platforms) {
   let constraints = [];
   platforms.forEach(function(platform){
-    let c = Constraint.create({pointA: {x: platform["position"]["x"], y: platform["position"]["y"]},
+    let c = Constraint.create({pointA: {x: platform["position"]["x"],
+                                        y: platform["position"]["y"]},
                               bodyB: platform,
                               stiffness: 0.7,
                               length: 0,
@@ -690,6 +655,7 @@ var Engine = Matter.Engine,
     Render = Matter.Render,
     World = Matter.World,
     Bodies = Matter.Bodies;
+    Body = Matter.Body;
     Events = Matter.Events;
     Runner = Matter.Runner;
     Mouse = Matter.Mouse;
@@ -732,6 +698,7 @@ addStopRenderAndClearWorldEvent = function(){
     }
   });
 }
+
 
 setupEngineWithRenderer = function(place2Render){
   // create engine
@@ -839,29 +806,63 @@ var simulationEffects = function(){
   var entries = Object.entries(dataBlocks);
   for (var i=0; i< entries.length; i++){
       let label = entries[i][0];
-      // console.log(label)
       let posBefore = entries[i][1];
       var posAfter = globalObjPropsAfter[label]
-      // console.log(posAfter)
 
       // does the block touch the ground? (lies either on long or short side)
       let yHorizontal = GROUND.y - GROUND.height / 2 - BLOCKS.width / 2;
       let yVertical = GROUND.y - GROUND.height / 2 - BLOCKS.height / 2;
-      let onGroundVertical = Math.round(posAfter.y - yVertical) == 0;
-      let onGroundHorizontal = Math.round(posAfter.y - yHorizontal) == 0;
+      let onGroundVertical = Math.round(posAfter.y - yVertical) === 0;
+      let onGroundHorizontal = Math.round(posAfter.y - yHorizontal) === 0;
       let onGround = onGroundVertical || onGroundHorizontal;
 
       // how much did the block move?
       var movedX = Math.abs(Math.round(posAfter.x - posBefore.x))
       var movedY = Math.round(posAfter.y - posBefore.y)
-
       // did the block fall?
       var fell = movedY != 0;
-
       results[label] = {onGround, fell, movedX, movedY};
   }
   return(results)
 }
+
+const gaussian = require('gaussian');
+const createCsvWriter = require('csv-writer').createObjectCsvWriter;
+
+prepareWiggleData = function(){
+  let results = [];
+  dataAll.forEach(function(scene){
+    let sceneDef = defineScene(scene);
+    let platforms = scene["platform.type"] == "basic2" ?
+    [sceneDef.p1, sceneDef.p2] : scene["platform.type"] == "seesaw" ?
+    [sceneDef.plank] : [sceneDef.p1];
+    let blockData = [scene.id, scene["AC.position"], sceneDef.b1, sceneDef.b2];
+    results.push(blockData.concat(platforms))
+  });
+  let data = [];
+  let csv = 'stimulus,position,before_x,before_y,width,height,id\n';
+  results.forEach(function(trial) {
+    // console.log(trial)
+    for (var i=2; i< trial.length; i++){
+      let vals = {'stimulus': trial[0],
+                  'position': trial[1],
+                  'before_x': trial[i].x,
+                  'before_y': trial[i].y,
+                  'width': trial[i].width,
+                  'height': trial[i].height,
+                  'id': trial[i].properties.label
+                }
+      // vals = vals.concat(trial[i].x, trial[i].y, trial[i].width,
+      //   trial[i].height, trial[i].properties.label);
+      // csv += vals.join(',');
+      // csv += "\n";
+      data.push(vals);
+    }
+  });
+  return data
+  // return encodeURI(csv);
+}
+
 
 /**
 * Estimates probability tables P(A, C) with A/C: first/second block falls.
@@ -881,20 +882,22 @@ var simulationEffects = function(){
 *
 */
 var simulateProbs = function(scene, wiggles){
+  console.log('simulate probs for: ' + scene.id);
   let sceneData = defineScene(scene);
   let counts = {"ac_fallen": 0, "a_fallen": 0, "c_fallen": 0, "none_fallen": 0,
                 "ac_touchGround": 0, "a_touchGround": 0,
                 "c_touchGround": 0, "none_touchGround": 0};
-  for(var i=0; i<wiggles.length; i++){
+  let n = wiggles.block1.length;
+  for(var i=0; i<n; i++){
     // adjust wiggled block positions
     // console.log(sceneData);
-    sceneData.b1.x = Number(parseFloat(wiggles[i].block1).toPrecision(5));
-    sceneData.b2.x = Number(parseFloat(wiggles[i].block2).toPrecision(5));
+    sceneData.b1.x = Number(parseFloat(wiggles.block1[i]));
+    sceneData.b2.x = Number(parseFloat(wiggles.block2[i]));
     worldObjects = createSceneObjs(scene["platform.type"], sceneData, false);
     setupWorld(worldObjects);
     forwardAnimation(worldObjects);
     let effects = simulationEffects();
-
+    clearWorld(worldObjects);
     // frequencies block1, block2 touching ground
     if(effects["block1"]["onGround"]){
       if(effects["block2"]["onGround"]){
@@ -923,48 +926,146 @@ var simulateProbs = function(scene, wiggles){
         counts["none_fallen"] += 1;
       }
     }
-
   }
   // compute frequency
   counts = _.mapObject(counts, function(val, key) {
-    return val / wiggles.length;
+    return val / n;
   });
-  counts["n_wiggles"] = wiggles.length;
+  counts["n_wiggles"] = n;
   counts["stimulus"] = scene.id;
-
   return(counts)
 };
 
-const neatCsv = require('neat-csv');
+/** @arg block: block to be wiggled
+** @arg base: object beneath block
+*/
+let doWiggle = function(block, base, kind, N, sigma){
+  let wiggles = [];
+  _.range(1, N+1).forEach(function(val){
+    // Inverse transform sampling method
+    var sample = gaussian(block.before_x, sigma).ppf(Math.random());
+    wiggles.push(sample);
+  })
+  return wiggles
+}
+
+// stimulus contains block1, block2 + their platforms
+let wiggle = function(stimulus, N, sigma){
+  // console.log('wiggle objs: ')
+  // console.log(stimulus)
+  let block1 = _.filter(stimulus, function(obj){return obj.id==="block1"})[0]
+  let block2 = _.filter(stimulus, function(obj){return obj.id=="block2"})[0]
+  let pos = _.uniq(_.pluck(stimulus, 'position'))[0]
+  let stim = _.uniq(_.pluck(stimulus, 'stimulus'))[0]
+  // one of: block1, block2, p1, p2, seesaw
+  let obj_ids = _.pluck(stimulus, 'id')
+  let platform; let x_block1; let x_block2;
+  if(pos == "-1") {
+    // on two separate platforms (basic2)
+    let p1 = _.filter(stimulus, function(obj){return obj.id=="platform1"})[0]
+    let p2 = _.filter(stimulus, function(obj){return obj.id=="platform2"})[0]
+    x_block1 = doWiggle(block1, p1, "basic2", N, sigma)
+    x_block2 = doWiggle(block2, p2, "basic2", N, sigma)
+  } else {
+    // on a single platform (basic1 or seesaw)
+    let kind = '';
+    if(obj_ids.includes("platform1")){
+      kind = "basic1";
+      platform = _.filter(stimulus, function(obj){return obj.id=="platform1"})[0]
+    } else {
+      kind="seesaw";
+      platform = _.filter(stimulus, function(obj){return obj.id=="seesawPlank"})[0]
+    }
+    if(pos == "stack_C_on_A"){
+      x_block1 = doWiggle(block1, platform, kind, N, sigma);
+      x_block2 = doWiggle(block2, block1, kind, N, sigma)
+    } else if(pos == "stack_A_on_C") {
+      x_block1 = doWiggle(block1, block2, kind, N, sigma)
+      x_block2 = doWiggle(block2, platform, kind, N, sigma)
+    } else if(pos == "side"){
+      x_block1 = doWiggle(block1, platform, kind, N, sigma)
+      x_block2 = doWiggle(block2, platform, kind, N, sigma)
+    }
+  }
+  let wiggles = {block1: x_block1, block2: x_block2, stimulus: stim}
+  let wiggledArray = []
+  _.range(0,N).forEach(function(i){
+    wiggledArray.push({block1: x_block1[i], block2: x_block2[i], stimulus: stim,
+      block1_before: block1.before_x, block2_before: block2.before_x});
+  });
+
+  let csvWriter = createCsvWriter({
+      path: 'wiggles.csv',
+      header: [
+          {id: 'block1', title: 'block1'},
+          {id: 'block2', title: 'block2'},
+          {id: 'stimulus', title: 'stimulus'},
+          {id: 'block1_before', title: 'block1_before'},
+          {id: 'block2_before', title: 'block2_before'}
+      ]
+  });
+  csvWriter.writeRecords(wiggledArray)       // returns a promise
+      .then(() => {
+          console.log('...wrote wiggles to wiggles.csv!');
+      });
+  return wiggles
+}
+
+run = function(N, sigma){
+  let stimuli = _.uniq(_.pluck(dataAll, 'id'));
+  // let stimuli = ["S1-121"];
+  // let stimuli =  ["S89-1642"];
+  let definitions = prepareWiggleData();
+  // console.log(definitions)
+  let effects = [];
+  stimuli.forEach(function(id){
+    let sceneDefWiggles = _.filter(definitions, function(obj){
+      return obj.stimulus === id
+    })
+    let wiggles = wiggle(sceneDefWiggles, N, sigma)
+    let sceneDef = _.filter(dataAll, function(obj){
+      return obj.id === id
+    })[0];
+    effects.push(Object.assign({sigma}, simulateProbs(sceneDef, wiggles)));
+  });
+  return effects;
+}
+
 const fs = require('fs');
 
-fs.readFile('../analysis/wiggles.csv', async (err, data) => {
-  if (err) {
-    console.error(err)
-    return
-  }
-  let wiggles_all = await neatCsv(data);
-  let scene_ids = _.pluck(dataAll, 'id');
+let fn = 'simulationProbabilities.csv'
+const ws = fs.createWriteStream(fn, { flag: 'a' });
+// let sigmas = [1.75, 2.5]
+let sigmas = [0.5, 1, 2.5]
+let N = 1000;
 
-  let effects = [];
-  scene_ids.forEach(function(id){
-  // let id = scene_ids[0];
-    let definition = _.filter(dataAll, function(scene){
-      return (scene.id).localeCompare(id) == 0
-    })[0];
-    // console.log(definition)
-    let wiggles = _.filter(wiggles_all, function(wiggle){
-      return (wiggle.stimulus).localeCompare(id) == 0
+let results = []
+sigmas.forEach(function(sigma){
+  console.log('sigma: ' + sigma);
+  let effects = run(N, sigma);
+  results = results.concat(effects);
+  console.log(results);
+});
+
+const csvWriter = createCsvWriter({
+    path: fn,
+    header: [
+        {id: 'sigma', title: 'sigma'},
+        {id: 'ac_fallen', title: 'ac_fallen'},
+        {id: 'a_fallen', title: 'a_fallen'},
+        {id: 'c_fallen', title: 'c_fallen'},
+        {id: 'none_fallen', title: 'none_fallen'},
+        {id: 'ac_touchGround', title: 'ac_touchGround'},
+        {id: 'a_touchGround', title: 'a_touchGround'},
+        {id: 'c_touchGround', title: 'c_touchGround'},
+        {id: 'none_touchGround', title: 'none_touchGround'},
+        {id: 'n_wiggles', title: 'n_wiggles'},
+        {id: 'stimulus', title: 'stimulus'}
+    ]
+});
+
+
+csvWriter.writeRecords(results)       // returns a promise
+    .then(() => {
+        console.log('...Done');
     });
-    // console.log(wiggles)
-    effects.push(simulateProbs(definition, wiggles));
-  });
-  console.log(effects[0])
-  let fn = 'simulationProbabilities.csv'
-
-  const fastcsv = require('fast-csv');
-  const ws = fs.createWriteStream(fn);
-  fastcsv
-    .write(effects, { headers: true })
-    .pipe(ws);
-})

@@ -39,7 +39,8 @@ dataAll.forEach(function(trial){
 platformConstraints = function(platforms) {
   let constraints = [];
   platforms.forEach(function(platform){
-    let c = Constraint.create({pointA: {x: platform["position"]["x"], y: platform["position"]["y"]},
+    let c = Constraint.create({pointA: {x: platform["position"]["x"],
+                                        y: platform["position"]["y"]},
                               bodyB: platform,
                               stiffness: 0.7,
                               length: 0,

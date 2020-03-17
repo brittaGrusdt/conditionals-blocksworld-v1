@@ -1,4 +1,4 @@
-stimulus, position, before_x, before_y, width, height, id
+stimulus,position,before_x,before_y,width,height,id
 S1-121,-1,292.5,40,40,80,block1
 S1-121,-1,432.5,40,40,80,block2
 S1-121,-1,250,180,75,200,platform1

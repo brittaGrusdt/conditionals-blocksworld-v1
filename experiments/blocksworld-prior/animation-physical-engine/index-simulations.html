@@ -15,6 +15,8 @@
     <p id="greenBeforeY"></p>
     <p id="greenAfterY"></p>
     <p id="timestamp"></p>
+    <p id="wiggle1">wiggle block1: </p>
+    <p id="wiggle2">wiggle block2: </p>
     <!-- install with npm: -->
     <!-- npm install underscore -->
     <!-- npm install matter-js -->
@@ -44,15 +46,47 @@
       forwardAnimation(worldObjects);
     }
     </script>
-    <button id="downloadButton" onclick="clickOnGetData()">Get Data</button>
+    <button id="downloadButton" onclick="clickOnGetData()">Get all Data</button>
     <script>
-      let idx = Math.floor(Math.random()*10);
-      let scene = dataAll[idx];
-      let sceneData = defineScene(scene);
-      worldObjects = createSceneObjs(scene["platform.type"], sceneData, false);
-      setupWorld(worldObjects, document.body)
-      showScene();
+      // let idx = Math.floor(Math.random()*10);
+      // let scene = dataAll[idx];
+      let id = "S89-1642";
+      let scene = _.filter(dataAll, function(obj){
+        return obj.id === id
+      })[0];
     </script>
+    <script>
+    console.log(scene.id);
+    let sceneData = defineScene(scene);
+    worldObjects = createSceneObjs(scene["platform.type"], sceneData, false);
+    setupWorld(worldObjects, document.body)
+    showScene();
+    </script>
+    <script>
+    // console.log(sceneData);
+      let block1 = _.filter(worldObjects, function(obj){
+        return obj.label === "block1"
+      })[0];
+      let block2 = _.filter(worldObjects, function(obj){
+        return obj.label === "block2"
+      })[0];
+
+      // engine.world.gravity.y = 0.9;
+      wiggle = function(stimulus, diff_b1, diff_b2){
+        Body.setPosition(block1, { x: block1.position.x + diff_b1, y: block1.position.y });
+        Body.setPosition(block2, { x: block2.position.x + diff_b2, y: block2.position.y });
+        document.getElementById("wiggle1").innerHTML += diff_b1;
+        document.getElementById("wiggle2").innerHTML += diff_b2;
+      }
+      // only if the block is moved more than a few percent of its width towards
+      // the platform, it doesn't fall, everything below still makes it fall.
+      let shift = 0.024 * BLOCKS.width;
+      // let shift = 1.2;
+      let dist1 = shift;
+      let dist2 = -shift;
+    </script>
+    <button id="wiggleButton" onclick="wiggle(scene.id, dist1, dist2)">wiggle</button>
     <button id="forwardButton" onclick="clickOnForward()">Forward</button>
+    <button id="runButton" onclick="runAnimation(worldObjects)">Run</button>
   </body>
 </html>

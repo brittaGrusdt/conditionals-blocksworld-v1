@@ -90,7 +90,12 @@ data_filtered <- data %>%
 
 nrow(data_filtered)
 
-# TODO: something went wrong with reaction times! (only first trial is saved)
+# repeat RT (one per trial, not per utterance)
+# TODO: check this again in experiment code!!
+rt <- data_filtered %>% filter(!is.na(RT)) %>% pull(RT)
+rt <- rep(rt, each=4)
+data_filtered$RT <- rt
+
 data_filtered <- data_filtered %>% filter(is.na(RT) | RT <= 3 * 60 * 1000)
 nrow(data_filtered)
 
@@ -106,7 +111,6 @@ Select only variables relevant for futher analysis and write to csv
 df <- data_filtered %>%
   select(-utt_idx, -trial_name, -trial_number, -timeSpent, -gender, -age,
          -comments, -RT) 
-
 # match colors and blocks depending on color-group
 data_processed <- df %>%
   group_by(participant_id, stimulus_id, color_group) %>% 
@@ -306,7 +310,7 @@ for (s in STIMULI){
     theme_classic() +
     
     facet_wrap(~utterance, labeller = labeller(utterance=labels)) + 
-    # ggtitle(s) +
+    ggtitle(s) +
     theme(legend.position = "none", axis.text.y=element_blank(),
           axis.ticks.y =element_blank(),
           text = element_text(size=20),

@@ -1,6 +1,6 @@
-let MODE = "train";
+// let MODE = "train";
 // let MODE = "experiment";
-// let MODE = "";
+let MODE = "";
 
 // // canvas size
 const CANVAS = {"width": 800, "height": 300}
@@ -18,11 +18,17 @@ const COLOR = {"platforms": "#B6AFBD",  // "#FFBC42",
                "blocks": ["#1BB635", "#0496FF"],  // green, blue
                "seesaw": {"plank": "darkorange", "stick": "darkgray"}}
 
-const DENSITIES = {"default": 0.001, "blocks": 0.1, "seesawPlank": 0.2, "platforms": 0.4}
-const FRICTIONS = {"default": 0.8, "platforms": 0.8}
+// density spruce (Fichte): 0.47 g/cm3
+// density ash (Esche): 1.47 * d_spruce
+// density steel: 16.7 * d_spruce
+let density = 0.001;
+const DENSITIES = {"default": density, "blocks": density,
+  "seesawPlank": density * 1.47, "platforms": density * 16.7}
+
+// const FRICTIONS = {"default": 0.01}
 const RESTITUITIONS = {"default": 0} // default is inelastic
 
-const BLOCKS = {"width": 40, "height": 80,
+const BLOCKS = {"width": 50, "height": 70,
                 "minDist2Edge": 5,"step": 10
                };
 // proportion of this value of the width of the block will touch the base
@@ -128,14 +134,17 @@ function initWorldObj(kind, label, color, x=0, y=0, width=0, height=0){
                             render: {"fillStyle": color},
                             restituition: RESTITUITIONS.default,
                             density: DENSITIES.default,
-                            isStatic: false,
-                            friction: FRICTIONS.default
+                            isStatic: false
+                            // friction: FRICTIONS.default
+                            // frictionStatic: 0.5 ,//(default),
+                            // fricitionAir: 0.5
                            }
             };
   if (kind == "block"){
     obj.properties.density = DENSITIES.blocks;
   } else if (kind == "platform") {
     obj.properties.density = DENSITIES.platforms;
+    // obj.properties.frictionStatic = 1;
   }
   if (kind == "static"){
     obj.properties.isStatic = true;
@@ -145,48 +154,3 @@ function initWorldObj(kind, label, color, x=0, y=0, width=0, height=0){
   }
   return obj
 }
-
-
-
-// OLD
-// const canvH = 400;
-// const canvW = 800;
-//
-// groundH = 20;
-//
-// platformH = 100;
-// platformW = 150;
-// const platformY = canvH - (platformH / 2) - groundH;
-// const platformX = canvW / 3
-//
-// const platform2H = platformH + platformH / 1.5
-// const CONFIG = {
-//   "simulation": {"duration": 1000},
-//
-//   "blocks": {"width": 40, "height": 60, "dist2Edge": 5, "step": 10, "friction": 0.75},
-//
-//   "canvas": {"width": canvW, "height": canvH},
-//
-//   "ground": {"width": canvW, "height": groundH,
-//              "x": canvW / 2, "y": canvH - groundH / 2
-//             },
-//
-//   "platform": {"width": platformW, "height": platformH,
-//                "x": platformX, "y": platformY,
-//                "yTop": platformY - platformH / 2
-//              },
-//
-//   "platform2": {"close": {"width": platformW, "height": platform2H,
-//                           "x": (platformX + (platformW / 2)) + 1.5 * platformW,
-//                           "y": canvH - (platform2H / 2) - groundH
-//                           },
-//                 "far": {"width": platformW, "height": platform2H,
-//                         "x": (platformX + (platformW / 2)) + 3 * platformW,
-//                         "y": canvH - (platform2H / 2) - groundH
-//                         }
-//                 }
-//
-// };
-//
-// CONFIG.distractors = {"width": CONFIG.blocks.width,
-//                       "height": CONFIG.blocks.height * 3}

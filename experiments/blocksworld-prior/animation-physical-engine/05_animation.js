@@ -3,6 +3,7 @@ var Engine = Matter.Engine,
     Render = Matter.Render,
     World = Matter.World,
     Bodies = Matter.Bodies;
+    Body = Matter.Body;
     Events = Matter.Events;
     Runner = Matter.Runner;
     Mouse = Matter.Mouse;
@@ -45,6 +46,7 @@ addStopRenderAndClearWorldEvent = function(){
     }
   });
 }
+
 
 setupEngineWithRenderer = function(place2Render){
   // create engine
@@ -152,25 +154,21 @@ var simulationEffects = function(){
   var entries = Object.entries(dataBlocks);
   for (var i=0; i< entries.length; i++){
       let label = entries[i][0];
-      // console.log(label)
       let posBefore = entries[i][1];
       var posAfter = globalObjPropsAfter[label]
-      // console.log(posAfter)
 
       // does the block touch the ground? (lies either on long or short side)
       let yHorizontal = GROUND.y - GROUND.height / 2 - BLOCKS.width / 2;
       let yVertical = GROUND.y - GROUND.height / 2 - BLOCKS.height / 2;
-      let onGroundVertical = Math.round(posAfter.y - yVertical) == 0;
-      let onGroundHorizontal = Math.round(posAfter.y - yHorizontal) == 0;
+      let onGroundVertical = Math.round(posAfter.y - yVertical) === 0;
+      let onGroundHorizontal = Math.round(posAfter.y - yHorizontal) === 0;
       let onGround = onGroundVertical || onGroundHorizontal;
 
       // how much did the block move?
       var movedX = Math.abs(Math.round(posAfter.x - posBefore.x))
       var movedY = Math.round(posAfter.y - posBefore.y)
-
       // did the block fall?
       var fell = movedY != 0;
-
       results[label] = {onGround, fell, movedX, movedY};
   }
   return(results)
