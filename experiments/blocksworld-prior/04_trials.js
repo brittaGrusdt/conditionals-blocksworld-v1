@@ -3,17 +3,17 @@
 let group = "group";
 
 var slider_rating_trials = [
-  {
-
-    picture: "../stimuli/images/" + group + "/" +"S1-121.jpg",
-    QUD: "Rate how likely each of the following statements is!",
-    question1: "utterance1",
-    question2: "utterance2",
-    question3: "utterance3",
-    question4: "utterance4",
-    optionLeft: "impossible event",
-    optionRight: "certain event"
-  },
+  // {
+  //
+  //   picture: "../stimuli/images/" + group + "/" +"S1-121.jpg",
+  //   QUD: "Rate how likely each of the following statements is!",
+  //   question1: "utterance1",
+  //   question2: "utterance2",
+  //   question3: "utterance3",
+  //   question4: "utterance4",
+  //   optionLeft: "impossible event",
+  //   optionRight: "certain event"
+  // },
   {
     picture: "../stimuli/images/" + group + "/" +"S7-130.jpg",
     QUD: "Rate how likely each of the following statements is!",
@@ -24,36 +24,36 @@ var slider_rating_trials = [
     optionLeft: "impossible event",
     optionRight: "certain event"
   },
-  {
-    picture: "../stimuli/images/" + group + "/" +"S8-202.jpg",
-    QUD: "Rate how likely each of the following statements is!",
-    question1: "utterance1",
-    question2: "utterance2",
-    question3: "utterance3",
-    question4: "utterance4",
-    optionLeft: "impossible event",
-    optionRight: "certain event"
-  },
-  {
-    picture: "../stimuli/images/" + group + "/" +"S10-203.jpg",
-    QUD: "Rate how likely each of the following statements is!",
-    question1: "utterance1",
-    question2: "utterance2",
-    question3: "utterance3",
-    question4: "utterance4",
-    optionLeft: "impossible event",
-    optionRight: "certain event"
-  },
-  {
-    picture: "../stimuli/images/" + group + "/" +"S12-203.jpg",
-    QUD: "Rate how likely each of the following statements is!",
-    question1: "utterance1",
-    question2: "utterance2",
-    question3: "utterance3",
-    question4: "utterance4",
-    optionLeft: "impossible event",
-    optionRight: "certain event"
-  },
+  // {
+  //   picture: "../stimuli/images/" + group + "/" +"S8-202.jpg",
+  //   QUD: "Rate how likely each of the following statements is!",
+  //   question1: "utterance1",
+  //   question2: "utterance2",
+  //   question3: "utterance3",
+  //   question4: "utterance4",
+  //   optionLeft: "impossible event",
+  //   optionRight: "certain event"
+  // },
+  // {
+  //   picture: "../stimuli/images/" + group + "/" +"S10-203.jpg",
+  //   QUD: "Rate how likely each of the following statements is!",
+  //   question1: "utterance1",
+  //   question2: "utterance2",
+  //   question3: "utterance3",
+  //   question4: "utterance4",
+  //   optionLeft: "impossible event",
+  //   optionRight: "certain event"
+  // },
+  // {
+  //   picture: "../stimuli/images/" + group + "/" +"S12-203.jpg",
+  //   QUD: "Rate how likely each of the following statements is!",
+  //   question1: "utterance1",
+  //   question2: "utterance2",
+  //   question3: "utterance3",
+  //   question4: "utterance4",
+  //   optionLeft: "impossible event",
+  //   optionRight: "certain event"
+  // },
   {
     picture: "../stimuli/images/" + group + "/" +"S15-443.jpg",
     QUD: "Rate how likely each of the following statements is!",
@@ -64,26 +64,26 @@ var slider_rating_trials = [
     optionLeft: "impossible event",
     optionRight: "certain event"
   },
-  {
-    picture: "../stimuli/images/" + group + "/" +"S20-468.jpg",
-    QUD: "Rate how likely each of the following statements is!",
-    question1: "utterance1",
-    question2: "utterance2",
-    question3: "utterance3",
-    question4: "utterance4",
-    optionLeft: "impossible event",
-    optionRight: "certain event"
-  },
-  {
-    picture: "../stimuli/images/" + group + "/" +"S22-468.jpg",
-    QUD: "Rate how likely each of the following statements is!",
-    question1: "utterance1",
-    question2: "utterance2",
-    question3: "utterance3",
-    question4: "utterance4",
-    optionLeft: "impossible event",
-    optionRight: "certain event"
-  },
+  // {
+  //   picture: "../stimuli/images/" + group + "/" +"S20-468.jpg",
+  //   QUD: "Rate how likely each of the following statements is!",
+  //   question1: "utterance1",
+  //   question2: "utterance2",
+  //   question3: "utterance3",
+  //   question4: "utterance4",
+  //   optionLeft: "impossible event",
+  //   optionRight: "certain event"
+  // },
+  // {
+  //   picture: "../stimuli/images/" + group + "/" +"S22-468.jpg",
+  //   QUD: "Rate how likely each of the following statements is!",
+  //   question1: "utterance1",
+  //   question2: "utterance2",
+  //   question3: "utterance3",
+  //   question4: "utterance4",
+  //   optionLeft: "impossible event",
+  //   optionRight: "certain event"
+  // },
   {
     picture: "../stimuli/images/" + group + "/" +"S30-805.jpg",
     QUD: "Rate how likely each of the following statements is!",
@@ -114,16 +114,16 @@ var slider_rating_trials = [
     optionLeft: "impossible event",
     optionRight: "certain event"
   },
-  {
-    picture: "../stimuli/images/" + group + "/" +"S42-806.jpg",
-    QUD: "Rate how likely each of the following statements is!",
-    question1: "utterance1",
-    question2: "utterance2",
-    question3: "utterance3",
-    question4: "utterance4",
-    optionLeft: "impossible event",
-    optionRight: "certain event"
-  },
+  // {
+  //   picture: "../stimuli/images/" + group + "/" +"S42-806.jpg",
+  //   QUD: "Rate how likely each of the following statements is!",
+  //   question1: "utterance1",
+  //   question2: "utterance2",
+  //   question3: "utterance3",
+  //   question4: "utterance4",
+  //   optionLeft: "impossible event",
+  //   optionRight: "certain event"
+  // },
   {
     picture: "../stimuli/images/" + group + "/" +"S44-806.jpg",
     QUD: "Rate how likely each of the following statements is!",
@@ -165,16 +165,16 @@ var slider_rating_trials = [
     optionLeft: "impossible event",
     optionRight: "certain event"
   },
-  {
-    picture: "../stimuli/images/" + group + "/" +"S59-1007.jpg",
-    QUD: "Rate how likely each of the following statements is!",
-    question1: "utterance1",
-    question2: "utterance2",
-    question3: "utterance3",
-    question4: "utterance4",
-    optionLeft: "impossible event",
-    optionRight: "certain event"
-  },
+  // {
+  //   picture: "../stimuli/images/" + group + "/" +"S59-1007.jpg",
+  //   QUD: "Rate how likely each of the following statements is!",
+  //   question1: "utterance1",
+  //   question2: "utterance2",
+  //   question3: "utterance3",
+  //   question4: "utterance4",
+  //   optionLeft: "impossible event",
+  //   optionRight: "certain event"
+  // },
   {
     picture: "../stimuli/images/" + group + "/" +"S63-1039.jpg",
     QUD: "Rate how likely each of the following statements is!",
@@ -185,16 +185,16 @@ var slider_rating_trials = [
     optionLeft: "impossible event",
     optionRight: "certain event"
   },
-  {
-    picture: "../stimuli/images/" + group + "/" +"S83-1609.jpg",
-    QUD: "Rate how likely each of the following statements is!",
-    question1: "utterance1",
-    question2: "utterance2",
-    question3: "utterance3",
-    question4: "utterance4",
-    optionLeft: "impossible event",
-    optionRight: "certain event"
-  },
+  // {
+  //   picture: "../stimuli/images/" + group + "/" +"S83-1609.jpg",
+  //   QUD: "Rate how likely each of the following statements is!",
+  //   question1: "utterance1",
+  //   question2: "utterance2",
+  //   question3: "utterance3",
+  //   question4: "utterance4",
+  //   optionLeft: "impossible event",
+  //   optionRight: "certain event"
+  // },
   {
     picture: "../stimuli/images/" + group + "/" +"S89-1642.jpg",
     QUD: "Rate how likely each of the following statements is!",
@@ -225,16 +225,16 @@ var slider_rating_trials = [
     optionLeft: "impossible event",
     optionRight: "certain event"
   },
-  {
-    picture: "../stimuli/images/" + group + "/" +"S89-1642-dep.jpg",
-    QUD: "Rate how likely each of the following statements is!",
-    question1: "utterance1",
-    question2: "utterance2",
-    question3: "utterance3",
-    question4: "utterance4",
-    optionLeft: "impossible event",
-    optionRight: "certain event"
-  },
+  // {
+  //   picture: "../stimuli/images/" + group + "/" +"S89-1642-dep.jpg",
+  //   QUD: "Rate how likely each of the following statements is!",
+  //   question1: "utterance1",
+  //   question2: "utterance2",
+  //   question3: "utterance3",
+  //   question4: "utterance4",
+  //   optionLeft: "impossible event",
+  //   optionRight: "certain event"
+  // },
   {
     picture: "../stimuli/images/" + group + "/" +"S30-805-dep.jpg",
     QUD: "Rate how likely each of the following statements is!",
