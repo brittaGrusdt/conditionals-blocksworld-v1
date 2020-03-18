@@ -1,7 +1,10 @@
 // In this file you can specify the trial data for your experiment
 
+let group = "group";
+
 var slider_rating_trials = [
   {
+
     picture: "../stimuli/images/" + group + "/" +"S1-121.jpg",
     QUD: "Rate how likely each of the following statements is!",
     question1: "utterance1",
@@ -255,5 +258,11 @@ var slider_rating_trials = [
 
 ];
 
+let n = slider_rating_trials.length;
+_.map(slider_rating_trials, function(trial){
+  let group = _.sample(["group1", "group2"]);
+  trial.picture = trial.picture.replace("group", group);
+});
+console.log(slider_rating_trials[0]);
 // call random_utterance to later be able to randomly show the utterances
 slider_rating_trials = random_utterance(slider_rating_trials);

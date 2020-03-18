@@ -1,6 +1,6 @@
 // Here, you can define all custom functions, you want to use and initialize some variables
 
-const group = _.sample(["group1", "group2"]); // You can determine global (random) parameters here
+// You can determine global (random) parameters here
 
 // Declare your variables here
 
@@ -52,10 +52,10 @@ check_response = function (data, next) {
 };
 
 // custom functions:
-let id2Question = {"bg": "<b>Blue will</b> and <b>green will</b> touch the ground.",
-                   "g": "<b>Blue will not</b> and <b>green will</b> touch the ground.",
-                   "b": "<b>Blue will</b> and <b>green will not</b> touch the ground.",
-                   "none": "<b>Blue will not</b> and <b>green will not</b> touch the ground."
+let id2Question = {"bg": "<b>Blue will</b> and <b>orange will</b> touch the ground.",
+                   "g": "<b>Blue will not</b> and <b>orange will</b> touch the ground.",
+                   "b": "<b>Blue will</b> and <b>orange will not</b> touch the ground.",
+                   "none": "<b>Blue will not</b> and <b>orange will not</b> touch the ground."
                  };
 let _idQuestions = Object.entries(id2Question);
 let question2ID = {};

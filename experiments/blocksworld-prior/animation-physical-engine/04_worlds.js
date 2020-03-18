@@ -163,12 +163,12 @@ let ids = ["S1-121", "S10-203", "S12-203", "S15-443", "S20-468","S22-468",
            "S30-805", "S32-806", "S34-806", "S42-806", "S44-806", "S54-806",
            "S55-1006", "S57-1007", "S59-1007", "S63-1039", "S7-130", "S8-202", "S83-1609", "S89-1642", "S93-1674", "S97-1674", "S7-130-dep",
            "S30-805-dep", "S89-1642-dep"];
-console.log(ids.length)
 
 // let idxScene = Math.floor(Math.random()*10)
-let idxScene = 15;
-// let sceneID = ids[idxScene];
-let sceneID = "S97-1674";
+let idxScene =24;
+let sceneID = ids[idxScene];
+// let sceneID = "S97-1674";
+console.log(sceneID);
 
 let allScenes;
 let sceneProps;
