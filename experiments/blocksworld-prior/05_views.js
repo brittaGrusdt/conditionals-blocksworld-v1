@@ -49,28 +49,56 @@ const intro = magpieViews.view_generator("intro", {
 const instructions = magpieViews.view_generator("instructions", {
   trials: 1,
   name: "instructions",
-  title: "General Instructions",
+  title: "General Instructions 1",
   text: `In this experiment you are shown pictures of different arrangements of blocks.
           <br/>
           <br/>
-         For each presented scenario you will be asked to rate the likelihood that certain blocks touch or do not <b>touch the ground</b>.
-         A block is considered to touch the ground <b>as soon as a small part or an edge of the block eventually has come in contact
-         with the ground</b>.
-         The colored blocks all have the same properties, they are only distinguishable by their color.
-          <br/>
-          <br/>
-         For each scenario you are asked to judge four events. You will only be able to proceed to the next scenario after you have rated all four events by moving the sliders. The circles of the sliders will turn green after you have moved them. If you cannot proceed to the next scenario, make sure that the circles of all sliders have turned green.
-            <br />
-            <br />
-        You may wonder whether the probabilities that you assign to the four events must sum up to 1. In this respect, note that we are interested in how you rate the four events relative to each other. Therefore they <b>do not have to sum to 1</b>.
-            <br />
-            <br />
-        There are 25 scenarios in total. The experiment will take you about 15-25 minutes.
-        <br />
-        <br />
-        Before you are presented the main 25 scenarios, you will be shown <b>four training examples</b> to get familiar with the stimuli.
-        The training examples are animated. After you have rated all four events by moving the sliders, you will be able to run the animation by clicking on the 'Run'-button. You will only be able to proceed to the next training example after you have rated all four events and clicked the 'Run'-button.`,
-  buttonText: "go to example trials"
+         For each presented scenario you will be asked to rate the likelihood that certain blocks touch or do not touch the ground.
+         A block is considered to <b>touch the ground</b> <i>as soon as a small part or an edge of the block eventually has come in contact
+         with the ground</i>.
+         <br/>
+         The colored blocks represent common toy blocks, they do not have any special properties and they are only distinguishable by their color.
+         <br/>
+         <br/>
+         For each scenario you will be asked to judge four events. You will only be able to proceed to the next scenario after you have rated all four events by moving the sliders. The circles of the sliders will turn green after you have moved them. If you cannot proceed to the next scenario, make sure that the circles of all sliders have turned green.
+               <br />
+               <br />
+         You may wonder whether the probabilities that you assign to the four events must sum up to 1. In this respect, note that we are interested in how you rate the four events relative to each other. This means that they may, but <b>don't have to sum to 1</b>.
+             <br />
+             <br />
+      `,
+  buttonText: "continue"
+});
+
+
+const instructions1 = magpieViews.view_generator("instructions", {
+  trials: 1,
+  name: "instructions1",
+  title: "General Instructions 2",
+  text: `
+    Please note: A block might fall <b>without</b> touching the ground, e.g. in the following picture, the blue block does <b>not</b> touch the ground:
+    <img src="../stimuli/images/not-touch-ground.png" style="width:100%"></img>
+
+    whereas, it <b>does</b> touch the ground in this picture:
+    <img src="../stimuli/images/touch-ground.png" style="width:100%"></img>
+
+   <br/>
+   <br/>
+   Remember:
+     </br>
+     The probabilities that you assign to the four events do not have to sum up to 1.
+     </br>
+   The colored blocks all have the same properties, they are only distinguishable by their color.
+   </br>
+   </br>
+   We will now start the experiment. There are 25 scenarios in total and the experiment will take you about 15-25 minutes.
+   <br />
+   `,
+    // Before you are presented the main 25 scenarios, you will be shown <b>four training examples</b> to get familiar with the stimuli.
+    // The training examples are animated. After you have rated all four events by moving the sliders, you will be able to run the animation by clicking on the 'Run'-button. You will only be able to proceed to the next training example after you have rated all four events and clicked the 'Run'-button.
+    // buttonText: "go to example trials"
+    buttonText: "start experiment"
+
 });
 
 const instructions2 = magpieViews.view_generator("instructions", {
@@ -82,11 +110,16 @@ const instructions2 = magpieViews.view_generator("instructions", {
         <br />
         Please keep in mind:
           <br/>
+        Do not confound <i>falling</i> with <i>touching the ground</i>: You are always asked for the likelihood that certain blocks <b>touch the ground</b>.
+          </br>
+          </br>
         For a block to touch the ground it is sufficient that a small part or an edge of the block eventually comes in contact with the ground.
-          <br/>
-        The colored blocks all have the same properties, they are only distinguishable by their color.
-          <br/>
-        The probabilities that you assign to the four events does not have to sum up to 1.`,
+          </br>
+          </br>
+        The probabilities that you assign to the four events do not have to sum up to 1.
+          </br>
+          </br>
+        The colored blocks all have the same properties, they are only distinguishable by their color.`,
   buttonText: "Start main experiment"
 });
 

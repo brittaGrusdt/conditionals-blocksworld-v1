@@ -2,8 +2,8 @@ library(tidyverse)
 
 split_pic <- function(pic){
   parts <- str_split(pic, "/")[[1]]
-  group <- parts[[2]]
-  name <- parts[[3]]
+  group <- parts[[4]]
+  name <- parts[[5]]
   return(list(group=group, name=name))
 }
 
