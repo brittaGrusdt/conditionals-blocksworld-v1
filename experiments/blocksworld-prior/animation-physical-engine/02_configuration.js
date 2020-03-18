@@ -13,26 +13,27 @@ let platformW = 150;
 const Dist2Side = 0
 
 const COLOR = {"platforms": "#B6AFBD",  // "#FFBC42",
-               "distractor": "#AF5558", //"#900C3F",
+               "distractor": "#8B4513", //"#900C3F",
                "ground": "black",
-               "blocks": ["#1BB635", "#0496FF"],  // green, blue
+               // "blocks": ["#1BB635", "#0496FF"],  // green, blue
+               "blocks": ["#FFA500", "#20B2AA"],  // green, blue
                "seesaw": {"plank": "darkorange", "stick": "darkgray"}}
 
 // density spruce (Fichte): 0.47 g/cm3
 // density ash (Esche): 1.47 * d_spruce
 // density steel: 16.7 * d_spruce
-let density = 0.001;
+let density = 0.01;
 const DENSITIES = {"default": density, "blocks": density,
   "seesawPlank": density * 1.47, "platforms": density * 16.7}
 
-// const FRICTIONS = {"default": 0.01}
+const FRICTIONS = {"default": 0.25}
 const RESTITUITIONS = {"default": 0} // default is inelastic
 
-const BLOCKS = {"width": 50, "height": 70,
+const BLOCKS = {"width": 40, "height": 80,
                 "minDist2Edge": 5,"step": 10
                };
 // proportion of this value of the width of the block will touch the base
-const Prior2ProportionOnBase = {"low": 0.625, "high": 0.375, "uncertain": 0.5}
+const Prior2ProportionOnBase = {"low": 0.7, "high": 0.3, "uncertain": 0.5}
 let platformDist = 2 * platformW
 const PlatformProp2Val =
   {"width": {"default": platformW, "narrow": platformW / 2, "very_narrow": platformW / 3},
@@ -134,8 +135,8 @@ function initWorldObj(kind, label, color, x=0, y=0, width=0, height=0){
                             render: {"fillStyle": color},
                             restituition: RESTITUITIONS.default,
                             density: DENSITIES.default,
-                            isStatic: false
-                            // friction: FRICTIONS.default
+                            isStatic: false,
+                            friction: FRICTIONS.default
                             // frictionStatic: 0.5 ,//(default),
                             // fricitionAir: 0.5
                            }

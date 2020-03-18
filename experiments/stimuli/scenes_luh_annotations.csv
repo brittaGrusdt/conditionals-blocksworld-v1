@@ -24,7 +24,7 @@ S63-1039,,,,,low,uncertain,high,uncertain,causally_dep,1,1,-1,vertical,vertical,
 similar to S10-203",horizontal
 S7-130,ac,none,A_C,,high,high,high,high,independent,0,0,side,vertical,vertical,basic1,default,default,-1,-1,-1,-1,-1
 S8-202,,,,,high,low,low,low,slightly_causally_dep,0,2,-1,vertical,vertical,basic2,default,default,default,default,very_short,similar to S55-1006,-1
-S83-1609,,,,,uncertain,uncertain,low,low,slightly_dep,1,1,-1,vertical,vertical,basic2,default,default,default,default,short,-1,"both become less likely given the other, 
+S83-1609,,,,,uncertain,uncertain,low,low,slightly_dep,1,1,-1,vertical,vertical,basic2,default,default,default,default,very_short,-1,"both become less likely given the other, 
 Similar to S15-443"
 S89-1642,,,,,uncertain,uncertain,uncertain,uncertain,independent,0,0,side,vertical,vertical,basic1,default,default,-1,-1,-1,-1,-1
 S93-1674,,,,,uncertain,uncertain,uncertain,high,slightly_causally_dep,0,1,-1,horizontal,vertical,basic2,default,narrow,high,narrow,extreme_short,"similar to S59-1007
