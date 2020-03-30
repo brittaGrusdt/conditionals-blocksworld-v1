@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Blocks</title>
+  </head>
+  <body>
+    <h id="title"></h>
+    <p id="data"></p>
+    <ol id="utterances"></ol>
+
+    <script src="node_modules/matter-js/build/matter.js"></script>
+    <script src="node_modules/underscore/underscore.js"></script>
+
+    <script src="elements.js"></script>
+    <script src="stimuli.js"></script>
+    <script src="scene.js"></script>
+    <script>
+      stop = function(){
+        Render.stop(render);
+      }
+    </script>
+
+    <!-- choose stimulus -->
+    <script type="text/javascript">
+      let trials = blocks();
+      let id = _.random(0, _.keys(trials).length-1);
+      // let id = 25;
+      let stimulus = trials['id' + id];
+    </script>
+    <script src="expectations.js" type="text/javascript"></script>
+
+    <!-- add objects to world -->
+    <script type="text/javascript">
+      let objs = [bottom];
+      [stimulus.wall1, stimulus.wall2].forEach(function(val){
+        if(val !== 'none'){
+          objs.push(walls[val]);
+        }
+      });
+
+      World.add(engine.world, objs);
+      World.add(engine.world, [stimulus.block1, stimulus.block2]);
+    </script>
+    <!-- add expectations and data for shown stimulus -->
+    <script type="text/javascript">
+      document.getElementById("title").innerHTML = 'stimulus id: id' + id;
+      document.getElementById("data").innerHTML =
+        'P(A): ' + stimulus.data[0] + ' P(C): ' + stimulus.data[1] +
+        ', relation: ' + stimulus.data[2];
+      let utterances = getExpectations(stimulus);
+    </script>
+
+    <script type="text/javascript">
+      expectedUtts = function(){
+        for(var i=0; i < utterances.length; i++) {
+          var li = document.createElement("LI");
+          li.setAttribute('id', 'utt'+i);
+          var utt = document.createTextNode(utterances[i]);
+          li.appendChild(utt);
+          document.getElementById("utterances").appendChild(li);
+        }
+      }
+    </script>
+    <!-- <script type="text/javascript">
+      refresh = function(){
+        clearWorld();
+
+      }
+    </script> -->
+    <button id="expectButton" onclick="expectedUtts()">expected utterances</button>
+    <button id="stopButton" onclick="stop()">stop</button>
+    <!-- <button id="refreshButton" onclick="refresh();">refresh</button> -->
+  </body>
+</html>
