@@ -18,7 +18,7 @@ options = {
 // Proportion of blocks that's on top of their base walls
 let prior = {'high': 0.3,
              'uncertain': 0.5,
-             'low': 0.7};
+             'low': 0.8};
 cols = {
   'red': '#E74C3C',
   'blue': '#2471A3',
@@ -56,6 +56,8 @@ let walls = {
     props.walls.h, 'wall2')
 };
 
+// ground of scene
+var bottom = wall(scene.w/2, scene.h - props.bottom.h/2, scene.w, props.bottom.h, 'bottom');
 
 ball = function(x, y, r, label, color, opts=options.balls){
   opts = Object.assign(opts, {'id': label,

@@ -1,9 +1,12 @@
-// ground of scene
-var bottom = wall(scene.w/2, scene.h - props.bottom.h/2, scene.w, props.bottom.h, 'bottom');
-
 // assignment block to base wall
 let relation2walls = ['a_implies_c', 'c_implies_a', 'independent'];
                       // 'ac_bidirectional' TODO! special wall
+
+// combis will combinations of P(A) and P(C) from [high, low, uncertain]
+// 0-8: p(A) high
+// 9-17: p(A) uncertain
+// 18-26 p(A) low
+var combis = [];
 
 blocks = function(){
   let keys = _.keys(prior);
@@ -12,7 +15,6 @@ blocks = function(){
     let vals = new Array(keys.length).fill(p);
     probs = probs.concat(_.zip(vals, keys));
   });
-  let combis = [];
   probs.forEach(function(ps){
     relation2walls.forEach(function(r){
       combis.push(ps.concat(r))
