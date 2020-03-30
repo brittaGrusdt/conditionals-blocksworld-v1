@@ -14,11 +14,6 @@
     <script src="elements.js"></script>
     <script src="stimuli.js"></script>
     <script src="scene.js"></script>
-    <script>
-      stop = function(){
-        Render.stop(render);
-      }
-    </script>
 
     <!-- choose stimulus -->
     <script type="text/javascript">
@@ -37,10 +32,10 @@
           objs.push(walls[val]);
         }
       });
-
       World.add(engine.world, objs);
       World.add(engine.world, [stimulus.block1, stimulus.block2]);
     </script>
+
     <!-- add expectations and data for shown stimulus -->
     <script type="text/javascript">
       document.getElementById("title").innerHTML = 'stimulus id: id' + id;
@@ -61,14 +56,11 @@
         }
       }
     </script>
-    <!-- <script type="text/javascript">
-      refresh = function(){
-        clearWorld();
 
-      }
-    </script> -->
+    <script type="text/javascript">show()</script>
+
     <button id="expectButton" onclick="expectedUtts()">expected utterances</button>
-    <button id="stopButton" onclick="stop()">stop</button>
-    <!-- <button id="refreshButton" onclick="refresh();">refresh</button> -->
+    <button id="exitButton" onclick="stop()">stop-rendering</button>
+    <button id="startButton" onclick="start()">start</button>
   </body>
 </html>

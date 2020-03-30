@@ -30,3 +30,20 @@ clearWorld = function(stop2Render=true){
     render.textures = {};
   }
 }
+
+stop = function(){
+  Render.stop(render);
+}
+
+freeze = function () {
+  engine.timing.timeScale = 0
+}
+
+start = function(){
+  engine.timing.timeScale = 1;
+}
+
+show = function(){
+  start();
+  freeze();
+}
