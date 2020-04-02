@@ -15,9 +15,6 @@ var render = Render.create({
              });
 // add objects to world is done in index.html
 
-Engine.run(engine);
-Render.run(render);
-
 clearWorld = function(stop2Render=true){
   engine.events = {};
   Render.stop(render);
@@ -40,7 +37,10 @@ freeze = function () {
 }
 
 start = function(){
+  Render.run(render);
+  Engine.run(engine);
   engine.timing.timeScale = 1;
+  // move(stimulus.circ, "center", -180, 0.03)
 }
 
 show = function(){
