@@ -11,34 +11,38 @@
     <script src="node_modules/matter-js/build/matter.js"></script>
     <script src="node_modules/underscore/underscore.js"></script>
 
+    <script src="00_globals.js"></script>
+    <script src="01_config.js"></script>
+    <script src="02_utils.js"></script>
     <script src="elements.js"></script>
     <script src="stimuli.js"></script>
     <script src="scene.js"></script>
 
+    <!-- test seesaw -->
+    <script>
+      // let b = ball(380, 150, 20)
+      // World.add(engine.world, [bottom, b].concat(_.values(seesaw)));
+    </script>
+
     <!-- choose stimulus -->
     <script type="text/javascript">
-      let trials = blocks();
-      let id = _.random(0, _.keys(trials).length-1);
-      // let id = 25;
-      let stimulus = trials['id' + id];
+      let trials = createStimuli();
+      let nb = _.random(0,8);
+      let rel = relations[_.random(0,2)];
+      // let rel = 'independent';
+      let id = 'id_' + rel + '_' + nb;
+      let stimulus = trials[id];
     </script>
-    <script src="expectations.js" type="text/javascript"></script>
 
     <!-- add objects to world -->
     <script type="text/javascript">
-      let objs = [bottom];
-      [stimulus.wall1, stimulus.wall2].forEach(function(val){
-        if(val !== 'none'){
-          objs.push(walls[val]);
-        }
-      });
-      World.add(engine.world, objs);
-      World.add(engine.world, [stimulus.block1, stimulus.block2]);
+      addObjs2World(stimulus);
     </script>
 
     <!-- add expectations and data for shown stimulus -->
+    <script src="expectations.js" type="text/javascript"></script>
     <script type="text/javascript">
-      document.getElementById("title").innerHTML = 'stimulus id: id' + id;
+      document.getElementById("title").innerHTML = 'stimulus id: ' + id;
       document.getElementById("data").innerHTML =
         'P(A): ' + stimulus.data[0] + ' P(C): ' + stimulus.data[1] +
         ', relation: ' + stimulus.data[2];
@@ -56,7 +60,6 @@
         }
       }
     </script>
-
     <script type="text/javascript">show()</script>
 
     <button id="expectButton" onclick="expectedUtts()">expected utterances</button>

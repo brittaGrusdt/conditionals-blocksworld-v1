@@ -1,78 +1,48 @@
-var Engine = Matter.Engine,
-    Render = Matter.Render,
-    World = Matter.World,
-    Bodies = Matter.Bodies;
-    Constraint = Matter.Constraint;
-
-var scene = {w: 800, h: 400};
-props = {'blocks': {'w':40, 'h': 80},
-         'walls': {'w': 200, 'h': 20},
-         'bottom': {'w': scene.w, 'h': 20}
-        };
-options = {
-  'walls': {isStatic: true, restitution: 1},
-  'balls': {isStatic: false, restitution: 1, friction: 0},
-  'blocks': {isStatic: false, restitution: .01, friction: 0.05}
-}
-
-// Proportion of blocks that's on top of their base walls
-let prior = {'high': 0.3,
-             'uncertain': 0.5,
-             'low': 0.8};
-cols = {
-  'red': '#E74C3C',
-  'blue': '#2471A3',
-  'green': '#28B463',
-  'purple': '#AF7AC5',
-  'brown': '#975019',
-  'darkbrown': '#874400',
-  'grey': '#E3DFDC',
-  'darkgrey': '#666C70',
-  'black': '#191817'
-}
-cols.blocks = [cols.purple, cols.green];
-
-wall = function(x, y, w, h, label, col=cols.grey, opts={}){
-  opts = Object.assign(opts, options.walls, {render: {fillStyle: col}});
-  opts = Object.assign(opts, {'id': label});
-  return Bodies.rectangle(x, y, w, h, opts);
-}
-
-block = function(base, propOnBase, w, h, color='#884EA0', horizontal=false){
-  let w_new = horizontal ? h : w;
-  let h_new = horizontal ? w : h;
-  let x = propOnBase < 0 ? base.bounds.min.x - propOnBase * w_new - w_new/2 :
-    base.bounds.max.x + (1-propOnBase) * w_new - w_new/2;
-  let obj = Bodies.rectangle(x, base.bounds.min.y - h_new/2, w_new, h_new, options.blocks);
-  obj.render.fillStyle = color;
-  return obj;
-}
-
 // base walls
-let walls = {
+let Walls = {
   'wall1': wall(scene.w/2.5, 0.3*scene.h, props.walls.w,
     props.walls.h, 'wall1'),
   'wall2': wall(scene.w/2.5 + props.walls.w, 0.7*scene.h, props.walls.w,
-    props.walls.h, 'wall2')
+    props.walls.h, 'wall2'),
+  'wall3': wall(561, 157, 100, props.walls.h, 'wall3'),
+  'wall4': wall(scene.w/1.25, 0.31*scene.h, props.walls.w/2, props.walls.h, 'wall4'),
+  'wall6': wall(scene.w/2-175, 0.6*scene.h, props.walls.w/1.5, props.walls.h, 'wall6'),
+  'wall7': wall(scene.w/2+175, 0.6*scene.h, props.walls.w/1.5, props.walls.h, 'wall7')
 };
+Body.setAngle(Walls.wall4, -Math.PI/4);
+Walls.wall5 = wall(Walls.wall4.bounds.max.x+19,
+                   Walls.wall4.bounds.min.y + props.walls.h/2, props.walls.w/3,
+                   props.walls.h, 'wall5')
 
 // ground of scene
-var bottom = wall(scene.w/2, scene.h - props.bottom.h/2, scene.w, props.bottom.h, 'bottom');
+const Bottom = wall(scene.w/2, scene.h - props.bottom.h/2, scene.w,
+  props.bottom.h, 'bottom', cols.grey);
 
-ball = function(x, y, r, label, color, opts=options.balls){
-  opts = Object.assign(opts, {'id': label,
-                              'render': {'fillStyle': color}
-                             });
-  return Bodies.circle(x, y, r, opts);
-}
+// seesaw
+let stick = wall(scene.w/2,
+  scene.h - props.bottom.h - props.seesaw.stick.h / 2,
+  props.seesaw.stick.w,
+  props.seesaw.stick.h, 'stick', col=cols.darkgrey);
 
-radians = function(angle){
-  return (2 * Math.PI / 360) * angle;
-}
+let link = wall(x=scene.w/2, y=stick.bounds.min.y - props.seesaw.link.h/2,
+  w=props.seesaw.link.w, h=props.seesaw.link.h, label='link', col=cols.brown);
 
-move = function(obj, pos_hit, angle, force){
-  let pos = pos_hit == "center" ? obj.position : {};
-  let x = Math.cos(radians(angle)) * force * obj.mass;
-  let y = Math.sin(radians(angle)) * force * obj.mass;
-  Body.applyForce(obj, pos, {x, y});
-}
+let skeleton = Body.create({
+      'parts': [stick, link],
+      'isStatic': true,
+      'label': 'skeleton'
+  });
+
+let defPlank = Object.assign({'x': scene.w/2,
+  'y': link.bounds.min.y - props.seesaw.plank.h/2,
+  }, props.seesaw.plank);
+let plank = rect(defPlank, {'label': 'plank'});
+
+var constraint = Constraint.create({
+    pointA: {x: plank.position.x, y: plank.position.y},
+    bodyB: plank,
+    length: 0
+});
+
+let seesawElems = {skeleton, plank, constraint}
+Walls.seesaw = seesawElems;
