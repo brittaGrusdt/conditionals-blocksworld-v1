@@ -1,10 +1,11 @@
-block = function(base, propOnBase, w, h, color='#884EA0', horizontal=false){
+block = function(base, propOnBase, w, h, color, label, horizontal=false){
   let w_new = horizontal ? h : w;
   let h_new = horizontal ? w : h;
   let x = propOnBase < 0 ? base.bounds.min.x - propOnBase * w_new - w_new/2 :
     base.bounds.max.x + (1-propOnBase) * w_new - w_new/2;
   let obj = Bodies.rectangle(x, base.bounds.min.y - h_new/2, w_new, h_new, options.blocks);
   obj.render.fillStyle = color;
+  obj.label = label;
   return obj;
 }
 

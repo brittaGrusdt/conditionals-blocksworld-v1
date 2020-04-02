@@ -17,4 +17,4 @@ cols = {
       'darkbrown': '#642F17',
       'black': '#191817'
     };
-cols.blocks = [cols.purple, cols.green];
+cols.blocks = [cols.red, cols.green];

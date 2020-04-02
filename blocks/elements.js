@@ -4,15 +4,14 @@ let Walls = {
     props.walls.h, 'wall1'),
   'wall2': wall(scene.w/2.5 + props.walls.w, 0.7*scene.h, props.walls.w,
     props.walls.h, 'wall2'),
-  'wall3': wall(561, 157, 100, props.walls.h, 'wall3'),
-  'wall4': wall(scene.w/1.25, 0.31*scene.h, props.walls.w/2, props.walls.h, 'wall4'),
+  'wall4': wall(646.5, 0.62*scene.h, props.walls.w/2, props.walls.h, 'wall4'),
   'wall6': wall(scene.w/2-175, 0.6*scene.h, props.walls.w/1.5, props.walls.h, 'wall6'),
   'wall7': wall(scene.w/2+175, 0.6*scene.h, props.walls.w/1.5, props.walls.h, 'wall7')
 };
 Body.setAngle(Walls.wall4, -Math.PI/4);
 Walls.wall5 = wall(Walls.wall4.bounds.max.x+19,
-                   Walls.wall4.bounds.min.y + props.walls.h/2, props.walls.w/3,
-                   props.walls.h, 'wall5')
+                   Walls.wall4.bounds.min.y + props.walls.h/2,
+                   props.walls.w/3, props.walls.h, 'wall5');
 
 // ground of scene
 const Bottom = wall(scene.w/2, scene.h - props.bottom.h/2, scene.w,
