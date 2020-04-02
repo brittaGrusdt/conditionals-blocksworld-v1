@@ -19,20 +19,24 @@ _add_blocks = function(bases, data, sides){
   let colors = assignColors();
   let b1 = block(base=bases[0], propOnBase=priors[0] * sides[0],
     w=props.blocks.w, h=props.blocks.h, color=cols.blocks[colors[0]],
-    'block1', horizontal=false);
+    'block1', horizontal = data[0]==="low" || data[0]==="uncertain");
 
   let b2 = block(base=bases[1], propOnBase=priors[1] * sides[1],
     w=props.blocks.w, h=props.blocks.h, color=cols.blocks[colors[1]],
-    'block2', horizontal=false);
+    'block2', horizontal = data[1]==="low" || data[1]==="uncertain");
   return [b1, b2]
 }
 
 // add addtional walls and ball for all independent trials
-_add_scene_ind = function(){
+_add_scene_ind = function(prior){
   let ball1 = ball(Walls['wall5'].bounds.min.x - 4,
                    Walls['wall5'].bounds.min.y - props.balls.diameter,
                    props.balls.diameter, 'ball', cols.purple);
-  return [Walls.wall4, Walls.wall5, ball1]
+  let objs = [Walls.wall4, Walls.wall5, ball1]
+  if(prior === "low"){
+    objs.push(Walls.wall3);
+  }
+  return objs
 }
 
 _stimuli = function(data, relation){
@@ -46,9 +50,9 @@ _stimuli = function(data, relation){
     stimuli[id] = {};
     let blocks = _add_blocks(bases, data[i], sides);
     if(relation === "independent"){
-      stimuli[id].other = _add_scene_ind();
+      stimuli[id].other = _add_scene_ind(priors[1]);
       let b2 = blocks[1];
-      let shift = priors[1] === "high" ? 20 :
+      let shift = priors[1] === "high" ? 12 :
         priors[1] === "low" ? 85 : 25;
       Matter.Body.setPosition(b2, {x: b2.position.x + shift, y: b2.position.y});
     }

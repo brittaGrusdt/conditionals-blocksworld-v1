@@ -19,4 +19,4 @@ options = {
 
 let relations = ['a_implies_c', 'a_iff_c', 'independent'];
 // Proportion of blocks that's on top of their base walls
-let prior = {'high': 0.3, 'uncertain': 0.5, 'low': 0.63}
+let prior = {'high': 0.35, 'uncertain': 0.5, 'low': 0.68}

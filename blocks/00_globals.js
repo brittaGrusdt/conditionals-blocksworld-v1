@@ -8,7 +8,10 @@ var Engine = Matter.Engine,
 cols = {
       'red': '#E74C3C',
       'blue': '#2471A3',
+      'royal': '#0496FF',
       'green': '#28B463',
+      // 'very_green': '#8DDE19',
+      'light_green': '#51DE19',
       'purple': '#AF7AC5',
       'brown': '#B05D3A',
       'darkbrown': '#874400',
@@ -17,4 +20,5 @@ cols = {
       'darkbrown': '#642F17',
       'black': '#191817'
     };
-cols.blocks = [cols.red, cols.green];
+cols.blocks = [cols.light_green, cols.royal];
+cols.plank = cols.blue

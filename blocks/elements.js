@@ -9,6 +9,8 @@ let Walls = {
   'wall7': wall(scene.w/2+175, 0.6*scene.h, props.walls.w/1.5, props.walls.h, 'wall7')
 };
 Body.setAngle(Walls.wall4, -Math.PI/4);
+Walls.wall3 = wall(Walls.wall2.bounds.min.x - props.walls.w/4, Walls.wall2.position.y,
+  props.walls.w/2, props.walls.h, 'wall3');
 Walls.wall5 = wall(Walls.wall4.bounds.max.x+19,
                    Walls.wall4.bounds.min.y + props.walls.h/2,
                    props.walls.w/3, props.walls.h, 'wall5');
@@ -35,7 +37,7 @@ let skeleton = Body.create({
 let defPlank = Object.assign({'x': scene.w/2,
   'y': link.bounds.min.y - props.seesaw.plank.h/2,
   }, props.seesaw.plank);
-let plank = rect(defPlank, {'label': 'plank'});
+let plank = rect(defPlank, {'label': 'plank', 'render': {'fillStyle': cols.plank}});
 
 var constraint = Constraint.create({
     pointA: {x: plank.position.x, y: plank.position.y},

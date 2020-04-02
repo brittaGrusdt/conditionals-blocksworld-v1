@@ -27,9 +27,12 @@
     <!-- choose stimulus -->
     <script type="text/javascript">
       let trials = createStimuli();
-      let nb = _.random(0,8);
-      let rel = relations[_.random(0,2)];
+      // let nb = _.random(0,8);
+      let nb = 8;
+      // let rel = relations[_.random(0,2)];
       // let rel = 'independent';
+      // let rel = 'a_implies_c';
+      let rel = 'a_iff_c'
       let id = 'id_' + rel + '_' + nb;
       let stimulus = trials[id];
     </script>
