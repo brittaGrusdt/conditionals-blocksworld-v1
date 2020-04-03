@@ -16,8 +16,7 @@ expected_utts["low_uncertain_a_iff_c"] = ["maybe C",
 expected_utts["low_high_independent"] = ["C but not A", "not A", "C", "probably C"]
 expected_utts["low_high_a_implies_c"] = ["C but not A", "not A", "C",
   "If A falls, C falls.(german: falls/sollte A ...)"]
-expected_utts["low_high_a_iff_c"] = ["A because of C", "maybe A", "C", "probably A and C",
-  "If A, C."]
+expected_utts["low_high_a_iff_c"] = ["C", "C may make A fall", "maybe A", "If A, C."]
 
 expected_utts["uncertain_low_independent"] = ["maybe A", "probably A", "not C"]
 expected_utts["uncertain_low_a_implies_c"] = ["probably A", "If A, C", "A (may) make(s) C fall",
@@ -30,8 +29,7 @@ expected_utts["uncertain_uncertain_a_iff_c"] = ["maybe A", "maybe C", "If A, C",
 
 expected_utts["uncertain_high_independent"] = ["maybe A", "C"]
 expected_utts["uncertain_high_a_implies_c"] = ["maybe A", "C", "[If A, C]"]
-expected_utts["uncertain_high_a_iff_c"] = ["maybe A", "C", "If A, C",
-  "If C, A.", "A because of C."]
+expected_utts["uncertain_high_a_iff_c"] = ["maybe A", "C", "A because of C."]
 
 expected_utts["high_low_independent"] = ["A but not C", "A", "not C"]
 expected_utts["high_low_a_implies_c"] = ["C because of A", "A and C", "A", "maybe C"]

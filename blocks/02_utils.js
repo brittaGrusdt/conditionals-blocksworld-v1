@@ -36,6 +36,17 @@ move = function(obj, pos_hit, angle, force){
   Body.applyForce(obj, pos, {x, y});
 }
 
+sortConditions = function(conditions){
+  let filtered = {};
+  relations.forEach(function(rel){
+    filtered[rel] = [];
+  })
+  conditions.forEach(function(arr){
+    filtered[arr[2]].push(arr);
+  });
+  return filtered
+}
+
 getConditions = function(){
   let keys = _.keys(prior);
   let probs = [];
@@ -49,14 +60,7 @@ getConditions = function(){
       combis.push(ps.concat(r))
     })
   })
-  return combis
-}
-
-filterConditions = function(conditions, val, keep=true){
-  let filtered = _.filter(conditions, function(arr){
-    return keep ? arr.includes(val) : !arr.includes(val)
-  })
-  return filtered
+  return sortConditions(combis);
 }
 
 assignColors = function(){
