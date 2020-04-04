@@ -1,7 +1,9 @@
+var DebugMode = true;
+// var DebugMode = false;
 var scene = {w: 800, h: 400};
 props = {'blocks': {'w':40, 'h': 80},
          'walls': {'w': 200, 'h': 20},
-         'balls': {'diameter': 16},
+         'balls': {'radius': 16, 'color': cols.purple},
          'bottom': {'w': scene.w, 'h': 20},
          'seesaw': {'stick': {'w': 20, 'h': 80},
                     'plank': {'w': 220, 'h': 10},
@@ -17,7 +19,7 @@ options = {
   'seesaw_plank': {isStatic: false}
 }
 
-let relations = ['a_implies_c', 'a_iff_c', 'independent'];
+let Relations = ['a_implies_c', 'a_iff_c', 'independent'];
 // Proportion of blocks that's on top of their base walls
 let prior = {'high': 0.35, 'uncertain': 0.54, 'low': 0.68}
 

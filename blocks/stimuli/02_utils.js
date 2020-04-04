@@ -19,6 +19,7 @@ rect = function(props, opts={}){
 }
 
 ball = function(x, y, r, label, color, opts=options.balls){
+  console.log(x + ' ' + y + ' ' + r)
   opts = Object.assign(opts, {'id': label,
                               'render': {'fillStyle': color}
                              });
@@ -38,7 +39,7 @@ move = function(obj, pos_hit, angle, force){
 
 sortConditions = function(conditions){
   let filtered = {};
-  relations.forEach(function(rel){
+  Relations.forEach(function(rel){
     filtered[rel] = [];
   })
   conditions.forEach(function(arr){
@@ -47,6 +48,12 @@ sortConditions = function(conditions){
   return filtered
 }
 
+/**
+*@return Object with key-val pairs:
+ independent: [[pa,pc,"independent"], ...]
+ a_iff_c: [[pa,pc, "a_iff_c"], ...]
+ a_implies_c: [[pa, pc, "a_implies_c"], ...]
+**/
 getConditions = function(){
   let keys = _.keys(prior);
   let probs = [];
@@ -56,7 +63,7 @@ getConditions = function(){
   });
   let combis = [];
   probs.forEach(function(ps){
-    relations.forEach(function(r){
+    Relations.forEach(function(r){
       combis.push(ps.concat(r))
     })
   })
@@ -74,17 +81,7 @@ addObjs2World = function(stimulus){
   keys = _.filter(keys, function(k){return k!== "data"});
   let objs = [Bottom];
   keys.forEach(function(k){
-    if(k === "seesaw"){
-      objs = objs.concat(_.values(stimulus[k]));
-    } else {
       objs = objs.concat(stimulus[k])
-    }
-      // stimulus.walls.forEach(function(val){
-        // if(val !== 'none'){
-          // objs.push(Walls[val]);
-        // }
-      // });
-    // } else if(k === "seesaw"){
   });
   World.add(engine.world, objs);
 }

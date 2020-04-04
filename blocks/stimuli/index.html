@@ -8,8 +8,11 @@
     <p id="data"></p>
     <ol id="utterances"></ol>
 
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="../node_modules/matter-js/build/matter.js"></script>
     <script src="../node_modules/underscore/underscore.js"></script>
+
+    <link type="text/css" href="styles.css" rel="stylesheet" />
 
     <script src="00_globals.js"></script>
     <script src="01_config.js"></script>
@@ -18,49 +21,57 @@
     <script src="04_stimuli.js"></script>
     <script src="05_scene.js"></script>
 
-    <!-- choose stimulus -->
+    <!-- choose experimental stimulus -->
     <script type="text/javascript">
-      let trials = createStimuli();
-      // let nb = _.random(0,8);
-      let nb = 8;
-      // let rel = relations[_.random(0,2)];
-      // let rel = 'independent';
-      // let rel = 'a_implies_c';
-      let rel = 'a_iff_c'
+      let relations = Array.from(Relations);
+      // let relations = ['independent']
+      // let relations = ['a_implies_c']
+      // let relatins = ['a_iff_c']
+      let stimuli = getStimuli(Conditions, relations);
+      let nb = _.random(0,8);
+      // let nb = 8;
+
+      let rel = relations[_.random(0, relations.length-1)];
       let id = 'id_' + rel + '_' + nb;
-      let stimulus = trials[id];
+      let stimulus = stimuli[id];
     </script>
+
+    <!-- choose train stimulus -->
+    <!-- <script src="training_trials.js" type="text/javascript"></script> -->
 
     <!-- add objects to world -->
     <script type="text/javascript">
       addObjs2World(stimulus);
     </script>
 
-    <!-- add expectations and data for shown stimulus -->
+    <!-- in debug mode: add expectations and data for shown stimulus -->
+    <button id="expectBttn" class="hide" onclick="expectedUtts()">expected utterances</button>
+    <button id="exitBttn" class="hide" onclick="stop()">stop-rendering</button>
+    <button id="startBttn" class="hide" onclick="start()">start</button>
     <script src="expectations.js" type="text/javascript"></script>
     <script type="text/javascript">
-      document.getElementById("title").innerHTML = 'stimulus id: ' + id;
-      document.getElementById("data").innerHTML =
-        'P(A): ' + stimulus.data[0] + ' P(C): ' + stimulus.data[1] +
-        ', relation: ' + stimulus.data[2];
-      let utterances = getExpectations(stimulus);
-    </script>
+      if(DebugMode){
+        $('#expectBttn').toggleClass('hide');
+        $('#exitBttn').toggleClass('hide');
+        $('#startBttn').toggleClass('hide');
 
-    <script type="text/javascript">
-      expectedUtts = function(){
-        for(var i=0; i < utterances.length; i++) {
-          var li = document.createElement("LI");
-          li.setAttribute('id', 'utt'+i);
-          var utt = document.createTextNode(utterances[i]);
-          li.appendChild(utt);
-          document.getElementById("utterances").appendChild(li);
+        document.getElementById("title").innerHTML = 'stimulus id: ' + id;
+        document.getElementById("data").innerHTML =
+        'P(A): ' + stimulus.meta[0] + ' P(C): ' + stimulus.meta[1] +
+        ', relation: ' + stimulus.meta[2];
+
+        let utterances = getExpectations(stimulus);
+        expectedUtts = function(){
+          for(var i=0; i < utterances.length; i++) {
+            var li = document.createElement("LI");
+            li.setAttribute('id', 'utt'+i);
+            var utt = document.createTextNode(utterances[i]);
+            li.appendChild(utt);
+            document.getElementById("utterances").appendChild(li);
+          }
         }
       }
     </script>
     <script type="text/javascript">show()</script>
-
-    <button id="expectButton" onclick="expectedUtts()">expected utterances</button>
-    <button id="exitButton" onclick="stop()">stop-rendering</button>
-    <button id="startButton" onclick="start()">start</button>
   </body>
 </html>

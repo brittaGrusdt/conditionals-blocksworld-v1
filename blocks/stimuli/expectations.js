@@ -1,4 +1,3 @@
-let stimuli = _.pairs(trials);
 let expected_utts = {};
 
 expected_utts["low_low_independent"] = ["Neither A nor C.", "not A", "not C"]
@@ -45,9 +44,9 @@ expected_utts["high_high_a_implies_c"] = ["A and C"]
 expected_utts["high_high_a_iff_c"] = ["A and C", "If A, C", "If C, A"]
 
 getExpectations = function(stimulus){
-  let pa = stimulus.data[0];
-  let pc = stimulus.data[1];
-  let rel = stimulus.data[2];
+  let pa = stimulus.meta[0];
+  let pc = stimulus.meta[1];
+  let rel = stimulus.meta[2];
   let key = [pa, pc, rel].join("_");
   console.log(expected_utts[key]);
   return expected_utts[key];
