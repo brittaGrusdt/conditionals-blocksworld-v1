@@ -83,11 +83,19 @@ extraBlock = function(label, color, horiz=true){
 Walls.train.independent = [
   ball(x=150, y=175-props.walls.h/2-props.balls.radius, r=props.balls.radius,
     'ball', props.balls.color),
-  wall(x=100, y=175, w=100, h=props.walls.h, 'wallTopLeft'),
-  wall(x=200, y=225, w=Math.pow(10,2)*Math.sqrt(2), h=props.walls.h, 'wallTilted'),
-  wall(x=250+props.walls.w*1.5/2, y=275, w=props.walls.w*1.5, h=props.walls.h, 'wallDownRight')
+  wall(x=100, y=175, w=100, h=props.walls.h, 'wallTopLeft')
 ];
-Body.setAngle(Walls.train.independent[2], radians(45));
+Walls.train.independent_steep = [
+  wall(x=200, y=225, w=Math.pow(10,2)*Math.sqrt(2), h=props.walls.h, 'wallTilted45'),
+  wall(x=250+props.walls.w*1.5/2, y=275, w=props.walls.w*1.5, h=props.walls.h, 'wallDownRight45'),
+];
+Walls.train.independent_plane = [
+  wall(x=200, y=200, w=Math.sqrt(12500), h=props.walls.h, 'wallTilted30'),
+  wall(x=250+props.walls.w*1.5/2, y=225, w=props.walls.w*1.5, h=props.walls.h, 'wallDownRight30')
+];
+Body.setAngle(Walls.train.independent_steep[0], radians(45));
+Body.setAngle(Walls.train.independent_plane[0], radians(22.5));
+
 
 let W8 = wall(x=scene.w/2, y=scene.h/2, w=props.walls.w, h=props.walls.h, 'wallMiddle');
 Walls.train.uncertain = [W8]

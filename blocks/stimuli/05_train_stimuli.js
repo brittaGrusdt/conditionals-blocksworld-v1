@@ -5,17 +5,28 @@ let blockA = rect(Object.assign(props.blocks,
   {x:350, y: 275 - props.walls.h/2 - props.blocks.h/2}),
   {render: {fillStyle: cols.pinkish}}
 );
-let blockB = rect(Object.assign({w: props.blocks.h, h: props.blocks.w},
-  {x:350, y: 275 - props.walls.h/2 - props.blocks.w/2}),
+let blockB = rect(Object.assign({w: props.blocks.w, h: props.blocks.h},
+  {x:450, y: 275 - props.walls.h/2 - props.blocks.h/2}),
   {render: {fillStyle: cols.pinkish}, label: "blockB"}
 );
 
-[blockA, blockB].forEach(function(block, i){
-  let id = "independent_" + i
-  let objs = {objs: Walls.train.independent.concat([block]), meta: ["", ""]}
-  Train_stimuli["independent"][id] = objs
-})
+let blockC = rect(Object.assign(props.blocks,
+  {x:450, y: Walls.train.independent_plane[1].bounds.min.y - props.blocks.h/2}),
+  {render: {fillStyle: cols.pinkish}, label: "blockB"}
+);
 
+let meta = [["uncertain doesnt fall", "-"], ["uncertain falls","-"], ["low","-"]];
+let count = 0;
+[blockA, blockB].forEach(function(block, i){
+  let id = "independent_" + i;
+  let w = Walls.train.independent.concat(Walls.train.independent_steep);
+  let objs = {objs: w.concat([block]), meta: meta[i]}
+  Train_stimuli["independent"][id] = objs
+});
+let w = Walls.train.independent.concat(Walls.train.independent_plane);
+Train_stimuli["independent"]["independent_2"] = {
+  objs: w.concat([blockC]), meta: meta[2]
+};
 
 // TRAIN UNCERTAINTY BLOCKS TO FALL
 blockTrainUnc = function(offset, side, color, horiz=false) {
@@ -32,7 +43,7 @@ blockTrainUnc = function(offset, side, color, horiz=false) {
 
 blockA = blockTrainUnc(1, "left", cols.red, horiz=true); // falls
 blockB = blockTrainUnc(-2.5, "right", cols.orange); // doesn't fall
-let blockC = blockTrainUnc(-1, "right", cols.orange); // falls
+blockC = blockTrainUnc(-1, "right", cols.orange); // falls
 let blockD = blockTrainUnc(2.5, "left", cols.red, horiz=true); // doesn't fall
 
 [[blockA, blockB], [blockC, blockD]].forEach(function(blocks, i){
@@ -57,7 +68,7 @@ blockD = block(Walls.train.a_implies_c[1], prior[p_fall[1][1]], cols.red,
 });
 
 // Seesaw TRIALS
-let w = Walls.train.a_iff_c[0]
+w = Walls.train.a_iff_c[0]
 blockA = rect(Object.assign(props.blocks,
   {x: w.bounds.max.x, y: w.bounds.min.y - props.blocks.h/2,
    render: {fillStyle: cols.pinkish}})

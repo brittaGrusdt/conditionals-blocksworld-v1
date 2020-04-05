@@ -41,14 +41,15 @@ getTestStimuli = function(conditions, relations){
       let id = rel + '_' + i;
       let priors_blocks = priors[i];
 
+      let ac_uncertain = priors_blocks.slice(0,2).join("-") === "uncertain-uncertain";
       let blocks;
-      if(rel === "a_iff_c"){
-        // add extra block for iff-trials
-        let updates = _addXblock(priors_blocks)
-        let baseB1 = updates.xblock_side === "left" ? updates.xblock : bases[0]
-        let baseB2 = updates.xblock_side === "left" ? bases[1] : updates.xblock;
-        blocks = _add_blocks([baseB1, baseB2], priors_blocks, updates.sides);
-        blocks.push(updates.xblock);
+      if(rel === "a_iff_c" && !ac_uncertain){
+        // add extra block for iff-trials when prior is not uncertain-uncertain
+          let updates = _addXblock(priors_blocks)
+          let baseB1 = updates.xblock_side === "left" ? updates.xblock : bases[0]
+          let baseB2 = updates.xblock_side === "left" ? bases[1] : updates.xblock;
+          blocks = _add_blocks([baseB1, baseB2], priors_blocks, updates.sides);
+          blocks.push(updates.xblock);
       } else {
         blocks = _add_blocks(bases, priors_blocks, sides);
       }
