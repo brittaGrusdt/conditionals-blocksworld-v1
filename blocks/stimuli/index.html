@@ -26,13 +26,14 @@
     <script type="text/javascript">
       // let relations = ['independent']
       // let relations = ['a_implies_c']
-      // let relations = ['a_iff_c']
-      let relations = Array.from(Relations);
+      let relations = ['a_iff_c']
+      // let relations = Array.from(Relations);
       let rel = relations[_.random(0, relations.length-1)];
       let stimulus, nb, id;
       if(MODE === "test") {
-        // let nb = 8;
-        nb = _.random(0,8);
+        let stimuli = getTestStimuli(Conditions, relations)
+        let nb = 4;
+        // let nb = _.random(0,_.size(stimuli[rel])-1);
         id =  rel + '_' + nb
         stimulus = getTestStimuli(Conditions, relations)[id];
       } else if(MODE === "train") {

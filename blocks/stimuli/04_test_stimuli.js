@@ -16,8 +16,7 @@ _add_blocks = function(bases, data, sides){
 
 _addXblock = function(priors_blocks){
   let xblock_side =
-    (priors_blocks.includes("high") && priors_blocks.includes("low")) ?
-      _.indexOf(priors_blocks,"low") :
+    (priors_blocks.includes("low")) ? _.indexOf(priors_blocks,"low") :
     (priors_blocks.includes("high") && priors_blocks.includes("uncertain")) ?
       _.indexOf(priors_blocks, "uncertain") : _.random(0, 1);
 
@@ -52,14 +51,21 @@ getTestStimuli = function(conditions, relations){
       } else {
         blocks = _add_blocks(bases, priors_blocks, sides);
       }
-
+      let objs = [];
       if(rel === "independent"){
         // second block has to be moved further away from edge depending on prior
+        // and angle of tilted wall has to be adjusted
         let b2 = blocks[1];
-        let shift = independent_shift[priors[i][1]];
+        let shift = independent_shift[priors_blocks[1]];
         Matter.Body.setPosition(b2, {x: b2.position.x + shift, y: b2.position.y});
+
+        if(priors_blocks[1] === "uncertain" || priors_blocks[1] === "low") {
+          objs=objs.concat([W4_1, W5_1, Ball_1]);
+        } else {
+          objs = objs.concat([W4_0, W5_0, Ball_0]);
+        }
       }
-      let objs = walls.concat(bases);
+      objs = objs.concat(walls.concat(bases));
       stimuli[id] = {"objs": objs.concat(blocks), "meta": priors_blocks};
     }
   })

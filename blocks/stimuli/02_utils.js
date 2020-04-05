@@ -20,7 +20,6 @@ rect = function(props, opts={}){
 }
 
 ball = function(x, y, r, label, color, opts=options.balls){
-  console.log(x + ' ' + y + ' ' + r)
   opts = Object.assign(opts, {'id': label,
                               'render': {'fillStyle': color}
                              });
@@ -40,11 +39,25 @@ move = function(obj, pos_hit, angle, force){
 
 sortConditions = function(conditions){
   let filtered = {};
+  let iff = [];
   Relations.forEach(function(rel){
     filtered[rel] = [];
   })
   conditions.forEach(function(arr){
-    filtered[arr[2]].push(arr);
+    // in iff trials, prior a-b = prior b-a, use only once
+    if(arr[2] === "a_iff_c") {
+      let pr = arr.slice(0,2).join("_")
+      let add = false;
+      if(!iff.includes(arr[1] + "_" + arr[0])){
+        iff.push(pr);
+        add = true;
+      }
+      if(add) {
+        filtered[arr[2]].push(arr)
+      }
+    }else {
+      filtered[arr[2]].push(arr);
+    }
   });
   return filtered
 }

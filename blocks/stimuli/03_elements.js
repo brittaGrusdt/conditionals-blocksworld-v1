@@ -8,11 +8,33 @@ let W2 = wall(W1.bounds.max.x - 10 + props.walls.w/2, 240, props.walls.w,
   props.walls.h, 'wall_ac_low_right');
 let W3 = wall(W2.position.x+4, W2.position.y, props.walls.w + 25, props.walls.h,
   'wall_ind_low_right')
-let W4 = wall(W3.bounds.max.x + 50, W3.position.y - 50, Math.pow(10,2)*Math.sqrt(2),
-  props.walls.h, 'wall_ind_tilted')
-Body.setAngle(W4, -Math.PI/4);
-let W5 = wall(W3.bounds.max.x - 4 + 100 + props.walls.w/2, W3.position.y - 100,
-  props.walls.w, props.walls.h, 'wall_ind_up');
+
+tiltedWallTest = function(angle){
+
+  let w_top, w_tilted, ball1;
+
+  if (Math.abs(angle) === 45){
+    w_tilted = wall(W3.bounds.max.x + 50, W3.position.y - 50,
+      Math.pow(10,2)*Math.sqrt(2), props.walls.h, 'wall_ind_tilted_' + angle)
+    w_top = wall(W3.bounds.max.x - 4 + 100 + props.walls.w/2,
+      W3.position.y - 100, props.walls.w, props.walls.h, 'wall_ind_up');
+
+  } else if (Math.abs(angle) === 30){
+    w_tilted = wall(W3.bounds.max.x + 50, W3.position.y - 25,
+      Math.sqrt(Math.pow(10, 4) + Math.pow(50, 2)), props.walls.h,
+      'wall_ind_tilted_' + angle)
+    w_top = wall(W3.bounds.max.x - 4 + 100 + props.walls.w/2,
+      W3.position.y - 50, props.walls.w, props.walls.h, 'wall_ind_up');
+  } else {
+    console.warn('only 30 and 45 degrees defined');
+  }
+  ball1 = ball(w_top.bounds.min.x - 4, w_top.bounds.min.y - props.balls.radius,
+               props.balls.radius, 'ball', cols.purple);
+  Body.setAngle(w_tilted, radians(angle));
+  return [w_tilted, w_top, ball1]
+}
+let [W4_0, W5_0, Ball_0] = tiltedWallTest(-45);
+let [W4_1, W5_1, Ball_1] = tiltedWallTest(-30);
 
 let W6 = wall(225, 240, props.walls.w/1.5, props.walls.h, 'wall_seesaw_left');
 let W7 = wall(575, 240, props.walls.w/1.5, props.walls.h, 'wall_seesaw_right');
@@ -43,13 +65,9 @@ var constraint = Constraint.create({
     length: 0
 });
 
-// Ball used in independent trials
-let ball1 = ball(W5.bounds.min.x - 4, W5.bounds.min.y - props.balls.radius,
-                 props.balls.radius, 'ball', cols.purple);
-
 let Walls = {'test': {}, 'train': {}};
 // The first two list entries are respectively the bases for block1 and block2
-Walls.test = {'independent': [W1, W3, W4, W5, ball1],
+Walls.test = {'independent': [W1, W3], // tilted wall+ball added dep on prior
              'a_implies_c': [W1, W2],
              'a_iff_c': [W6, W7, skeleton, plank, constraint]
             };
