@@ -20,7 +20,7 @@
     <script src="03_elements.js"></script>
     <script src="04_test_stimuli.js"></script>
     <script src="05_train_stimuli.js" type="text/javascript"></script>
-    <script src="05_scene.js"></script>
+    <script src="06_scene.js"></script>
 
     <!-- choose experimental/train stimulus -->
     <script type="text/javascript">
@@ -36,7 +36,8 @@
         id =  rel + '_' + nb
         stimulus = getTestStimuli(Conditions, relations)[id];
       } else if(MODE === "train") {
-        let types = ["independent", "a_implies_c", "uncertain"];
+        // let types = ["independent", "a_implies_c", "uncertain", "a_iff_c"];
+        let types = ["a_iff_c"]
         rel = types[_.random(0, types.length-1)];
         nb = _.random(0, _.size(Train_stimuli[rel])-1);
         // let nb = 0;

@@ -1,4 +1,5 @@
-let Train_stimuli = {"independent": {}, "uncertain": {}, "a_implies_c": {}};
+let Train_stimuli = {"independent": {}, "uncertain": {}, "a_implies_c": {},
+  "a_iff_c": {}};
 // INDPENDENT TRIALS
 let blockA = rect(Object.assign(props.blocks,
   {x:350, y: 275 - props.walls.h/2 - props.blocks.h/2}),
@@ -51,6 +52,22 @@ blockD = block(Walls.train.a_implies_c[1], -1 * prior["uncertain"], cols.red,
 [[blockA, blockB], [blockC, blockD]].forEach(function(blocks, i){
   let id = "a_implies_c_" + i
   Train_stimuli["a_implies_c"][id] = {objs: Walls.train.a_implies_c.concat(blocks),
+    meta: ["", ""]}
+});
+
+// Seesaw TRIALS
+let w = Walls.train.a_iff_c[0]
+blockA = rect(Object.assign(props.blocks,
+  {x: w.bounds.max.x, y: w.bounds.min.y - props.blocks.h/2,
+   render: {fillStyle: cols.pinkish}})
+ );
+ blockB = rect(Object.assign(props.blocks,
+   {x: W7.bounds.min.x + 3, y: W7.bounds.min.y - props.blocks.h/2,
+    render: {fillStyle: cols.olive}}
+ ));
+[[blockA, blockB]].forEach(function(blocks, i){
+  let id = "a_iff_c_" + i
+  Train_stimuli["a_iff_c"][id] = {objs: Walls.train.a_iff_c.concat(blocks),
     meta: ["", ""]}
 });
 

@@ -63,19 +63,26 @@ extraBlock = function(label, color, horiz=true){
 
 // Elements for training trials
 Walls.train.independent = [
+  ball(x=150, y=175-props.walls.h/2-props.balls.radius, r=props.balls.radius,
+    'ball', props.balls.color),
   wall(x=100, y=175, w=100, h=props.walls.h, 'wallTopLeft'),
   wall(x=200, y=225, w=Math.pow(10,2)*Math.sqrt(2), h=props.walls.h, 'wallTilted'),
-  wall(x=250+props.walls.w*1.5/2, y=275, w=props.walls.w*1.5, h=props.walls.h, 'wallDownRight'),
-  ball(x=150, y=175-props.walls.h/2-props.balls.radius, r=props.balls.radius,
-    'ball', props.balls.color)
+  wall(x=250+props.walls.w*1.5/2, y=275, w=props.walls.w*1.5, h=props.walls.h, 'wallDownRight')
 ];
-Body.setAngle(Walls.train.independent[1], radians(45));
+Body.setAngle(Walls.train.independent[2], radians(45));
 
 let W8 = wall(x=scene.w/2, y=scene.h/2, w=props.walls.w, h=props.walls.h, 'wallMiddle');
-
 Walls.train.uncertain = [W8]
 
 Walls.train.a_implies_c = [
   wall(x=W1.position.x, y=W2.position.y, w=props.walls.w, h=props.walls.h, 'w1_low'),
   wall(x=W2.position.x + 35, y=W1.position.y, w=props.walls.w, h=props.walls.h, 'w2_high')
 ]
+
+Walls.train.a_iff_c = [
+  wall(x=100, y=125, w=100, h=props.walls.h, 'wallTopLeft'),
+  wall(x=200, y=175, w=Math.pow(10,2)*Math.sqrt(2), h=props.walls.h, 'wallTilted'),
+  // ball(x=150, y=125-props.walls.h/2-props.balls.radius, r=props.balls.radius,
+  //   'ball', props.balls.color)
+].concat([W7, skeleton, plank, constraint]);
+Body.setAngle(Walls.train.a_iff_c[1], radians(45));
