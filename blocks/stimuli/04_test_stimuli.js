@@ -32,7 +32,8 @@ getTestStimuli = function(conditions, relations){
   relations.forEach(function(rel){
     let walls = Walls.test[rel];
     let bases = walls.slice(0,2);
-    let sides = rel === "independent" ? [-1, -1] : [1, -1]
+    let sides = rel === "independent" ? [-1, -1] :
+                rel === "a_implies_c" ? [1, 1] : [1, -1]
     let priors = conditions[rel]
     let data = conditions[rel];
 
@@ -65,7 +66,7 @@ getTestStimuli = function(conditions, relations){
           objs = objs.concat([W4_0, W5_0, Ball_0]);
         }
       }
-      objs = objs.concat(walls.concat(bases));
+      objs = objs.concat(walls);
       stimuli[id] = {"objs": objs.concat(blocks), "meta": priors_blocks};
     }
   })

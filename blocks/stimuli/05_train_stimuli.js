@@ -42,17 +42,18 @@ let blockD = blockTrainUnc(2.5, "left", cols.red, horiz=true); // doesn't fall
 });
 
 // A implies C TRIALS
-blockA = block(Walls.train.a_implies_c[0], prior["low"], cols.red, 'blockA',
+let p_fall = [["high", "low"], ["uncertain", "uncertain"]];
+blockA = block(Walls.train.a_implies_c[0], -prior[p_fall[0][0]], cols.red, 'blockA',
   undefined, undefined,horiz=true); //lower wall
-blockB = block(Walls.train.a_implies_c[1], -1 * prior["high"], cols.orange, 'blockB');//upper wall
-blockC = block(Walls.train.a_implies_c[0], prior["uncertain"], cols.orange, 'blockC'); //lower wall
+blockB = block(Walls.train.a_implies_c[1], prior[p_fall[0][1]], cols.orange, 'blockB');//upper wall
+blockC = block(Walls.train.a_implies_c[0], -prior[p_fall[1][0]], cols.orange, 'blockC'); //lower wall
 Body.setPosition(blockC, {x: blockC.position.x-2, y: blockC.position.y});
-blockD = block(Walls.train.a_implies_c[1], -1 * prior["uncertain"], cols.red,
+blockD = block(Walls.train.a_implies_c[1], prior[p_fall[1][1]], cols.red,
   'blockD', undefined, undefined, horiz=true); //upper wall
 [[blockA, blockB], [blockC, blockD]].forEach(function(blocks, i){
   let id = "a_implies_c_" + i
   Train_stimuli["a_implies_c"][id] = {objs: Walls.train.a_implies_c.concat(blocks),
-    meta: ["", ""]}
+    meta: p_fall[i]}
 });
 
 // Seesaw TRIALS
