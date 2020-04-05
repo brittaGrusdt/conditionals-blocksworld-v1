@@ -26,19 +26,19 @@
     <script type="text/javascript">
       // let relations = ['independent']
       // let relations = ['a_implies_c']
-      let relations = ['a_iff_c']
-      // let relations = Array.from(Relations);
+      // let relations = ['a_iff_c']
+      let relations = Array.from(Relations);
       let rel = relations[_.random(0, relations.length-1)];
       let stimulus, nb, id;
       if(MODE === "test") {
-        let stimuli = getTestStimuli(Conditions, relations)
-        let nb = 4;
-        // let nb = _.random(0,_.size(stimuli[rel])-1);
+        // let nb = 4;
+        let stimuli = getTestStimuli(Conditions, relations);
+        let nb = _.random(0, _.size(stimuli[rel])-1);
         id =  rel + '_' + nb
-        stimulus = getTestStimuli(Conditions, relations)[id];
+        stimulus = stimuli[rel][id];
       } else if(MODE === "train") {
-        // let types = ["independent", "a_implies_c", "uncertain", "a_iff_c"];
-        let types = ["a_iff_c"]
+        let types = ["independent", "a_implies_c", "uncertain", "a_iff_c"];
+        // let types = ["a_iff_c"]
         rel = types[_.random(0, types.length-1)];
         nb = _.random(0, _.size(Train_stimuli[rel])-1);
         // let nb = 0;

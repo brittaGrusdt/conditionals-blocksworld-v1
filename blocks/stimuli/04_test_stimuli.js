@@ -30,6 +30,7 @@ _addXblock = function(priors_blocks){
 getTestStimuli = function(conditions, relations){
   let stimuli = {}
   relations.forEach(function(rel){
+    stimuli[rel] = {};
     let walls = Walls.test[rel];
     let bases = walls.slice(0,2);
     let sides = rel === "independent" ? [-1, -1] :
@@ -68,7 +69,7 @@ getTestStimuli = function(conditions, relations){
         }
       }
       objs = objs.concat(walls);
-      stimuli[id] = {"objs": objs.concat(blocks), "meta": priors_blocks};
+      stimuli[rel][id] = {"objs": objs.concat(blocks), "meta": priors_blocks};
     }
   })
 
