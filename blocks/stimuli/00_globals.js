@@ -20,7 +20,8 @@ cols = {
       'darkgrey': '#938F8E',
       'darkbrown': '#642F17',
       'black': '#191817',
-      'olive': '#53553B'
+      'olive': '#53553B',
+      'orange': '#E2A818'
     };
 cols.blocks = [cols.light_green, cols.royal];
 cols.plank = cols.blue

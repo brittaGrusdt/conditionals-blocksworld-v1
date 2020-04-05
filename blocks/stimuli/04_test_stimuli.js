@@ -5,12 +5,12 @@ _add_blocks = function(bases, data, sides){
   let priors = [prior[data[0]], prior[data[1]]];
   let colors = assignColors();
   let b1 = block(base=bases[0], propOnBase=priors[0] * sides[0],
-    w=props.blocks.w, h=props.blocks.h, color=cols.blocks[colors[0]],
-    'block1', horizontal = data[0]==="low" || data[0]==="uncertain");
+    color=cols.blocks[colors[0]], 'block1', undefined, undefined,
+    horiz = data[0]==="low" || data[0]==="uncertain");
 
   let b2 = block(base=bases[1], propOnBase=priors[1] * sides[1],
-    w=props.blocks.w, h=props.blocks.h, color=cols.blocks[colors[1]],
-    'block2', horizontal = data[1]==="low" || data[1]==="uncertain");
+    color=cols.blocks[colors[1]], 'block2', undefined, undefined,
+    horiz = data[1]==="low" || data[1]==="uncertain");
   return [b1, b2]
 }
 
@@ -28,7 +28,7 @@ _addXblock = function(priors_blocks){
   return {xblock, 'xblock_side': id.split("_")[1], "sides": sides_blocks}
 }
 
-getStimuli = function(conditions, relations){
+getTestStimuli = function(conditions, relations){
   let stimuli = {}
   relations.forEach(function(rel){
     let walls = Walls.test[rel];
@@ -38,7 +38,7 @@ getStimuli = function(conditions, relations){
     let data = conditions[rel];
 
     for(var i=0; i<data.length; i++){
-      let id = 'id_' + rel + '_' + i;
+      let id = rel + '_' + i;
       let priors_blocks = priors[i];
 
       let blocks;

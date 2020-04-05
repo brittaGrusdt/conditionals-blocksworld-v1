@@ -18,26 +18,32 @@
     <script src="01_config.js"></script>
     <script src="02_utils.js"></script>
     <script src="03_elements.js"></script>
-    <script src="04_stimuli.js"></script>
+    <script src="04_test_stimuli.js"></script>
+    <script src="05_train_stimuli.js" type="text/javascript"></script>
     <script src="05_scene.js"></script>
 
-    <!-- choose experimental stimulus -->
+    <!-- choose experimental/train stimulus -->
     <script type="text/javascript">
-      let relations = Array.from(Relations);
       // let relations = ['independent']
       // let relations = ['a_implies_c']
-      // let relatins = ['a_iff_c']
-      let stimuli = getStimuli(Conditions, relations);
-      let nb = _.random(0,8);
-      // let nb = 8;
-
+      // let relations = ['a_iff_c']
+      let relations = Array.from(Relations);
       let rel = relations[_.random(0, relations.length-1)];
-      let id = 'id_' + rel + '_' + nb;
-      let stimulus = stimuli[id];
+      let stimulus, nb, id;
+      if(MODE === "test") {
+        // let nb = 8;
+        nb = _.random(0,8);
+        id =  rel + '_' + nb
+        stimulus = getTestStimuli(Conditions, relations)[id];
+      } else if(MODE === "train") {
+        let types = ["independent", "a_implies_c", "uncertain"];
+        rel = types[_.random(0, types.length-1)];
+        nb = _.random(0, _.size(Train_stimuli[rel])-1);
+        // let nb = 0;
+        stimulus = getTrainStimulus(rel, nb);
+        id =  rel + '_' + nb;
+      }
     </script>
-
-    <!-- choose train stimulus -->
-    <!-- <script src="training_trials.js" type="text/javascript"></script> -->
 
     <!-- add objects to world -->
     <script type="text/javascript">
@@ -50,15 +56,16 @@
     <button id="startBttn" class="hide" onclick="start()">start</button>
     <script src="expectations.js" type="text/javascript"></script>
     <script type="text/javascript">
-      if(DebugMode){
+      if(debug){
         $('#expectBttn').toggleClass('hide');
         $('#exitBttn').toggleClass('hide');
         $('#startBttn').toggleClass('hide');
 
         document.getElementById("title").innerHTML = 'stimulus id: ' + id;
         document.getElementById("data").innerHTML =
-        'P(A): ' + stimulus.meta[0] + ' P(C): ' + stimulus.meta[1] +
-        ', relation: ' + stimulus.meta[2];
+          'P(A): ' + stimulus.meta[0] + ' P(C): ' + stimulus.meta[1] +
+          ', relation: ' + stimulus.meta[2] +
+          ', mode: ' + MODE;
 
         let utterances = getExpectations(stimulus);
         expectedUtts = function(){

@@ -1,6 +1,7 @@
-block = function(base, propOnBase, w, h, color, label, horizontal=false){
-  let w_new = horizontal ? h : w;
-  let h_new = horizontal ? w : h;
+block = function(base, propOnBase, color, label, w=props.blocks.w,
+  h=props.blocks.h, horiz=false) {
+  let w_new = horiz ? h : w;
+  let h_new = horiz ? w : h;
   let x = propOnBase < 0 ? base.bounds.min.x - propOnBase * w_new - w_new/2 :
     base.bounds.max.x + (1-propOnBase) * w_new - w_new/2;
   let obj = Bodies.rectangle(x, base.bounds.min.y - h_new/2, w_new, h_new, options.blocks);
