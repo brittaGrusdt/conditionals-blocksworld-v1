@@ -3,7 +3,8 @@ var Conditions = getConditions();
 
 _add_blocks = function(bases, data, sides){
   let priors = [prior[data[0]], prior[data[1]]];
-  let colors = assignColors();
+  let colors = assignColors(); // colors randomly assigned
+  // let colors = [1, 0];
   let b1 = block(base=bases[0], propOnBase=priors[0] * sides[0],
     color=cols.blocks[colors[0]], 'block1', undefined, undefined,
     horiz = data[0]==="low" || data[0]==="uncertain");
