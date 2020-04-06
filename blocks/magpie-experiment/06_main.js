@@ -19,9 +19,9 @@ $("document")
       intro,
       instructions,
       instructions1,
+      multiple_slider,
       // animation_view,
       // instructions2,
-      // multiple_slider,
       post_test,
       thanks
     ],

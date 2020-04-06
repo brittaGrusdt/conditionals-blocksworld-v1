@@ -65,17 +65,19 @@ const instructions = magpieViews.view_generator("instructions", {
          You may wonder whether the probabilities that you assign to the four events must sum up to 1. In this respect, note that we are interested in how you rate the four events relative to each other. This means that they may, but <b>don't have to sum to 1</b>.
              <br />
              <br />
-         There are TODO scenarios in total. The experiment will take you about
-         X-Y minutes.
-             <br />
-             <br />
-         Before you are presented with the main TODO scenarios, you will be shown
-         <b>TODO animated training examples</b> to get familiar with the stimuli.
-         After you have given all four estimates, you will
-         see a RUN button which you click to start the animation.
-         When it started you will see a button that says NEXT
-         SCENE which you have to click to proceed to the next training example.`,
-  buttonText: "continue"
+         There are 24 scenarios in total. The experiment will take you about
+         15-20 minutes.
+         Before you are presented with the main <b>24</b> scenarios, you will be shown
+         <b>8</b> animated training examples to get familiar with the stimuli.
+         When you click on the RUN button, the animation will start. By clicking
+         on the NEXT SCENE button, you will get to the next training example.
+         After you have seen all 8 examples, there will be one more example trial
+         in which you will be asked to estimate the likelihood of the described
+         events as in the main experiment.
+         Throughout the experiment, you may want to go into Full Screen Mode
+         (usually switched on/off with F11), otherwise you may need to
+         scroll down to see the buttons.`,
+  buttonText: "START TRAINING"
 });
 
 
@@ -92,7 +94,7 @@ const instructions1 = magpieViews.view_generator("instructions", {
             <br />
           Please keep in mind:
             <br/>
-          A block might <b>fall</b> although it does <i>not fall to the ground</i>, e.g. in the following picture, the blue block <b>did fall</b>:
+          A block might <b>fall</b> although it does <i>not fall to the ground</i>, e.g. in the following picture, the blue block <b>did fall</b> TODO!!:
             <img src="../stimuli/images/not-touch-ground.png" style="width:100%"></img>
              <br/>
              </br>
@@ -101,7 +103,7 @@ const instructions1 = magpieViews.view_generator("instructions", {
           The colored blocks all have the same properties, they are only distinguishable by their color.
             </br>
             </br>
-          We will now start the experiment. There are TODO scenarios in total and the experiment will take you about X-Y minutes.
+          We will now start the experiment. There are 24 scenarios in total and the experiment will take you about 15-20 minutes.
    <br />
    `,
     buttonText: "start experiment"
@@ -140,19 +142,20 @@ const thanks = magpieViews.view_generator("thanks", {
 });
 
 // experimental phase trials
-// const multiple_slider = magpieViews.view_generator(
-//   "slider_rating", {
-//     // This will use all trials specified in `data`, you can user a smaller value (for testing), but not a larger value
-//     trials: slider_rating_trials.length,
-//     // trials: 1,
-//     // name should be identical to the variable name
-//     name: "slider_main",
-//     data: _.shuffle(slider_rating_trials)
-//   },
-//   // you can add custom functions at different stages through a view's life cycle
-//   {
-//     stimulus_container_generator: multi_slider_generator.stimulus_container_gen,
-//     answer_container_generator: multi_slider_generator.answer_container_gen,
-//     handle_response_function: multi_slider_generator.handle_response_function
-//   }
-// );
+const multiple_slider = magpieViews.view_generator(
+  "slider_rating", {
+    // This will use all trials specified in `data`, you can use a smaller value
+    // (for testing), but not a larger value
+    trials: slider_rating_trials.length,
+    // trials: 1,
+    // name should be identical to the variable name
+    name: "slider_main",
+    data: _.shuffle(slider_rating_trials)
+  },
+  // you can add custom functions at different stages through a view's life cycle
+  {
+    stimulus_container_generator: multi_slider_generator.stimulus_container_gen,
+    answer_container_generator: multi_slider_generator.answer_container_gen,
+    handle_response_function: multi_slider_generator.handle_response_function
+  }
+);
