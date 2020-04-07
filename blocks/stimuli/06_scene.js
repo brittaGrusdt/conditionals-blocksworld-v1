@@ -1,10 +1,10 @@
-let engine,
-    render;
+// let engine,
+    // render;
 let animationStarted = false;
 
 createWorld = function(){
   // create engine
-  engine = Engine.create({
+  let engine = Engine.create({
     timing: {
       timeScale: 1
     }
@@ -13,7 +13,7 @@ createWorld = function(){
   let renderAt = MODE === "experiment" ?
     document.getElementById('animationDiv') : document.body;
 
-  render = Render.create({
+  let render = Render.create({
     element: renderAt,
     engine: engine,
     options: {
@@ -38,14 +38,15 @@ createWorld = function(){
   //     animationStarted = false;
   //   }
   // });
+  return {engine, render}
 }
 
-addObjs2World = function(objs){
+addObjs2World = function(objs, engine){
   objs = [Bottom].concat(objs);
   World.add(engine.world, objs);
 }
 
-clearWorld = function(stop2Render=false){
+clearWorld = function(engine, render, stop2Render=false){
   engine.events = {};
   Render.stop(render);
   Engine.clear(engine);
@@ -58,7 +59,7 @@ clearWorld = function(stop2Render=false){
   }
 }
 
-freeze = function () {
+freeze = function (engine) {
   engine.timing.timeScale = 0
 }
 
@@ -69,17 +70,17 @@ freeze = function () {
 //   // move(stimulus.circ, "centcreateWorlder", -180, 0.03)
 // }
 
-show = function(){
+show = function(engine, render){
   // createWorld();
   // setupWorld(objs);
   // run the engine for simulation of our world
   Engine.run(engine);
   // run the renderer for visualization
   Render.run(render);
-  freeze();
+  freeze(engine);
 }
 
-var runAnimation = function () {
+var runAnimation = function (engine) {
   animationStarted = true
   engine.timing.timeScale = 1
 }

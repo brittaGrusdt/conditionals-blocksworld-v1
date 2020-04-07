@@ -12,7 +12,7 @@ const animation_view  = {
     name: "animation",
     title: "title",
     CT: 0,
-    trials: 9,
+    trials: TrainStimuli.list_all.length,
     data: "",
     // The render function gets the magpie object as well as the current trial in view counter as input
     render: function(CT, magpie){
@@ -78,18 +78,19 @@ const animation_view  = {
       $('#main').html(view_template);
 
       let startTime = Date.now();
-      let stimulus = TrainStimuli[CT];
-      console.log(stimulus)
-      createWorld();
-      addObjs2World(stimulus.objs);
-      show();
+      let stimulus = TrainStimuli.list_all[CT];
+      let worldElems = createWorld();
+      let engine = worldElems.engine;
+      let render = worldElems.render;
+      addObjs2World(stimulus.objs, engine);
+      show(engine, render);
 
       let animationStarted = false;
       let runButton = $('#runButton');
       runButton.on('click', function(e){
         if(!animationStarted && repliedAll()) {
           animationStarted = true;
-          runAnimation();
+          runAnimation(engine);
           toggleNextIfDone($("#buttonNextAnimation"), true);
         }
       });
@@ -120,7 +121,7 @@ const animation_view  = {
 
       $("#buttonNextAnimation").on("click", function () {
           const RT = Date.now() - startTime; // measure RT before anything else
-          clearWorld(false);
+          clearWorld(engine, render, stop2Render=false);
           let utterances = [];
           let utteranceIDs = ["question1", "question2", "question3", "question4"];
           utteranceIDs.forEach(function(qid){
@@ -129,7 +130,7 @@ const animation_view  = {
             utterances.push(abbreviation)
           });
           let trial_data = {
-            trial_name: _.values(TrainStimuli[CT]).id,
+            trial_name: _.values(TrainStimuli.list_all[CT]).id,
             trial_number: CT + 1,
             response: [$("#response1").val(), $("#response2").val(),
                        $("#response3").val(), $("#response4").val()

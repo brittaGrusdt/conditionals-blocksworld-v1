@@ -49,14 +49,26 @@
 
     <!-- add objects to world -->
     <script type="text/javascript">
-      createWorld();
-      addObjs2World(stimulus.objs);
+      let worldElems = createWorld();
+      let render = worldElems.render
+      let engine = worldElems.engine
+      addObjs2World(stimulus.objs, engine);
+    </script>
+
+    <!-- wrapper classes -->
+    <script type="text/javascript">
+    wrapperClearWorld = function(){
+      clearWorld(engine, render);
+    }
+    wrapperRunAnimation = function(){
+      runAnimation(engine);
+    }
     </script>
 
     <!-- in debug mode: add expectations and data for shown stimulus -->
     <button id="expectBttn" class="hide" onclick="expectedUtts()">expected utterances</button>
-    <button id="exitBttn" class="hide" onclick="clearWorld()">clear</button>
-    <button id="startBttn" class="hide" onclick="runAnimation()">start</button>
+    <button id="exitBttn" class="hide" onclick="wrapperClearWorld()">clear</button>
+    <button id="startBttn" class="hide" onclick="wrapperRunAnimation()">start</button>
     <script src="expectations.js" type="text/javascript"></script>
     <script type="text/javascript">
       if(debug){
@@ -82,6 +94,6 @@
         }
       }
     </script>
-    <script type="text/javascript">show()</script>
+    <script type="text/javascript">show(engine, render)</script>
   </body>
 </html>

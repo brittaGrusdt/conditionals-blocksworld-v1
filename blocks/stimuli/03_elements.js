@@ -80,9 +80,15 @@ extraBlock = function(label, color, horiz=true){
 }
 
 // Elements for training trials
+
+// important to generate a NEW ball for each trial, otherwise if the same object
+// is used again, it will have moved after the first trial... (stupid me!)
+ballTrainIndependentTrials = function(){
+  return ball(x=152, y=175-props.walls.h/2-props.balls.radius, r=props.balls.radius,
+    'ball', props.balls.color);
+}
+
 Walls.train.independent = [
-  ball(x=150, y=175-props.walls.h/2-props.balls.radius, r=props.balls.radius,
-    'ball', props.balls.color),
   wall(x=100, y=175, w=100, h=props.walls.h, 'wallTopLeft')
 ];
 Walls.train.independent_steep = [
@@ -109,7 +115,5 @@ Walls.train.a_implies_c = [
 Walls.train.a_iff_c = [
   wall(x=100, y=125, w=100, h=props.walls.h, 'wallTopLeft'),
   wall(x=200, y=175, w=Math.pow(10,2)*Math.sqrt(2), h=props.walls.h, 'wallTilted'),
-  // ball(x=150, y=125-props.walls.h/2-props.balls.radius, r=props.balls.radius,
-  //   'ball', props.balls.color)
 ].concat([W7, skeleton, plank, constraint]);
 Body.setAngle(Walls.train.a_iff_c[1], radians(45));
