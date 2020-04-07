@@ -40,7 +40,7 @@
         let types = ["independent", "a_implies_c", "uncertain", "a_iff_c"];
         // let types = ["independent"]//["a_iff_c"]//["a_implies_c"]//"uncertain"]
         rel = types[_.random(0, types.length-1)];
-        let nb = _.random(0, _.size(Train_stimuli[rel])-1);
+        let nb = _.random(0, _.size(TrainStimuli.per_category[rel])-1);
         // let nb = 0;
         stimulus = getTrainStimulus(rel, nb);
         id =  rel + '_' + nb;
