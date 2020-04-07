@@ -116,10 +116,10 @@ trials_iff = function(){
   return data
 }
 
-// TrainStimuli.map_category["independent"] = trials_independent();
-// TrainStimuli.map_category["uncertain"] = trials_uncertain();
+TrainStimuli.map_category["independent"] = trials_independent();
+TrainStimuli.map_category["uncertain"] = trials_uncertain();
 TrainStimuli.map_category["a_implies_c"] = trials_ac();
-// TrainStimuli.map_category["a_iff_c"] = trials_iff();
+TrainStimuli.map_category["a_iff_c"] = trials_iff();
 
 // put all train stimuli into array independent of kind
 let train_keys = _.keys(TrainStimuli.map_category);
