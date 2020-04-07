@@ -40,13 +40,8 @@ createWorld = function(){
   // });
 }
 
-addObjs2World = function(stimulus){
-  let keys = _.keys(stimulus);
-  keys = _.filter(keys, function(k){return k!== "data"});
-  let objs = [Bottom];
-  keys.forEach(function(k){
-      objs = objs.concat(stimulus[k])
-  });
+addObjs2World = function(objs){
+  objs = [Bottom].concat(objs);
   World.add(engine.world, objs);
 }
 
