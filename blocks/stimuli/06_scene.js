@@ -1,21 +1,56 @@
-var engine = Engine.create({
-});
+let engine,
+    render;
+let animationStarted = false;
 
-var render = Render.create({
-                element: document.body,
-                engine: engine,
-                options: {
-                    width: scene.w,
-                    height: scene.h,
-                    wireframes: false,
-                    showAngleIndicator: false,
-                    showCollisions: false,
-                    background: "transparent"
-                }
-             });
-// add objects to world is done in index.html
+createWorld = function(){
+  // create engine
+  engine = Engine.create({
+    timing: {
+      timeScale: 1
+    }
+  });
 
-clearWorld = function(stop2Render=true){
+  let renderAt = MODE === "experiment" ?
+    document.getElementById('animationDiv') : document.body;
+
+  render = Render.create({
+    element: renderAt,
+    engine: engine,
+    options: {
+      width: scene.w,
+      height: scene.h,
+      // showAngleIndicator: true,
+      // showCollisions: true,
+      wireframes: false,
+      background: 'transparent'
+    }
+  });
+
+  // after duration of simulation freeze and save data
+  // Events.on(engine, 'afterUpdate', function (event) {
+  //   if (animationStarted && engine.timing.timestamp >= SIMULATION.duration) {
+  //     freeze();
+  //     Render.stop(render)
+  //
+  //     // Stop animation and clear world
+  //     World.clear(engine.world)
+  //     Engine.clear(engine);
+  //     animationStarted = false;
+  //   }
+  // });
+}
+
+addObjs2World = function(stimulus){
+  let keys = _.keys(stimulus);
+  keys = _.filter(keys, function(k){return k!== "data"});
+  let objs = [Bottom];
+  keys.forEach(function(k){
+      objs = objs.concat(stimulus[k])
+  });
+  World.add(engine.world, objs);
+}
+
+clearWorld = function(stop2Render=false){
   engine.events = {};
   Render.stop(render);
   Engine.clear(engine);
@@ -28,22 +63,46 @@ clearWorld = function(stop2Render=true){
   }
 }
 
-stop = function(){
-  Render.stop(render);
-}
-
 freeze = function () {
   engine.timing.timeScale = 0
 }
 
-start = function(){
-  Render.run(render);
-  Engine.run(engine);
-  engine.timing.timeScale = 1;
-  // move(stimulus.circ, "center", -180, 0.03)
-}
+// start = function(){
+//   Engine.run(engine);
+//   engine.timing.timeScale = 1;
+//   animationStarted = true;
+//   // move(stimulus.circ, "centcreateWorlder", -180, 0.03)
+// }
 
 show = function(){
-  start();
+  // createWorld();
+  // setupWorld(objs);
+  // run the engine for simulation of our world
+  Engine.run(engine);
+  // run the renderer for visualization
+  Render.run(render);
   freeze();
 }
+
+var runAnimation = function () {
+  animationStarted = true
+  engine.timing.timeScale = 1
+}
+
+
+// addStopRenderAndClearWorldEvent = function(){
+//   // after duration of simulation, freeze and save data
+//   Events.on(engine, 'afterUpdate', function (event) {
+//     // only do this once after specified nb of ms passed
+//     if (engine.timing.timestamp >= SIMULATION.duration) {
+//       freeze();
+//       Render.stop(render);
+//       clearWorld(stop2Render=false);
+//     }
+//   });
+// }
+
+// var runAnimation = function () {
+//   addStopRenderAndClearWorldEvent();
+//   Engine.run(engine);
+// }

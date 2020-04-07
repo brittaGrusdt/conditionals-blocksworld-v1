@@ -15,17 +15,18 @@ let blockC = rect(Object.assign(props.blocks,
   {render: {fillStyle: cols.pinkish}, label: "blockB"}
 );
 
-let meta = [["uncertain doesnt fall", "-"], ["uncertain falls","-"], ["low","-"]];
+let meta = [["low", "-", "train-independent-steep-doesnt-fall"],
+  ["low","-", "independent-steep-falls"], ["low", "-","train-independent-plane-doesnt-fall"]];
 let count = 0;
 [blockA, blockB].forEach(function(block, i){
   let id = "independent_" + i;
   let w = Walls.train.independent.concat(Walls.train.independent_steep);
-  let objs = {objs: w.concat([block]), meta: meta[i]}
+  let objs = {objs: w.concat([block]), meta: meta[i], id: id}
   Train_stimuli["independent"][id] = objs
 });
 let w = Walls.train.independent.concat(Walls.train.independent_plane);
 Train_stimuli["independent"]["independent_2"] = {
-  objs: w.concat([blockC]), meta: meta[2]
+  objs: w.concat([blockC]), meta: meta[2], id: "independent_2"
 };
 
 // TRAIN UNCERTAINTY BLOCKS TO FALL
@@ -41,30 +42,40 @@ blockTrainUnc = function(offset, side, color, horiz=false) {
   return(block);
 }
 
-blockA = blockTrainUnc(1, "left", cols.red, horiz=true); // falls
+meta = [["falls-horiz", "doesnt-fall", 'train-uncertain'],
+  ["doesnt-fall-horiz","falls", 'train-uncertain']];
+blockA = blockTrainUnc(0.5, "left", cols.red, horiz=true); // falls
 blockB = blockTrainUnc(-2.5, "right", cols.orange); // doesn't fall
-blockC = blockTrainUnc(-1, "right", cols.orange); // falls
 let blockD = blockTrainUnc(2.5, "left", cols.red, horiz=true); // doesn't fall
+blockC = blockTrainUnc(-1, "right", cols.orange); // falls
 
 [[blockA, blockB], [blockC, blockD]].forEach(function(blocks, i){
   let id = "uncertain_" + i
   Train_stimuli["uncertain"][id] = {objs: Walls.train.uncertain.concat(blocks),
-    meta: ["", ""]}
+    meta: meta[i], id}
 });
 
 // A implies C TRIALS
-let p_fall = [["high", "low"], ["uncertain", "uncertain"]];
+let p_fall = [["high", "low", 'train-a-implies-c-c-falls'],
+  ["uncertain", "uncertain", 'train-a-implies-c-c-falls'],
+  ["uncertain", "uncertain", "train-a-implies-c-c-doesnt-fall"]];
 blockA = block(Walls.train.a_implies_c[0], -prior[p_fall[0][0]], cols.red, 'blockA',
-  undefined, undefined,horiz=true); //lower wall
-blockB = block(Walls.train.a_implies_c[1], prior[p_fall[0][1]], cols.orange, 'blockB');//upper wall
-blockC = block(Walls.train.a_implies_c[0], -prior[p_fall[1][0]], cols.orange, 'blockC'); //lower wall
-Body.setPosition(blockC, {x: blockC.position.x-2, y: blockC.position.y});
+  undefined, undefined,horiz=true); //upper wall
+blockB = block(Walls.train.a_implies_c[1], prior[p_fall[0][1]], cols.orange, 'blockB');//lower wall
+
+blockC = block(Walls.train.a_implies_c[0], -prior[p_fall[1][0]], cols.orange, 'blockC'); //upper wall
+Body.setPosition(blockC, {x: blockC.position.x-1, y: blockC.position.y});
 blockD = block(Walls.train.a_implies_c[1], prior[p_fall[1][1]], cols.red,
-  'blockD', undefined, undefined, horiz=true); //upper wall
-[[blockA, blockB], [blockC, blockD]].forEach(function(blocks, i){
+  'blockD', undefined, undefined, horiz=true); //lower wall
+
+blockE = block(Walls.train.a_implies_c[1], prior[p_fall[1][1]], cols.darkgrey, 'blockE',
+  undefined, undefined, horiz=true); //lower wall
+Body.setPosition(blockE, {x: blockE.position.x-2, y: blockE.position.y});
+
+[[blockA, blockB], [blockC, blockD], [blockC, blockE]].forEach(function(blocks, i){
   let id = "a_implies_c_" + i
   Train_stimuli["a_implies_c"][id] = {objs: Walls.train.a_implies_c.concat(blocks),
-    meta: p_fall[i]}
+    meta: p_fall[i], id}
 });
 
 // Seesaw TRIALS
@@ -73,14 +84,20 @@ blockA = rect(Object.assign(props.blocks,
   {x: w.bounds.max.x, y: w.bounds.min.y - props.blocks.h/2,
    render: {fillStyle: cols.pinkish}})
  );
- blockB = rect(Object.assign(props.blocks,
+blockB = rect(Object.assign(props.blocks,
    {x: W7.bounds.min.x + 3, y: W7.bounds.min.y - props.blocks.h/2,
     render: {fillStyle: cols.olive}}
  ));
 [[blockA, blockB]].forEach(function(blocks, i){
   let id = "a_iff_c_" + i
   Train_stimuli["a_iff_c"][id] = {objs: Walls.train.a_iff_c.concat(blocks),
-    meta: ["", ""]}
+    meta: ["uncertain", "low", "train-iff"], id}
+});
+
+let TrainStimuli = [];
+let train_keys = _.keys(Train_stimuli);
+train_keys.forEach(function(kind){
+  TrainStimuli = TrainStimuli.concat(_.values(Train_stimuli[kind]));
 });
 
 getTrainStimulus = function(kind, nb) {

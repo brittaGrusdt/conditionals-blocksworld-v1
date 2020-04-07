@@ -4,6 +4,7 @@ var Engine = Matter.Engine,
     Bodies = Matter.Bodies;
     Body = Matter.Body;
     Constraint = Matter.Constraint;
+    Events = Matter.Events;
 
 cols = {
       'red': '#E74C3C',

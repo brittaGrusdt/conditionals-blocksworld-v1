@@ -76,3 +76,5 @@ getTestStimuli = function(conditions, relations){
 
   return stimuli
 }
+
+let TestStimuli = getTestStimuli(Conditions, Relations);

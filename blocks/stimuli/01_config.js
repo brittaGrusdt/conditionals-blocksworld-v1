@@ -2,6 +2,7 @@ const debug = true;
 // const debug = false;
 // const MODE = "train"
 const MODE = "test"
+// const MODE = "experiment"
 
 var scene = {w: 800, h: 400};
 props = {'blocks': {'w':40, 'h': 80},
@@ -28,3 +29,5 @@ let prior = {'high': 0.35, 'uncertain': 0.54, 'low': 0.68}
 
 // for independent trials, one block is shifted to the right depending on prior
 let independent_shift = {"high": 12, "low": 85, "uncertain": 25};
+
+let SIMULATION = {'duration': 5000};

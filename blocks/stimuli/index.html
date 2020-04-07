@@ -38,9 +38,9 @@
         stimulus = stimuli[rel][id];
       } else if(MODE === "train") {
         let types = ["independent", "a_implies_c", "uncertain", "a_iff_c"];
-        // let types = ["a_iff_c"]
+        // let types = ["independent"]//["a_iff_c"]//["a_implies_c"]//"uncertain"]
         rel = types[_.random(0, types.length-1)];
-        nb = _.random(0, _.size(Train_stimuli[rel])-1);
+        let nb = _.random(0, _.size(Train_stimuli[rel])-1);
         // let nb = 0;
         stimulus = getTrainStimulus(rel, nb);
         id =  rel + '_' + nb;
@@ -49,13 +49,14 @@
 
     <!-- add objects to world -->
     <script type="text/javascript">
+      createWorld();
       addObjs2World(stimulus);
     </script>
 
     <!-- in debug mode: add expectations and data for shown stimulus -->
     <button id="expectBttn" class="hide" onclick="expectedUtts()">expected utterances</button>
-    <button id="exitBttn" class="hide" onclick="stop()">stop-rendering</button>
-    <button id="startBttn" class="hide" onclick="start()">start</button>
+    <button id="exitBttn" class="hide" onclick="clearWorld()">clear</button>
+    <button id="startBttn" class="hide" onclick="runAnimation()">start</button>
     <script src="expectations.js" type="text/javascript"></script>
     <script type="text/javascript">
       if(debug){

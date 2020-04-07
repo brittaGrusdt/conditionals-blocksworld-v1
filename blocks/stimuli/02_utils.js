@@ -89,13 +89,3 @@ assignColors = function(){
   let col2 = col1 === 1 ? 0 : 1;
   return [col1, col2];
 }
-
-addObjs2World = function(stimulus){
-  let keys = _.keys(stimulus);
-  keys = _.filter(keys, function(k){return k!== "data"});
-  let objs = [Bottom];
-  keys.forEach(function(k){
-      objs = objs.concat(stimulus[k])
-  });
-  World.add(engine.world, objs);
-}
