@@ -12,9 +12,11 @@ const animation_view  = {
     name: "animation",
     title: "title",
     CT: 0,
-    trials: TrainStimuli.list_all.length,
+    // trials: TrainStimuli.list_all.length,
+    trials: 1,
     data: "",
-    // The render function gets the magpie object as well as the current trial in view counter as input
+    // The render function gets the magpie object as well as the current trial
+    // in view counter as input
     render: function(CT, magpie){
       let utterances = random_utterance();
       const view_template = `
@@ -23,58 +25,13 @@ const animation_view  = {
         </div>
         <div class='magpie-view-stimulus-grid'>
           <animationTitle class='stimulus'>
-            <h1>What do you think will happen? Click on RUN to see!</h1>
+            <h1>What do you think, which block will fall (if any)? Click on RUN to see!</h1>
           </animationTitle>
           <animation id='animationDiv'></animation>
+        </div>` +
 
-          <question1 class='magpie-view-question grid-question' id ='question1' >
-            ${utterances[0].question1}
-          </question1>
-          <slider1 class='magpie-grid-slider' id='slider1'>
-            <span class='magpie-response-slider-option optionWide'>impossible event</span>
-            <input type='range' id='response1' name='answer1' class='magpie-response-slider' min='0' max='100' value='50' oninput='output1.value = response1.value + "%"'/>
-            <span class='magpie-response-slider-option optionWide'>certain event</span>
-            <output name="outputSlider1" id="output1" class="thick">50%</output>
-          </slider1>
+        htmlRunNextButtons(runEnabled=true);
 
-          <question2 class='magpie-view-question grid-question' id ='question2' >
-            ${utterances[0].question2}
-          </question2>
-          <slider2 class='magpie-grid-slider' id='slider2'>
-            <span class='magpie-response-slider-option optionWide'>impossible event</span>
-            <input type='range' id='response2' name='answer2' class='magpie-response-slider' min='0' max='100' value='50' oninput='output2.value = response2.value + "%"'/>
-            <span class='magpie-response-slider-option optionWide'>certain event</span>
-            <output name="outputSlider2" id="output2" class="thick">50%</output>
-          </slider2>
-
-          <question3 class='magpie-view-question grid-question' id ='question3' >
-            ${utterances[0].question3}
-          </question3>
-          <slider3 class='magpie-grid-slider' id='slider3'>
-            <span class='magpie-response-slider-option optionWide'>impossible event</span>
-            <input type='range' id='response3' name='answer3' class='magpie-response-slider' min='0' max='100' value='50' oninput='output3.value = response3.value + "%"'/>
-            <span class='magpie-response-slider-option optionWide'>certain event</span>
-            <output name="outputSlider3" id="output3" class="thick">50%</output>
-          </slider3>
-
-          <question4 class='magpie-view-question grid-question' id ='question4' >
-            ${utterances[0].question4}
-          </question4>
-          <slider4 class='magpie-grid-slider' id='slider4'>
-            <span class='magpie-response-slider-option optionWide'>impossible event</span>
-            <input type='range' id='response4' name='answer4' class='magpie-response-slider' min='0' max='100' value='50' oninput='output4.value = response4.value + "%"'/>
-            <span class='magpie-response-slider-option optionWide'>certain event</span>
-            <output name="outputSlider4" id="output4" class="thick">50%</output>
-          </slider4>
-
-          <run>
-            <button id="runButton" class="magpie-view-button grid-button">RUN</button>
-          </run>
-          <next>
-            <button id='buttonNextAnimation' class='magpie-view-button grid-button'>NEXT SCENE</button>
-          </next>
-        </div>
-      `;
       $('#main').html(view_template);
 
       let startTime = Date.now();
@@ -88,7 +45,7 @@ const animation_view  = {
       let animationStarted = false;
       let runButton = $('#runButton');
       runButton.on('click', function(e){
-        if(!animationStarted && repliedAll()) {
+        if(!animationStarted) { //repliedAll()
           animationStarted = true;
           runAnimation(engine);
           toggleNextIfDone($("#buttonNextAnimation"), true);
@@ -99,43 +56,24 @@ const animation_view  = {
         addShortCut2SelectAnswers($("#runButton"));
       }
 
-      $("#response1").on("change", function () {
-        $("#response1").addClass('replied');
-        toggleNextIfDone(runButton, repliedAll());
-      });
-
-      $("#response2").on("change", function () {
-        $("#response2").addClass('replied')
-        toggleNextIfDone(runButton, repliedAll());
-      });
-
-      $("#response3").on("change", function () {
-        $("#response3").addClass('replied')
-        toggleNextIfDone(runButton, repliedAll());
-      });
-
-      $("#response4").on("change", function () {
-        $("#response4").addClass('replied')
-        toggleNextIfDone(runButton, repliedAll());
-      });
-
       $("#buttonNextAnimation").on("click", function () {
           const RT = Date.now() - startTime; // measure RT before anything else
           clearWorld(engine, render, stop2Render=false);
-          let utterances = [];
-          let utteranceIDs = ["question1", "question2", "question3", "question4"];
-          utteranceIDs.forEach(function(qid){
-            let q = $("#"+qid).html();
-            let abbreviation = question2ID[q]
-            utterances.push(abbreviation)
-          });
+          // let data = saveTrialQA();
+          // let utterances = [];
+          // let utteranceIDs = ["question1", "question2", "question3", "question4"];
+          // utteranceIDs.forEach(function(qid){
+          //   let q = $("#"+qid).html();
+          //   let abbreviation = question2ID[q]
+          //   utterances.push(abbreviation)
+          // });
           let trial_data = {
-            trial_name: _.values(TrainStimuli.list_all[CT]).id,
+            trial_name: TrainStimuli.list_all[CT].id,
             trial_number: CT + 1,
-            response: [$("#response1").val(), $("#response2").val(),
-                       $("#response3").val(), $("#response4").val()
-                      ],
-            utterances: utterances,
+            response: [],
+            utterances: [],
+            // response: data.responses,
+            // utterances: data.questions,
             RT: RT
           };
           trial_data = magpieUtils.view.save_config_trial_data(
@@ -167,9 +105,9 @@ const multi_slider_generator = {
     return `
       <div class='magpie-multi-slider-grid' id='target'>
 
-        <question1 class='magpie-view-question grid-question' id ='question1' >
-          ${config.data[CT].question1}
-        </question1>
+        <question1 class='magpie-view-question grid-question' id ='question1'>${
+          config.data[CT].question1
+          }</question1>
         <slider1 class='magpie-grid-slider' id='slider1'>
           <span class='magpie-response-slider-option optionWide'>${option1}</span>
             <input type='range' id='response1' name='answer1' class='magpie-response-slider' min='0' max='100'    value='50' oninput='output1.value = response1.value + "%"'/>
@@ -177,9 +115,9 @@ const multi_slider_generator = {
           <output name="outputSlider1" id="output1" class="thick">50%</output>
         </slider1>
 
-        <question2 class='magpie-view-question grid-question' id ='question2' >
-          ${config.data[CT].question2}
-        </question2>
+        <question2 class='magpie-view-question grid-question' id ='question2'>${
+          config.data[CT].question2
+        }</question2>
         <slider2 class='magpie-grid-slider' id='slider2'>
           <span class='magpie-response-slider-option optionWide'>${option1}</span>
           <input type='range' id='response2' name='answer2' class='magpie-response-slider' min='0' max='100'  value='50' oninput='output2.value = response2.value + "%"'/>
@@ -197,9 +135,9 @@ const multi_slider_generator = {
           <output name="outputSlider3" id="output3" class="thick">50%</output>
         </slider3>
 
-        <question4 class='magpie-view-question grid-question' id ='question4' >
-          ${config.data[CT].question4}
-        </question4>
+        <question4 class='magpie-view-question grid-question' id ='question4'>${
+          config.data[CT].question4
+        }</question4>
         <slider4 class='magpie-grid-slider' id='slider4'>
           <span class='magpie-response-slider-option optionWide'>${option1}</span>
           <input type='range' id='response4' name='answer4' class='magpie-response-slider' min='0' max='100' value='50' oninput='output4.value = response4.value + "%"'/>
@@ -224,42 +162,15 @@ const multi_slider_generator = {
     if (magpie.deploy.deployMethod === "debug") {
       addShortCut2SelectAnswers(button);
     }
-    // the next button has to be pressed, in order to get to next trial
-    // check the sliders for all 4 utterance and handle next button
-    // this is code without debug mode
-    $("#response1").on("change", function () {
-      $('#response1').addClass('replied');
-      toggleNextIfDone(button, repliedAll());
-    });
-
-    $("#response2").on("change", function () {
-      $('#response2').addClass('replied')
-      toggleNextIfDone(button, repliedAll());
-    });
-
-    $("#response3").on("change", function () {
-      $('#response3').addClass('replied')
-      toggleNextIfDone(button, repliedAll());
-    });
-
-    $("#response4").on("change", function () {
-      $('#response4').addClass('replied')
-      toggleNextIfDone(button, repliedAll());
-    });
-
+    addCheckResponseFunctionality(button);
     button.on("click", function () {
         const RT = Date.now() - startingTime; // measure RT before anything else
+        let responseData = saveTrialQA();
         let trial_data = {
           trial_name: config.name,
           trial_number: CT + 1,
-          response: [$("#response1").val(), $("#response2").val(),
-                     $("#response3").val(), $("#response4").val()
-                    ],
-          utterances: [question2ID[config.data[CT].question1],
-                       question2ID[config.data[CT].question2],
-                       question2ID[config.data[CT].question3],
-                       question2ID[config.data[CT].question4]
-                      ],
+          response: responseData.responses,
+          utterances: responseData.questions,
           RT: RT
         };
         trial_data = magpieUtils.view.save_config_trial_data(
