@@ -1,8 +1,8 @@
 const debug = true;
 // const debug = false;
-// const MODE = "train"
-const MODE = "test"
-// const MODE = "experiment"
+// var MODE = "train"
+var MODE = "test"
+// var MODE = "experiment"
 
 var scene = {w: 800, h: 400};
 props = {'blocks': {'w':40, 'h': 80},

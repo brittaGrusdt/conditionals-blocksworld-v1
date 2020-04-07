@@ -54,7 +54,7 @@ const instructions = magpieViews.view_generator("instructions", {
           <br/>
           <br/>
          For each presented scenario you will be asked to estimate the likelihood that certain blocks fall/don't fall.
-         A block is considered to <b>fall</b> <i>as soon as it turns on the other side.</i>
+         A block is considered to <b>fall</b> <i>as soon as it topples over.</i>
          <br/>
          The colored blocks represent common toy blocks, they do not have any special properties and they are only distinguishable by their color.
          <br/>

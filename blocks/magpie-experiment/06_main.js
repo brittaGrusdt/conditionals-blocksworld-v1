@@ -18,10 +18,9 @@ $("document")
       views_seq: [
       intro,
       instructions,
+      // animation_view,
       instructions1,
       multiple_slider,
-      // animation_view,
-      // instructions2,
       post_test,
       thanks
     ],
