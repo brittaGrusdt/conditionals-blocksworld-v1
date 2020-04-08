@@ -178,7 +178,7 @@ addShortCut2SelectAnswers = function(button2Toggle){
   });
 }
 
-_checkResponse = function(id){
+_checkResponse = function(id, button2Toggle){
   $("#" + id).on("change", function () {
     $("#" + id).addClass('replied');
     toggleNextIfDone(button2Toggle, repliedAll());
@@ -186,10 +186,10 @@ _checkResponse = function(id){
 }
 
 addCheckResponseFunctionality = function(button2Toggle) {
-  _checkResponse("response1");
-  _checkResponse("response2");
-  _checkResponse("response3");
-  _checkResponse("response4");
+  _checkResponse("response1", button2Toggle);
+  _checkResponse("response2", button2Toggle);
+  _checkResponse("response3", button2Toggle);
+  _checkResponse("response4", button2Toggle);
 }
 
 saveTrialQA = function(){
