@@ -7,39 +7,51 @@ let TrainStimuli = {
 // INDPENDENT TRIALS
 trials_independent = function(){
   let data = {}
+  let bases = _.times(3, lowWallIndependent);
+  let baseXmax = bases[0].bounds.max.x;
+  let baseYmin = bases[0].bounds.min.y;
+
+  // plane uncertain falls
+  let bA = rect(Object.assign({w: props.blocks.h, h: props.blocks.w,
+    x: baseXmax - lengthOnBase("uncertain", true) - 25 + props.blocks.h/2,
+    y: baseYmin - props.blocks.w/2}),
+    {render: {fillStyle: cols.pinkish}, id: "blockA"}
+  );
   // steep falls
-  let bA = rect(Object.assign(props.blocks,
-    {x:515, y: 275 - props.walls.h/2 - props.blocks.h/2}),
-    {render: {fillStyle: cols.pinkish}, label: "blockA"}
+  let bB = rect(Object.assign({w: props.blocks.h, h: props.blocks.w},
+    {x: 350,
+     y: 225 - props.walls.h/2 - props.blocks.w/2}),
+    {render: {fillStyle: cols.pinkish}, id: "blockB"}
   );
-  // steep doesnt fall
-  let bB = rect(Object.assign({w: props.blocks.w, h: props.blocks.h},
-    {x:450, y: 275 - props.walls.h/2 - props.blocks.h/2}),
-    {render: {fillStyle: cols.pinkish}, label: "blockB"}
-  );
-  // plane doesnt fall
-  let bC = rect(Object.assign(props.blocks,
-    {x:450, y: Walls.train.independent_plane[1].bounds.min.y - props.blocks.h/2}),
-    {render: {fillStyle: cols.pinkish}, label: "blockC"}
+  // plane uncertain doesnt fall
+  let bC = rect(Object.assign({w: props.blocks.h, h: props.blocks.w,
+    x: baseXmax -lengthOnBase("low", true) + 30 + props.blocks.h/2,
+    y: baseYmin - props.blocks.w/2}
+    ), {render: {fillStyle: cols.pinkish}, id: "blockC"}
   );
 
-  let meta = [
-    ["low","-", "train-independent-steep-falls"],
-    ["low", "-", "train-independent-steep-doesnt-fall"],
-    ["low", "-","train-independent-plane-doesnt-fall"]
-  ];
-  let balls = _.times(3, ballTrainIndependentTrials);
-  // A and B are put on different walls than block C
-  [bA, bB].forEach(function(block, i){
+  let meta = {
+    "blockA": ["uncertain", "-","train-independent-plane-falls"],
+    "blockB": ["high","-", "train-independent-steep-falls"],
+    "blockC": ["uncertain", "-", "train-independent-plane-doesnt-fall"]
+  };
+  // 2.trial: steep and plane tilted walls are different
+  [bA, bC].forEach(function(block, i){
     let id = "independent_" + i;
-    let w = Walls.train.independent.concat(Walls.train.independent_steep);
-    let x = w.concat([block, balls[i]]);
-    let objs = {'objs': x, 'meta': meta[i], id: id}
+    let base = bases[i]
+    let ramp_elems = Walls.train.independent_plane
+    let w = [base].concat(ramp_elems);
+    if(block.id === "blockC") {
+      Matter.Body.scale(w[0], 1.25, 1);
+      Matter.Body.setPosition(w[0], {x: w[0].position.x + 28, y: w[0].position.y})
+    }
+    let objs = {'objs': w.concat([block]), 'meta': meta[block.id], id: id}
     data[id] = objs
   });
-  let w = Walls.train.independent.concat(Walls.train.independent_plane);
+  // 3. trial has different base!
+  let w = [bases[2]].concat(Walls.train.independent_steep);
   data["independent_2"] = {
-    objs: w.concat([bC, balls[2]]), meta: meta[2], id: "independent_2"
+    objs: w.concat([bB]), meta: meta.blockB, id: "independent_2"
   };
   return data
 }

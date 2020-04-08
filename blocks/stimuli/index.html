@@ -26,24 +26,25 @@
     <script type="text/javascript">
       let rel, stimulus, nb, id;
       if(MODE === "test") {
-        let relations = ['independent']
+        // let relations = ['independent']
         // let relations = ['a_implies_c']
         // let relations = ['a_iff_c']
-        // let relations = Array.from(Relations);
-        rel = relations[_.random(0, relations.length-1)];
-        // let nb = 4;
+        let relations = Array.from(Relations);
         let stimuli = getTestStimuli(Conditions, relations);
+        rel = relations[_.random(0, relations.length-1)];
+        // nb = 1;
         nb = _.random(0, _.size(stimuli[rel])-1);
         id =  rel + '_' + nb
         stimulus = stimuli[rel][id];
       } else if(MODE === "train") {
         let types = ["independent", "a_implies_c", "uncertain", "a_iff_c"];
-        // let types = ["independent"]//["a_iff_c"]//["a_implies_c"]//"uncertain"]
+        // let types = ["a_implies_c"]//["independent"]//["a_iff_c"]//"uncertain"]
         rel = types[_.random(0, types.length-1)];
         nb = _.random(0, _.size(TrainStimuli.map_category[rel])-1);
-        // let nb = 0;
+        // nb = 0;
         stimulus = getTrainStimulus(rel, nb);
         id =  rel + '_' + nb;
+        console.log(id)
       }
     </script>
 

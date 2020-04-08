@@ -64,9 +64,9 @@ getTestStimuli = function(conditions, relations){
         Matter.Body.setPosition(b2, {x: b2.position.x + shift, y: b2.position.y});
 
         if(priors_blocks[1] === "uncertain" || priors_blocks[1] === "low") {
-          objs=objs.concat([W4_1, W5_1, Ball_1]);
+          objs=objs.concat(Walls.tilted.angle30);
         } else {
-          objs = objs.concat([W4_0, W5_0, Ball_0]);
+          objs = objs.concat(Walls.tilted.angle45);
         }
       }
       objs = objs.concat(walls);
