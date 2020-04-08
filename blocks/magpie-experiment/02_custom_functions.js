@@ -177,29 +177,20 @@ addShortCut2SelectAnswers = function(button2Toggle){
     return keyName;
   });
 }
-// $('#runButton')
-addCheckResponseFunctionality = function(button2Toggle) {
-  $("#response1").on("change", function () {
-    $("#response1").addClass('replied');
-    toggleNextIfDone(button2Toggle, repliedAll());
-  });
 
-  $("#response2").on("change", function () {
-    $("#response2").addClass('replied')
-    toggleNextIfDone(button2Toggle, repliedAll());
-  });
-
-  $("#response3").on("change", function () {
-    $("#response3").addClass('replied')
-    toggleNextIfDone(button2Toggle, repliedAll());
-  });
-
-  $("#response4").on("change", function () {
-    $("#response4").addClass('replied')
+_checkResponse = function(id){
+  $("#" + id).on("change", function () {
+    $("#" + id).addClass('replied');
     toggleNextIfDone(button2Toggle, repliedAll());
   });
 }
 
+addCheckResponseFunctionality = function(button2Toggle) {
+  _checkResponse("response1");
+  _checkResponse("response2");
+  _checkResponse("response3");
+  _checkResponse("response4");
+}
 
 saveTrialQA = function(){
   let questions = [];
