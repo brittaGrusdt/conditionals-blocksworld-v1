@@ -7,15 +7,18 @@ const Bottom = wall(scene.w/2, scene.h - props.bottom.h/2, scene.w,
 // base walls
 let W1 = wall(x=320, y=100, w=props.walls.w, h=props.walls.h, 'wallUpLeft');
 let W2 = wall(x= W1.bounds.max.x - 10, y=240, w=props.walls.w, h=props.walls.h, 'wallLowRight');
-let W3 = wall(W2.position.x+4, W2.position.y, props.walls.w + 25, props.walls.h,'wallRampLow')
+let W3 = wall(W2.position.x+4, W2.position.y, props.walls.w + 25, props.walls.h,'wallRampLow-test')
+let W4 = wall(x=250+(props.walls.w+25)/2, y=225, w=props.walls.w+25,
+  h=props.walls.h, 'wallRampLow-train')
 
+// This is important because, it gets scaled in some trials! Therefore different
+// isntances are needed!
 lowWallIndependent = function(){
   return wall(x=250+(props.walls.w+25)/2, y=225, w=props.walls.w+25,
     h=props.walls.h, 'wallDownRight')
 }
 
-rampIndependent = function(angle, tilt_increase){
-  let wallLow = lowWallIndependent();
+rampIndependent = function(angle, tilt_increase, wallLow){
   let overlap = overlap_shift["angle"+Math.abs(angle)];
   let shift_x, w_low_x_edge;
   if (tilt_increase) {
@@ -50,8 +53,8 @@ rampIndependent = function(angle, tilt_increase){
   return {'tilted': ramp, 'top': wallTop, 'ball': ball1}
 }
 Walls.tilted = {
-  'angle45': _.values(rampIndependent(W3, -45, true)),
-  'angle30': _.values(rampIndependent(W3, -30, true))
+  'angle45': _.values(rampIndependent(-45, true, W3)),
+  'angle30': _.values(rampIndependent(-30, true, W3))
 }
 let W6 = wall(225, 240, props.walls.w/1.5, props.walls.h, 'wall_seesaw_left');
 let W7 = wall(575, 240, props.walls.w/1.5, props.walls.h, 'wall_seesaw_right');
@@ -96,8 +99,8 @@ extraBlock = function(label, color, horiz=true){
 
 // Elements for TRAINING TRIALS
 
-Walls.train.independent_steep = _.values(rampIndependent(-45, false));
-Walls.train.independent_plane = _.values(rampIndependent(-30, false));
+Walls.train.independent_steep = _.values(rampIndependent(-45, false, W4));
+Walls.train.independent_plane = _.values(rampIndependent(-30, false, W4));
 
 let W8 = wall(x=scene.w/2, y=scene.h/2, w=props.walls.w, h=props.walls.h, 'wallMiddle');
 Walls.train.uncertain = [W8]
