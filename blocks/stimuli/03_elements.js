@@ -12,7 +12,7 @@ let W4 = wall(x=250+(props.walls.w+25)/2, y=225, w=props.walls.w+25,
   h=props.walls.h, 'wallRampLow-train')
 
 // This is important because, it gets scaled in some trials! Therefore different
-// isntances are needed!
+// instances are needed!
 lowWallIndependent = function(){
   return wall(x=250+(props.walls.w+25)/2, y=225, w=props.walls.w+25,
     h=props.walls.h, 'wallDownRight')
