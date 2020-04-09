@@ -8,8 +8,8 @@ let TrainStimuli = {
 trials_independent = function(){
   let data = {}
   let bases = _.times(3, lowWallIndependent);
-  let baseXmax = W4.bounds.max.x;
-  let baseYmin = W4.bounds.min.y;
+  let baseXmax = bases[0].bounds.max.x;
+  let baseYmin = bases[0].bounds.min.y;
 
   // plane uncertain falls
   let bA = rect(Object.assign({w: props.blocks.h, h: props.blocks.w,
@@ -39,7 +39,7 @@ trials_independent = function(){
   [bA, bC].forEach(function(block, i){
     let id = "independent_" + i;
     let base = bases[i]
-    let ramp_elems = Walls.train.independent_plane
+    let ramp_elems = Walls.train.independent_plane();
     let w = [base].concat(ramp_elems);
     if(block.id === "blockC") {
       Matter.Body.scale(w[0], 1.18, 1);
@@ -49,7 +49,7 @@ trials_independent = function(){
     data[id] = objs
   });
   // 3. trial has different base!
-  let w = [bases[2]].concat(Walls.train.independent_steep);
+  let w = [bases[2]].concat(Walls.train.independent_steep());
   data["independent_2"] = {
     objs: w.concat([bB]), meta: meta.blockB, id: "independent_2"
   };

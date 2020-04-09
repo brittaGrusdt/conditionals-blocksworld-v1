@@ -12,8 +12,8 @@ const animation_view  = {
     name: "animation",
     title: "title",
     CT: 0,
-    // trials: TrainStimuli.list_all.length,
-    trials: 1,
+    trials: ShuffledTrainStimuli.length,
+    // trials: 1,
     data: "",
     // The render function gets the magpie object as well as the current trial
     // in view counter as input
@@ -35,7 +35,8 @@ const animation_view  = {
       $('#main').html(view_template);
 
       let startTime = Date.now();
-      let stimulus = TrainStimuli.list_all[CT];
+      let stimulus = ShuffledTrainStimuli[CT];
+
       let worldElems = createWorld();
       let engine = worldElems.engine;
       let render = worldElems.render;
@@ -68,7 +69,7 @@ const animation_view  = {
           //   utterances.push(abbreviation)
           // });
           let trial_data = {
-            trial_name: TrainStimuli.list_all[CT].id,
+            trial_name: ShuffledTrainStimuli[CT].id,
             trial_number: CT + 1,
             response: [],
             utterances: [],

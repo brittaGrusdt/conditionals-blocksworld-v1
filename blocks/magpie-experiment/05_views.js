@@ -54,7 +54,7 @@ const instructions = magpieViews.view_generator("instructions", {
           <br/>
           <br/>
          For each presented scenario you will be asked to estimate the likelihood that certain blocks fall/don't fall.
-         A block is considered to <b>fall</b> <i>as soon as it topples over.</i>
+         A block is considered to <b><i>fall</i></b> <b>as soon as it <i>topples over</i>.</b>
          <br/>
          The colored blocks represent common toy blocks, they do not have any special properties and they are only distinguishable by their color.
          <br/>
@@ -71,9 +71,9 @@ const instructions = magpieViews.view_generator("instructions", {
          <b>8</b> animated training examples to get familiar with the stimuli.
          When you click on the RUN button, the animation will start. By clicking
          on the NEXT SCENE button, you will get to the next training example.
-         After you have seen all 8 examples, there will be one more example trial
-         in which you will be asked to estimate the likelihood of the described
-         events as in the main experiment.
+         In the last training example, you will only be able to run the animation
+         after you have estimated the likelihood of the events described below the scene
+         by moving the sliders.
          Throughout the experiment, you may want to go into Full Screen Mode
          (usually switched on/off with F11), otherwise you may need to
          scroll down to see the buttons.`,
@@ -94,13 +94,11 @@ const instructions1 = magpieViews.view_generator("instructions", {
             <br />
           Please keep in mind:
             <br/>
-          A block might <b>fall</b> although it does <i>not fall to the ground</i>, e.g. in the following picture, the blue block <b>did fall</b> TODO!!:
-            <img src="../stimuli/images/not-touch-ground.png" style="width:100%"></img>
-             <br/>
-             </br>
-          The probabilities that you assign to the four events do not have to sum up to 1.
+          A block is considered to <i>fall</i> as soon as it <i>topples over</i> - this means it does not necessarily have to fall to the ground.
+          <br/>
+          The probabilities that you assign to the four events do <i>not have to sum up to 1</i>.
             </br>
-          The colored blocks all have the same properties, they are only distinguishable by their color.
+          The colored blocks all have <i>the same properties</i>, they are only distinguishable by their color.
             </br>
             </br>
           We will now start the experiment. There are 24 scenarios in total and the experiment will take you about 15-20 minutes.

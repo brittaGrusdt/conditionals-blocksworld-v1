@@ -206,3 +206,31 @@ saveTrialQA = function(){
                    $("#response3").val(), $("#response4").val()];
   return {questions, responses};
 }
+
+pseudoRandomTrainTrials = function(){
+  let order = Array(8).fill('');
+  let categories = ["uncertain", "a_implies_c"]
+  let indices = [0, 1]
+  let cat0 = _.sample(categories)
+  let nb0 = _.sample(indices)
+  order[0] = TrainStimuli.map_category[cat0][cat0 + "_" + nb0]
+
+  let cat1 = cat0 === "uncertain" ?  "a_implies_c" : "uncertain"
+  let nb1 = _.sample(indices)
+  order[2] = TrainStimuli.map_category[cat1][cat1 + "_" + nb1]
+
+  let nb7 = nb0 === 0 ? 1 : 0;
+  let nb8 = nb1 === 0 ? 1 : 0;
+
+  order[7] = TrainStimuli.map_category[cat0][cat0 + "_" + nb7]
+  order[8] = TrainStimuli.map_category[cat1][cat1 + "_" + nb8]
+
+  order[1] = TrainStimuli.map_category["a_iff_c"]["a_iff_c_0"]
+  order[3] = TrainStimuli.map_category["independent"]["independent_0"]
+  order[4] = TrainStimuli.map_category["independent"]["independent_1"]
+  order[5] = TrainStimuli.map_category["a_implies_c"]["a_implies_c_2"]
+  order[6] = TrainStimuli.map_category["independent"]["independent_2"]
+  return order
+}
+
+const ShuffledTrainStimuli = pseudoRandomTrainTrials();
