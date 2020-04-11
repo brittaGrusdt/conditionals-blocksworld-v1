@@ -47,11 +47,11 @@ getTestStimuli = function(conditions, relations){
       let blocks;
       if(rel === "a_iff_c" && !ac_uncertain){
         // add extra block for iff-trials when prior is not uncertain-uncertain
-          let updates = _addXblock(priors_blocks)
-          let baseB1 = updates.xblock_side === "left" ? updates.xblock : bases[0]
-          let baseB2 = updates.xblock_side === "left" ? bases[1] : updates.xblock;
-          blocks = _add_blocks([baseB1, baseB2], priors_blocks, updates.sides);
-          blocks.push(updates.xblock);
+        let updates = _addXblock(priors_blocks)
+        let baseB1 = updates.xblock_side === "left" ? updates.xblock : bases[0]
+        let baseB2 = updates.xblock_side === "left" ? bases[1] : updates.xblock;
+        blocks = _add_blocks([baseB1, baseB2], priors_blocks, updates.sides);
+        blocks.push(updates.xblock);
       } else {
         blocks = _add_blocks(bases, priors_blocks, sides);
       }
@@ -64,9 +64,9 @@ getTestStimuli = function(conditions, relations){
         Matter.Body.setPosition(b2, {x: b2.position.x + shift, y: b2.position.y});
 
         if(priors_blocks[1] === "uncertain" || priors_blocks[1] === "low") {
-          objs=objs.concat(Walls.tilted.angle30);
+          objs=objs.concat(Walls.test.tilted.ramp_angle30);
         } else {
-          objs = objs.concat(Walls.tilted.angle45);
+          objs = objs.concat(Walls.test.tilted.ramp_angle45);
         }
       }
       objs = objs.concat(walls);

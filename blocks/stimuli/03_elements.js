@@ -51,10 +51,6 @@ rampIndependent = function(angle, tilt_increase, wallLow){
   return {'tilted': ramp, 'top': wallTop, 'ball': ball1}
 }
 
-Walls.tilted = {
-  'angle45': _.values(rampIndependent(-45, true, W3)),
-  'angle30': _.values(rampIndependent(-30, true, W3))
-}
 let W6 = wall(225, 240, props.walls.w/1.5, props.walls.h, 'wall_seesaw_left');
 let W7 = wall(575, 240, props.walls.w/1.5, props.walls.h, 'wall_seesaw_right');
 
@@ -88,6 +84,11 @@ Walls.test = {'independent': [W1, W3], // tilted wall+ball added dep on prior
              'a_implies_c': [W1, W2],
              'a_iff_c': [W6, W7, skeleton, plank, constraint]
             };
+
+Walls.test.tilted = {
+  'ramp_angle45': _.values(rampIndependent(-45, true, W3)),
+  'ramp_angle30': _.values(rampIndependent(-30, true, W3))
+}
 
 // Extra block used in iff trials
 extraBlock = function(label, color, horiz=true){
