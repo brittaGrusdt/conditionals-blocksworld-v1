@@ -25,19 +25,6 @@ createWorld = function(){
       background: 'transparent'
     }
   });
-
-  // after duration of simulation freeze and save data
-  // Events.on(engine, 'afterUpdate', function (event) {
-  //   if (animationStarted && engine.timing.timestamp >= SIMULATION.duration) {
-  //     freeze();
-  //     Render.stop(render)
-  //
-  //     // Stop animation and clear world
-  //     World.clear(engine.world)
-  //     Engine.clear(engine);
-  //     animationStarted = false;
-  //   }
-  // });
   return {engine, render}
 }
 

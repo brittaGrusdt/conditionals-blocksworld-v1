@@ -50,6 +50,9 @@ const time_limit = function (data, next) {
 //       next();
 //     });
 // };
+// custom parameters:
+let DURATION_ANIMATION = 10000; // in ms
+let key2SelectAnswer = "y";
 
 // custom functions:
 let id2Question = {"bg": "<b>Blue will</b> and <b>green will</b> touch the ground.",
@@ -65,7 +68,7 @@ _idQuestions.forEach(function(keyValue){
 
 // function to randomly order the four utterences, given per trial
 // shuffle_trial_questions
-function random_utterance(slider_rating_trials=[{}]) {
+function shuffleQuestions(slider_rating_trials=[{}]) {
   for (var i = 0; i < slider_rating_trials.length; i++) {
     let utterances = _.shuffle(Object.values(id2Question));
     slider_rating_trials[i].question1 = utterances[0];
@@ -83,62 +86,79 @@ repliedAll = function(){
           $("#response4").hasClass('replied'));
 }
 
-htmlQuestionsInAnimation = function(utterances){
-  return `<question1 class='magpie-view-question grid-question' id ='question1' >
-    ${utterances[0].question1}
-  </question1>
-  <slider1 class='magpie-grid-slider' id='slider1'>
-    <span class='magpie-response-slider-option optionWide'>impossible event</span>
-    <input type='range' id='response1' name='answer1' class='magpie-response-slider' min='0' max='100' value='50' oninput='output1.value = response1.value + "%"'/>
-    <span class='magpie-response-slider-option optionWide'>certain event</span>
-    <output name="outputSlider1" id="output1" class="thick">50%</output>
-  </slider1>
-
-  <question2 class='magpie-view-question grid-question' id ='question2'>
-    ${utterances[0].question2}
-  </question2>
-  <slider2 class='magpie-grid-slider' id='slider2'>
-    <span class='magpie-response-slider-option optionWide'>impossible event</span>
-    <input type='range' id='response2' name='answer2' class='magpie-response-slider' min='0' max='100' value='50' oninput='output2.value = response2.value + "%"'/>
-    <span class='magpie-response-slider-option optionWide'>certain event</span>
-    <output name="outputSlider2" id="output2" class="thick">50%</output>
-  </slider2>
-
-  <question3 class='magpie-view-question grid-question' id ='question3' >
-    ${utterances[0].question3}
-  </question3>
-  <slider3 class='magpie-grid-slider' id='slider3'>
-    <span class='magpie-response-slider-option optionWide'>impossible event</span>
-    <input type='range' id='response3' name='answer3' class='magpie-response-slider' min='0' max='100' value='50' oninput='output3.value = response3.value + "%"'/>
-    <span class='magpie-response-slider-option optionWide'>certain event</span>
-    <output name="outputSlider3" id="output3" class="thick">50%</output>
-  </slider3>
-
-  <question4 class='magpie-view-question grid-question' id ='question4' >
-    ${utterances[0].question4}
-  </question4>
-  <slider4 class='magpie-grid-slider' id='slider4'>
-    <span class='magpie-response-slider-option optionWide'>impossible event</span>
-    <input type='range' id='response4' name='answer4' class='magpie-response-slider' min='0' max='100' value='50' oninput='output4.value = response4.value + "%"'/>
-    <span class='magpie-response-slider-option optionWide'>certain event</span>
-    <output name="outputSlider4" id="output4" class="thick">50%</output>
-  </slider4>
-`;
+htmlSliderQuestion = function(idx_question){
+  let o = `<q` + idx_question + ` class='magpie-view-question grid-question' id ='question` + idx_question + `'>`;
+  let c = `</q` + idx_question + `>`;
+  return {open: o, close: c};
 }
 
-htmlRunNextButtons = function(runEnabled){
-  let classRun = runEnabled ? "class=magpie-view-button" :
-    "class=magpie-view-button grid-button";
-  let htmlBttns =
-  `<run>
-    <button id="runButton" ` + classRun + `>RUN</button>
-  </run>
-  <next>
-    <button id='buttonNextAnimation' class='magpie-view-button grid-button'>NEXT SCENE</button>
-  </next>`;
+htmlSlider = function(idxSlider, utterances){
+  let sliderID = "slider" + idxSlider
+  let responseID = "response" + idxSlider
+  let answerID = "answer" + idxSlider
+  let outputID = "output" + idxSlider
+  let outputName = "outputSlider" + idxSlider
+
+  let start = "<s" + idxSlider + " class='magpie-grid-slider' id="+sliderID+">";
+  let end = "</s" + idxSlider + ">";
+  let qSlider = htmlSliderQuestion(idxSlider);
+  qSlider.middle = idxSlider === 1 ? `${utterances[0]}` :
+                   idxSlider === 2 ? `${utterances[1]}` :
+                   idxSlider === 3 ? `${utterances[2]}` :
+                   idxSlider === 4 ? `${utterances[3]}` : undefined;
+  let html_question = qSlider.open + qSlider.middle + qSlider.close;
+
+  let html_slider = start +
+    `<span class='magpie-response-slider-option optionWide'>impossible event</span>
+     <input type='range' id=` + responseID + ` name=` + answerID +
+     ` class='magpie-response-slider' min='0' max='100' value='50' oninput='` +
+     outputID + `.value = ` + responseID + `.value + "%"'/>` +
+    `<span class='magpie-response-slider-option optionWide'>certain event</span>
+     <output name="`+outputName+`" id=`+outputID+ ` class="thick">50%</output>`+
+     end;
+
+  return html_question + html_slider
+}
+
+htmlSliderAnswers = function(utterances){
+  let html_str = `<div class='magpie-multi-slider-grid' id='answerSliders'>`;
+  _.range(1,5).forEach(function(i){
+    let h = htmlSlider(i, utterances);
+    html_str += h;
+  });
+  html_str += `</div>`
+  return html_str;
+}
+
+let text_train_buttons = ["GREEN and BLUE",
+  "GREEN but <b>not</b> BLUE",
+  "<b>Not</b> GREEN but BLUE",
+  "<b>Neither</b> GREEN <b>nor</b> BLUE"
+];
+
+htmlButtonAnswers = function(){
+  return `<bttns id=TrainButtons class=buttonContainer>
+    <button id="ac" class=unselected>` + text_train_buttons[0] + `</button>
+    <div class="divider"/>
+    <button id="a" class=unselected>` + text_train_buttons[1] + `</button>
+    <div class="divider"/>
+    <button id="c" class=unselected>` + text_train_buttons[2] + `</button>
+    <div class="divider"/>
+    <button id="none" class=unselected>` + text_train_buttons[3] + `</button>
+  </bttns>`
+}
+
+htmlRunNextButtons = function(){
+  let htmlBttns =`<div id=parentRunNext class=magpie-buttons-grid>
+      <run>
+        <button id='runButton' class='grid-button magpie-view-button'>RUN</button>
+      </run>
+      <next>
+        <button id='buttonNextAnimation' class='grid-button magpie-view-button'>NEXT SCENE</button>
+      </next>
+    </div>`;
   return htmlBttns;
 }
-
 
 toggleNextIfDone = function (button, condition) {
     if(condition){
@@ -146,64 +166,76 @@ toggleNextIfDone = function (button, condition) {
     }
 };
 
-automaticallySelectAnswer = function(responseID) {
+automaticallySelectAnswer = function(responseID, button2Toggle) {
     document.getElementById(responseID).value = Math.floor(Math.random() * 101);
     $("#" + responseID).addClass('replied');
 }
 
-let key2SelectAnswer = "y";
-
-addShortCut2SelectAnswers = function(button2Toggle){
+addKeyToMoveSliders = function(button2Toggle){
   let counter = 0;
   document.addEventListener("keydown", event => {
     var keyName = event.key;
-    if (counter == 0 && keyName === key2SelectAnswer) {
-      automaticallySelectAnswer("response1");
-      toggleNextIfDone(button2Toggle, repliedAll())
-      counter += 1;
-    } else if (counter == 1 && keyName === key2SelectAnswer){
-      automaticallySelectAnswer("response2");
-      toggleNextIfDone(button2Toggle, repliedAll())
-      counter += 1;
-    } else if (counter == 2 && keyName === key2SelectAnswer){
-      automaticallySelectAnswer("response3");
-      toggleNextIfDone(button2Toggle, repliedAll())
-      counter += 1;
-    } else if(counter == 3 && keyName === key2SelectAnswer){
-      automaticallySelectAnswer("response4");
-      toggleNextIfDone(button2Toggle, repliedAll())
+    if (keyName === key2SelectAnswer && counter <= 3) {
+      var id_nb = counter + 1;
+      automaticallySelectAnswer("response" + id_nb, button2Toggle);
       counter += 1;
     }
+    toggleNextIfDone(button2Toggle, repliedAll());
     return keyName;
   });
 }
 
-_checkResponse = function(id, button2Toggle){
+toggleSelected = function(bttnID){
+  $('#' + bttnID).on('click', function(e){
+    $('#' + bttnID).toggleClass('selected unselected')
+
+    var parent = document.getElementById('TrainButtons');
+    let nb_selected = parent.getElementsByClassName("selected").length;
+    toggleNextIfDone($('#runButton'), nb_selected !== 0);
+
+    if(nb_selected === 0){
+      $('#runButton').addClass('grid-button');
+    }
+  });
+}
+
+_checkSliderResponse = function(id, button2Toggle){
   $("#" + id).on("change", function () {
     $("#" + id).addClass('replied');
     toggleNextIfDone(button2Toggle, repliedAll());
   });
 }
 
-addCheckResponseFunctionality = function(button2Toggle) {
-  _checkResponse("response1", button2Toggle);
-  _checkResponse("response2", button2Toggle);
-  _checkResponse("response3", button2Toggle);
-  _checkResponse("response4", button2Toggle);
+addCheckSliderResponse = function(button2Toggle) {
+  _.range(1,5).forEach(function(i){
+    _checkSliderResponse("response" + i, button2Toggle);
+  });
 }
 
-saveTrialQA = function(){
+getButtonQA = function() {
+  let button_ids = ['ac', 'a', 'c', 'none']
   let questions = [];
-  let questionIDs = ["question1", "question2", "question3", "question4"];
-  questionIDs.forEach(function(qid){
-    let q = $("#"+qid).html();
-    let abbreviation = question2ID[q]
-    // console.log(abbreviation);
-    questions.push(abbreviation)
+  let responses = [];
+  button_ids.forEach(function(id){
+    responses.push($('#' + id).hasClass('selected'));
+    questions.push(id)
   });
+  return {questions, responses}
+}
 
-  let responses = [$("#response1").val(), $("#response2").val(),
-                   $("#response3").val(), $("#response4").val()];
+
+getSliderQA = function(){
+  let questions = [];
+  let responses = [];
+  let questionIDs = ["question1", "question2", "question3", "question4"];
+  _.range(1,5).forEach(function(i){
+    let q = $("#" + "question" + i).html();
+    let q_short = question2ID[q]
+    // console.log(abbreviation);
+    questions.push(q_short)
+    let response = $("#response" + i).val();
+    responses.push(response)
+  });
   return {questions, responses};
 }
 
