@@ -128,10 +128,10 @@ trials_iff = function(){
   let w = Walls.train.a_iff_c[0]
   let bA = rect(Object.assign(props.blocks,
     {x: w.bounds.max.x, y: w.bounds.min.y - props.blocks.h/2}),
-    {render: {fillStyle: cols.train_blocks[1]}});
+    {render: {fillStyle: cols.train_blocks[1]}, id: 'blockA'});
   let bB = rect(Object.assign(props.blocks,
     {x: W7.bounds.min.x + 3, y: W7.bounds.min.y - props.blocks.h/2}),
-    {render: {fillStyle: cols.train_blocks[0]}});
+    {render: {fillStyle: cols.train_blocks[0]}, id: 'blockB'});
 
   [[bA, bB]].forEach(function(blocks, i){
     let id = "a_iff_c_" + i

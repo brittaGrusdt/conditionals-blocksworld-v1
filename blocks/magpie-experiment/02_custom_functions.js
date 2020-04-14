@@ -54,17 +54,24 @@ const time_limit = function (data, next) {
 let DURATION_ANIMATION = 10000; // in ms
 let key2SelectAnswer = "y";
 
-// custom functions:
-let id2Question = {"bg": "<b>Blue will</b> and <b>green will</b> touch the ground.",
-                   "g": "<b>Blue will not</b> and <b>green will</b> touch the ground.",
-                   "b": "<b>Blue will</b> and <b>green will not</b> touch the ground.",
-                   "none": "<b>Blue will not</b> and <b>green will not</b> touch the ground."
+let text_train_buttons = ["RED and YELLOW",
+  "RED but <b>not</b> YELLOW",
+  "<b>Not</b> RED but YELLOW",
+  "<b>Neither</b> RED <b>nor</b> YELLOW"
+];
+
+let id2Question = {"bg": "<b>Blue will</b> and <b>green will</b> fall.",
+                   "g": "<b>Blue will not</b> and <b>green will</b> fall.",
+                   "b": "<b>Blue will</b> and <b>green will not</b> fall.",
+                   "none": "<b>Blue will not</b> and <b>green will not</b> fall."
                  };
 let _idQuestions = Object.entries(id2Question);
 let question2ID = {};
 _idQuestions.forEach(function(keyValue){
     question2ID[keyValue[1]] = keyValue[0];
 })
+
+// custom functions:
 
 // function to randomly order the four utterences, given per trial
 // shuffle_trial_questions
@@ -129,12 +136,6 @@ htmlSliderAnswers = function(utterances){
   html_str += `</div>`
   return html_str;
 }
-
-let text_train_buttons = ["GREEN and BLUE",
-  "GREEN but <b>not</b> BLUE",
-  "<b>Not</b> GREEN but BLUE",
-  "<b>Neither</b> GREEN <b>nor</b> BLUE"
-];
 
 htmlButtonAnswers = function(){
   return `<bttns id=TrainButtons class=buttonContainer>
