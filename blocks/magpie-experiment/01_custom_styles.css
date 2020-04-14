@@ -183,13 +183,13 @@ input[type="range"].replied::-webkit-slider-thumb {
 .unselected {
   text-align: center;
   align-self: center;
-  background-color: #a9a9a9;
+  background-color: #FFFFFF;
 }
 
 .selected {
   text-algin: center;
   align-self: center;
-  background-color: #F58D31; /* orange */
+  background-color: #28B463 ;
 }
 
 .magpie-view-text {

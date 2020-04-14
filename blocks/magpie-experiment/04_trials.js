@@ -253,31 +253,32 @@ _.map(slider_rating_trials, function(trial){
 });
 
 // shuffle questions for each trial to later be able to randomly show the utterances
-slider_rating_trials = shuffleQuestions(slider_rating_trials);
+slider_rating_trials = shuffleQuestionsAllTrials(_.values(id2Question), slider_rating_trials);
 
 // TRAINING TRIALS (some with buttons some with sliders)
 let train_slider_trials = [
   {
     picture: "",
     QUD: "Rate how likely each of the following statements is!",
-    question1: id2Question.bg,
-    question2: id2Question.b,
-    question3: id2Question.g,
-    question4: id2Question.none,
+    question1: id2QuestionTrain.ac,
+    question2: id2QuestionTrain.a,
+    question3: id2QuestionTrain.c,
+    question4: id2QuestionTrain.none,
     optionLeft: "impossible event",
     optionRight: "certain event"
   }
 ];
 
 let train_trials = [];
+let questions_train = Object.values(id2QuestionTrain)
+train_slider_trials = shuffleQuestionsAllTrials(questions_train, train_slider_trials);
 
-train_slider_trials = shuffleQuestions(train_slider_trials);
-_.range(1, ShuffledTrainStimuli.length).forEach(function(i) {
-  let data = {QUD: 'Which block(s) do you think will fall (if any)? Click on RUN to see!',
-              question1: text_train_buttons[0],
-              question2: text_train_buttons[1],
-              question3: text_train_buttons[2],
-              question4: text_train_buttons[3]
+_.range(0, nb_train_trials-1).forEach(function(i) {
+  let data = {QUD: 'Which block(s) do you think will fall? Click on RUN to see!',
+              question1: text_train_buttons.ac,
+              question2: text_train_buttons.a,
+              question3: text_train_buttons.c,
+              question4: text_train_buttons.none
               };
   train_trials.push(data);
 });

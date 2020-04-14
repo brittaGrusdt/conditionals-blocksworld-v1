@@ -145,6 +145,7 @@ const multiple_slider = magpieViews.view_generator(
     // This will use all trials specified in `data`, you can use a smaller value
     // (for testing), but not a larger value
     trials: slider_rating_trials.length,
+    // trials: 2,
     // name should be identical to the variable name
     name: "multiple_slider",
     data: _.shuffle(slider_rating_trials)

@@ -54,30 +54,35 @@ const time_limit = function (data, next) {
 let DURATION_ANIMATION = 10000; // in ms
 let key2SelectAnswer = "y";
 
-let text_train_buttons = ["RED and YELLOW",
-  "RED but <b>not</b> YELLOW",
-  "<b>Not</b> RED but YELLOW",
-  "<b>Neither</b> RED <b>nor</b> YELLOW"
-];
+sliderTexts = function(col1, col2, key1, key2){
+  let id2Text = {};
+  id2Text[key1 + key2] = "<b>" + col1 + " will</b> and <b>" + col2 + " will</b> fall.";
+  id2Text[key1] = "<b>" + col1 + " will not</b> and <b>" + col2 + " will</b> fall.";
+  id2Text[key2] = "<b>" + col1 + " will</b> and <b>" + col2 + " will not</b> fall.";
+  id2Text["none"] = "<b>" + col1 + " will not</b> and <b>" + col2 + " will not</b> fall.";
+  return id2Text;
+}
+let block_cols = {test: ['BLUE', 'GREEN'], train: ['RED', 'YELLOW']}
+let id2Question = sliderTexts(block_cols.test[0], block_cols.test[1], 'b', 'g');
 
-let id2Question = {"bg": "<b>Blue will</b> and <b>green will</b> fall.",
-                   "g": "<b>Blue will not</b> and <b>green will</b> fall.",
-                   "b": "<b>Blue will</b> and <b>green will not</b> fall.",
-                   "none": "<b>Blue will not</b> and <b>green will not</b> fall."
-                 };
-let _idQuestions = Object.entries(id2Question);
-let question2ID = {};
-_idQuestions.forEach(function(keyValue){
-    question2ID[keyValue[1]] = keyValue[0];
-})
+let id2QuestionTrain = sliderTexts(block_cols.train[0], block_cols.train[1], 'a', 'c');
+let text_train_buttons = {
+  'ac': block_cols.train[0] + " and " + block_cols.train[1],
+  'a': block_cols.train[0] + " but <b>not</b> "  + block_cols.train[1],
+  'c': "<b>Not </b>" + block_cols.train[0] + " but " + block_cols.train[1],
+  'none': "<b>Neither </b>" + block_cols.train[0] + " <b>nor</b> " + block_cols.train[1]
+};
+let nb_train_trials = TrainStimuli.list_all.length;
+// let nb_train_trials = 3;
+
 
 // custom functions:
 
 // function to randomly order the four utterences, given per trial
 // shuffle_trial_questions
-function shuffleQuestions(slider_rating_trials=[{}]) {
+function shuffleQuestionsAllTrials(questions, slider_rating_trials=[{}]) {
   for (var i = 0; i < slider_rating_trials.length; i++) {
-    let utterances = _.shuffle(Object.values(id2Question));
+    let utterances = _.shuffle(questions);
     slider_rating_trials[i].question1 = utterances[0];
     slider_rating_trials[i].question2 = utterances[1];
     slider_rating_trials[i].question3 = utterances[2];
@@ -94,7 +99,9 @@ repliedAll = function(){
 }
 
 htmlSliderQuestion = function(idx_question){
-  let o = `<q` + idx_question + ` class='magpie-view-question grid-question' id ='question` + idx_question + `'>`;
+  let o = `<q` + idx_question +
+    ` class='magpie-view-question grid-question' id ='question` +
+    idx_question + `'>`;
   let c = `</q` + idx_question + `>`;
   return {open: o, close: c};
 }
@@ -139,14 +146,14 @@ htmlSliderAnswers = function(utterances){
 
 htmlButtonAnswers = function(){
   return `<bttns id=TrainButtons class=buttonContainer>
-    <button id="ac" class=unselected>` + text_train_buttons[0] + `</button>
+    <button id="ac" class=unselected>` + text_train_buttons.ac + `</button>
     <div class="divider"/>
-    <button id="a" class=unselected>` + text_train_buttons[1] + `</button>
+    <button id="a" class=unselected>` + text_train_buttons.a + `</button>
     <div class="divider"/>
-    <button id="c" class=unselected>` + text_train_buttons[2] + `</button>
+    <button id="c" class=unselected>` + text_train_buttons.c + `</button>
     <div class="divider"/>
-    <button id="none" class=unselected>` + text_train_buttons[3] + `</button>
-  </bttns>`
+    <button id="none" class=unselected>` + text_train_buttons.none + `</button>
+  </bttns>`;
 }
 
 htmlRunNextButtons = function(){
@@ -213,6 +220,22 @@ addCheckSliderResponse = function(button2Toggle) {
   });
 }
 
+abbreviateQuestion = function(question, symbols){
+  let q_words = [];
+  question.split(' ').forEach(function(w){
+    w = w.trim().replace('<b>', '');
+    w = w.replace('</b>', '');
+    if(w === "will" || w==="not"){
+      q_words.push(w)
+    }
+  });
+  let w = q_words.join(' ')
+  let q_short = w === 'will will' ? symbols.join('') :
+                w === 'will will not' ? symbols[0] :
+                w === 'will not will' ? symbols[1] : 'none';
+  return q_short.toLowerCase();
+}
+
 getButtonQA = function() {
   let button_ids = ['ac', 'a', 'c', 'none']
   let questions = [];
@@ -225,15 +248,15 @@ getButtonQA = function() {
 }
 
 
-getSliderQA = function(){
+getSliderQA = function(trial_type="test"){
   let questions = [];
   let responses = [];
-  let questionIDs = ["question1", "question2", "question3", "question4"];
+  let qs = trial_type==="test" ? [block_cols.test[0][0], block_cols.test[1][0]] :
+    ['a', 'c'];
   _.range(1,5).forEach(function(i){
-    let q = $("#" + "question" + i).html();
-    let q_short = question2ID[q]
-    // console.log(abbreviation);
-    questions.push(q_short)
+    let question = $("#" + "question" + i).html();
+    let q_short = abbreviateQuestion(question, qs);
+    questions.push(q_short);
     let response = $("#response" + i).val();
     responses.push(response)
   });
@@ -263,6 +286,7 @@ pseudoRandomTrainTrials = function(){
   order[4] = TrainStimuli.map_category["independent"]["independent_1"]
   order[5] = TrainStimuli.map_category["a_implies_c"]["a_implies_c_2"]
   order[6] = TrainStimuli.map_category["independent"]["independent_2"]
+
   return order
 }
 

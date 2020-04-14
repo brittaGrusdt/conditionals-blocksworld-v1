@@ -7,9 +7,6 @@
 // and a render function, the render function gets CT and the magpie-object as input
 // and has to call magpie.findNextView() eventually to proceed to the next view (or the next trial in this view),
 // if it is an trial view it also makes sense to call magpie.trial_data.push(trial_data) to save the trial information
-// let nb_train_trials = 2;
-let nb_train_trials = ShuffledTrainStimuli.length;
-
 const animation_view  = {
     name: "animation",
     title: "title",
@@ -19,7 +16,6 @@ const animation_view  = {
     // The render function gets the magpie object as well as the current trial
     // in view counter as input
     render: function(CT, magpie){
-      // let utterances = shuffleQuestions();
       let dat = train_trials[CT];
       let utterances = [dat.question1, dat.question2, dat.question3, dat.question4];
       let html_answers = CT===nb_train_trials-1 ? htmlSliderAnswers(utterances) :
@@ -64,10 +60,9 @@ const animation_view  = {
           addKeyToMoveSliders($("#runButton"));
         }
       } else {
-        toggleSelected('ac');
-        toggleSelected('a');
-        toggleSelected('c');
-        toggleSelected('none');
+        ['ac', 'a', 'c', 'none'].forEach(function(key){
+          toggleSelected(key);
+        });
       }
 
       let animationStarted = false;
@@ -93,7 +88,7 @@ const animation_view  = {
           if(!cleared){
             clearWorld(engine, render, stop2Render=false);
           }
-          let data = slider_trial ? getSliderQA() : getButtonQA();
+          let data = slider_trial ? getSliderQA("train") : getButtonQA();
           let trial_data = {
             trial_name: ShuffledTrainStimuli[CT].id,
             trial_number: CT + 1,
@@ -188,7 +183,7 @@ const multi_slider_generator = {
     addCheckSliderResponse(button);
     button.on("click", function () {
         const RT = Date.now() - startingTime; // measure RT before anything else
-        let responseData = getSliderQA();
+        let responseData = getSliderQA("test");
         let trial_data = {
           trial_name: config.name,
           trial_number: CT + 1,
