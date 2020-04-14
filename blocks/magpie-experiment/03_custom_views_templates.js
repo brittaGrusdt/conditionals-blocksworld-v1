@@ -31,7 +31,7 @@ const animation_view  = {
         </div>
         <div class='magpie-view-stimulus-grid'>
           <animationTitle class='stimulus'>
-            <h1>Which block(s) do you think will fall (if any)? Click on RUN to see!</h1>
+            <h1>${train_trials[CT].QUD}</h1>
           </animationTitle>
           <animation id='animationDiv'></animation>
         </div>` +
@@ -60,7 +60,7 @@ const animation_view  = {
       if (CT === nb_train_trials - 1) {
         slider_trial = true;
         addCheckSliderResponse($('#runButton'));
-        if (debug) {
+        if (DEBUG) {
           addKeyToMoveSliders($("#runButton"));
         }
       } else {
@@ -182,7 +182,7 @@ const multi_slider_generator = {
     $(".magpie-view").append(answer_container_generator(config, CT));
     let button = $("#buttonNext");
     // function for debugging - if "y" is pressed, the slider will change
-    if (debug) {
+    if (DEBUG) {
       addKeyToMoveSliders(button);
     }
     addCheckSliderResponse(button);

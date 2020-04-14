@@ -1,5 +1,4 @@
-const debug = true;
-// const debug = false;
+const DEBUG = true;
 // var MODE = "train"
 // var MODE = "test"
 var MODE = "experiment"

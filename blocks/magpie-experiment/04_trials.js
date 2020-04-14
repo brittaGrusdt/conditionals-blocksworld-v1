@@ -273,7 +273,7 @@ let train_trials = [];
 
 train_slider_trials = shuffleQuestions(train_slider_trials);
 _.range(1, ShuffledTrainStimuli.length).forEach(function(i) {
-  let data = {QUD: '',
+  let data = {QUD: 'Which block(s) do you think will fall (if any)? Click on RUN to see!',
               question1: text_train_buttons[0],
               question2: text_train_buttons[1],
               question3: text_train_buttons[2],
