@@ -38,6 +38,7 @@ const animation_view  = {
 
       let startTime = Date.now();
       let stimulus = ShuffledTrainStimuli[CT];
+      // console.log(stimulus.id);
 
       let worldElems = createWorld();
       let engine = worldElems.engine;

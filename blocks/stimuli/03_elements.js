@@ -8,6 +8,7 @@ const Bottom = wall(scene.w/2, scene.h - props.bottom.h/2, scene.w,
 let W1 = wall(x=320, y=100, w=props.walls.w, h=props.walls.h, 'wallUpLeft');
 let W2 = wall(x= W1.bounds.max.x - 10, y=240, w=props.walls.w, h=props.walls.h, 'wallLowRight');
 let W3 = wall(W2.position.x+4, W2.position.y, props.walls.w + 25, props.walls.h,'wallRampLow-test')
+let W4 = wall(x=550, y=100, w=props.walls.w, h=props.walls.h, 'wallUpRight');
 
 // This is important because, it gets scaled in some trials! Therefore different
 // instances are needed!
@@ -100,10 +101,10 @@ extraBlock = function(label, color, horiz=true){
 // Elements for TRAINING TRIALS
 
 Walls.train.independent_steep = function(){
-  return _.values(rampIndependent(-45, false, lowWallIndependent()));
+  return [W4].concat(_.values(rampIndependent(-45, false, lowWallIndependent())))
 }
 Walls.train.independent_plane = function(){
-  return _.values(rampIndependent(-30, false, lowWallIndependent()));
+  return [W4].concat(_.values(rampIndependent(-30, false, lowWallIndependent())))
 }
 
 let W8 = wall(x=scene.w/2, y=scene.h/2, w=props.walls.w, h=props.walls.h, 'wallMiddle');

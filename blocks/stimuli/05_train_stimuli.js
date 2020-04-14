@@ -31,27 +31,34 @@ trials_independent = function(){
   );
 
   let meta = {
-    "blockA": ["uncertain", "-","train-independent-plane-falls"],
-    "blockB": ["high","-", "train-independent-steep-falls"],
-    "blockC": ["uncertain", "-", "train-independent-plane-doesnt-fall"]
+    "blockA": ["uncertain", "high","train-independent-plane-falls"],
+    "blockB": ["high", "low", "train-independent-steep-falls"],
+    "blockC": ["uncertain", "high", "train-independent-plane-doesnt-fall"]
   };
+
   // 2.trial: steep and plane tilted walls are different
-  [bA, bC].forEach(function(block, i){
+  [bA, bC].forEach(function(block1, i){
     let id = "independent_" + i;
     let base = bases[i]
     let ramp_elems = Walls.train.independent_plane();
     let w = [base].concat(ramp_elems);
-    if(block.id === "blockC") {
+    if(block1.id === "blockC") {
       Matter.Body.scale(w[0], 1.18, 1);
       Matter.Body.setPosition(w[0], {x: w[0].position.x + 28, y: w[0].position.y})
     }
-    let objs = {'objs': w.concat([block]), 'meta': meta[block.id], id: id}
+    let i_dist_col = block1.render.fillStyle === cols.train_blocks[0] ? 1 : 0;
+    let distractor = block(W4, prior[meta[block1.id][1]],
+      cols.train_blocks[i_dist_col], 'distractor');
+    let objs = {'objs': w.concat([block1, distractor]), 'meta': meta[block1.id], id: id}
     data[id] = objs
   });
-  // 3. trial has different base!
+  // 3. trial (with blockB) has different base!
   let w = [bases[2]].concat(Walls.train.independent_steep());
+  let i_dist_col = bB.render.fillStyle === cols.train_blocks[0] ? 1 : 0;
+  let distractor = block(W4, prior[meta[bB.id][1]],
+    cols.train_blocks[i_dist_col], 'distractor')
   data["independent_2"] = {
-    objs: w.concat([bB]), meta: meta.blockB, id: "independent_2"
+    objs: w.concat([bB, distractor]), meta: meta.blockB, id: "independent_2"
   };
   return data
 }
