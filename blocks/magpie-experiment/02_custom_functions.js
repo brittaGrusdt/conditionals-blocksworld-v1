@@ -97,6 +97,13 @@ toggleSelected = function(bttnID){
   });
 }
 
+repliedAll = function(){
+  return ($("#response1").hasClass('replied') &&
+          $("#response2").hasClass('replied') &&
+          $("#response3").hasClass('replied') &&
+          $("#response4").hasClass('replied'));
+}
+
 _checkSliderResponse = function(id, button2Toggle){
   $("#" + id).on("change", function () {
     $("#" + id).addClass('replied');
