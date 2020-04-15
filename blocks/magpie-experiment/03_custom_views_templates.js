@@ -11,14 +11,14 @@ const animation_view  = {
     name: "animation",
     title: "title",
     CT: 0, //is this the start value?
-    trials: nb_train_trials,
+    trials: NB_TRAIN_TRIALS,
     data: "",
     // The render function gets the magpie object as well as the current trial
     // in view counter as input
     render: function(CT, magpie){
-      let dat = train_trials[CT];
+      let dat = TRAIN_TRIALS[CT];
       let utterances = [dat.question1, dat.question2, dat.question3, dat.question4];
-      let html_answers = CT===nb_train_trials-1 ? htmlSliderAnswers(utterances) :
+      let html_answers = CT===NB_TRAIN_TRIALS-1 ? htmlSliderAnswers(utterances) :
         htmlButtonAnswers();
 
       const view_template = `
@@ -27,7 +27,7 @@ const animation_view  = {
         </div>
         <div class='magpie-view-stimulus-grid'>
           <animationTitle class='stimulus'>
-            <h1>${train_trials[CT].QUD}</h1>
+            <h1>${TRAIN_TRIALS[CT].QUD}</h1>
           </animationTitle>
           <animation id='animationDiv'></animation>
         </div>` +
@@ -37,7 +37,7 @@ const animation_view  = {
       $('#main').html(view_template);
 
       let startTime = Date.now();
-      let stimulus = ShuffledTrainStimuli[CT];
+      let stimulus = SHUFFLED_TRAIN_STIMULI[CT];
       // console.log(stimulus.id);
 
       let worldElems = createWorld();
@@ -54,7 +54,7 @@ const animation_view  = {
         }
       });
       let slider_trial = false;
-      if (CT === nb_train_trials - 1) {
+      if (CT === NB_TRAIN_TRIALS - 1) {
         slider_trial = true;
         addCheckSliderResponse($('#runButton'));
         if (DEBUG) {
@@ -91,14 +91,14 @@ const animation_view  = {
           }
           let data = slider_trial ? getSliderQA("train") : getButtonQA();
           let trial_data = {
-            trial_name: ShuffledTrainStimuli[CT].id,
+            trial_name: SHUFFLED_TRAIN_STIMULI[CT].id,
             trial_number: CT + 1,
             response: data.responses,
             utterances: data.questions,
             RT: RT
           };
           trial_data = magpieUtils.view.save_config_trial_data(
-            train_trials[CT],
+            TRAIN_TRIALS[CT],
             trial_data
           );
           magpie.trial_data.push(trial_data);
@@ -180,6 +180,7 @@ const multi_slider_generator = {
     // function for debugging - if "y" is pressed, the slider will change
     if (DEBUG) {
       addKeyToMoveSliders(button);
+      console.log(config.data[CT].id)
     }
     addCheckSliderResponse(button);
     button.on("click", function () {

@@ -246,14 +246,19 @@ var slider_rating_trials = [
 ];
 
 // adapt path to pictures depending on colour group in each trial
+// add group and id separately
 let n = slider_rating_trials.length;
 _.map(slider_rating_trials, function(trial){
   let group = _.sample(["group1", "group2"]);
   trial.picture = trial.picture.replace("group", group);
+  trial.group = group;
+  let id = trial.picture.split("/")
+  trial.id = id[id.length - 1].slice(0, -4);
 });
 
 // shuffle questions for each trial to later be able to randomly show the utterances
 slider_rating_trials = shuffleQuestionsAllTrials(_.values(id2Question), slider_rating_trials);
+
 
 // TRAINING TRIALS (some with buttons some with sliders)
 let train_slider_trials = [
@@ -269,18 +274,19 @@ let train_slider_trials = [
   }
 ];
 
-let train_trials = [];
-let questions_train = Object.values(id2QuestionTrain)
-train_slider_trials = shuffleQuestionsAllTrials(questions_train, train_slider_trials);
-
-_.range(0, nb_train_trials-1).forEach(function(i) {
+// the data of the training stimuli is always the same, buttons are always shown in
+// same order 
+let TRAIN_TRIALS = [];
+_.range(0, NB_TRAIN_TRIALS-1).forEach(function(i) {
   let data = {QUD: 'Which block(s) do you think will fall? Click on RUN to see!',
               question1: text_train_buttons.ac,
               question2: text_train_buttons.a,
               question3: text_train_buttons.c,
               question4: text_train_buttons.none
               };
-  train_trials.push(data);
+  TRAIN_TRIALS.push(data);
 });
+let questions_train = Object.values(id2QuestionTrain)
+train_slider_trials = shuffleQuestionsAllTrials(questions_train, train_slider_trials);
 
-train_trials = train_trials.concat(train_slider_trials);
+TRAIN_TRIALS = TRAIN_TRIALS.concat(train_slider_trials);

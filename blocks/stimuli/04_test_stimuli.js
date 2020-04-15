@@ -40,8 +40,8 @@ getTestStimuli = function(conditions, relations){
     let data = conditions[rel];
 
     for(var i=0; i<data.length; i++){
-      let id = rel + '_' + i;
       let priors_blocks = priors[i];
+      let id = rel + '_' + priors_blocks[0][0] + priors_blocks[1][0];
 
       let ac_uncertain = priors_blocks.slice(0,2).join("-") === "uncertain-uncertain";
       let blocks;

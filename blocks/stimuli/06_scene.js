@@ -84,8 +84,3 @@ var runAnimation = function (engine) {
 //     }
 //   });
 // }
-
-// var runAnimation = function () {
-//   addStopRenderAndClearWorldEvent();
-//   Engine.run(engine);
-// }
