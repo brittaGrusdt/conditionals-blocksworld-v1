@@ -151,3 +151,35 @@ getSliderQA = function(trial_type="test"){
   });
   return {questions, responses};
 }
+
+
+showAnimationInTrial = function(CT, html_answers, progress_bar=true){
+  let html_bar = progress_bar ? `<div class='progress-bar-container'>
+       <div class='progress-bar'></div>
+      </div>` : ``;
+  const view_template = html_bar +
+    `<div class='magpie-view-stimulus-grid'>
+      <animationTitle class='stimulus'>
+        <h1>${TRAIN_TRIALS[CT].QUD}</h1>
+      </animationTitle>
+      <animation id='animationDiv'></animation>
+    </div>` +
+    html_answers +
+    htmlRunNextButtons();
+
+  $('#main').html(view_template);
+
+  let stimulus = SHUFFLED_TRAIN_STIMULI[CT];
+  if(DEBUG){
+    console.log(stimulus.id);
+  }
+
+  let worldElems = createWorld();
+  let engine = worldElems.engine;
+  let render = worldElems.render;
+  addObjs2World(stimulus.objs, engine);
+  show(engine, render);
+  let startTime = Date.now();
+
+  return {engine, render, startTime}
+}

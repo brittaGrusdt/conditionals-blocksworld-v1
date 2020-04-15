@@ -53,57 +53,96 @@ const instructions = magpieViews.view_generator("instructions", {
   text: `In this experiment you are shown pictures of different arrangements of blocks.
           <br/>
           <br/>
-         For each presented scenario you will be asked to estimate the likelihood that certain blocks fall/don't fall.
+         For each presented scene you will be asked to estimate the likelihood that certain blocks fall/don't fall.
          A block is considered to <b><i>fall</i></b> <b>as soon as it <i>topples over</i>.</b>
          <br/>
          The colored blocks represent common toy blocks, they do not have any special properties and they are only distinguishable by their color.
-         <br/>
-         <br/>
-         For each scenario you will be asked to give four estimates. You will only be able to proceed to the next scenario after you have given all four estimates by moving the sliders. The circles of the sliders will turn green after you have moved them. If you cannot proceed to the next scenario, make sure that the circles of all sliders have turned green.
-               <br />
-               <br />
-         You may wonder whether the probabilities that you assign to the four events must sum up to 1. In this respect, note that we are interested in how you rate the four events relative to each other. This means that they may, but <b>don't have to sum to 1</b>.
              <br />
              <br />
-         There are 24 scenarios in total. The experiment will take you about
-         15-20 minutes.
-         Before you are presented with the main <b>24</b> scenarios, you will be shown
-         <b>8</b> animated training examples to get familiar with the stimuli.
-         When you click on the RUN button, the animation will start. By clicking
-         on the NEXT SCENE button, you will get to the next training example.
-         In the last training example, you will only be able to run the animation
-         after you have estimated the likelihood of the events described below the scene
-         by moving the sliders.
+         The experiment consists of 2 parts, starting with the training phase. In this part of the experiment, you will see block arrangements similar to those you will be shown later in the main part, such that you are able to develop intuitions about the physical properties and get familiar with the stimuli.`,
+  buttonText: "CONTINUE"
+});
+
+const instructions_train1 = magpieViews.view_generator("instructions", {
+  trials: 1,
+  name: "instructions_train1",
+  title: "Instructions Training 1",
+  text: `We will start with the training phase consisting of <b>9</b> trials.
+         You will now see the first <b>8</b> trials, in which we ask you to indicate
+         which blocks you think <b>will or will not fall (topple over)</b> by
+         clicking on the corresponding buttons.
+         <br />
+         After you have given your estimate, you will be able to click on RUN to
+         see what actually happens. Then you can proceed to the next trial.
+         <br />
+         <br />
+         Please note:
+         <br/>
          Throughout the experiment, you may want to go into Full Screen Mode
          (usually switched on/off with F11), otherwise you may need to
          scroll down to see the buttons.`,
   buttonText: "START TRAINING"
 });
 
-
-const instructions1 = magpieViews.view_generator("instructions", {
+const instructions_train2 = magpieViews.view_generator("instructions", {
   trials: 1,
-  name: "instructions1",
-  title: "General Instructions",
-  text: `Great! You've completed the training phase. We will move on to the
-          main part of the experiment next.
-          Now, you will see static pictures without the possiblity to run an
+  name: "instructions_train2",
+  title: "Instructions Training 2",
+  text: `Great! There is only one trial left in the training phase.
+    <br />
+  In this trial, we ask you to indicate <b>how likely</b> you think certain
+  blocks <b>will or will not fall</b> by moving the corresponding sliders.
+    <br />
+    <br />
+  You may wonder whether the probabilities that you assign to the four described
+  events must sum up to 1. In this respect, note that we are interested in how
+  you rate the four events relative to each other. This means that <b>your
+  estimates may, but don't have to sum to 1</b>.
+    <br />
+    <br />
+  When you have provided all four estimates, you will be able to run the
+  animation and after that, proceed to the main part of the experiment.
+  `
+});
+
+// const instructions_test = magpieViews.view_generator("instructions", {
+//   trials: 1,
+//   name: "instructions_test",
+//   title: "Instructions Training Phase",
+//   text: `For each scenario you will be asked to give four estimates. You will
+//   only be able to proceed to the next scenario after you have given all four
+//   estimates by moving the sliders. The circles of the sliders will turn green
+//   after you have moved them. If you cannot proceed to the next scenario, make
+//   sure that the circles of all sliders have turned green.`
+// });
+
+
+const instructions_test = magpieViews.view_generator("instructions", {
+  trials: 1,
+  name: "instructions_test",
+  title: "Instructions Main Part",
+  text: `Great! You've now completed the training phase. In the
+          main part of the experiment, you will now see static pictures of block
+          arrangements without the possiblity to run an
           animation.
-          You will be asked to estimate the <b>likelihood that certain blocks fall/don't fall</b>.
+          As in the previous trial, you will be asked to estimate the
+          <b>likelihood that certain blocks fall/don't fall</b>.
             <br />
             <br />
           Please keep in mind:
             <br/>
-          A block is considered to <i>fall</i> as soon as it <i>topples over</i> - this means it does not necessarily have to fall to the ground.
+          A block is considered to <b>fall as soon as it topples over</b>
+          - this means it does not necessarily have to fall to the ground.
           <br/>
-          The probabilities that you assign to the four events do <i>not have to sum up to 1</i>.
+          The probabilities that you assign to the four events do <b>not have to
+          sum up to 1</b>.
             </br>
-          The colored blocks all have <i>the same properties</i>, they are only distinguishable by their color.
+          The colored blocks all have <b>the same properties</b>, they are only
+          distinguishable by their color.
             </br>
             </br>
-          We will now start the experiment. There are 24 scenarios in total and the experiment will take you about 15-20 minutes.
-   <br />
-   `,
+          We will now start the experiment. There are <b>24</b> scenes in total
+          and the experiment will take you about <b>15-20</b> minutes.`,
     buttonText: "start experiment"
 });
 

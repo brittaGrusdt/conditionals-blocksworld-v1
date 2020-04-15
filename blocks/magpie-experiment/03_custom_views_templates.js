@@ -7,89 +7,49 @@
 // and a render function, the render function gets CT and the magpie-object as input
 // and has to call magpie.findNextView() eventually to proceed to the next view (or the next trial in this view),
 // if it is an trial view it also makes sense to call magpie.trial_data.push(trial_data) to save the trial information
-const animation_view  = {
+const animation_view1  = {
     name: "animation",
     title: "title",
     CT: 0, //is this the start value?
-    trials: NB_TRAIN_TRIALS,
+    trials: NB_TRAIN_TRIALS - 1,
     data: "",
     // The render function gets the magpie object as well as the current trial
     // in view counter as input
     render: function(CT, magpie){
       let dat = TRAIN_TRIALS[CT];
       let utterances = [dat.question1, dat.question2, dat.question3, dat.question4];
-      let html_answers = CT===NB_TRAIN_TRIALS-1 ? htmlSliderAnswers(utterances) :
-        htmlButtonAnswers();
+      let html_answers = htmlButtonAnswers();
+      let animation = showAnimationInTrial(CT, html_answers);
 
-      const view_template = `
-        <div class='progress-bar-container'>
-         <div class='progress-bar'></div>
-        </div>
-        <div class='magpie-view-stimulus-grid'>
-          <animationTitle class='stimulus'>
-            <h1>${TRAIN_TRIALS[CT].QUD}</h1>
-          </animationTitle>
-          <animation id='animationDiv'></animation>
-        </div>` +
-        html_answers +
-        htmlRunNextButtons();
-
-      $('#main').html(view_template);
-
-      let startTime = Date.now();
-      let stimulus = SHUFFLED_TRAIN_STIMULI[CT];
-      // console.log(stimulus.id);
-
-      let worldElems = createWorld();
-      let engine = worldElems.engine;
-      let render = worldElems.render;
-
-      addObjs2World(stimulus.objs, engine);
-      show(engine, render);
       let cleared = false;
-      Events.on(engine, 'afterUpdate', function (event) {
-        if (!cleared && engine.timing.timestamp >= DURATION_ANIMATION) {
-          clearWorld(engine, render, stop2Render=false);
+      Events.on(animation.engine, 'afterUpdate', function (event) {
+        if (!cleared && animation.engine.timing.timestamp >= DURATION_ANIMATION) {
+          clearWorld(animation.engine, animation.render, stop2Render=false);
           cleared = true;
         }
       });
-      let slider_trial = false;
-      if (CT === NB_TRAIN_TRIALS - 1) {
-        slider_trial = true;
-        addCheckSliderResponse($('#runButton'));
-        if (DEBUG) {
-          addKeyToMoveSliders($("#runButton"));
-        }
-      } else {
-        ['ac', 'a', 'c', 'none'].forEach(function(key){
-          toggleSelected(key);
-        });
-      }
+      ['ac', 'a', 'c', 'none'].forEach(function(key){
+        toggleSelected(key);
+      });
 
       let animationStarted = false;
       $('#runButton').on('click', function(e){
         if(!animationStarted) {
           animationStarted = true;
-          runAnimation(engine);
+          runAnimation(animation.engine);
           toggleNextIfDone($("#buttonNextAnimation"), true);
           //selected answers can't be changed anymore
-          if(slider_trial){
-            _.range(1,5).forEach(function(i){
-              document.getElementById("response" + i).disabled = true;
-            });
-          } else {
-            $(".selected").off("click");
-            $(".unselected").off("click");
-          }
+          $(".selected").off("click");
+          $(".unselected").off("click");
         }
       });
 
       $("#buttonNextAnimation").on("click", function () {
-          const RT = Date.now() - startTime; // measure RT before anything else
+          const RT = Date.now() - animation.startTime; // measure RT before anything else
           if(!cleared){
-            clearWorld(engine, render, stop2Render=false);
+            clearWorld(animation.engine, animation.render, stop2Render=false);
           }
-          let data = slider_trial ? getSliderQA("train") : getButtonQA();
+          let data = getButtonQA();
           let trial_data = {
             trial_name: SHUFFLED_TRAIN_STIMULI[CT].id,
             trial_number: CT + 1,
@@ -106,6 +66,67 @@ const animation_view  = {
       });
     }
 };
+
+const animation_view2  = {
+    name: "animation",
+    title: "title",
+    CT: NB_TRAIN_TRIALS - 1, //is this the start value?
+    trials: 1,
+    data: "",
+    // The render function gets the magpie object as well as the current trial
+    // in view counter as input
+    render: function(CT, magpie){
+      let dat = TRAIN_TRIALS[CT];
+      let utterances = [dat.question1, dat.question2, dat.question3, dat.question4];
+      let html_answers = htmlSliderAnswers(utterances)
+      let animation = showAnimationInTrial(CT, html_answers, progress_bar=false);
+
+      let cleared = false;
+      Events.on(animation.engine, 'afterUpdate', function (event) {
+        if(!cleared && animation.engine.timing.timestamp >= DURATION_ANIMATION){
+          clearWorld(animation.engine, animation.render, stop2Render=false);
+          cleared = true;
+        }
+      });
+      addCheckSliderResponse($('#runButton'));
+      DEBUG ? addKeyToMoveSliders($("#runButton")) : null;
+
+      let animationStarted = false;
+      $('#runButton').on('click', function(e){
+        if(!animationStarted) {
+          animationStarted = true;
+          runAnimation(animation.engine);
+          toggleNextIfDone($("#buttonNextAnimation"), true);
+          //selected answers can't be changed anymore
+          _.range(1,5).forEach(function(i){
+            document.getElementById("response" + i).disabled = true;
+          });
+        }
+      });
+      $("#buttonNextAnimation").on("click", function () {
+          const RT = Date.now() - animation.startTime; // measure RT before anything else
+          if(!cleared){
+            clearWorld(animation.engine, animation.render, stop2Render=false);
+          }
+          let data = getSliderQA("train");
+          let trial_data = {
+            trial_name: SHUFFLED_TRAIN_STIMULI[CT].id,
+            trial_number: CT + 1,
+            response: data.responses,
+            utterances: data.questions,
+            RT: RT
+          };
+          trial_data = magpieUtils.view.save_config_trial_data(
+            TRAIN_TRIALS[CT],
+            trial_data
+          );
+          magpie.trial_data.push(trial_data);
+          magpie.findNextView();
+      });
+    }
+};
+
+
 
 // generate a new multi_slider
 const multi_slider_generator = {
@@ -165,7 +186,7 @@ const multi_slider_generator = {
         </s4>
         </div>
 
-        <button id='buttonNext' class='grid-button magpie-view-button'>Next scenario</button>`;
+        <button id='buttonNext' class='grid-button magpie-view-button'>Next scene</button>`;
   },
 
   handle_response_function: function (

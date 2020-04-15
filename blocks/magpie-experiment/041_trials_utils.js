@@ -110,7 +110,7 @@ shuffled_test_ids.forEach(function(id){
 
 if (DEBUG){
   let arr = _.map(TEST_TRIALS, 'id')
-  console.log(arr)
+  // console.log(arr)
   let res = _.countBy(arr, function(id) {
     return id ? (id.includes('independent') ? 'ind' : id.includes('iff') ? 'iff' : 'ac') : 'undefined';
   });
