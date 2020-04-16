@@ -185,7 +185,7 @@ const multi_slider_generator = {
   }
 };
 
-// generate a new multi_slider
+// generate a fridge view
 const fridge_generator = {
   stimulus_container_gen: function (config, CT) {
     return `<div  class='magpie-view'>
