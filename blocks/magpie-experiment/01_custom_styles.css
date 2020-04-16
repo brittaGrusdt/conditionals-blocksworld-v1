@@ -181,3 +181,50 @@ input[type="range"].replied::-webkit-slider-thumb {
 /* .progress-bar-container {
   margin: 0 10px 0px 10px;
 } */
+
+
+/* code for fridge box */
+.fix-box {
+  width: 500px;
+  display: run-in;
+  align-items: center;
+  align-content: center;
+}
+
+.fridge {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  font-size: 30px;
+}
+
+/* .word1,
+.word2,
+.word3,
+.word4,
+.word5,
+.word6,
+.word7,
+.word8 {
+  flex: 2;
+  flex-basis: 20%;
+} */
+
+.word {
+  background-color: #f5f7f5; /* Green */
+  border: none;
+  color: rgb(117, 198, 79);
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+   border: 2px solid #4CAF50;
+}
+.word:hover {
+  background-color: rgb(117, 198, 79);
+  color: #f5f7f5;
+}
