@@ -228,3 +228,45 @@ input[type="range"].replied::-webkit-slider-thumb {
   background-color: rgb(117, 198, 79);
   color: #f5f7f5;
 }
+
+
+.made-sentence{
+  width:800px;
+  display:flex;
+
+}
+
+.answer{
+  float:right;
+}
+
+.multi-slider-grid {
+  display: grid;
+  grid-template-areas:
+    "fridge selected1"
+    "fridge selected"
+    "fridge selected"
+    "fridge selected";
+  grid-template-columns: 50% 50%;
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+}
+
+fridge {
+  /* grid-column: 1 / 2;
+  grid-row: 3 / 4; */
+  align-self: start;  /* according to column (top (start) down (end) center stretch)*/
+  justify-self: center;  /* according to row (left (start) center right (end) stretch)*/
+}
+
+selected1 {
+  
+}
+
+selected {
+  /* grid-column: 2 / 3;
+  grid-row: 3 / 4; */
+  align-self: center;
+  justify-self: start;
+}

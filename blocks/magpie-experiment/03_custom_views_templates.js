@@ -208,15 +208,18 @@ const fridge_generator = {
 
   answer_container_gen: function (config, CT) {
     let array = ["word1", "word2", "word3", "word4", "word5", "word6", "word7", "word8", "word9", "wordislong10"];
-    return `<div class ="fix-box"> <div class = "fridge">` + array.map((word, index) => {
+    return `<div class ="fix-box multi-slider-grid"> <div class = "fridge">` + array.map((word, index) => {
       return (
         `<div class=word id=word` + index + ` >
           <p> ` +
         word +
         ` </p>
         </div>`
-      ); + `</div> </div>`
-    });
+      ); + `</div> `
+    }) + `</div>  <div class = 'answer'> <span class ="sentence selected1"'> Your sentence: </span> <span class = "selected"> hihihi </span> </div> </div>`
+
+    ;
+
 
     //   const option1 = config.data[CT].optionLeft;
     //   const option2 = config.data[CT].optionRight;
@@ -280,6 +283,7 @@ const fridge_generator = {
 
     let sentence_array = [];
 
+
     // function select_word(sentence_array, word) {
     //
     // document.getElementById(word)
@@ -308,6 +312,8 @@ const fridge_generator = {
           .trim();
         sentence_array.push(value)
         console.log(sentence_array);
+        `<div class="made-sentence"> sentence_array </div>`
+        console.log("hallo");
       });
 
 
