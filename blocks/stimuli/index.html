@@ -24,7 +24,7 @@
 
     <!-- choose experimental/train stimulus -->
     <script type="text/javascript">
-      let rel, stimulus, nb, id;
+      let rel, stimulus, p, id;
       if(MODE === "test") {
         // let relations = ['independent']
         // let relations = ['a_implies_c']
@@ -33,14 +33,15 @@
         let stimuli = getTestStimuli(Conditions, relations);
         rel = relations[_.random(0, relations.length-1)];
         // nb = 1;
-        nb = _.random(0, _.size(stimuli[rel])-1);
-        id =  rel + '_' + nb
+        p = _.sample(['l', 'h', 'u']) + _.sample(['l', 'h', 'u']);
+        id =  rel + '_' + p
+        console.log(id);
         stimulus = stimuli[rel][id];
       } else if(MODE === "train") {
         let types = ["independent", "a_implies_c", "uncertain", "a_iff_c"];
         // let types = ["a_implies_c"]//["independent"]//["a_iff_c"]//"uncertain"]
         rel = types[_.random(0, types.length-1)];
-        nb = _.random(0, _.size(TrainStimuli.map_category[rel])-1);
+        let nb = _.random(0, _.size(TrainStimuli.map_category[rel])-1);
         // nb = 0;
         stimulus = getTrainStimulus(rel, nb);
         id =  rel + '_' + nb;
