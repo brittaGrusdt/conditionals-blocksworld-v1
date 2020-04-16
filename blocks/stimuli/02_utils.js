@@ -6,7 +6,7 @@ block = function(base, propOnBase, color, label, w=props.blocks.w,
     base.bounds.max.x + (1-propOnBase) * w_new - w_new/2;
   let obj = Bodies.rectangle(x, base.bounds.min.y - h_new/2, w_new, h_new, options.blocks);
   obj.render.fillStyle = color;
-  obj.label = label;
+  obj.id = label;
   return obj;
 }
 
@@ -35,6 +35,10 @@ move = function(obj, pos_hit, angle, force){
   let x = Math.cos(radians(angle)) * force * obj.mass;
   let y = Math.sin(radians(angle)) * force * obj.mass;
   Body.applyForce(obj, pos, {x, y});
+}
+
+let lengthOnBase = function(p_fall, horizontal){
+    return horizontal ? prior[p_fall] * props.blocks.h : prior[p_fall] * props.blocks.w;
 }
 
 sortConditions = function(conditions){

@@ -18,8 +18,11 @@ $("document")
       views_seq: [
       //intro,
       //instructions,
-      //animation_view,
-      //instructions1,
+      //instructions_train1,
+      //animation_view1,
+      //instructions_train2,
+      //animation_view2,
+      //instructions_test,
       multiple_slider,
       post_test,
       thanks
@@ -39,8 +42,8 @@ $("document")
       progress_bar: {
         in: [
         // list the view-names of the views for which you want a progress bar
-        // animation_view.name,
-        // multiple_slider.name
+        animation_view1.name,
+        multiple_slider.name
       ],
         // Possible styles are "default", "separate" and "chunks"
         style: "separate",
