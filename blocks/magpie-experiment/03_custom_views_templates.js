@@ -264,7 +264,7 @@ const fridge_generator = {
     //       </slider4>
     //       </div>
     //
-    //       <button id='buttonNext' class='grid-button magpie-view-button'>Next scenario</button>`;
+    ` <button id='buttonNext' class='grid-button magpie-view-button'>Next scenario</button>`;
   },
 
   handle_response_function: function (

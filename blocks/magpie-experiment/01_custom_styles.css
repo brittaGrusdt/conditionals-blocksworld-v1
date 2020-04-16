@@ -267,11 +267,13 @@ input[type="range"].replied::-webkit-slider-thumb {
 .made-sentence{
   width:800px;
   display:flex;
+  padding: 50px;
 
 }
 
 .answer{
   float:right;
+  padding: 50px;
 }
 
 .multi-slider-grid {
@@ -288,19 +290,19 @@ input[type="range"].replied::-webkit-slider-thumb {
 }
 
 fridge {
-  /* grid-column: 1 / 2;
-  grid-row: 3 / 4; */
+  grid-column: 1 / 2;
+  grid-row: 3 / 4;
   align-self: start;  /* according to column (top (start) down (end) center stretch)*/
   justify-self: center;  /* according to row (left (start) center right (end) stretch)*/
 }
 
 selected1 {
-  
+
 }
 
 selected {
-  /* grid-column: 2 / 3;
-  grid-row: 3 / 4; */
+  grid-column: 2 / 3;
+  grid-row: 3 / 4;
   align-self: center;
   justify-self: start;
 }
