@@ -7,17 +7,20 @@ const Bottom = wall(scene.w/2, scene.h - props.bottom.h/2, scene.w,
 // base walls
 let W1 = wall(x=320, y=100, w=props.walls.w, h=props.walls.h, 'wallUpLeft');
 let W2 = wall(x= W1.bounds.max.x - 10, y=240, w=props.walls.w, h=props.walls.h, 'wallLowRight');
-let W3 = wall(W2.position.x+4, W2.position.y, props.walls.w + 25, props.walls.h,'wallRampLow-test')
+let W3 = wall(W2.position.x+4, W2.position.y, props.walls.w + 25, props.walls.h,'wallRampLowInd')
 let W4 = wall(x=550, y=100, w=props.walls.w, h=props.walls.h, 'wallUpRight');
+let W5 = wall(x=420, y=120, w=props.walls.w/1.5, h=props.walls.h, 'wallShortUpLeft');
+let P1 = wall(x=570, y=Bottom.bounds.min.y - 100/2, w=150, h=100, 'platform1');
+let WP1 = wall(x= W1.bounds.max.x - 10, y=220, w=props.walls.w/1.5, h=props.walls.h, 'wallLowRightP1');
 
 // This is important because, it gets scaled in some trials! Therefore different
 // instances are needed!
-lowWallIndependent = function(){
+lowWallRamp = function(){
   return wall(x=250+(props.walls.w+25)/2, y=225, w=props.walls.w+25,
     h=props.walls.h, 'wallDownRight')
 }
 
-rampIndependent = function(angle, tilt_increase, wallLow){
+makeRamp = function(angle, tilt_increase, wallLow){
   let overlap = overlap_shift["angle"+Math.abs(angle)];
   let shift_x, w_low_x_edge;
   if (tilt_increase) {
@@ -49,7 +52,7 @@ rampIndependent = function(angle, tilt_increase, wallLow){
   let ball1 = ball(ball_x, wallTop.bounds.min.y - props.balls.radius,
                    props.balls.radius, 'ball1', cols.purple);
   Body.setAngle(ramp, -shift_x * r);
-  return {'tilted': ramp, 'top': wallTop, 'ball': ball1}
+  return {'tilted': ramp, 'top': wallTop, 'low': wallLow, 'ball': ball1}
 }
 
 let W6 = wall(225, 240, props.walls.w/1.5, props.walls.h, 'wall_seesaw_left');
@@ -80,32 +83,41 @@ var constraint = Constraint.create({
     length: 0
 });
 
+// Extra block used in iff trials
+makeXBlockIff = function(label, color, horiz=true){
+  let t = label==="xblock_left" ? 1 : -1;
+  let base = label==="xblock_left" ? W6 : W7;
+  return blockOnBase(base, 0.6*t, color, label, undefined, undefined, horiz)
+}
+
 // The first two list entries are respectively the bases for block1 and block2
 Walls.test = {'independent': [W1, W3], // tilted wall+ball added dep on prior
-             'a_implies_c': [W1, W2],
+             'a_implies_c': [W5, P1],
              'a_iff_c': [W6, W7, skeleton, plank, constraint]
             };
 
 Walls.test.tilted = {
-  'ramp_angle45': _.values(rampIndependent(-45, true, W3)),
-  'ramp_angle30': _.values(rampIndependent(-30, true, W3))
+  'independent_steep': _.values(makeRamp(-45, true, W3)),
+  'independent_plane': _.values(makeRamp(-30, true, W3)),
+  'a_implies_c_plane': _.values(makeRamp(-20, false, WP1)),
+  'a_implies_c_middle': _.values(makeRamp(-30, false, WP1)),
+  'a_implies_c_steep': _.values(makeRamp(-45, false, WP1))
 }
 
-// Extra block used in iff trials
-extraBlock = function(label, color, horiz=true){
-  let t = label==="xblock_left" ? 1 : -1;
-  let base = label==="xblock_left" ? W6 : W7;
-  return block(base, 0.6*t, color, label, undefined, undefined, horiz)
+//// Elements for TRAINING TRIALS //////
+Walls.train.independent = [W4];
+Walls.train.tilted = {
+  'independent_steep': _.values(makeRamp(-45, false, lowWallRamp())),
+  'independent_plane': _.values(makeRamp(-30, false, lowWallRamp()))
 }
-
-// Elements for TRAINING TRIALS
-
-Walls.train.independent_steep = function(){
-  return [W4].concat(_.values(rampIndependent(-45, false, lowWallIndependent())))
-}
-Walls.train.independent_plane = function(){
-  return [W4].concat(_.values(rampIndependent(-30, false, lowWallIndependent())))
-}
+// Walls.train.independent_steep = function(){
+//   let wall_low = lowWallRamp();
+//   return [W4].concat(_.values(makeRamp(-45, false, wall_low)))
+// }
+// Walls.train.independent_plane = function(){
+//   let wall_low = lowWallRamp();
+//   return [W4].concat(_.values(makeRamp(-30, false, wall_low)))
+// }
 
 let W8 = wall(x=scene.w/2, y=scene.h/2, w=props.walls.w, h=props.walls.h, 'wallMiddle');
 Walls.train.uncertain = [W8]

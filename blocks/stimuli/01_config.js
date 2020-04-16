@@ -24,11 +24,11 @@ options = {
 
 let Relations = ['a_implies_c', 'a_iff_c', 'independent'];
 // Proportion of blocks that's on top of their base walls
-let prior = {'high': 0.35, 'uncertain': 0.54, 'low': 0.68}
+let prior = {'high': 0.35, 'uncertain': 0.505, 'low': 0.68, 'very_low': 0.85}
 
 
 // for independent trials, one block is shifted to the right depending on prior
 let independent_shift = {"high": 12, "low": 85, "uncertain": 25};
-let overlap_shift = {"angle45": 25, "angle30": 14.5}
+let overlap_shift = {"angle45": 25, "angle30": 14.5, "angle20": 7}
 
 let SIMULATION = {'duration': 5000};

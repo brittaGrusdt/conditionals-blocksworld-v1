@@ -1,4 +1,4 @@
-block = function(base, propOnBase, color, label, w=props.blocks.w,
+blockOnBase = function(base, propOnBase, color, label, w=props.blocks.w,
   h=props.blocks.h, horiz=false) {
   let w_new = horiz ? h : w;
   let h_new = horiz ? w : h;
@@ -9,15 +9,23 @@ block = function(base, propOnBase, color, label, w=props.blocks.w,
   obj.id = label;
   return obj;
 }
+block = function(pos, col, id, horiz=false, opts={}){
+  let w = horiz ? props.blocks.h : props.blocks.w;
+  let h = horiz ? props.blocks.w : props.blocks.h;
+  opts = Object.assign(opts, {id, 'render': {'fillStyle': col}});
+  return Bodies.rectangle(pos.x, pos.y_min - h/2, w, h, opts);
+}
+
+rect = function(props, opts={}){
+  return Bodies.rectangle(props.x, props.y, props.w, props.h, opts);
+}
 
 wall = function(x, y, w, h, label, col=cols.grey, opts={}){
   opts = Object.assign(opts, options.walls, {render: {fillStyle: col}, 'id': label});
   return Bodies.rectangle(x, y, w, h, opts);
 }
 
-rect = function(props, opts={}){
-    return Bodies.rectangle(props.x, props.y, props.w, props.h, opts);
-}
+
 
 ball = function(x, y, r, label, color, opts=options.balls){
   opts = Object.assign(opts, {'id': label,
