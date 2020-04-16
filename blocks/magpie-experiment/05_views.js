@@ -106,7 +106,7 @@ const instructions1 = magpieViews.view_generator("instructions", {
           We will now start the experiment. There are 24 scenarios in total and the experiment will take you about 15-20 minutes.
    <br />
    `,
-    buttonText: "start experiment"
+  buttonText: "start experiment"
 });
 
 
@@ -154,8 +154,8 @@ const multiple_slider = magpieViews.view_generator(
   },
   // you can add custom functions at different stages through a view's life cycle
   {
-    stimulus_container_generator: multi_slider_generator.stimulus_container_gen,
-    answer_container_generator: multi_slider_generator.answer_container_gen,
-    handle_response_function: multi_slider_generator.handle_response_function
+    stimulus_container_generator: fridge_generator.stimulus_container_gen,
+    answer_container_generator: fridge_generator.answer_container_gen,
+    handle_response_function: fridge_generator.handle_response_function
   }
 );
