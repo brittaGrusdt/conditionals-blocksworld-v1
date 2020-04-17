@@ -26,8 +26,9 @@ cols = {
       'orange': '#E2A818',
       'yellow': '#F3ED2B',
       'bordeaux': '#D81159',
-      'darkyellow': '#FFBC42'
+      'darkyellow': '#FFBC42',
+      'darkgreen': '#119533'
     };
 cols.plank = cols.blue
-cols.blocks = [cols.light_green, cols.royal];
+cols.blocks = [cols.green, cols.royal];
 cols.train_blocks = [cols.bordeaux, cols.darkyellow];
