@@ -183,11 +183,11 @@ const multiple_slider = magpieViews.view_generator(
   "slider_rating", {
     // This will use all trials specified in `data`, you can use a smaller value
     // (for testing), but not a larger value
-    trials: TEST_TRIALS.length,
+    trials: 2, //TEST_TRIALS.length,
     // trials: 2,
     // name should be identical to the variable name
     name: "multiple_slider",
-    data: TEST_TRIALS
+    data: fridge_trials //TEST_TRIALS
   },
   // you can add custom functions at different stages through a view's life cycle
   {

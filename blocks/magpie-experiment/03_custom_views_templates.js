@@ -213,7 +213,7 @@ const fridge_generator = {
         ` </p>
         </div>`
       ); + `</div> `
-    }) + `</div>  <div class = 'answer'> <span class ="sentence selected1"'> Your sentence: </span> <span class = "selected"> hihihi </span> </div> </div>`
+    }) + `</div>  <div class = 'answer'> <span class ="sentence selected1"'> Your sentence: </span> <span class = "selected"> ${config.data[CT].sentence} </span> </div> </div>`
 
     ;
 
@@ -309,32 +309,41 @@ const fridge_generator = {
           .trim();
         sentence_array.push(value)
         console.log(sentence_array);
+
+        var sentence = sentence_array.toString()
+          .replace(/,/, "");
+        console.log(sentence);
         `<div class="made-sentence"> sentence_array </div>`
-        console.log("hallo");
+
+        $(".selected")
+          .append(`< div class = "made-sentence" > sentence_array < /div>`)
+        config.data[CT].sentence.push(sentence);
+        console.log(config.data[CT].sentence);
+
       });
 
 
     // function for debugging - if "y" is pressed, the slider will change
-    if (magpie.deploy.deployMethod === "debug") {
-      addShortCut2SelectAnswers(button);
-    }
-    addCheckResponseFunctionality(button);
-    button.on("click", function () {
-      const RT = Date.now() - startingTime; // measure RT before anything else
-      let responseData = saveTrialQA();
-      let trial_data = {
-        trial_name: config.name,
-        trial_number: CT + 1,
-        response: responseData.responses,
-        utterances: responseData.questions,
-        RT: RT
-      };
-      trial_data = magpieUtils.view.save_config_trial_data(
-        config.data[CT],
-        trial_data
-      );
-      magpie.trial_data.push(trial_data);
-      magpie.findNextView();
-    });
+    // if (magpie.deploy.deployMethod === "debug") {
+    //   addShortCut2SelectAnswers(button);
+    // }
+    // addCheckResponseFunctionality(button);
+    // button.on("click", function () {
+    //   const RT = Date.now() - startingTime; // measure RT before anything else
+    //   let responseData = saveTrialQA();
+    //   let trial_data = {
+    //     trial_name: config.name,
+    //     trial_number: CT + 1,
+    //     response: responseData.responses,
+    //     utterances: responseData.questions,
+    //     RT: RT
+    //   };
+    //   trial_data = magpieUtils.view.save_config_trial_data(
+    //     config.data[CT],
+    //     trial_data
+    //   );
+    //   magpie.trial_data.push(trial_data);
+    //   magpie.findNextView();
+    // });
   }
 };
