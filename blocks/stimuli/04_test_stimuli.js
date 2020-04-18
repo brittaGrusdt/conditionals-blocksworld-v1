@@ -1,6 +1,8 @@
 // conditions cotains combis of P(A) and P(C) from [high, low, uncertain]
 var Conditions = getConditions();
 
+// IMPORTANT: DYNAMIC BLOCKS HAVE TO BE ADDED BEFORE STATIC OBJECTS, OTHERWISE
+// THEY WILL FALL VERY ODD (JITTERING)
 make2ColoredBlocks = function(bases, ps_fall, sides){
   let priors = [PRIOR[ps_fall[0]], PRIOR[ps_fall[1]]];
   let colors = assignColors(); // colors randomly assigned
