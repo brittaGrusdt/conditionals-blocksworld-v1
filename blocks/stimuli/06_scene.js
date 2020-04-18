@@ -1,5 +1,3 @@
-// let engine,
-    // render;
 let animationStarted = false;
 
 createWorld = function(){
@@ -50,19 +48,8 @@ freeze = function (engine) {
   engine.timing.timeScale = 0
 }
 
-// start = function(){
-//   Engine.run(engine);
-//   engine.timing.timeScale = 1;
-//   animationStarted = true;
-//   // move(stimulus.circ, "centcreateWorlder", -180, 0.03)
-// }
-
 show = function(engine, render){
-  // createWorld();
-  // setupWorld(objs);
-  // run the engine for simulation of our world
   Engine.run(engine);
-  // run the renderer for visualization
   Render.run(render);
   freeze(engine);
 }
@@ -71,16 +58,3 @@ var runAnimation = function (engine) {
   animationStarted = true
   engine.timing.timeScale = 1
 }
-
-
-// addStopRenderAndClearWorldEvent = function(){
-//   // after duration of simulation, freeze and save data
-//   Events.on(engine, 'afterUpdate', function (event) {
-//     // only do this once after specified nb of ms passed
-//     if (engine.timing.timestamp >= SIMULATION.duration) {
-//       freeze();
-//       Render.stop(render);
-//       clearWorld(stop2Render=false);
-//     }
-//   });
-// }

@@ -2,17 +2,17 @@
 var Conditions = getConditions();
 
 make2ColoredBlocks = function(bases, ps_fall, sides){
-  let priors = [prior[ps_fall[0]], prior[ps_fall[1]]];
+  let priors = [PRIOR[ps_fall[0]], PRIOR[ps_fall[1]]];
   let colors = assignColors(); // colors randomly assigned
   // let colors = [1, 0];
-  let b1 = blockOnBase(base=bases[0], propOnBase=priors[0] * sides[0],
-    color=cols.blocks[colors[0]], 'block1', undefined, undefined,
-    horiz = ps_fall[0]==="low" || ps_fall[0]==="uncertain");
-
-  let b2 = blockOnBase(base=bases[1], propOnBase=priors[1] * sides[1],
-    color=cols.blocks[colors[1]], 'block2', undefined, undefined,
-    horiz = ps_fall[1]==="low" || ps_fall[1]==="uncertain");
-  return [b1, b2]
+  let blocks = [];
+  priors.forEach(function(p, i){
+    let l = i===0 ? "A" : "C";
+    let b = blockOnBase(bases[i], priors[i] * sides[i], cols.blocks[colors[i]],
+      'block' + l, ps_fall[i] === "low" || ps_fall[i] === "uncertain");
+    blocks.push(b);
+  })
+  return blocks
 }
 
 dataXblockIff = function(priors_blocks){
@@ -56,17 +56,11 @@ getTestStimuli = function(conditions, relations){
         blocks = make2ColoredBlocks([baseB1, baseB2], priors[i], updates.sides);
         blocks.push(updates.xblock);
       }  else if (rel === "a_implies_c"){
-        // add extra block
-        let bX1 = block({x: P1.position.x, y_min: P1.bounds.min.y},
-          cols.darkgrey, 'distractor1', horiz=true);
-        // let bX2 = blockOnBase(bX1, -1 * prior["very_low"], cols.orange, 'distractor2',
-        //   props.blocks.w, props.blocks.h, horiz=true);
-        let b1 = blockOnBase(bases[0], prior[pb1], cols.blocks[0], 'block1',
-          props.blocks.w, props.blocks.h, horiz=true);
-        let b2 = blockOnBase(bX1, prior["very_low"], cols.blocks[1], 'block2',
-          props.blocks.w, props.blocks.h, horiz=true);
-
-        blocks = blocks.concat([b1, b2, bX1]);
+          let bX1 = block(P1.position.x, P1.bounds.min.y, cols.darkgrey, 'bX1', true)
+          //let bX2 = blockOnBase(bX1, -1 * PRIOR["very_low"], cols.orange, 'bX2', true);
+          let b1 = blockOnBase(bases[0], PRIOR[pb1], cols.blocks[0], 'blockA', true);
+          let b2 = blockOnBase(bX1, PRIOR["very_low"], cols.blocks[1], 'blockC', true);
+          blocks = blocks.concat([b1, b2, bX1]);
       } else {
         blocks = make2ColoredBlocks(bases, priors[i], sides);
       }

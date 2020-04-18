@@ -1,36 +1,36 @@
-blockOnBase = function(base, propOnBase, color, label, w=props.blocks.w,
-  h=props.blocks.h, horiz=false) {
-  let w_new = horiz ? h : w;
-  let h_new = horiz ? w : h;
-  let x = propOnBase < 0 ? base.bounds.min.x - propOnBase * w_new - w_new/2 :
-    base.bounds.max.x + (1-propOnBase) * w_new - w_new/2;
-  let obj = Bodies.rectangle(x, base.bounds.min.y - h_new/2, w_new, h_new, options.blocks);
-  obj.render.fillStyle = color;
-  obj.id = label;
-  return obj;
-}
-block = function(pos, col, id, horiz=false, opts={}){
+blockOnBase = function(base, propOnBase, color, label, horiz=false) {
   let w = horiz ? props.blocks.h : props.blocks.w;
   let h = horiz ? props.blocks.w : props.blocks.h;
-  opts = Object.assign(opts, {id, 'render': {'fillStyle': col}});
-  return Bodies.rectangle(pos.x, pos.y_min - h/2, w, h, opts);
+  // when propOnBase is negative, block is put on left side of the base, else right side
+  let edge = propOnBase < 0 ? "min" : "max"
+  let factor = propOnBase < 0 ? - propOnBase : (1-propOnBase)
+  let x = base.bounds[edge]["x"] + factor * w - w / 2;
+  // let x = propOnBase < 0 ? base.bounds.min.x - propOnBase * w - w/2 :
+  //   base.bounds.max.x + (1-propOnBase) * w - w/2;
+
+  let opts = Object.assign({'render': {'fillStyle': color}, label}, OPTS.blocks)
+  return Bodies.rectangle(x, base.bounds.min.y - h / 2, w, h, opts);
+}
+
+block = function(x, y_min_base, col, label, horiz=false, opts={}){
+  let w = horiz ? props.blocks.h : props.blocks.w;
+  let h = horiz ? props.blocks.w : props.blocks.h;
+  opts = Object.assign(opts, {'render': {'fillStyle': col}, label}, OPTS.blocks)
+  return Bodies.rectangle(x, y_min_base - h/2, w, h, opts);
 }
 
 rect = function(props, opts={}){
+  opts = Object.assign(opts, OPTS.blocks);
   return Bodies.rectangle(props.x, props.y, props.w, props.h, opts);
 }
 
-wall = function(x, y, w, h, label, col=cols.grey, opts={}){
-  opts = Object.assign(opts, options.walls, {render: {fillStyle: col}, 'id': label});
+wall = function(label, x, y, w=props.walls.w, h=props.walls.h, opts={}){
+  opts = Object.assign({label}, opts, OPTS.walls);
   return Bodies.rectangle(x, y, w, h, opts);
 }
 
-
-
-ball = function(x, y, r, label, color, opts=options.balls){
-  opts = Object.assign(opts, {'id': label,
-                              'render': {'fillStyle': color}
-                             });
+ball = function(x, y, r, label, color, opts={}){
+  opts = Object.assign({label, 'render': {'fillStyle': color}}, opts,OPTS.balls)
   return Bodies.circle(x, y, r, opts);
 }
 
@@ -45,8 +45,8 @@ move = function(obj, pos_hit, angle, force){
   Body.applyForce(obj, pos, {x, y});
 }
 
-let lengthOnBase = function(p_fall, horizontal){
-    return horizontal ? prior[p_fall] * props.blocks.h : prior[p_fall] * props.blocks.w;
+let lengthOnBase = function(p_fall, horiz){
+  return horiz ? PRIOR[p_fall] * props.blocks.h : PRIOR[p_fall] * props.blocks.w
 }
 
 sortConditions = function(conditions){
@@ -81,7 +81,7 @@ sortConditions = function(conditions){
  a_implies_c: [[pa, pc, "a_implies_c"], ...]
 **/
 getConditions = function(){
-  let keys = _.keys(prior);
+  let keys = _.keys(PRIOR);
   let probs = [];
   keys.forEach(function(p){
     let vals = new Array(keys.length).fill(p);

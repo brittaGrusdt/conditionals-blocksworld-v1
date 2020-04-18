@@ -14,9 +14,8 @@ props = {'blocks': {'w':40, 'h': 80},
                   }
        };
 
-options = {
-  'walls': {isStatic: true, restitution: 0.01},
-   // at density=0.02, the block also makes the second block fall!
+OPTS = {
+  'walls': {isStatic: true, restitution: 0.01, render: {fillStyle: cols.grey}},
   'balls': {isStatic: false, restitution: 0, friction: 0.001, density: 0.1},
   'blocks': {isStatic: false, restitution: .02, friction: 0.05, density: 0.006},
   'seesaw_plank': {isStatic: false}
@@ -24,11 +23,13 @@ options = {
 
 let Relations = ['a_implies_c', 'a_iff_c', 'independent'];
 // Proportion of blocks that's on top of their base walls
-let prior = {'high': 0.35, 'uncertain': 0.505, 'low': 0.68, 'very_low': 0.85}
+// let PRIOR = {'high': 0.35, 'uncertain': 0.54, 'low': 0.68, 'very_low': 0.85}
+let PRIOR = {'high': 0.35, 'uncertain': 0.505, 'low': 0.68, 'very_low': 0.85}
+// let PRIOR = {'high': 0.35, 'uncertain': 0.50, 'low': 0.68, 'very_low': 0.85}
 
 
 // for independent trials, one block is shifted to the right depending on prior
-let independent_shift = {"high": 12, "low": 85, "uncertain": 25};
+let independent_shift = {"high": 12, "uncertain": 25, "low": 85, "very_low": 100};
 let overlap_shift = {"angle45": 25, "angle30": 14.5, "angle20": 7}
 
 let SIMULATION = {'duration': 5000};
