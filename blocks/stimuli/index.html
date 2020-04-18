@@ -47,15 +47,6 @@
         let nb = _.random(0, _.size(TrainStimuli.map_category[rel])-1);
         // nb = 0;
         stimulus = getTrainStimulus(rel, nb);
-        // stimulus = {objs:[
-        //   Bodies.rectangle(302.5, 170, 80, 40, OPTS.blocks),
-        //   Bodies.rectangle(499, 150, 40, 80, OPTS.blocks),
-        //   Bottom,
-        //   Bodies.rectangle(400, 200, 200, 20, OPTS.walls)
-        // ],
-        // meta: ['', '', ''], id: 'test_uncertain1'
-        // };
-
         id =  rel + '_' + nb;
       }
       console.log(id)

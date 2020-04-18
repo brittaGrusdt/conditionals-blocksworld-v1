@@ -3,6 +3,8 @@ let TrainStimuli = {
                    "a_iff_c": {}},
   'list_all': []
 };
+// IMPORTANT: DYNAMIC BLOCKS HAVE TO BE ADDED BEFORE STATIC OBJECTS, OTHERWISE
+// THEY WILL FALL VERY ODD (JITTERING)
 
 // INDPENDENT TRIALS
 trials_independent = function(){
@@ -42,7 +44,7 @@ trials_independent = function(){
     let i_dist_col = block1.render.fillStyle === cols.train_blocks[0] ? 1 : 0;
     let distractor = blockOnBase(W4, PRIOR[meta[block1.label][1]],
       cols.train_blocks[i_dist_col], 'distractorBlock');
-    let objs = {'objs': walls.concat([block1, distractor]),
+    let objs = {'objs': [block1, distractor].concat(walls),
                 'meta': meta[block1.label], id: id}
     data[id] = objs
   });
@@ -50,30 +52,24 @@ trials_independent = function(){
 }
 
 // TRAIN UNCERTAINTY BLOCKS TO FALL
-blockTrainUnc = function(offset, side, color, horiz=false) {
-  let x = side === "left" ? W8.bounds.min.x : W8.bounds.max.x
-  return block(x + offset, W8.bounds.min.y, color, 'block_'+side, horiz);
-}
-
 trials_uncertain = function(){
   let data = {}
   let meta = [
     ["falls-horiz", "doesnt-fall", "train-uncertain"],
     ["doesnt-fall-horiz","falls", "train-uncertain"]
   ];
-  let bA = blockTrainUnc(0.5, "left", cols.train_blocks[0], horiz=true); // falls
-  let bB = blockTrainUnc(-2.5, "right", cols.train_blocks[1]); // doesn't fall
-  let bC = blockTrainUnc(-1, "right", cols.train_blocks[1]); // falls
-  let bD = blockTrainUnc(2.5, "left", cols.train_blocks[0], horiz=true); // doesn't fall
-  // let bA = blockOnBase(W8, -0.5, cols.train_blocks[0], "blockA_left", horiz=true); // falls
-  // let bB = blockOnBase(W8, 0.5625, cols.train_blocks[1], "blockB_right", horiz=false); //doesnt fall
-  // let bC = blockOnBase(W8, 0.5, cols.train_blocks[1], "blockC_right", horiz=false); // falls
-  // let bD = blockOnBase(W8, -0.5625, cols.train_blocks[0], "blockD_left", horiz=true); // doesnt fall
-
+  // let bA = blockTrainUnc(0.5, "left", cols.train_blocks[0], true); // falls
+  // let bB = blockTrainUnc(-2.5, "right", cols.train_blocks[1]); // doesn't fall
+  // let bC = blockTrainUnc(-1, "right", cols.train_blocks[1]); // falls
+  // let bD = blockTrainUnc(2.5, "left", cols.train_blocks[0], horiz=true); // doesn't fall
+  let bA = blockOnBase(W8, -0.5, cols.train_blocks[0], "blockA_left", horiz=false); // falls
+  let bB = blockOnBase(W8, 0.505, cols.train_blocks[1], "blockB_right", horiz=false); //doesnt fall
+  let bC = blockOnBase(W8, 0.5, cols.train_blocks[1], "blockC_right", horiz=false); // falls
+  let bD = blockOnBase(W8, -0.505, cols.train_blocks[0], "blockD_left", horiz=true); // doesnt fall
   [[bA, bB], [bC, bD]].forEach(function(blocks, i){
     let id = "uncertain_" + i
-    data[id] = {objs: Walls.train.uncertain.concat(blocks),
-      meta: meta[i], id}
+    data[id] = {objs: blocks.concat(Walls.train.uncertain),
+                meta: meta[i],id}
     });
   return data
 }
@@ -103,7 +99,7 @@ trials_ac = function(){
                     : null;
     }
     let id = "a_implies_c_" + i
-    data[id] = {objs: Walls.train.a_implies_c.concat([b1, b2]),
+    data[id] = {objs: [b1, b2].concat(Walls.train.a_implies_c),
                 meta: meta[key], id}
     });
     return data
@@ -120,7 +116,7 @@ trials_iff = function(){
 
   [[bA, bB]].forEach(function(blocks, i){
     let id = "a_iff_c_" + i
-    data[id] = {objs: Walls.train.a_iff_c.concat(blocks),
+    data[id] = {objs: blocks.concat(Walls.train.a_iff_c),
                 meta: ["uncertain", "low", "train-iff"], id}
   });
   return data

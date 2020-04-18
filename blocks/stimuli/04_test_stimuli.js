@@ -85,7 +85,7 @@ getTestStimuli = function(conditions, relations){
         }
       }
       objs = objs.concat(walls);
-      stimuli[rel][id] = {"objs": objs.concat(blocks), "meta": priors[i]};
+      stimuli[rel][id] = {"objs": blocks.concat(objs), "meta": priors[i]};
     }
   })
   return stimuli
