@@ -58,15 +58,15 @@ trials_uncertain = function(){
     ["falls-horiz", "doesnt-fall", "train-uncertain"],
     ["doesnt-fall-horiz","falls", "train-uncertain"]
   ];
-  // let bA = blockTrainUnc(0.5, "left", cols.train_blocks[0], true); // falls
-  // let bB = blockTrainUnc(-2.5, "right", cols.train_blocks[1]); // doesn't fall
-  // let bC = blockTrainUnc(-1, "right", cols.train_blocks[1]); // falls
-  // let bD = blockTrainUnc(2.5, "left", cols.train_blocks[0], horiz=true); // doesn't fall
-  let bA = blockOnBase(W8, -0.5, cols.train_blocks[0], "blockA_left", horiz=false); // falls
-  let bB = blockOnBase(W8, 0.505, cols.train_blocks[1], "blockB_right", horiz=false); //doesnt fall
-  let bC = blockOnBase(W8, 0.5, cols.train_blocks[1], "blockC_right", horiz=false); // falls
-  let bD = blockOnBase(W8, -0.505, cols.train_blocks[0], "blockD_left", horiz=true); // doesnt fall
-  [[bA, bB], [bC, bD]].forEach(function(blocks, i){
+  let bA = blockOnBase(W9, -0.5, cols.train_blocks[0], "blockaA", horiz=true); // falls
+  let bB = blockOnBase(W8, 0.53, cols.train_blocks[1], "blockbC", horiz=false); //doesnt fall
+  let distractor1 = blockOnBase(W10, -0.55, cols.olive, 'distractor1', true);
+
+  let bC = blockOnBase(W8, 0.5, cols.train_blocks[1], "blockcC", horiz=false); // falls
+  let bD = blockOnBase(W9, -0.53, cols.train_blocks[0], "blockdA", horiz=true); // doesnt fall
+  let distractor2 = blockOnBase(W10, -0.52, cols.darkgrey, 'distractor2', false);
+
+  [[bA, bB, distractor1], [bC, bD, distractor2]].forEach(function(blocks, i){
     let id = "uncertain_" + i
     data[id] = {objs: blocks.concat(Walls.train.uncertain),
                 meta: meta[i],id}
@@ -80,7 +80,8 @@ trials_ac = function(){
   let meta = {
     'ac1': ["high", "low", 'train-a-implies-c-c-falls'],
     'ac2': ["uncertain", "uncertain", 'train-a-implies-c-c-falls'],
-    'ac3': ["uncertain", "uncertain", "train-a-implies-c-c-doesnt-fall"]};
+    'ac3': ["uncertain", "uncertain", "train-a-implies-c-c-doesnt-fall"]
+  };
   let colors = {'ac1': [cols.train_blocks[0], cols.train_blocks[1]],
                 'ac2': [cols.train_blocks[1], cols.train_blocks[0]],
                 'ac3': [cols.train_blocks[0], cols.train_blocks[1]]};
@@ -89,13 +90,13 @@ trials_ac = function(){
   let blocks = {};
   _.keys(colors).forEach(function(key, i){
     let b1 = blockOnBase(Walls.train.a_implies_c[0], -PRIOR[meta[key][0]],
-      colors[key][0], 'blockUp', true);
+      colors[key][0], 'blockUp_' + key, horiz[key][0]);
     let b2 = blockOnBase(Walls.train.a_implies_c[1], PRIOR[meta[key][1]],
-      colors[key][1], 'blockLow', false);
+      colors[key][1], 'blockLow_' + key, horiz[key][1]);
 
     if(key === "ac3" || key === "ac2") {
-      Body.setPosition(b1, {x: b1.position.x-1, y: b1.position.y});
-      key === "ac3" ? Body.setPosition(b2, {x: b2.position.x-2, y: b2.position.y})
+      Body.setPosition(b1, {x: b1.position.x-2, y: b1.position.y});
+      key === "ac2" ? Body.setPosition(b2, {x: b2.position.x+1.5, y: b2.position.y})
                     : null;
     }
     let id = "a_implies_c_" + i

@@ -13,7 +13,6 @@ const Bottom = wall(label='bottom', x=scene.w/2, y=scene.h - props.bottom.h/2,
 // let P1 = wall(x=570, y=Bottom.bounds.min.y - 100/2, w=150, h=100, 'platform1');
 // let WP1 = wall(x= W1.bounds.max.x - 10, y=220, w=props.walls.w/1.5, h=props.walls.h, 'wallLowRightP1');
 
-let W0 = wall('w0_wallUpLeft', 320, 100);
 let W1 = wall('w1_wallUpLeft', 320, 100);
 let W2 = wall('w2_wallLowRight', 420 - 10, 240);
 let W3 = wall('w3_wallRampLowInd', 410+4, 240, props.walls.w + 25)
@@ -131,8 +130,10 @@ Walls.train.tilted = {
 }
 
 //let W8 = wall(x=scene.w/2, y=scene.h/2, w=props.walls.w, h=props.walls.h, 'wallMiddle');
-let W8 = wall('w8_middle', scene.w/2, scene.h/2);
-Walls.train.uncertain = [W8]
+let W8 = wall('w8_middle_left', (1/4) * scene.w, scene.h/2);
+let W9 = wall('w9_middle_right', (3/4) * scene.w, scene.h/2);
+let W10 = wall('w10_right_low', (2/3) * scene.w, (3/4) * scene.h);
+Walls.train.uncertain = [W8, W9, W10]
 
 Walls.train.a_implies_c = [
   wall('wall_ac_top_left', 400, 100),
