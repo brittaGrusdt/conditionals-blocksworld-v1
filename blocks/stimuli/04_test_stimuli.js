@@ -1,5 +1,5 @@
+let TestStimuli = {"independent": {}, "a_implies_c": {}, "a_iff_c": {}};
 // conditions cotains combis of P(A) and P(C) from [high, low, uncertain]
-var Conditions = getConditions();
 
 // IMPORTANT: DYNAMIC BLOCKS HAVE TO BE ADDED BEFORE STATIC OBJECTS, OTHERWISE
 // THEY WILL FALL VERY ODD (JITTERING)
@@ -30,10 +30,8 @@ dataXblockIff = function(priors_blocks){
   return {xblock, 'xblock_side': id.split("_")[1], "sides": sides_blocks}
 }
 
-getTestStimuli = function(conditions, relations){
-  let stimuli = {}
+makeTestStimuli = function(conditions, relations){
   relations.forEach(function(rel){
-    stimuli[rel] = {};
     let walls = Walls.test[rel];
     let bases = walls.slice(0,2);
     let sides = rel === "independent" ? [-1, -1] :
@@ -87,10 +85,16 @@ getTestStimuli = function(conditions, relations){
         }
       }
       objs = objs.concat(walls);
-      stimuli[rel][id] = {"objs": blocks.concat(objs), "meta": priors[i]};
+      TestStimuli[rel][id] = {"objs": blocks.concat(objs), "meta": priors[i]};
     }
   })
-  return stimuli
 }
 
-let TestStimuli = getTestStimuli(Conditions, Relations);
+getTestStimulus = function(rel, p) {
+  let stimulus = TestStimuli[rel][rel + "_" + p];
+  return stimulus
+};
+
+if (MODE === "test") {
+  makeTestStimuli(getConditions(), Relations);
+}

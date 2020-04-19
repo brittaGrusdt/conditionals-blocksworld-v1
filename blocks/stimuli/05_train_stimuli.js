@@ -122,6 +122,11 @@ trials_iff = function(){
   return data
 }
 
+getTrainStimulus = function(kind, nb) {
+  let stimulus = TrainStimuli.map_category[kind][kind + "_" + nb];
+  return stimulus
+};
+
 if (MODE === "train" || MODE === "experiment") {
   TrainStimuli.map_category["a_iff_c"] = trials_iff();
   TrainStimuli.map_category["uncertain"] = trials_uncertain();
@@ -134,8 +139,3 @@ if (MODE === "train" || MODE === "experiment") {
     TrainStimuli.list_all = TrainStimuli.list_all.concat(arr);
   });
 }
-
-getTrainStimulus = function(kind, nb) {
-  let stimulus = TrainStimuli.map_category[kind][kind + "_" + nb];
-  return stimulus
-};

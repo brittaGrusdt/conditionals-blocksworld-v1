@@ -30,13 +30,12 @@
         // let relations = ['independent']
         // let relations = ['a_iff_c']
         // let relations = ['a_implies_c']
-        let stimuli = getTestStimuli(Conditions, relations);
         rel = relations[_.random(0, relations.length-1)];
         let p = rel === "a_iff_c" ? _.sample(['uu', 'hh', 'll', 'ul', 'hu', 'hl']) :
           _.sample(['l', 'h', 'u']) + _.sample(['l', 'h', 'u']);
         // p = 'lu'
+        stimulus = getTestStimulus(rel, p);
         id =  rel + '_' + p
-        stimulus = stimuli[rel][id];
       } else if(MODE === "train") {
         let types = ["independent", "a_implies_c", "uncertain", "a_iff_c"];
         // let types = ["a_implies_c"]
