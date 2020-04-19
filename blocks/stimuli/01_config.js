@@ -24,9 +24,7 @@ OPTS = {
 let Relations = ['a_implies_c', 'a_iff_c', 'independent'];
 // Proportion of blocks that's on top of their base walls
 // let PRIOR = {'high': 0.35, 'uncertain': 0.54, 'low': 0.68, 'very_low': 0.85}
-let PRIOR = {'high': 0.35, 'uncertain': 0.53, 'low': 0.68, 'very_low': 0.85}
-// let PRIOR = {'high': 0.35, 'uncertain': 0.50, 'low': 0.68, 'very_low': 0.85}
-
+let PRIOR = {'high': 0.35, 'uncertain': 0.51, 'low': 0.68, 'very_low': 0.85}
 
 // for independent trials, one block is shifted to the right depending on prior
 let independent_shift = {"high": 12, "uncertain": 25, "low": 85, "very_low": 100};

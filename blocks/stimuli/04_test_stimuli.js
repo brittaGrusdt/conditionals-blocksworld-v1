@@ -41,6 +41,9 @@ testTrials_a_iff_c = function(priors, bases){
     let baseB2 = xBlock.side === "left" ? bases[1] : xBlock.block;
     blocks = make2ColoredBlocks([baseB1, baseB2], priors, xBlock.sides);
     blocks.push(xBlock.block);
+  } else {
+    let sides = [1, -1]
+    blocks = make2ColoredBlocks(bases, priors, sides);
   }
   return blocks;
 }
@@ -48,7 +51,7 @@ testTrials_a_iff_c = function(priors, bases){
 testTrials_ac = function(priors, bases){
   // first block is on top of a wall, second block on top of an extra block
   let blocks = [];
-  let bX1 = block(P1.position.x, P1.bounds.min.y, cols.darkgrey, 'bX1', true)
+  let bX1 = block(P1.bounds.min.x + 1.5 * props.blocks.h/2, P1.bounds.min.y, cols.darkgrey, 'bX1', true)
   //let bX2 = blockOnBase(bX1, -1 * PRIOR["very_low"], cols.orange, 'bX2', true);
   let b1 = blockOnBase(bases[0], PRIOR[priors[0]], cols.blocks[0], 'blockA', true);
   let b2 = blockOnBase(bX1, PRIOR["very_low"], cols.blocks[1], 'blockC', true);
