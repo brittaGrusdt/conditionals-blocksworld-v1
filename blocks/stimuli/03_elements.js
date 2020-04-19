@@ -73,6 +73,7 @@ makeRamp = function(angle, tilt_increase, wallLow){
 let W6 = wall('wall_seesaw_left', 225, 240, props.walls.w/1.5);
 let W7 = wall('wall_seesaw_right', 575, 240, props.walls.w/1.5);
 
+
 // seesaw
 let stick = wall('stick', x=scene.w/2,
   y=scene.h - props.bottom.h - props.seesaw.stick.h / 2,
@@ -101,17 +102,17 @@ var constraint = Constraint.create({
     length: 0
 });
 
-// Extra block used in iff trials
-makeXBlockIff = function(label, color, horiz=true){
-  let s = label==="xblock_left" ? 1 : -1;
-  let base = label==="xblock_left" ? W6 : W7;
-  return blockOnBase(base, 0.6 * s, color, label, horiz)
+// Extra block used in iff trials, function is needed because it might move
+makeXBlockIff = function(base, side, color, horiz=true){
+  let s = side==="left" ? 1 : -1;
+  return blockOnBase(base, 0.6 * s, color, "Xblock_" + side, horiz)
 }
 
 // The first two list entries are respectively the bases for block1 and block2
 Walls.test = {'independent': [W1, W3], // tilted wall+ball added dep on prior
               'a_implies_c': [W5, P1, WP1],
-              'a_iff_c': [W6, W7, skeleton, plank, constraint]
+              'a_iff_c': [W6, W7, skeleton],
+              'a_iff_c_dynamic': [plank, constraint]
               };
 
 Walls.test.tilted = {
