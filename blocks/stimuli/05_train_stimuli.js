@@ -33,8 +33,10 @@ trials_independent = function(){
   // 2.trial: steep and plane tilted walls are different
   [bA, bB, bC].forEach(function(block1, i){
     let id = "independent_" + i;
-    let ramp_type = block1.label === "blockLowB" ? "independent_steep" : "independent_plane";
-    let walls = Walls.train.independent.concat(Walls.train.tilted[ramp_type]);
+    let ramp_type = block1.label === "blockLowB" ? "steep" : "plane";
+    let walls = Walls.train.independent.concat(
+      Walls.train.tilted_independent(ramp_type, false, baseRampTrain())
+    );
     walls.unshift(bases[i]);
     if(block1.label === "blockLowC") {
       Matter.Body.scale(walls[0], 1.18, 1);
@@ -109,15 +111,16 @@ trials_ac = function(){
 // Seesaw TRIALS
 trials_iff = function(){
   data = {};
-  let w = Walls.train.a_iff_c[0]
-  let bA = block(w.bounds.max.x, w.bounds.min.y, cols.train_blocks[1],
-    'blockA', horiz=false);
-  let bB = block(W7.bounds.min.x + 3, W7.bounds.min.y, cols.train_blocks[0],
-    'blockB', horiz=false);
+  let objs = Walls.train.seesaw_trials();
+  let walls = objs.walls;
+  let bA = block(walls[0].bounds.max.x, walls[0].bounds.min.y,
+    cols.train_blocks[1], 'blockA', horiz=false);
+  let bB = block(walls[1].bounds.min.x + 3, walls[1].bounds.min.y,
+    cols.train_blocks[0], 'blockB', horiz=false);
 
   [[bA, bB]].forEach(function(blocks, i){
     let id = "a_iff_c_" + i
-    data[id] = {objs: blocks.concat(Walls.train.a_iff_c),
+    data[id] = {objs: blocks.concat(objs.dynamic).concat(walls),
                 meta: ["uncertain", "low", "train-iff"], id}
   });
   return data

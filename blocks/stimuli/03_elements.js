@@ -132,9 +132,10 @@ Walls.test.tilted['a_iff_c'] = function(tilt, increase, base){
 
 //// Elements for TRAINING TRIALS //////
 Walls.train.independent = [W4];
-Walls.train.tilted = {
-  'independent_steep': _.values(makeRamp(-45, false, baseRampTrain())),
-  'independent_plane': _.values(makeRamp(-30, false, baseRampTrain()))
+Walls.train.tilted_independent =  function(tilt, increase, base) {
+  let angle = tilt === "steep" ? -45 : -30;
+  let ramp =  makeRamp(angle, increase, base)
+  return _.values(ramp)
 }
 
 //let W8 = wall(x=scene.w/2, y=scene.h/2, w=props.walls.w, h=props.walls.h, 'wallMiddle');
@@ -148,9 +149,19 @@ Walls.train.a_implies_c = [
   wall('wall_ac_low_right', 100 + props.walls.w/2 - 10, 240)
 ];
 
-let seesaw_train = seesaw(scene.w/2);
-Walls.train.a_iff_c = [
-  wall('wallTopLeft', 100, 125, 100),
-  wall('ramp', 200, 175, Math.pow(10,2)*Math.sqrt(2)),
-].concat([W7(), seesaw_train.skeleton, seesaw_train.plank, seesaw_train.constraint]);
-Body.setAngle(Walls.train.a_iff_c[1], radians(45));
+// let seesaw_train = seesaw(scene.w/2);
+// Walls.train.a_iff_c = [
+//   wall('wallTopLeft', 100, 125, 100),
+//   wall('ramp', 200, 175, Math.pow(10,2)*Math.sqrt(2)),
+// ].concat([W7(), seesaw_train.skeleton, seesaw_train.plank, seesaw_train.constraint]);
+// Body.setAngle(Walls.train.a_iff_c[1], radians(45));
+
+Walls.train.seesaw_trials = function(){
+  let objs = seesaw(scene.w/2)
+
+  let ramp = wall('ramp', 200, 175, Math.pow(10,2)*Math.sqrt(2))
+  Body.setAngle(ramp, radians(45));
+  // first two elements are bases for blocks!
+  let walls = [wall('wallTopLeft', 100, 125, 100), W7(), ramp].concat([objs.skeleton]);
+  return {'walls': walls, 'dynamic': [objs.plank, objs.constraint]}
+}
