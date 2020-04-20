@@ -5,8 +5,6 @@ blockOnBase = function(base, propOnBase, color, label, horiz=false) {
   let edge = propOnBase < 0 ? "min" : "max"
   let factor = propOnBase < 0 ? - propOnBase : (1-propOnBase)
   let x = base.bounds[edge]["x"] + factor * w - w / 2;
-  // let x = propOnBase < 0 ? base.bounds.min.x - propOnBase * w - w/2 :
-  //   base.bounds.max.x + (1-propOnBase) * w - w/2;
 
   let opts = Object.assign({'render': {'fillStyle': color}, label}, OPTS.blocks)
   return Bodies.rectangle(x, base.bounds.min.y - h / 2, w, h, opts);

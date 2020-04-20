@@ -18,40 +18,61 @@ make2ColoredBlocks = function(bases, priors_str, sides){
   return blocks
 }
 
-dataXblockIff = function(priors_blocks){
-  let xblock_side =
-    (priors_blocks.includes("low")) ? _.indexOf(priors_blocks,"low") :
-    (priors_blocks.includes("high") && priors_blocks.includes("uncertain")) ?
-      _.indexOf(priors_blocks, "uncertain") : _.random(0, 1);
+testTrials_a_iff_c = function(priors){
+  let data_ramp = priors[0] === priors[1] ?
+  {side: "right", i:1, 'moveBlock': 1, 'increase': true} :
+  {side: "left", i: 0, 'moveBlock': -1, 'increase': false};
 
-  let data = xblock_side === 0 ? {side: 'left', base: W6} :
-    {side: 'right', base: W7};
-  let xblock = makeXBlockIff(data.base, data.side, cols.darkgrey);
-  let sides_blocks = xblock_side === 0 ? [-1, -1] : [1, 1]
+  let offset = data_ramp.side === "left" ? 50 : -50;
+  let seesaw = Walls.test.seesaw_trials(offset)
 
-  return {'block': xblock, 'side': data.side, "sides": sides_blocks}
-}
-
-testTrials_a_iff_c = function(priors, bases){
-  let blocks = [];
-  if(priors[0] + "-" + priors[1] !== "uncertain-uncertain") {
-    // add extra block for iff-trials when prior is not uncertain-uncertain
-    let xBlock = dataXblockIff(priors)
-    let baseB1 = xBlock.side === "left" ? xBlock.block : bases[0]
-    let baseB2 = xBlock.side === "left" ? bases[1] : xBlock.block;
-    blocks = make2ColoredBlocks([baseB1, baseB2], priors, xBlock.sides);
-    blocks.push(xBlock.block);
+  let ramp_walls;
+  if (priors[data_ramp.i] === "uncertain" || priors[data_ramp.i] === "low") {
+    ramp_walls = Walls.test.tilted.a_iff_c('plane', data_ramp.increase,
+      seesaw.walls[data_ramp.i])
   } else {
-    let sides = [1, -1]
-    blocks = make2ColoredBlocks(bases, priors, sides);
+    ramp_walls = Walls.test.tilted.a_iff_c('steep', data_ramp.increase,
+      seesaw.walls[data_ramp.i]);
   }
-  return blocks;
+  let objs = seesaw.dynamic.concat(ramp_walls).concat(seesaw.walls)
+  // add 2 blocks + extra block for iff-trials
+  let xBlock,
+      bases,
+      sides,
+      factor;
+  if (data_ramp.side === "left") {
+    factor = -1
+    xBlock = blockOnBase(seesaw.walls[1], factor * 0.52, cols.darkgrey, "XblockR", true)
+    bases = [seesaw.walls[0], xBlock]
+    sides = [1, 1]
+  } else {
+    factor = 1;
+    xBlock = blockOnBase(seesaw.walls[0], factor * 0.52, cols.darkgrey, "XblockL", true)
+    bases = [xBlock, seesaw.walls[1]]
+    sides = [-1, -1]
+  }
+  let blocks = [];
+  if (priors[0] === "high" && priors[1] === "high") {
+    let xBlock2 = blockOnBase(xBlock, 0.52 * -factor, cols.olive, "xBlock2", true)
+    blocks.push(xBlock2)
+    let idx = factor === -1 ? 1 : 0;
+    bases[idx] = xBlock2
+    sides[idx] = sides[idx] * -1
+  }
+
+  let twoBlocks = make2ColoredBlocks(bases, priors, sides);
+  let shift = iff_shift[priors[data_ramp.i]] * data_ramp.moveBlock;
+  let b = twoBlocks[data_ramp.i]
+  Matter.Body.setPosition(b, {x: b.position.x + shift, y: b.position.y});
+  blocks = blocks.concat(twoBlocks).concat(xBlock);
+  return blocks.concat(objs);
 }
 
 testTrials_ac = function(priors, bases){
   // first block is on top of a wall, second block on top of an extra block
   let blocks = [];
-  let bX1 = block(P1.bounds.min.x + 1.5 * props.blocks.h/2, P1.bounds.min.y, cols.darkgrey, 'bX1', true)
+  let bX1 = block(P1.bounds.min.x + 1.5 * props.blocks.h/2, P1.bounds.min.y,
+    cols.darkgrey, 'bX1', true)
   //let bX2 = blockOnBase(bX1, -1 * PRIOR["very_low"], cols.orange, 'bX2', true);
   let b1 = blockOnBase(bases[0], PRIOR[priors[0]], cols.blocks[0], 'blockA', true);
   let b2 = blockOnBase(bX1, PRIOR["very_low"], cols.blocks[1], 'blockC', true);
@@ -84,7 +105,7 @@ makeTestStimuli = function(conditions, relations){
       let id = rel + '_' + pb1[0] + pb2[0];
       let objs = [];
       let blocks = rel === "a_iff_c" ?
-        testTrials_a_iff_c(priors, bases) : rel === "a_implies_c" ?
+        testTrials_a_iff_c(priors) : rel === "a_implies_c" ?
         testTrials_ac(priors, bases) : rel === "independent" ?
         testTrials_independent(priors, bases) : null;
 
@@ -99,8 +120,6 @@ makeTestStimuli = function(conditions, relations){
               Walls.test.tilted[rel + '_middle'];
             objs = objs.concat(x);
         }
-      } else {
-        objs = objs.concat(Walls.test.a_iff_c_dynamic);
       }
       objs = objs.concat(Walls.test[rel]);
       TestStimuli[rel][id] = {"objs": blocks.concat(objs), "meta": priors};

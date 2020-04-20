@@ -28,6 +28,8 @@ let PRIOR = {'high': 0.35, 'uncertain': 0.51, 'low': 0.68, 'very_low': 0.85}
 
 // for independent trials, one block is shifted to the right depending on prior
 let independent_shift = {"high": 12, "uncertain": 25, "low": 85, "very_low": 100};
-let overlap_shift = {"angle45": 25, "angle30": 14.5, "angle20": 7}
+let iff_shift = {"high": 12, "uncertain": 25, "low": 70, "very_low": 100};
+
+let overlap_shift = {"angle45": 25, "angle30": 14.5, "angle15": 7, "angle25": 10}
 
 let SIMULATION = {'duration': 5000};

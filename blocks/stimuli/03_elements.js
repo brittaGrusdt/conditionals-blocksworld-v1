@@ -33,7 +33,6 @@ baseRampTrain = function(){
 
 makeRamp = function(angle, tilt_increase, wallLow){
   let overlap = overlap_shift[ "angle" + Math.abs(angle)];
-  let shift_x, w_low_x_edge;
 
   let pos = tilt_increase ? {shift_x: 1, w_low_x_edge: wallLow.bounds.max.x} :
     {shift_x: -1, w_low_x_edge: wallLow.bounds.min.x};
@@ -46,11 +45,8 @@ makeRamp = function(angle, tilt_increase, wallLow){
     Math.pow(Math.cos(r)*ramp_width/2, 2));
   let ramp_y = wallLow.position.y - hMiddle;
 
-  let ramp = wall('ramp' + angle,
-    pos.w_low_x_edge + pos.shift_x * ramp_width/2 - pos.shift_x * overlap,
-    ramp_y, ramp_width
-  );
-
+  let ramp_x = pos.w_low_x_edge + pos.shift_x*ramp_width/2 - pos.shift_x*overlap
+  let ramp = wall('ramp' + angle, ramp_x, ramp_y, ramp_width);
   pos.x_edge_w_top = tilt_increase ? ramp.bounds.max.x : ramp.bounds.min.x;
 
   let wallTop_y = ramp.position.y - hMiddle + props.walls.h/2;
@@ -70,50 +66,56 @@ makeRamp = function(angle, tilt_increase, wallLow){
 
 // let W6 = wall(225, 240, props.walls.w/1.5, props.walls.h, 'wall_seesaw_left');
 // let W7 = wall(575, 240, props.walls.w/1.5, props.walls.h, 'wall_seesaw_right');
-let W6 = wall('wall_seesaw_left', 225, 240, props.walls.w/1.5);
-let W7 = wall('wall_seesaw_right', 575, 240, props.walls.w/1.5);
+let W6 = function(){return wall('wall_seesaw_left', 225, 240, props.walls.w/1.5)};
+let W7 = function(){return wall('wall_seesaw_right', 575, 240, props.walls.w/1.5)};
 
 
 // seesaw
-let stick = wall('stick', x=scene.w/2,
-  y=scene.h - props.bottom.h - props.seesaw.stick.h / 2,
-  w=props.seesaw.stick.w, h=props.seesaw.stick.h,
-  opts={render: {fillStyle: cols.darkgrey}}
-);
+seesaw = function(pos){
+  let stick = wall('stick', x=pos,
+    y=scene.h - props.bottom.h - props.seesaw.stick.h / 2,
+    w=props.seesaw.stick.w, h=props.seesaw.stick.h,
+    opts={render: {fillStyle: cols.darkgrey}}
+  );
 
-let link = wall('link', scene.w/2, stick.bounds.min.y - props.seesaw.link.h/2,
-  props.seesaw.link.w, props.seesaw.link.h, {render: {fillStyle: cols.brown}}
-);
+  let link = wall('link', pos, stick.bounds.min.y - props.seesaw.link.h/2,
+    props.seesaw.link.w, props.seesaw.link.h, {render: {fillStyle: cols.brown}}
+  );
 
-let skeleton = Body.create({'parts': [stick, link],
-                            'isStatic': true,
-                            'label': 'skeleton'
-                          });
+  let skeleton = Body.create({'parts': [stick, link],
+    'isStatic': true,
+    'label': 'skeleton'
+  });
 
-let defPlank = Object.assign({'x': scene.w/2,
-                              'y': link.bounds.min.y - props.seesaw.plank.h/2,
-                              }, props.seesaw.plank);
-let plank = rect(defPlank, {'label':'plank', 'render':{'fillStyle':cols.plank}})
+  let defPlank = Object.assign({x: pos,
+    y: link.bounds.min.y - props.seesaw.plank.h/2,
+  }, props.seesaw.plank);
+  let plank = rect(defPlank, {'label':'plank', 'render':{'fillStyle':cols.plank}})
 
-var constraint = Constraint.create({
+  var constraint = Constraint.create({
     pointA: {x: plank.position.x, y: plank.position.y},
     bodyB: plank,
     stiffness: 0.7,
     length: 0
-});
-
-// Extra block used in iff trials, function is needed because it might move
-makeXBlockIff = function(base, side, color, horiz=true){
-  let s = side==="left" ? 1 : -1;
-  return blockOnBase(base, 0.6 * s, color, "Xblock_" + side, horiz)
+  });
+  return {stick, link, skeleton, plank, constraint}
 }
 
 // The first two list entries are respectively the bases for block1 and block2
 Walls.test = {'independent': [W1, W3], // tilted wall+ball added dep on prior
               'a_implies_c': [W5, P1, WP1],
-              'a_iff_c': [W6, W7, skeleton],
-              'a_iff_c_dynamic': [plank, constraint]
+              'a_iff_c': []
               };
+
+Walls.test.seesaw_trials = function(offset){
+  let objs = seesaw(scene.w/2 + offset)
+  let bases = [W6(), W7()];
+  bases.forEach(function(wall, i){
+    Body.setPosition(wall, {x: wall.position.x + offset, y: wall.position.y})
+  });
+  let walls = bases.concat([objs.skeleton]);
+  return {'walls': walls, 'dynamic': [objs.plank, objs.constraint]}
+}
 
 Walls.test.tilted = {
   'independent_steep': _.values(makeRamp(-45, true, W3)),
@@ -121,6 +123,11 @@ Walls.test.tilted = {
   'a_implies_c_plane': _.values(makeRamp(-20, false, WP1)),
   'a_implies_c_middle': _.values(makeRamp(-30, false, WP1)),
   'a_implies_c_steep': _.values(makeRamp(-45, false, WP1))
+}
+Walls.test.tilted['a_iff_c'] = function(tilt, increase, base){
+  let angle = tilt === "steep" ? -25 : tilt === 'plane' ? -15 : null;
+  let ramp = makeRamp(angle, increase, base)
+  return _.values(ramp)
 }
 
 //// Elements for TRAINING TRIALS //////
@@ -141,8 +148,9 @@ Walls.train.a_implies_c = [
   wall('wall_ac_low_right', 100 + props.walls.w/2 - 10, 240)
 ];
 
+let seesaw_train = seesaw(scene.w/2);
 Walls.train.a_iff_c = [
   wall('wallTopLeft', 100, 125, 100),
   wall('ramp', 200, 175, Math.pow(10,2)*Math.sqrt(2)),
-].concat([W7, skeleton, plank, constraint]);
+].concat([W7(), seesaw_train.skeleton, seesaw_train.plank, seesaw_train.constraint]);
 Body.setAngle(Walls.train.a_iff_c[1], radians(45));

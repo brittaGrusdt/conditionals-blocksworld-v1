@@ -31,9 +31,14 @@
         // let relations = ['a_iff_c']
         // let relations = ['a_implies_c']
         rel = relations[_.random(0, relations.length-1)];
-        let p = rel === "a_iff_c" ? _.sample(['uu', 'hh', 'll', 'ul', 'hu', 'hl']) :
-          _.sample(['l', 'h', 'u']) + _.sample(['l', 'h', 'u']);
-        // p = 'lu'
+        let p1 = _.sample(['u', 'h', 'l']);
+        // a<->c only 6 cases:  ul, hu, hl, uu, ll, hh
+        let p2 = rel === "a_iff_c" ? (p1==='u' ? 'l' :
+          p1==='h' ? _.sample(['u', 'l']) : 'l') : _.sample(['l', 'h', 'u']);
+
+        // p1 = 'h'
+        // p2 = 'h'
+        let p = p1 + p2;
         stimulus = getTestStimulus(rel, p);
         id =  rel + '_' + p
       } else if(MODE === "train") {
