@@ -17,6 +17,7 @@ $("document")
       // You have to specify all views you want to use in this experiment and the order of them
       views_seq: [
       intro,
+      instructions_colors,
       instructions,
       instructions_train1,
       animation_view1,

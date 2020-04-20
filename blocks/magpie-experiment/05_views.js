@@ -45,12 +45,27 @@ const intro = magpieViews.view_generator("intro", {
   buttonText: "begin the experiment"
 });
 
+const instructions_colors = magpieViews.view_generator("instructions", {
+  trials: 1,
+  name: "instructions_colors",
+  title: "General Instructions",
+  text: `In this experiment you are shown pictures of different arrangements of blocks.
+         <br />
+         Before we start the experiment, we will show you four pictures of blocks
+         with different colors.
+         <br />
+         <br />
+         Please answer the questions shown below the pictures.`,
+  buttonText: "START"
+});
+
 // For most tasks, you need instructions views
 const instructions = magpieViews.view_generator("instructions", {
   trials: 1,
   name: "instructions",
   title: "General Instructions",
-  text: `In this experiment you are shown pictures of different arrangements of blocks.
+  text: `Great - we will now continue with the actual experiment in which you
+         will be shown different scenes containing such blocks.
           <br/>
           <br/>
          For each presented scene you will be asked to estimate the likelihood that certain blocks fall/don't fall.
