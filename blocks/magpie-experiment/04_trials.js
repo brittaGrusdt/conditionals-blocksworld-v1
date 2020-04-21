@@ -3,16 +3,16 @@ var color_vision_test = [
   {
     QUD: "This is a premaring color vision test",
     question: "On what side is the BLUE bock?",
-    picture1: "../stimuli/img/group1/independent_ll.jpg",
-    picture2: "../stimuli/img/group1/a_implies_c_ul.jpg",
+    picture1: "../stimuli/img/color_vision_train0.jpg",
+    picture2: "../stimuli/img/color_vision_train1.jpg",
     option1: "left",
     option2: "right"
 
   },
   {
     QUD: "This is a premaring color vision test",
-    picture1: "../stimuli/img/group1/a_implies_c_hh.jpg",
-    picture2: "../stimuli/img/group1/a_implies_c_ul.jpg",
+    picture1: "../stimuli/img/color_vision_test0.jpg",
+    picture2: "../stimuli/img/color_vision_test1.jpg",
     option1: "left",
     option2: "right",
     question: "On what side is the GREEN bock?"
