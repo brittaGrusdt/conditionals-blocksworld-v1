@@ -193,9 +193,22 @@ const thanks = magpieViews.view_generator("thanks", {
   prolificConfirmText: "Press the button"
 });
 
-// const forced_choice_custom = magpieViews.view_generator("forced_choice", {
-//
-// })
+const forced_choice_custom = magpieViews.view_generator("forced_choice", {
+  trials: color_vision_test.length,
+  name: "color-vision",
+  data: color_vision_test
+}, {
+  stimulus_container_generator: function (config, CT) {
+    return `<div class='magpie-view'>
+    <h1 class='magpie-view-title'>${config.title}</h1>
+    <p class='magpie-view-question magpie-view-qud'>${config.data[CT].QUD}</p>
+                        <div class='magpie-view-stimulus-container'>
+                          <img src="${config.data[CT].picture1}" class = "img" >
+                          <img src="${config.data[CT].picture2}" class = "img">
+                        </div>
+                      </div>`;
+  }
+});
 
 // experimental phase trials
 const multiple_slider = magpieViews.view_generator(

@@ -247,3 +247,7 @@ input[type="range"].replied::-webkit-slider-thumb {
 /* .progress-bar-container {
   margin: 0 10px 0px 10px;
 } */
+
+.img{
+  width: 50%
+}

@@ -1,4 +1,25 @@
 // In this file you can specify the trial data for your experiment
+var color_vision_test = [
+  {
+    QUD: "This is a premaring color vision test",
+    question: "On what side is the BLUE bock?",
+    picture1: "../stimuli/img/group1/independent_ll.jpg",
+    picture2: "../stimuli/img/group1/a_implies_c_ul.jpg",
+    option1: "left",
+    option2: "right"
+
+  },
+  {
+    QUD: "This is a premaring color vision test",
+    picture1: "../stimuli/img/group1/a_implies_c_hh.jpg",
+    picture2: "../stimuli/img/group1/a_implies_c_ul.jpg",
+    option1: "left",
+    option2: "right",
+    question: "On what side is the GREEN bock?"
+
+  }
+]
+
 
 var slider_rating_trials = [
   {
@@ -248,7 +269,7 @@ var slider_rating_trials = [
 // adapt path to pictures depending on colour group in each trial
 // add group and id separately
 let n = slider_rating_trials.length;
-_.map(slider_rating_trials, function(trial){
+_.map(slider_rating_trials, function (trial) {
   let group = _.sample(["group1", "group2"]);
   trial.picture = trial.picture.replace("group", group);
   trial.group = group;
@@ -275,17 +296,19 @@ let train_slider_trials = [
 ];
 
 // the data of the training stimuli is always the same, buttons are always shown in
-// same order 
+// same order
 let TRAIN_TRIALS = [];
-_.range(0, NB_TRAIN_TRIALS-1).forEach(function(i) {
-  let data = {QUD: 'Which block(s) do you think will fall? Click on RUN to see!',
-              question1: text_train_buttons.ac,
-              question2: text_train_buttons.a,
-              question3: text_train_buttons.c,
-              question4: text_train_buttons.none
-              };
-  TRAIN_TRIALS.push(data);
-});
+_.range(0, NB_TRAIN_TRIALS - 1)
+  .forEach(function (i) {
+    let data = {
+      QUD: 'Which block(s) do you think will fall? Click on RUN to see!',
+      question1: text_train_buttons.ac,
+      question2: text_train_buttons.a,
+      question3: text_train_buttons.c,
+      question4: text_train_buttons.none
+    };
+    TRAIN_TRIALS.push(data);
+  });
 let questions_train = Object.values(id2QuestionTrain)
 train_slider_trials = shuffleQuestionsAllTrials(questions_train, train_slider_trials);
 
