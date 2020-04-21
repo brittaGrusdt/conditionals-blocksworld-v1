@@ -21,6 +21,7 @@
     <script src="04_test_stimuli.js"></script>
     <script src="05_train_stimuli.js" type="text/javascript"></script>
     <script src="06_scene.js"></script>
+    <script src="color-vision.js"></script>
 
     <!-- choose experimental/train stimulus -->
     <script type="text/javascript">
@@ -52,6 +53,11 @@
         // nb = 0;
         stimulus = getTrainStimulus(rel, nb);
         id =  rel + '_' + nb;
+      } else if (MODE == "color-vision"){
+        let ColorVisionStimuli = [];
+        let id = 1;
+        let stimuli = makeColorVisionStimuli();
+        stimulus = stimuli[id]
       }
       console.log(id)
     </script>

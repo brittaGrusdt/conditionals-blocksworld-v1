@@ -1,4 +1,5 @@
 const DEBUG = true;
+// var MODE = "color-vision"
 // var MODE = "train"
 var MODE = "test"
 // var MODE = "experiment"

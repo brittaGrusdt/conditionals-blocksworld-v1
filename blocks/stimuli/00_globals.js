@@ -30,5 +30,5 @@ cols = {
       'darkgreen': '#119533'
     };
 cols.plank = cols.blue
-cols.blocks = [cols.green, cols.royal];
+cols.test_blocks = [cols.green, cols.royal];
 cols.train_blocks = [cols.bordeaux, cols.darkyellow];

@@ -149,13 +149,6 @@ Walls.train.a_implies_c = [
   wall('wall_ac_low_right', 100 + props.walls.w/2 - 10, 240)
 ];
 
-// let seesaw_train = seesaw(scene.w/2);
-// Walls.train.a_iff_c = [
-//   wall('wallTopLeft', 100, 125, 100),
-//   wall('ramp', 200, 175, Math.pow(10,2)*Math.sqrt(2)),
-// ].concat([W7(), seesaw_train.skeleton, seesaw_train.plank, seesaw_train.constraint]);
-// Body.setAngle(Walls.train.a_iff_c[1], radians(45));
-
 Walls.train.seesaw_trials = function(){
   let objs = seesaw(scene.w/2)
 
