@@ -158,7 +158,7 @@ const instructions_test = magpieViews.view_generator("instructions", {
             </br>
           We will now start the experiment. There are <b>24</b> scenes in total
           and the experiment will take you about <b>15-20</b> minutes.`,
-    buttonText: "start experiment"
+  buttonText: "start experiment"
 });
 
 
@@ -192,6 +192,10 @@ const thanks = magpieViews.view_generator("thanks", {
   title: "Thank you very much for taking part in this experiment!",
   prolificConfirmText: "Press the button"
 });
+
+// const forced_choice_custom = magpieViews.view_generator("forced_choice", {
+//
+// })
 
 // experimental phase trials
 const multiple_slider = magpieViews.view_generator(
