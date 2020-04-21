@@ -23,7 +23,7 @@ rect = function(props, opts={}){
 }
 
 wall = function(label, x, y, w=props.walls.w, h=props.walls.h, opts={}){
-  opts = Object.assign({label}, opts, OPTS.walls);
+  opts = Object.assign({label}, OPTS.walls, opts);
   return Bodies.rectangle(x, y, w, h, opts);
 }
 
