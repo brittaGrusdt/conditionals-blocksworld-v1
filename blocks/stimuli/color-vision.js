@@ -3,7 +3,7 @@ makeColorVisionStimuli = function(){
   let base = wall('w_center', scene.w/2, scene.h/2, props.walls.w,
     props.walls.h, {'render': {'fillStyle': cols.grey}})
   let cols_blocks = cols.train_blocks.concat(cols.test_blocks);
-  let cols_distractors = [cols.darkbrown, cols.darkgrey, cols.darkgrey, cols.darkbrown]
+  let cols_distractors = [cols.grey, cols.darkgrey, cols.darkgrey, cols.grey]
 
   for(var trial=0; trial<4; trial++) {
     let id = 'color' + trial;

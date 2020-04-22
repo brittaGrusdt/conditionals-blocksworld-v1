@@ -17,7 +17,6 @@ cols = {
       'light_green': '#51DE19',
       'purple': '#AF7AC5',
       'brown': '#B05D3A',
-      'darkbrown': '#874400',
       'grey': '#E3DFDC',
       'darkgrey': '#938F8E',
       'darkbrown': '#642F17',

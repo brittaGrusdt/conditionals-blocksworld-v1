@@ -57,20 +57,23 @@ trials_independent = function(){
 trials_uncertain = function(){
   let data = {}
   let meta = [
-    ["falls-horiz", "doesnt-fall", "train-uncertain"],
-    ["doesnt-fall-horiz","falls", "train-uncertain"]
+    ["doesnt-fall", "falls-horiz", "train-uncertain"],
+    ["falls", "doesnt-fall-horiz", "train-uncertain"]
   ];
-  let bA = blockOnBase(W9, -0.5, cols.train_blocks[0], "blockaA", horiz=true); // falls
-  let bB = blockOnBase(W8, 0.53, cols.train_blocks[1], "blockbC", horiz=false); //doesnt fall
-  let distractor1 = blockOnBase(W10, -0.55, cols.darkbrown, 'distractor1', true);
+  let walls = Walls.train.uncertain;
+  let bA = blockOnBase(walls[0], 0.55, cols.train_blocks[1], "blockaA", horiz=false); //doesnt fall
+  let bB = blockOnBase(walls[1], -0.5, cols.train_blocks[0], "blockbC", horiz=true); // falls
+  let dist1 = blockOnBase(walls[2], -0.505, cols.darkgrey, 'dist1', true);
 
-  let bC = blockOnBase(W8, 0.5, cols.train_blocks[1], "blockcC", horiz=false); // falls
-  let bD = blockOnBase(W9, -0.53, cols.train_blocks[0], "blockdA", horiz=true); // doesnt fall
-  let distractor2 = blockOnBase(W10, -0.52, cols.darkgrey, 'distractor2', false);
+  let bC = blockOnBase(walls[0], 0.5, cols.train_blocks[1], "blockcA", horiz=false); // falls
+  let bD = blockOnBase(walls[1], -0.53, cols.train_blocks[0], "blockdC", horiz=true); // doesnt fall
+  let dist2 = blockOnBase(walls[2], -0.6, cols.darkgrey, 'dist2', true);
+  let dist3 = blockOnBase(dist2, 0.52, cols.grey, 'dist3', true);
 
-  [[bA, bB, distractor1], [bC, bD, distractor2]].forEach(function(blocks, i){
+
+  [[bA, bB, dist1], [bC, bD, dist2, dist3]].forEach(function(blocks, i){
     let id = "uncertain_" + i
-    data[id] = {objs: blocks.concat(Walls.train.uncertain),
+    data[id] = {objs: blocks.concat(walls),
                 meta: meta[i],id}
     });
   return data

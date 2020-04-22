@@ -139,8 +139,8 @@ Walls.train.tilted_independent =  function(tilt, increase, base) {
 }
 
 //let W8 = wall(x=scene.w/2, y=scene.h/2, w=props.walls.w, h=props.walls.h, 'wallMiddle');
-let W8 = wall('w8_middle_left', (1/4) * scene.w, scene.h/2);
-let W9 = wall('w9_middle_right', (3/4) * scene.w, scene.h/2);
+let W8 = wall('w8_middle_left', (1/4) * scene.w, scene.h/3);
+let W9 = wall('w9_middle_right', (3/4) * scene.w, scene.h/3);
 let W10 = wall('w10_right_low', (2/3) * scene.w, (3/4) * scene.h);
 Walls.train.uncertain = [W8, W9, W10]
 
