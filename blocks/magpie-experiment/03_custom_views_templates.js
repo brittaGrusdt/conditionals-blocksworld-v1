@@ -26,8 +26,8 @@ const animation_view1  = {
           cleared = true;
         }
       });
-      ['ac', 'a', 'c', 'none'].forEach(function(key){
-        toggleSelected(key);
+      TRAIN_BTTN_IDS.forEach(function(id){
+        toggleSelected(id);
       });
 
       let animationStarted = false;
