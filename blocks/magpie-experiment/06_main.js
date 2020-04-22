@@ -17,11 +17,10 @@ $("document")
       // You have to specify all views you want to use in this experiment and the order of them
       views_seq: [
       intro,
-      instructions_colors,
-      instructions,
-      instructions_train1,
-      animation_view1,
+      instructions_train1_colors,
       instructions_train2,
+      animation_view1,
+      instructions_train3,
       animation_view2,
       instructions_test,
       multiple_slider,
