@@ -2,42 +2,42 @@
 var color_vision_test = [
   {
     QUD: "This is a premaring color vision test",
-    question: "On what side is the BLUE bock?",
+    question: "Is the BLUE bock on the right side?",
     picture1: "../stimuli/img/color_vision_test0.jpg",
     picture2: "../stimuli/img/color_vision_test1.jpg",
-    option1: "left",
-    option2: "right",
-    expected: "right"
+    option1: "no",
+    option2: "yes",
+    expected: "yes"
 
   },
   {
     QUD: "This is a premaring color vision test",
-    question: "On what side is the GREEN bock?",
-    picture1: "../stimuli/img/color_vision_test0.jpg",
-    picture2: "../stimuli/img/color_vision_test1.jpg",
-    option1: "left",
-    option2: "right",
-    expected: "left"
+    question: "Is the GREEN bock on the right side?",
+    picture1: "../stimuli/img/color_vision_test1.jpg",
+    picture2: "../stimuli/img/color_vision_test0.jpg",
+    option1: "no",
+    option2: "yes",
+    expected: "yes"
 
   },
   {
     QUD: "This is a premaring color vision test",
     picture1: "../stimuli/img/color_vision_train0.jpg",
     picture2: "../stimuli/img/color_vision_train1.jpg",
-    option1: "left",
-    option2: "right",
-    question: "On what side is the RED bock?",
-    expected: "left"
+    option1: "no",
+    option2: "yes",
+    question: "Is the RED bock on the left side?",
+    expected: "yes"
 
   },
   {
     QUD: "This is a premaring color vision test",
     picture1: "../stimuli/img/color_vision_train0.jpg",
     picture2: "../stimuli/img/color_vision_train1.jpg",
-    option1: "left",
-    option2: "right",
-    question: "On what side is the YELLOW bock?",
-    expected: "right"
+    option1: "no",
+    option2: "yes",
+    question: "Is the YELLOW bock on the left side?",
+    expected: "no"
 
   }
 ]
