@@ -53,7 +53,7 @@ testTrials_a_iff_c = function(priors){
   }
   let blocks = [];
   if (priors[0] === "high" && priors[1] === "high") {
-    let xBlock2 = blockOnBase(xBlock, 0.52 * -factor, cols.olive, "xBlock2", true)
+    let xBlock2 = blockOnBase(xBlock, 0.52 * -factor, cols.darkbrown, "xBlock2", true)
     blocks.push(xBlock2)
     let idx = factor === -1 ? 1 : 0;
     bases[idx] = xBlock2

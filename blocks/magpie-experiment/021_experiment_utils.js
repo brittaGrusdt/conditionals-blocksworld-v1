@@ -7,10 +7,24 @@ sliderTexts = function(col1, col2, key1, key2){
   return id2Text;
 }
 
-let block_cols = {test: ['BLUE', 'GREEN'], train: ['RED', 'YELLOW']}
-let id2Question = sliderTexts(block_cols.test[0], block_cols.test[1], 'b', 'g');
+sliderIcons = function(col1, col2, key1, key2){
+  let id2Html = {}
+  id2Html[key1 + key2] = "<img src=../stimuli/img/icons/" + col1 + "-" + col2 + ".jpg>";
+  id2Html[key1] = "<img src=../stimuli/img/icons/not-" + col1 + "-" + col2 + ".jpg>";
+  id2Html[key2] = "<img src=../stimuli/img/icons/" + col1 + "-not-" + col2 + ".jpg>";
+  id2Html["none"] = "<img src=../stimuli/img/icons/not-" + col1 + "-not-" + col2 + ".jpg>";
+  return id2Html;
+}
 
-let id2QuestionTrain = sliderTexts(block_cols.train[0], block_cols.train[1], 'a', 'c');
+// let block_cols = {test: ['BLUE', 'GREEN'], train: ['RED', 'YELLOW']}
+// let block_cols = {test: ['blue', 'green'], train: ['red', 'yellow']}
+let block_cols = {test: ['green', 'blue'], train: ['red', 'yellow']}
+
+// let id2Question = sliderTexts(block_cols.test[0], block_cols.test[1], 'b', 'g');
+let id2Question = sliderIcons(block_cols.test[0], block_cols.test[1], 'b', 'g');
+
+let id2QuestionTrain = sliderIcons(block_cols.train[0], block_cols.train[1], 'a', 'c');
+// let id2QuestionTrain = sliderTexts(block_cols.train[0], block_cols.train[1], 'a', 'c');
 let text_train_buttons = {
   'ac': block_cols.train[0] + " and " + block_cols.train[1],
   'a': block_cols.train[0] + " but <b>not</b> "  + block_cols.train[1],
@@ -39,7 +53,7 @@ _htmlSliderQuestion = function(idx_question){
   return {open: o, close: c};
 }
 
-_htmlSlider = function(idxSlider, utterances, options){
+_htmlSlider = function(idxSlider, utterance, options){
   let sliderID = "slider" + idxSlider
   let responseID = "response" + idxSlider
   let answerID = "answer" + idxSlider
@@ -49,11 +63,7 @@ _htmlSlider = function(idxSlider, utterances, options){
   let start = "<s" + idxSlider + " class='magpie-grid-slider' id="+sliderID+">";
   let end = "</s" + idxSlider + ">";
   let qSlider = _htmlSliderQuestion(idxSlider);
-  qSlider.middle = idxSlider === 1 ? `${utterances[0]}` :
-                   idxSlider === 2 ? `${utterances[1]}` :
-                   idxSlider === 3 ? `${utterances[2]}` :
-                   idxSlider === 4 ? `${utterances[3]}` : undefined;
-  let html_question = qSlider.open + qSlider.middle + qSlider.close;
+  let html_question = qSlider.open + utterance + qSlider.close;
 
   let html_slider = start +
     `<span class='magpie-response-slider-option optionWide'>` + options.left + `</span>
@@ -75,7 +85,7 @@ htmlSliderAnswers = function(trial_data){
 
   let html_str = `<div class='magpie-multi-slider-grid' id='answerSliders'>`;
   _.range(1,5).forEach(function(i){
-    let h = _htmlSlider(i, utterances, {left: option1, right: option2});
+    let h = _htmlSlider(i, utterances[i-1], {left: option1, right: option2});
     html_str += h;
   });
   html_str += `</div>`

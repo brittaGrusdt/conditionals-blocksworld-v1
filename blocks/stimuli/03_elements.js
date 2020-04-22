@@ -79,7 +79,7 @@ seesaw = function(pos){
   );
 
   let link = wall('link', pos, stick.bounds.min.y - props.seesaw.link.h/2,
-    props.seesaw.link.w, props.seesaw.link.h, {render: {fillStyle: cols.brown}}
+    props.seesaw.link.w, props.seesaw.link.h, {render: {fillStyle: cols.darkbrown}}
   );
 
   let skeleton = Body.create({'parts': [stick, link],

@@ -62,7 +62,7 @@ trials_uncertain = function(){
   ];
   let bA = blockOnBase(W9, -0.5, cols.train_blocks[0], "blockaA", horiz=true); // falls
   let bB = blockOnBase(W8, 0.53, cols.train_blocks[1], "blockbC", horiz=false); //doesnt fall
-  let distractor1 = blockOnBase(W10, -0.55, cols.olive, 'distractor1', true);
+  let distractor1 = blockOnBase(W10, -0.55, cols.darkbrown, 'distractor1', true);
 
   let bC = blockOnBase(W8, 0.5, cols.train_blocks[1], "blockcC", horiz=false); // falls
   let bD = blockOnBase(W9, -0.53, cols.train_blocks[0], "blockdA", horiz=true); // doesnt fall

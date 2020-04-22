@@ -257,7 +257,7 @@ _.map(slider_rating_trials, function(trial){
 });
 
 // shuffle questions for each trial to later be able to randomly show the utterances
-slider_rating_trials = shuffleQuestionsAllTrials(_.values(id2Question), slider_rating_trials);
+// slider_rating_trials = shuffleQuestionsAllTrials(_.values(id2Question), slider_rating_trials);
 
 
 // TRAINING TRIALS (some with buttons some with sliders)
@@ -275,7 +275,7 @@ let train_slider_trials = [
 ];
 
 // the data of the training stimuli is always the same, buttons are always shown in
-// same order 
+// same order
 let TRAIN_TRIALS = [];
 _.range(0, NB_TRAIN_TRIALS-1).forEach(function(i) {
   let data = {QUD: 'Which block(s) do you think will fall? Click on RUN to see!',
@@ -286,7 +286,7 @@ _.range(0, NB_TRAIN_TRIALS-1).forEach(function(i) {
               };
   TRAIN_TRIALS.push(data);
 });
-let questions_train = Object.values(id2QuestionTrain)
-train_slider_trials = shuffleQuestionsAllTrials(questions_train, train_slider_trials);
+// let questions_train = Object.values(id2QuestionTrain)
+// train_slider_trials = shuffleQuestionsAllTrials(questions_train, train_slider_trials);
 
 TRAIN_TRIALS = TRAIN_TRIALS.concat(train_slider_trials);
