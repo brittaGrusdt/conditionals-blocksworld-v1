@@ -17,16 +17,16 @@ $("document")
       // You have to specify all views you want to use in this experiment and the order of them
       views_seq: [
       forced_choice_custom,
-      intro,
-      instructions_colors,
-      instructions,
-      instructions_train1,
-      animation_view1,
-      instructions_train2,
-      animation_view2,
-      instructions_test,
-      multiple_slider,
-      post_test,
+      // intro,
+      // instructions_colors,
+      // instructions,
+      // instructions_train1,
+      // animation_view1,
+      // instructions_train2,
+      // animation_view2,
+      // instructions_test,
+      // multiple_slider,
+      // post_test,
       thanks
     ],
       // Here, you can specify all information for the deployment

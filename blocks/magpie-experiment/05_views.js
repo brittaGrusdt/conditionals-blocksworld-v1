@@ -196,7 +196,7 @@ const thanks = magpieViews.view_generator("thanks", {
 const forced_choice_custom = magpieViews.view_generator("forced_choice", {
   trials: color_vision_test.length,
   name: "color-vision",
-  data: color_vision_test
+  data: _.shuffle(color_vision_test)
 }, {
   stimulus_container_generator: function (config, CT) {
     return `<div class='magpie-view'>
