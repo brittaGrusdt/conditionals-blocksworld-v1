@@ -67,7 +67,7 @@ const instructions_train1_colors = magpieViews.view_generator("instructions", {
 const instructions_train2 = magpieViews.view_generator("instructions", {
   trials: 1,
   name: "instructions_train2",
-  title: "General Instructions",
+  title: "Instructions Training 2",
   text: `Great - we will now continue with the second part of the training phase
           which consists of 8 trials.
          You will see block arrangements similar to those you will be shown
@@ -125,7 +125,7 @@ const instructions_train3 = magpieViews.view_generator("instructions", {
 const instructions_test = magpieViews.view_generator("instructions", {
   trials: 1,
   name: "instructions_test",
-  title: "Instructions Main Part",
+  title: "Instructions Test Phase",
   text: `Great - you've now completed the training phase and we'll continue with
           the test phase next. Again, you will be shown scenes of different block
           arrangements. As in the previous trial, we will ask you to
