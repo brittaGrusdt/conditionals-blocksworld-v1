@@ -7,23 +7,36 @@ sliderTexts = function(col1, col2, key1, key2){
   return id2Text;
 }
 
-sliderIcons = function(col1, col2, key1, key2){
+sliderIcons = function(cols, keys){
   let id2Html = {}
-  id2Html[key1 + key2] = "<img src=../stimuli/img/icons/" + col1 + "-" + col2 + ".jpg>";
-  id2Html[key1] = "<img src=../stimuli/img/icons/not-" + col1 + "-" + col2 + ".jpg>";
-  id2Html[key2] = "<img src=../stimuli/img/icons/" + col1 + "-not-" + col2 + ".jpg>";
-  id2Html["none"] = "<img src=../stimuli/img/icons/not-" + col1 + "-not-" + col2 + ".jpg>";
+  id2Html[keys[0] + keys[1]] = `<div>` +
+    `<img src=../stimuli/img/icons/` + cols[0] + `.jpg>` +
+    `<img src=../stimuli/img/icons/` + cols[1] + `.jpg>` +
+    `</div>`;
+
+  id2Html[keys[0]] = `<div>` +
+    `<img src=../stimuli/img/icons/` + cols[0] + `.jpg>` +
+    `<img src=../stimuli/img/icons/not-` + cols[1] + `.jpg>` +
+    `</div>`;
+
+  id2Html[keys[1]] = `<div>` +
+    `<img src=../stimuli/img/icons/not-` + cols[0] + `.jpg>` +
+    `<img src=../stimuli/img/icons/` + cols[1] + `.jpg>` +
+    `</div>`;
+
+  id2Html["none"] = `<div>` +
+    `<img src=../stimuli/img/icons/not-` + cols[0] + `.jpg>` +
+    `<img src=../stimuli/img/icons/not-` + cols[1] + `.jpg>` +
+    `</div>`;
   return id2Html;
 }
 
-// let block_cols = {test: ['BLUE', 'GREEN'], train: ['RED', 'YELLOW']}
-// let block_cols = {test: ['blue', 'green'], train: ['red', 'yellow']}
 let block_cols = {test: ['green', 'blue'], train: ['red', 'yellow']}
 
 // let id2Question = sliderTexts(block_cols.test[0], block_cols.test[1], 'b', 'g');
-let id2Question = sliderIcons(block_cols.test[0], block_cols.test[1], 'b', 'g');
+let id2Question = sliderIcons(block_cols.test, ['b', 'g']);
 
-let id2QuestionTrain = sliderIcons(block_cols.train[0], block_cols.train[1], 'a', 'c');
+let id2QuestionTrain = sliderIcons(block_cols.train, ['a', 'c']);
 // let id2QuestionTrain = sliderTexts(block_cols.train[0], block_cols.train[1], 'a', 'c');
 let text_train_buttons = {
   'ac': block_cols.train[0] + " and " + block_cols.train[1],
@@ -67,11 +80,11 @@ _htmlSlider = function(idxSlider, utterance, options){
 
   let html_slider = start +
     `<span class='magpie-response-slider-option optionWide'>` + options.left + `</span>
+      <output name="`+outputName+`" id=`+outputID+ ` class="thick">50%</output>
      <input type='range' id=` + responseID + ` name=` + answerID +
      ` class='magpie-response-slider' min='0' max='100' value='50' oninput='` +
      outputID + `.value = ` + responseID + `.value + "%"'/>` +
-    `<span class='magpie-response-slider-option optionWide'>` + options.right + `</span>
-     <output name="`+outputName+`" id=`+outputID+ ` class="thick">50%</output>`+
+    `<span class='magpie-response-slider-option optionWide'>` + options.right + `</span>`+
      end;
 
   return html_question + html_slider
@@ -94,13 +107,13 @@ htmlSliderAnswers = function(trial_data){
 
 htmlButtonAnswers = function(){
   return `<bttns id=TrainButtons class=buttonContainer>
-    <button id="ac" class=unselected>` + text_train_buttons.ac + `</button>
+    <button id="ac" class=unselected>` + id2QuestionTrain.ac + `</button>
     <div class="divider"/>
-    <button id="a" class=unselected>` + text_train_buttons.a + `</button>
+    <button id="a" class=unselected>` + id2QuestionTrain.a + `</button>
     <div class="divider"/>
-    <button id="c" class=unselected>` + text_train_buttons.c + `</button>
+    <button id="c" class=unselected>` + id2QuestionTrain.c + `</button>
     <div class="divider"/>
-    <button id="none" class=unselected>` + text_train_buttons.none + `</button>
+    <button id="none" class=unselected>` + id2QuestionTrain.none + `</button>
   </bttns>`;
 }
 
