@@ -109,7 +109,7 @@ const animation_view2  = {
             trial_name: SHUFFLED_TRAIN_STIMULI[CT].id,
             trial_number: CT + 1,
             response: data.responses,
-            utterances: data.questions,
+            utterances: data.utterances,
             RT: RT
           };
           trial_data = magpieUtils.view.save_config_trial_data(
@@ -161,7 +161,7 @@ const multi_slider_generator = {
           trial_name: config.name,
           trial_number: CT + 1,
           response: responseData.responses,
-          utterances: responseData.questions,
+          utterances: responseData.utterances,
           RT: RT
         };
         trial_data = magpieUtils.view.save_config_trial_data(

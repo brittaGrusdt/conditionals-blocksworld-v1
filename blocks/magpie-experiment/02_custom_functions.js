@@ -137,6 +137,19 @@ abbreviateQuestion = function(question, symbols){
   return q_short.toLowerCase();
 }
 
+iconHtml2Utterance = function(question, symbols) {
+  let words = question.trim().split('/');
+  let utt1 = words[4].split('.')[0]
+  let utt2 = words[8].split('.')[0]
+  let utt;
+  if(utt1.includes('not')){
+    utt = utt2.includes('not') ? 'none' : symbols[1];
+  } else {
+    utt = utt2.includes('not') ? symbols[0] : symbols.join('');
+  }
+  return {short: utt, long: [utt1, utt2].join('-')};
+}
+
 getButtonQA = function() {
   let button_ids = ['ac', 'a', 'c', 'none']
   let questions = [];
@@ -151,16 +164,19 @@ getButtonQA = function() {
 getSliderQA = function(trial_type="test"){
   let questions = [];
   let responses = [];
+  let utterances = [];
   let qs = trial_type==="test" ? [block_cols.test[0][0], block_cols.test[1][0]] :
     ['a', 'c'];
   _.range(1,5).forEach(function(i){
     let question = $("#" + "question" + i).html();
-    let q_short = abbreviateQuestion(question, qs);
-    questions.push(q_short);
+    // let q_short = abbreviateQuestion(question, qs);
+    let data = iconHtml2Utterance(question, qs);
+    utterances.push(data.short);
+    questions.push(data.long);
     let response = $("#response" + i).val();
     responses.push(response)
   });
-  return {questions, responses};
+  return {questions, responses, utterances};
 }
 
 
