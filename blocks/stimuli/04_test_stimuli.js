@@ -20,8 +20,8 @@ make2ColoredBlocks = function(bases, priors_str, sides){
 
 testTrials_a_iff_c = function(priors){
   let data_ramp = priors[0] === priors[1] ?
-  {side: "right", i:1, 'moveBlock': 1, 'increase': true} :
-  {side: "left", i: 0, 'moveBlock': -1, 'increase': false};
+    {side: "right", i: 1, 'moveBlock': 1, 'increase': true} :
+    {side: "left", i: 0, 'moveBlock': -1, 'increase': false};
 
   let offset = data_ramp.side === "left" ? 50 : -50;
   let seesaw = Walls.test.seesaw_trials(offset)
@@ -71,6 +71,7 @@ testTrials_a_iff_c = function(priors){
 testTrials_ac = function(priors){
   // first block is on top of a wall, second block on top of an extra block
   let blocks = [];
+  let colors = assignColors();
   let p1 = priors[0];
   let p2 = priors[1];
   let data = ['ll', 'hl'].includes(p1[0]+p2[0]) ?
@@ -83,51 +84,48 @@ testTrials_ac = function(priors){
 
   let bX1 = block(data.pf.bounds[data.bX1_x].x + data.moveBlocksTo * 1.5 * props.blocks.h/2,
     data.pf.bounds.min.y, cols.darkgrey, 'bX1', true)
-  let b1 = blockOnBase(walls[0], PRIOR[priors[0]] * data.moveBlocksTo, cols.test_blocks[0], 'blockA', true);
-  let b2 = blockOnBase(bX1, PRIOR["very_low"] * data.moveBlocksTo, cols.test_blocks[1], 'blockC', true);
+  let b1 = blockOnBase(walls[0], PRIOR[priors[0]] * data.moveBlocksTo, cols.test_blocks[colors[0]], 'blockA', true);
+  let b2 = blockOnBase(bX1, PRIOR["very_low"] * data.moveBlocksTo, cols.test_blocks[colors[1]], 'blockC', true);
   blocks = blocks.concat([b1, b2, bX1]);
 
   return blocks.concat(objs)
 }
 
 testTrials_independent = function(priors){
-  let sides = [-1, -1]
-  let bases = Walls.test["independent"].slice(0,2);
+  let p1 = priors[0][0];
+  let p2 = priors[1][0];
+  let data = ['ll', 'uh', 'hl'].includes(p1[0]+p2[0]) ?
+    {walls: Walls.test.independent[0], increase: true, sides: [-1, -1]} :
+    {walls: Walls.test.independent[1], increase: false, sides: [1, 1]};
   // second block has to be moved further away from edge depending on prior
   // and angle of tilted wall has to be adjusted
-  let blocks = make2ColoredBlocks(bases, priors, sides);
+  let blocks = make2ColoredBlocks(data.walls, priors, data.sides);
   let b2 = blocks[1];
   let shift = independent_shift[priors[1]];
-  Matter.Body.setPosition(b2, {x: b2.position.x + shift, y: b2.position.y});
-  // add ramp walls
-  let objs = Walls.test["independent"];
-  if(priors[1] === "high") {
-    objs = objs.concat(Walls.test.tilted['independent_steep']);
-  } else {
-    objs = objs.concat(Walls.test.tilted['independent_plane']);
-  }
-  return blocks.concat(objs);
+  Matter.Body.setPosition(b2, {x: b2.position.x + shift * -data.sides[0], y: b2.position.y});
+  // add seesaw as distractor
+  let dist = seesaw(data.increase ? 220 : 580)
+  let tilt = priors[1] === "high" ? 'steep' : 'plane';
+  let ramp = Walls.test.tilted["independent"](tilt, data.increase, data.walls[1]);
+  let objs = data.walls.concat([dist.skeleton]).concat(ramp);
+  return blocks.concat([dist.plank, dist.constraint]).concat(objs);
 }
 
 makeTestStimuli = function(conditions, relations){
   relations.forEach(function(rel){
-    let sides = rel === "independent" ? [-1, -1] :
-                rel === "a_implies_c" ? [1, 1] : [1, -1]
     let priors_all = conditions[rel]
-
     for(var i=0; i<priors_all.length; i++){
       let priors = priors_all[i];
       let pb1 = priors[0]
       let pb2 = priors[1]
       let id = rel + '_' + pb1[0] + pb2[0];
-      let objs = [];
       let blocks = rel === "a_iff_c" ?
         testTrials_a_iff_c(priors) : rel === "a_implies_c" ?
         testTrials_ac(priors) : rel === "independent" ?
         testTrials_independent(priors) : null;
 
       // objs = objs.concat(Walls.test[rel]);
-      TestStimuli[rel][id] = {"objs": blocks.concat(objs), "meta": priors};
+      TestStimuli[rel][id] = {"objs": blocks, "meta": priors};
     }
   })
 }

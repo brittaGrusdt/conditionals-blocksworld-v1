@@ -13,12 +13,17 @@ const Bottom = wall(label='bottom', x=scene.w/2, y=scene.h - props.bottom.h/2,
 // let P1 = wall(x=570, y=Bottom.bounds.min.y - 100/2, w=150, h=100, 'platform1');
 // let WP1 = wall(x= W1.bounds.max.x - 10, y=220, w=props.walls.w/1.5, h=props.walls.h, 'wallLowRightP1');
 
-let W1 = wall('w1_wallUpLeft', 320, 100);
-let W2 = wall('w2_wallLowRight', 420 - 10, 240);
-let W3 = wall('w3_wallRampLowInd', 410+4, 240, props.walls.w + 25)
-let W4 = wall('w4_wallUpRight', 550, 100);
-let W5 = wall('w5_wallShortUpRight', 420, 120, props.walls.w/1.5);
-let W5_2 = wall('w5_2_wallShortUpLeft', 380, 120, props.walls.w/1.5);
+let W1 = wall('w1_upLeft', 320, 100);
+let W1_2 = wall('w1_2_upRight', 480, 100);
+
+let W2 = wall('w2_lowRight', 420 - 10, 240);
+
+let W3 = wall('w3_rampLowInd', 410+4, 240, props.walls.w + 25)
+let W3_2 = wall('w3_2_rampLowInd', 390-4, 240, props.walls.w + 25)
+
+let W4 = wall('w4_upRight', 550, 100);
+let W5 = wall('w5_shortUpRight', 420, 120, props.walls.w/1.5);
+let W5_2 = wall('w5_2_shortUpLeft', 380, 120, props.walls.w/1.5);
 
 let P1 = wall('platform1', 570, Bottom.bounds.min.y - 100/2, 150, 100);
 let WP1 = wall('wp1', 420 - 10, 220, props.walls.w/1.5);
@@ -103,7 +108,7 @@ seesaw = function(pos){
 }
 
 // The first two list entries are respectively the bases for block1 and block2
-Walls.test = {'independent': [W1, W3], // tilted wall+ball added dep on prior
+Walls.test = {'independent': [[W1, W3], [W1_2, W3_2]], // tilted wall+ball added dep on prior
               'a_implies_c': [[W5, P1, WP1], [W5_2, P2, WP2]],
               'a_iff_c': []
               };
@@ -118,24 +123,20 @@ Walls.test.seesaw_trials = function(offset){
   return {'walls': walls, 'dynamic': [objs.plank, objs.constraint]}
 }
 
-Walls.test.tilted = {
-  'independent_steep': _.values(makeRamp(-45, true, W3)),
-  'independent_plane': _.values(makeRamp(-30, true, W3))
-  // 'a_implies_c_plane': _.values(makeRamp(-20, false, WP1)),
-  // 'a_implies_c_middle': _.values(makeRamp(-30, false, WP1)),
-  // 'a_implies_c_steep': _.values(makeRamp(-45, false, WP1))
+Walls.test.tilted = {};
+Walls.test.tilted['independent'] = function(tilt, increase, base){
+  let angle = tilt === "steep" ? -45 : -30;
+  return _.values(makeRamp(angle, increase, base))
 }
 
 Walls.test.tilted["a_implies_c"] = function(tilt, increase, base){
   let angle = tilt === "steep" ? -45 : tilt === 'plane' ? -20 : -30;
-  let ramp = makeRamp(angle, increase, base)
-  return _.values(ramp)
+  return _.values(makeRamp(angle, increase, base))
 }
 
 Walls.test.tilted['a_iff_c'] = function(tilt, increase, base){
   let angle = tilt === "steep" ? -25 : tilt === 'plane' ? -15 : null;
-  let ramp = makeRamp(angle, increase, base)
-  return _.values(ramp)
+  return _.values(makeRamp(angle, increase, base))
 }
 
 //// Elements for TRAINING TRIALS //////
