@@ -79,7 +79,7 @@ seesaw = function(pos){
   );
 
   let link = wall('link', pos, stick.bounds.min.y - props.seesaw.link.h/2,
-    props.seesaw.link.w, props.seesaw.link.h, {render: {fillStyle: cols.brown}}
+    props.seesaw.link.w, props.seesaw.link.h, {render: {fillStyle: cols.darkbrown}}
   );
 
   let skeleton = Body.create({'parts': [stick, link],
@@ -139,8 +139,8 @@ Walls.train.tilted_independent =  function(tilt, increase, base) {
 }
 
 //let W8 = wall(x=scene.w/2, y=scene.h/2, w=props.walls.w, h=props.walls.h, 'wallMiddle');
-let W8 = wall('w8_middle_left', (1/4) * scene.w, scene.h/2);
-let W9 = wall('w9_middle_right', (3/4) * scene.w, scene.h/2);
+let W8 = wall('w8_middle_left', (1/4) * scene.w, scene.h/3);
+let W9 = wall('w9_middle_right', (3/4) * scene.w, scene.h/3);
 let W10 = wall('w10_right_low', (2/3) * scene.w, (3/4) * scene.h);
 Walls.train.uncertain = [W8, W9, W10]
 
@@ -148,13 +148,6 @@ Walls.train.a_implies_c = [
   wall('wall_ac_top_left', 400, 100),
   wall('wall_ac_low_right', 100 + props.walls.w/2 - 10, 240)
 ];
-
-// let seesaw_train = seesaw(scene.w/2);
-// Walls.train.a_iff_c = [
-//   wall('wallTopLeft', 100, 125, 100),
-//   wall('ramp', 200, 175, Math.pow(10,2)*Math.sqrt(2)),
-// ].concat([W7(), seesaw_train.skeleton, seesaw_train.plank, seesaw_train.constraint]);
-// Body.setAngle(Walls.train.a_iff_c[1], radians(45));
 
 Walls.train.seesaw_trials = function(){
   let objs = seesaw(scene.w/2)

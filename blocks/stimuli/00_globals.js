@@ -17,7 +17,6 @@ cols = {
       'light_green': '#51DE19',
       'purple': '#AF7AC5',
       'brown': '#B05D3A',
-      'darkbrown': '#874400',
       'grey': '#E3DFDC',
       'darkgrey': '#938F8E',
       'darkbrown': '#642F17',
@@ -30,5 +29,5 @@ cols = {
       'darkgreen': '#119533'
     };
 cols.plank = cols.blue
-cols.blocks = [cols.green, cols.royal];
+cols.test_blocks = [cols.green, cols.royal];
 cols.train_blocks = [cols.bordeaux, cols.darkyellow];

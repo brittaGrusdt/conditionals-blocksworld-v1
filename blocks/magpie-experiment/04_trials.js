@@ -300,7 +300,7 @@ _.map(slider_rating_trials, function (trial) {
 });
 
 // shuffle questions for each trial to later be able to randomly show the utterances
-slider_rating_trials = shuffleQuestionsAllTrials(_.values(id2Question), slider_rating_trials);
+// slider_rating_trials = shuffleQuestionsAllTrials(_.values(id2Question), slider_rating_trials);
 
 
 // TRAINING TRIALS (some with buttons some with sliders)
@@ -331,7 +331,7 @@ _.range(0, NB_TRAIN_TRIALS - 1)
     };
     TRAIN_TRIALS.push(data);
   });
-let questions_train = Object.values(id2QuestionTrain)
-train_slider_trials = shuffleQuestionsAllTrials(questions_train, train_slider_trials);
+// let questions_train = Object.values(id2QuestionTrain)
+// train_slider_trials = shuffleQuestionsAllTrials(questions_train, train_slider_trials);
 
 TRAIN_TRIALS = TRAIN_TRIALS.concat(train_slider_trials);

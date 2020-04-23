@@ -11,7 +11,7 @@ make2ColoredBlocks = function(bases, priors_str, sides){
   for(var i=0; i<=1; i++){
     let prior = priors[i]
     let l = i===0 ? "A" : "C";
-    let b = blockOnBase(bases[i], prior * sides[i], cols.blocks[colors[i]],
+    let b = blockOnBase(bases[i], prior * sides[i], cols.test_blocks[colors[i]],
       'block' + l, priors_str[i] === "low" || priors_str[i] === "uncertain");
       blocks.push(b);
   }
@@ -53,7 +53,7 @@ testTrials_a_iff_c = function(priors){
   }
   let blocks = [];
   if (priors[0] === "high" && priors[1] === "high") {
-    let xBlock2 = blockOnBase(xBlock, 0.52 * -factor, cols.olive, "xBlock2", true)
+    let xBlock2 = blockOnBase(xBlock, 0.52 * -factor, cols.grey, "xBlock2", true)
     blocks.push(xBlock2)
     let idx = factor === -1 ? 1 : 0;
     bases[idx] = xBlock2
@@ -74,8 +74,8 @@ testTrials_ac = function(priors, bases){
   let bX1 = block(P1.bounds.min.x + 1.5 * props.blocks.h/2, P1.bounds.min.y,
     cols.darkgrey, 'bX1', true)
   //let bX2 = blockOnBase(bX1, -1 * PRIOR["very_low"], cols.orange, 'bX2', true);
-  let b1 = blockOnBase(bases[0], PRIOR[priors[0]], cols.blocks[0], 'blockA', true);
-  let b2 = blockOnBase(bX1, PRIOR["very_low"], cols.blocks[1], 'blockC', true);
+  let b1 = blockOnBase(bases[0], PRIOR[priors[0]], cols.test_blocks[0], 'blockA', true);
+  let b2 = blockOnBase(bX1, PRIOR["very_low"], cols.test_blocks[1], 'blockC', true);
   blocks = blocks.concat([b1, b2, bX1]);
   return blocks
 }

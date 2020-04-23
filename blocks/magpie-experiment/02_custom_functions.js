@@ -57,6 +57,7 @@ let key2SelectAnswer = "y";
 let NB_TRAIN_TRIALS = TrainStimuli.list_all.length;
 // let NB_TRAIN_TRIALS = 3;
 
+let TRAIN_BTTN_IDS = ['ac', 'a', 'c', 'none'];
 // custom functions:
 toggleNextIfDone = function (button, condition) {
     if(condition){
@@ -85,15 +86,18 @@ addKeyToMoveSliders = function(button2Toggle){
 
 toggleSelected = function(bttnID){
   $('#' + bttnID).on('click', function(e){
-    $('#' + bttnID).toggleClass('selected unselected')
-
     var parent = document.getElementById('TrainButtons');
-    let nb_selected = parent.getElementsByClassName("selected").length;
-    toggleNextIfDone($('#runButton'), nb_selected !== 0);
-
-    if(nb_selected === 0){
-      $('#runButton').addClass('grid-button');
+    let selected = parent.getElementsByClassName("selected");
+    let nb_selected = selected.length;
+    if(nb_selected === 1){
+      TRAIN_BTTN_IDS.forEach(function(bttn){
+        $('#' + bttn).hasClass('selected') ?
+        $('#' + bttn).removeClass('selected') : null;
+      })
     }
+    $('#' + bttnID).addClass('selected');
+    nb_selected = 1;
+    toggleNextIfDone($('#runButton'), true);
   });
 }
 
