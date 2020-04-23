@@ -7,9 +7,9 @@
 imageQuality=100    # scrot default is 75
 screenshotDir="$HOME/Pictures/blocks"
 # imageName="$(date +%Y-%m-%d.%H:%M:%S.%N).jpg"   # save image names as timestamp
-imageName="a_iff_c_$(date +%M-%S).jpg"
+imageName="independent_$(date +%M-%S).jpg"
 left=0     # begin crop this number of pixels from the left of the image
-top=0      # begin crop this number of pixels from the top of the image
+top=2      # begin crop this number of pixels from the top of the image
 width=820   # crop this many pixels wide
 height=450  # crop this many pixels tall
 
