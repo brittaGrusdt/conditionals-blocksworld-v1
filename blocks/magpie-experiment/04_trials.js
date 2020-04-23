@@ -51,8 +51,8 @@ var slider_rating_trials = [
     question2: id2Question.b,
     question3: id2Question.g,
     question4: id2Question.none,
-    optionLeft: "impossible event",
-    optionRight: "certain event"
+    optionLeft: "impossible",
+    optionRight: "certain"
   },
   {
     picture: "../stimuli/img/group/a_implies_c_lu.jpg",
@@ -61,8 +61,8 @@ var slider_rating_trials = [
     question2: id2Question.b,
     question3: id2Question.g,
     question4: id2Question.none,
-    optionLeft: "impossible event",
-    optionRight: "certain event"
+    optionLeft: "impossible",
+    optionRight: "certain"
   },
   {
     picture: "../stimuli/img/group/a_implies_c_lh.jpg",
@@ -71,8 +71,8 @@ var slider_rating_trials = [
     question2: id2Question.b,
     question3: id2Question.g,
     question4: id2Question.none,
-    optionLeft: "impossible event",
-    optionRight: "certain event"
+    optionLeft: "impossible",
+    optionRight: "certain"
   },
   {
     picture: "../stimuli/img/group/a_implies_c_ul.jpg",
@@ -81,8 +81,8 @@ var slider_rating_trials = [
     question2: id2Question.b,
     question3: id2Question.g,
     question4: id2Question.none,
-    optionLeft: "impossible event",
-    optionRight: "certain event"
+    optionLeft: "impossible",
+    optionRight: "certain"
   },
   {
     picture: "../stimuli/img/group/a_implies_c_uu.jpg",
@@ -91,8 +91,8 @@ var slider_rating_trials = [
     question2: id2Question.b,
     question3: id2Question.g,
     question4: id2Question.none,
-    optionLeft: "impossible event",
-    optionRight: "certain event"
+    optionLeft: "impossible",
+    optionRight: "certain"
   },
   {
     picture: "../stimuli/img/group/a_implies_c_uh.jpg",
@@ -101,8 +101,8 @@ var slider_rating_trials = [
     question2: id2Question.b,
     question3: id2Question.g,
     question4: id2Question.none,
-    optionLeft: "impossible event",
-    optionRight: "certain event"
+    optionLeft: "impossible",
+    optionRight: "certain"
   },
   {
     picture: "../stimuli/img/group/a_implies_c_hl.jpg",
@@ -111,8 +111,8 @@ var slider_rating_trials = [
     question2: id2Question.b,
     question3: id2Question.g,
     question4: id2Question.none,
-    optionLeft: "impossible event",
-    optionRight: "certain event"
+    optionLeft: "impossible",
+    optionRight: "certain"
   },
   {
     picture: "../stimuli/img/group/a_implies_c_hu.jpg",
@@ -121,8 +121,8 @@ var slider_rating_trials = [
     question2: id2Question.b,
     question3: id2Question.g,
     question4: id2Question.none,
-    optionLeft: "impossible event",
-    optionRight: "certain event"
+    optionLeft: "impossible",
+    optionRight: "certain"
   },
   {
     picture: "../stimuli/img/group/a_implies_c_hh.jpg",
@@ -131,8 +131,8 @@ var slider_rating_trials = [
     question2: id2Question.b,
     question3: id2Question.g,
     question4: id2Question.none,
-    optionLeft: "impossible event",
-    optionRight: "certain event"
+    optionLeft: "impossible",
+    optionRight: "certain"
   },
   {
     picture: "../stimuli/img/group/a_iff_c_ll.jpg",
@@ -141,8 +141,8 @@ var slider_rating_trials = [
     question2: id2Question.b,
     question3: id2Question.g,
     question4: id2Question.none,
-    optionLeft: "impossible event",
-    optionRight: "certain event"
+    optionLeft: "impossible",
+    optionRight: "certain"
   },
   {
     picture: "../stimuli/img/group/a_iff_c_ul.jpg",
@@ -151,8 +151,8 @@ var slider_rating_trials = [
     question2: id2Question.b,
     question3: id2Question.g,
     question4: id2Question.none,
-    optionLeft: "impossible event",
-    optionRight: "certain event"
+    optionLeft: "impossible",
+    optionRight: "certain"
   },
   {
     picture: "../stimuli/img/group/a_iff_c_hl.jpg",
@@ -161,8 +161,8 @@ var slider_rating_trials = [
     question2: id2Question.b,
     question3: id2Question.g,
     question4: id2Question.none,
-    optionLeft: "impossible event",
-    optionRight: "certain event"
+    optionLeft: "impossible",
+    optionRight: "certain"
   },
 
   {
@@ -172,8 +172,8 @@ var slider_rating_trials = [
     question2: id2Question.b,
     question3: id2Question.g,
     question4: id2Question.none,
-    optionLeft: "impossible event",
-    optionRight: "certain event"
+    optionLeft: "impossible",
+    optionRight: "certain"
   },
   {
     picture: "../stimuli/img/group/a_iff_c_hu.jpg",
@@ -182,8 +182,8 @@ var slider_rating_trials = [
     question2: id2Question.b,
     question3: id2Question.g,
     question4: id2Question.none,
-    optionLeft: "impossible event",
-    optionRight: "certain event"
+    optionLeft: "impossible",
+    optionRight: "certain"
   },
   {
     picture: "../stimuli/img/group/a_iff_c_hh.jpg",
@@ -192,8 +192,8 @@ var slider_rating_trials = [
     question2: id2Question.b,
     question3: id2Question.g,
     question4: id2Question.none,
-    optionLeft: "impossible event",
-    optionRight: "certain event"
+    optionLeft: "impossible",
+    optionRight: "certain"
   },
   {
     picture: "../stimuli/img/group/independent_ll.jpg",
@@ -202,8 +202,8 @@ var slider_rating_trials = [
     question2: id2Question.b,
     question3: id2Question.g,
     question4: id2Question.none,
-    optionLeft: "impossible event",
-    optionRight: "certain event"
+    optionLeft: "impossible",
+    optionRight: "certain"
   },
   {
     picture: "../stimuli/img/group/independent_lu.jpg",
@@ -212,8 +212,8 @@ var slider_rating_trials = [
     question2: id2Question.b,
     question3: id2Question.g,
     question4: id2Question.none,
-    optionLeft: "impossible event",
-    optionRight: "certain event"
+    optionLeft: "impossible",
+    optionRight: "certain"
   },
   {
     picture: "../stimuli/img/group/independent_lh.jpg",
@@ -222,8 +222,8 @@ var slider_rating_trials = [
     question2: id2Question.b,
     question3: id2Question.g,
     question4: id2Question.none,
-    optionLeft: "impossible event",
-    optionRight: "certain event"
+    optionLeft: "impossible",
+    optionRight: "certain"
   },
   {
     picture: "../stimuli/img/group/independent_ul.jpg",
@@ -232,8 +232,8 @@ var slider_rating_trials = [
     question2: id2Question.b,
     question3: id2Question.g,
     question4: id2Question.none,
-    optionLeft: "impossible event",
-    optionRight: "certain event"
+    optionLeft: "impossible",
+    optionRight: "certain"
   },
   {
     picture: "../stimuli/img/group/independent_uu.jpg",
@@ -242,8 +242,8 @@ var slider_rating_trials = [
     question2: id2Question.b,
     question3: id2Question.g,
     question4: id2Question.none,
-    optionLeft: "impossible event",
-    optionRight: "certain event"
+    optionLeft: "impossible",
+    optionRight: "certain"
   },
   {
     picture: "../stimuli/img/group/independent_uh.jpg",
@@ -252,8 +252,8 @@ var slider_rating_trials = [
     question2: id2Question.b,
     question3: id2Question.g,
     question4: id2Question.none,
-    optionLeft: "impossible event",
-    optionRight: "certain event"
+    optionLeft: "impossible",
+    optionRight: "certain"
   },
   {
     picture: "../stimuli/img/group/independent_hl.jpg",
@@ -262,8 +262,8 @@ var slider_rating_trials = [
     question2: id2Question.b,
     question3: id2Question.g,
     question4: id2Question.none,
-    optionLeft: "impossible event",
-    optionRight: "certain event"
+    optionLeft: "impossible",
+    optionRight: "certain"
   },
   {
     picture: "../stimuli/img/group/independent_hu.jpg",
@@ -272,8 +272,8 @@ var slider_rating_trials = [
     question2: id2Question.b,
     question3: id2Question.g,
     question4: id2Question.none,
-    optionLeft: "impossible event",
-    optionRight: "certain event"
+    optionLeft: "impossible",
+    optionRight: "certain"
   },
   {
     picture: "../stimuli/img/group/independent_hh.jpg",
@@ -282,8 +282,8 @@ var slider_rating_trials = [
     question2: id2Question.b,
     question3: id2Question.g,
     question4: id2Question.none,
-    optionLeft: "impossible event",
-    optionRight: "certain event"
+    optionLeft: "impossible",
+    optionRight: "certain"
   }
 
 ];
@@ -312,8 +312,8 @@ let train_slider_trials = [
     question2: id2QuestionTrain.a,
     question3: id2QuestionTrain.c,
     question4: id2QuestionTrain.none,
-    optionLeft: "impossible event",
-    optionRight: "certain event"
+    optionLeft: "impossible",
+    optionRight: "certain"
   }
 ];
 
