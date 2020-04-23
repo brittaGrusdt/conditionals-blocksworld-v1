@@ -63,7 +63,7 @@ trials_uncertain = function(){
   let walls = Walls.train.uncertain;
   let bA = blockOnBase(walls[0], 0.55, cols.train_blocks[1], "blockaA", horiz=false); //doesnt fall
   let bB = blockOnBase(walls[1], -0.5, cols.train_blocks[0], "blockbC", horiz=true); // falls
-  let dist1 = blockOnBase(walls[2], -0.505, cols.darkgrey, 'dist1', true);
+  let dist1 = blockOnBase(walls[2], -0.509, cols.darkgrey, 'dist1', true);
 
   let bC = blockOnBase(walls[0], 0.5, cols.train_blocks[1], "blockcA", horiz=false); // falls
   let bD = blockOnBase(walls[1], -0.53, cols.train_blocks[0], "blockdC", horiz=true); // doesnt fall
