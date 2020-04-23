@@ -68,32 +68,49 @@ testTrials_a_iff_c = function(priors){
   return blocks.concat(objs);
 }
 
-testTrials_ac = function(priors, bases){
+testTrials_ac = function(priors){
   // first block is on top of a wall, second block on top of an extra block
   let blocks = [];
-  let bX1 = block(P1.bounds.min.x + 1.5 * props.blocks.h/2, P1.bounds.min.y,
-    cols.darkgrey, 'bX1', true)
-  //let bX2 = blockOnBase(bX1, -1 * PRIOR["very_low"], cols.orange, 'bX2', true);
-  let b1 = blockOnBase(bases[0], PRIOR[priors[0]], cols.test_blocks[0], 'blockA', true);
-  let b2 = blockOnBase(bX1, PRIOR["very_low"], cols.test_blocks[1], 'blockC', true);
+  let p1 = priors[0];
+  let p2 = priors[1];
+  let data = ['ll', 'hl'].includes(p1[0]+p2[0]) ?
+    {ramp_base: WP1, pf: P1, moveBlocksTo: 1, increase: false, idx_w: 0, bX1_x: "min"} :
+    {ramp_base: WP2, pf: P2, moveBlocksTo: -1, increase: true, idx_w: 1, bX1_x: "max"};
+  let tilt = p2==="high" ? "steep" : p2==="low" ? "plane" : "middle";
+  let objs = Walls.test.tilted.a_implies_c(tilt, data.increase, data.ramp_base);
+  let walls = Walls.test["a_implies_c"][data.idx_w];
+  objs = objs.concat(walls);
+
+  let bX1 = block(data.pf.bounds[data.bX1_x].x + data.moveBlocksTo * 1.5 * props.blocks.h/2,
+    data.pf.bounds.min.y, cols.darkgrey, 'bX1', true)
+  let b1 = blockOnBase(walls[0], PRIOR[priors[0]] * data.moveBlocksTo, cols.test_blocks[0], 'blockA', true);
+  let b2 = blockOnBase(bX1, PRIOR["very_low"] * data.moveBlocksTo, cols.test_blocks[1], 'blockC', true);
   blocks = blocks.concat([b1, b2, bX1]);
-  return blocks
+
+  return blocks.concat(objs)
 }
 
-testTrials_independent = function(priors, bases){
+testTrials_independent = function(priors){
   let sides = [-1, -1]
+  let bases = Walls.test["independent"].slice(0,2);
   // second block has to be moved further away from edge depending on prior
   // and angle of tilted wall has to be adjusted
   let blocks = make2ColoredBlocks(bases, priors, sides);
   let b2 = blocks[1];
   let shift = independent_shift[priors[1]];
   Matter.Body.setPosition(b2, {x: b2.position.x + shift, y: b2.position.y});
-  return blocks
+  // add ramp walls
+  let objs = Walls.test["independent"];
+  if(priors[1] === "high") {
+    objs = objs.concat(Walls.test.tilted['independent_steep']);
+  } else {
+    objs = objs.concat(Walls.test.tilted['independent_plane']);
+  }
+  return blocks.concat(objs);
 }
 
 makeTestStimuli = function(conditions, relations){
   relations.forEach(function(rel){
-    let bases = Walls.test[rel].slice(0,2);
     let sides = rel === "independent" ? [-1, -1] :
                 rel === "a_implies_c" ? [1, 1] : [1, -1]
     let priors_all = conditions[rel]
@@ -106,22 +123,10 @@ makeTestStimuli = function(conditions, relations){
       let objs = [];
       let blocks = rel === "a_iff_c" ?
         testTrials_a_iff_c(priors) : rel === "a_implies_c" ?
-        testTrials_ac(priors, bases) : rel === "independent" ?
-        testTrials_independent(priors, bases) : null;
+        testTrials_ac(priors) : rel === "independent" ?
+        testTrials_independent(priors) : null;
 
-      if(rel !== "a_iff_c") {
-        // in a->c and independent trials add ramp walls
-        if(pb2 === "high") {
-          objs = objs.concat(Walls.test.tilted[rel + '_steep']);
-        } else if (pb2 === "low") {
-          objs = objs.concat(Walls.test.tilted[rel + '_plane']);
-        } else {
-            let x = rel === "independent" ? Walls.test.tilted[rel + '_plane'] :
-              Walls.test.tilted[rel + '_middle'];
-            objs = objs.concat(x);
-        }
-      }
-      objs = objs.concat(Walls.test[rel]);
+      // objs = objs.concat(Walls.test[rel]);
       TestStimuli[rel][id] = {"objs": blocks.concat(objs), "meta": priors};
     }
   })
