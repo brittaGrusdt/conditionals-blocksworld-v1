@@ -46,14 +46,6 @@ randomTrialOrder = function(){
   return orders;
 }
 
-getRealTypes = function(pseudo_types){
-  pseudo_types = pseudo_types.split('').join(' ')
-  let type_seq = pseudo_types.replace(/x/g, TYPE_MAP.x);
-  type_seq = type_seq.replace(/y/g, TYPE_MAP.y);
-  type_seq = type_seq.replace(/z/g, TYPE_MAP.z);
-  return type_seq.split(' ');
-}
-
 pseudoRandomTestTrials = function(){
   let trials = getRealTypes(ORDER);
   let priors = randomTrialOrder();

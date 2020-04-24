@@ -159,7 +159,7 @@ const instructions_test = magpieViews.view_generator("instructions", {
           distinguishable by their color.
             </br>
             </br>
-          We will now start the experiment. There are <b>24</b> scenes in total.`,
+          We will now start the experiment. There are <b>18</b> scenes in total.`,
   buttonText: "start experiment"
 });
 
@@ -218,7 +218,7 @@ const multiple_slider = magpieViews.view_generator(
     // This will use all trials specified in `data`, you can use a smaller value
     // (for testing), but not a larger value
     trials: TEST_TRIALS.length,
-    // trials: 2,
+    // trials: 6,
     // name should be identical to the variable name
     name: "multiple_slider",
     data: TEST_TRIALS

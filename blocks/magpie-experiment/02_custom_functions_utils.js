@@ -38,6 +38,7 @@ let block_cols = {
 
 // let id2Question = sliderTexts(block_cols.test[0], block_cols.test[1], 'b', 'g');
 let id2Question = sliderIcons(block_cols.test, ['b', 'g']);
+// let text_test_sliders = sliderTexts(block_cols.test[0], block_cols.test[1], 'b', 'g');
 
 let id2QuestionTrain = sliderIcons(block_cols.train, ['a', 'c']);
 // let id2QuestionTrain = sliderTexts(block_cols.train[0], block_cols.train[1], 'a', 'c');

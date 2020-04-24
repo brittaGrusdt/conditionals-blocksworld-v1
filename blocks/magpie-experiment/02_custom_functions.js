@@ -77,6 +77,14 @@ const TYPE_ORDERS = [
   ['y', 'x', 'y', 'x', 'z']
 ];
 
+getRealTypes = function(pseudo_types){
+  pseudo_types = pseudo_types.split('').join(' ')
+  let type_seq = pseudo_types.replace(/x/g, TYPE_MAP.x);
+  type_seq = type_seq.replace(/y/g, TYPE_MAP.y);
+  type_seq = type_seq.replace(/z/g, TYPE_MAP.z);
+  return type_seq.split(' ');
+}
+
 // custom functions:
 toggleNextIfDone = function (button, condition) {
     if(condition){
