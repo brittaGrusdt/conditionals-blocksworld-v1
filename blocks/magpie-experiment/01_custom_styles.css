@@ -206,7 +206,8 @@ input[type="range"].replied::-webkit-slider-thumb {
 .selected {
   text-algin: center;
   align-self: center;
-  background-color: #28B463 ;
+  /* background-color: #28B463 ; */
+  border: 8px solid #28B463 ;
 }
 
 .magpie-view-text {
