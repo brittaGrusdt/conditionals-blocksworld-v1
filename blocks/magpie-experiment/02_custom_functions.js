@@ -52,12 +52,31 @@ const time_limit = function (data, next) {
 // };
 // custom parameters:
 const DURATION_ANIMATION = 10000; // in ms
-const key2SelectAnswer = "y";
+const KEY2SELECTANSWER = "y";
 
-const NB_TRAIN_TRIALS = TrainStimuli.list_all.length;
-// const NB_TRAIN_TRIALS = 3;
-
+// const NB_TRAIN_TRIALS = TrainStimuli.list_all.length;
+const NB_TRAIN_TRIALS = 3;
 const TRAIN_BTTN_IDS = ['ac', 'a', 'c', 'none'];
+
+const TYPE_MAP = {x: 'a_implies_c', y: 'independent', z: 'a_iff_c'}
+// each letter represents one trial!
+// 3 blocks a 5 trials each (zz-yy-x) + 1 block a 3 trials (x-y-z)
+// --> 7z + 7y + 4x = 18 trials
+// TYPE_ORDERS are the 10 unique possibilities to join different cn trial types
+// zz-yy-x without repeating one in a row
+const TYPE_ORDERS = [
+  ['y', 'z', 'x', 'y', 'z'],
+  ['x', 'y', 'z', 'y', 'x'],
+  ['y', 'x', 'z', 'y', 'x'],
+  ['z', 'y', 'x', 'y', 'x'],
+  ['x', 'y', 'z', 'x', 'y'],
+  ['x', 'z', 'y', 'x', 'y'],
+  ['y', 'x', 'z', 'x', 'y'],
+  ['z', 'x', 'y', 'x', 'y'],
+  ['x', 'y', 'x', 'y', 'z'],
+  ['y', 'x', 'y', 'x', 'z']
+];
+
 // custom functions:
 toggleNextIfDone = function (button, condition) {
     if(condition){
@@ -74,7 +93,7 @@ addKeyToMoveSliders = function(button2Toggle){
   let counter = 0;
   document.addEventListener("keydown", event => {
     var keyName = event.key;
-    if (keyName === key2SelectAnswer && counter <= 3) {
+    if (keyName === KEY2SELECTANSWER && counter <= 3) {
       var id_nb = counter + 1;
       automaticallySelectAnswer("response" + id_nb, button2Toggle);
       counter += 1;

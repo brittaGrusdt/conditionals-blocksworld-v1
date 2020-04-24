@@ -20,6 +20,13 @@
     <!-- add js dependencies here -->
     <!-- for example jQuery and csv-js if you are using magpie.js -->
     <script type="text/javascript" src="../node_modules/matter-js/build/matter.js"></script>
+    <!-- go to local webppl folder, e.g.: cd ~/webppl
+        npm install -g browserify uglify-js
+        grunt bundle
+        inside bundle you'll find the webppl.js file (and a minimal version of it)
+    -->
+    <script src="../node_modules/webppl.js"></script>
+
 
     <!-- load local files -->
     <link type="text/css" href="01_custom_styles.css" rel="stylesheet" />
@@ -44,7 +51,29 @@
     <script src="03_custom_views_templates.js"></script>
 
     <script src="04_trials.js"></script>
+    <script>
+      let ORDER;
+      // webppl.run arguments: webppl-model, continuation function that runs after
+      // the webppl model does (x is return value of webppl model, s final state
+      // of global store) and an optional options object
+      webppl.run(`sample(Infer({model: function(){
+        let o1 = uniformDraw(TYPE_ORDERS).join('');
+        let o2 = uniformDraw(TYPE_ORDERS).join('');
+        condition(o1 !== o2 && _.last(o1) !== _.first(o2))
+        let o3 = uniformDraw(TYPE_ORDERS).join('');
+        condition(o3 !== o1 && o3 !== o2 && _.last(o2) !== _.first(o3));
+        let l = _.last(o3)
+        let o4 = _.shuffle(_.without(_.keys(TYPE_MAP), l)).join('') + l
+        return o1 + o2 + o3 + o4
+      }}));`, function(s,x) {
+        ORDER = x;
+        console.log(x.length)
+      }, {debug: true})
+    </script>
     <script src="04_trials_utils.js"></script>
+
+
+
     <script src="05_views.js"></script>
     <script src="06_main.js"></script>
   </head>

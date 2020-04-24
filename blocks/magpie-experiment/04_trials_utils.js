@@ -29,79 +29,46 @@ pseudoRandomTrainTrials = function(){
 const SHUFFLED_TRAIN_STIMULI = pseudoRandomTrainTrials();
 
 // TEST TRIALS //
-let TYPE_MAP = {z: 'a_implies_c', x: 'a_iff_c', y: 'independent'}
-let REL_ORDERS = [
-  [['xyz', 'xyz', 'yz'], ['xyz', 'yz', 'xyz'], ['yz', 'xyz', 'xyz']],
-  [['yz', 'xyz', 'xyz'], ['xyz', 'yz', 'xyz'], ['xyz', 'xyz', 'yz']],
-  [['xyz', 'yz', 'xyz'], ['yz', 'xyz', 'xyz'], ['xyz', 'xyz', 'yz']]
-];
-
-// each inner list gets shuffled
-let P_ORDERS = {
-  'ac_ind': [
-    [['lh', 'hu', 'ul'], ['lu', 'hl', 'uu'], ['ll', 'hh', 'uh']],
-    [['lh', 'hu', 'ul'], ['lu', 'hh', 'uh'], ['ll', 'hl', 'uu']],
-    [['lh', 'hu', 'ul'], ['lu', 'hh', 'uu'], ['ll', 'hl', 'uh']],
-
-    [['lh', 'hu', 'uu'], ['lu', 'hl', 'uh'], ['ll', 'hh', 'ul']],
-    [['lh', 'hu', 'uu'], ['lu', 'hh', 'uh'], ['ll', 'hl', 'ul']],
-
-    [['lh', 'hh', 'uh'], ['lu', 'hl', 'uu'], ['ll', 'hu', 'ul']],
-
-    [['lh', 'hh', 'uu'], ['lu', 'hl', 'uh'], ['ll', 'hu', 'ul']],
-
-    [['lh', 'hh', 'ul'], ['lu', 'hl', 'uh'], ['ll', 'hu', 'uu']]
-  ],
-  'a_iff_c': [['hh', 'ul'], ['ll', 'hu'], ['uu', 'hl']]
-};
-
-
-getFullTestSequence = function(trials, p_combis, trial_type){
-  let shuffled = [] ;
-  // shuffle sublists
-  p_combis.forEach(function(arr){
-    shuffled.push(_.shuffle(arr))
-  });
-  shuffled = _.flatten(shuffled);
-  let indices = [];
-  trials.forEach((rel, idx) => rel === trial_type ? indices.push(idx) : null)
-
-  indices.forEach(function(idx, i){
-    trials[idx] = trials[idx] + "_" + shuffled[i];
-  });
-  return trials
+// the conditions are the same for everyone in each single block, but the
+// the order of presented blocks is shuffled randomly
+randomTrialOrder = function(){
+  let blocks = _.shuffle([
+    {'a_implies_c': ['ll', 'uh'], 'independent': ['hh', 'ul'], 'a_iff_c': ['hh']},
+    {'a_implies_c': ['lh', 'uu'], 'independent': ['ll', 'uh'], 'a_iff_c': ['hl']},
+    {'a_implies_c': ['ul', 'hh'], 'independent': ['lh', 'uu'], 'a_iff_c': ['ll']}
+  ]);
+  blocks.push({'a_implies_c': ['hl'], 'independent': ['hl'], 'a_iff_c': ['uu']});
+  let orders = {
+    'a_implies_c': _.flatten(_.map(blocks, 'a_implies_c')),
+    'a_iff_c': _.flatten(_.map(blocks, 'a_iff_c')),
+    'independent': _.flatten(_.map(blocks, 'independent'))
+  }
+  return orders;
 }
 
-getTypeSequence = function(){
-  let i = _.random(0, REL_ORDERS.length-1);
-  // console.log('type order: ' + i);
-  let types_short = _.flatten(REL_ORDERS[i]);
-  let types_str = types_short.join('')
-  types_str = types_str.split('').join(' ')
-  types_str = types_str.replace(/x/g, TYPE_MAP.x);
-  types_str = types_str.replace(/y/g, TYPE_MAP.y);
-  types_str = types_str.replace(/z/g, TYPE_MAP.z);
-  return types_str.split(' ');
+getRealTypes = function(pseudo_types){
+  pseudo_types = pseudo_types.split('').join(' ')
+  let type_seq = pseudo_types.replace(/x/g, TYPE_MAP.x);
+  type_seq = type_seq.replace(/y/g, TYPE_MAP.y);
+  type_seq = type_seq.replace(/z/g, TYPE_MAP.z);
+  return type_seq.split(' ');
 }
 
 pseudoRandomTestTrials = function(){
-  let relations = ["a_implies_c", 'independent']
-  let indices = _.range(0, P_ORDERS.ac_ind.length);
-  let i_ac = _.sample(indices);
-  let i_ind = _.sample(_.without(indices, i_ac))
-  // console.log('order AC:' + i_ac + ' order ind:' + i_ind);
-
-  let trials = getTypeSequence();
-  [P_ORDERS.ac_ind[i_ac], P_ORDERS.ac_ind[i_ind]].forEach(function(p_order, i){
-    trials = getFullTestSequence(trials, p_order, relations[i]);
+  let trials = getRealTypes(ORDER);
+  let priors = randomTrialOrder();
+  Relations.forEach(function(rel){
+    let conditions = priors[rel]
+    conditions.forEach(function(p){
+      let i = _.indexOf(trials, rel)
+      trials[i] = trials[i] + '_' + p
+    })
   })
-  trials = getFullTestSequence(trials, P_ORDERS.a_iff_c, 'a_iff_c')
   return trials
 }
-
+// save trial data to make it accessible in magpie experiment
 const shuffled_test_ids = pseudoRandomTestTrials();
 let test_ids = _.map(slider_rating_trials, 'id');
-
 let TEST_TRIALS = [];
 shuffled_test_ids.forEach(function(id){
   let idx = _.indexOf(test_ids, id)
