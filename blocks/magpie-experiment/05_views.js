@@ -57,30 +57,38 @@ const instructions_train1_colors = magpieViews.view_generator("instructions", {
          In total, you will need about 15-20 minutes to finish it.
          <br/>
          <br />
-         The training phase comprises three parts. We will now start with the
-         first part in which we show you four pictures containing toy
-         blocks. We'll ask you to answer the question shown below the pictures.`,
+         We will start with the first part of the training phase which consists
+         of 8 trials. You will see block arrangements similar to those you will
+         be shown later in the test phase, such that you are able to develop
+         intuitions about the physical properties and get familiar with the
+         stimuli.`,
   buttonText: "START"
 });
+// The training phase comprises two parts. We will now start with the
+// first part in which we show you four pictures containing toy
+// blocks. We'll ask you to answer the question shown below the pictures.`,
 
 // For most tasks, you need instructions views
 const instructions_train2 = magpieViews.view_generator("instructions", {
   trials: 1,
   name: "instructions_train2",
-  title: "Instructions Training 2",
-  text: `Great - we will now continue with the second part of the training phase
-          which consists of 8 trials.
-         You will see block arrangements similar to those you will be shown
-         later in the test phase, such that you are able to develop
-         intuitions about the physical properties and get familiar with the
-         stimuli.
-          <br/>
-          <br/>
-         For each presented scene you will be asked to indicate which of the
-         colored blocks you think will fall by clicking on the respective button.
-         The button that you select will turn green.
-          <br />
-          <br />
+  title: "Instructions Training 1",
+  // text: `Great - we will now continue with the second part of the training phase
+          // which consists of 8 trials.
+  text: `For each presented scene you will be asked to indicate which of the
+         colored blocks you think will fall by clicking on the button with the
+         respective icons.
+         A falling block is represented by a skewed rectangle
+        and a resting block that <i>does not fall</i> is represented by a rectangle
+        with a line below. Here is an exemplary icon for the event
+        <br/>
+        <i>The <b>green</b> block <b>falls</b>, but the <b>yellow</b> block <b>does not fall</b></i>:
+        <br/>
+        <br/>
+        <img src='../stimuli/img/icons/green.jpg'/>
+        <img src='../stimuli/img/icons/not-yellow.jpg' />
+         <br/>
+         <br/>
          A block is considered to <b><i>fall</i></b> <b>as soon as it <i>topples
          over</i> or <i>drops</i> from a platform.</b>
          <br/>
@@ -88,10 +96,12 @@ const instructions_train2 = magpieViews.view_generator("instructions", {
          special properties and they are only distinguishable by their color.
              <br />
              <br />
-         After you have selected a button, you will be able to click on RUN to
-         see what actually happens. Then you can proceed to the next trial.
+         After you selected one of the four buttons (whose border will turn green),
+         you may click on RUN to see what actually happens; and the correct
+         button will be highlighted with a green background.
+         Then, you can proceed to the next trial.
          <br />
-         <br />
+         <br/>
          Please note:
          <br/>
          Throughout the experiment, you may want to go into Full Screen Mode
@@ -103,8 +113,8 @@ const instructions_train2 = magpieViews.view_generator("instructions", {
 const instructions_train3 = magpieViews.view_generator("instructions", {
   trials: 1,
   name: "instructions_train3",
-  title: "Instructions Training 3",
-  text: `Great - we will now proceed with the third part of the training phase
+  title: "Instructions Training 2",
+  text: `Great - we will now proceed with the second part of the training phase
   consisting of a single trial.
     <br />
   In this trial, we ask you to indicate <b>how likely</b> you think certain
@@ -138,14 +148,14 @@ const instructions_test = magpieViews.view_generator("instructions", {
             <br />
           Please keep in mind:
             <br/>
-          A block is considered to <b><i>fall</i> as soon as it drops from a
+          1. A block is considered to <b><i>fall</i> as soon as it drops from a
           platform or topples over</b> - that is, a block does not necessarily
           need to fall to the ground in order to count as <i>falling</i>.
           <br/>
-          The probabilities that you assign to the four events do <b>not have to
+          2. The probabilities that you assign to the four events do <b>not have to
           sum up to 100%</b>.
             </br>
-          The colored blocks all have <b>the same properties</b>, they are only
+          3. The colored blocks all have <b>the same properties</b>, they are only
           distinguishable by their color.
             </br>
             </br>
@@ -159,7 +169,7 @@ const post_test = magpieViews.view_generator("post_test", {
   trials: 1,
   name: "post_test",
   title: "Additional information",
-  text: "Answering the following questions is optional, but your answers will help us analyze our results."
+  text: "Answering the following questions is optional, but your answers will help us analyze our results.",
 
   // You can change much of what appears here, e.g., to present it in a different language, as follows:
   // buttonText: 'Weiter',
@@ -174,7 +184,7 @@ const post_test = magpieViews.view_generator("post_test", {
   // edu_higher_degree: 'Universitärer Abschluss',
   // languages_question: 'Muttersprache',
   // languages_more: '(in der Regel die Sprache, die Sie als Kind zu Hause gesprochen haben)',
-  // comments_question: 'Weitere Kommentare'
+  comments_question: 'Further comments <br/><small>(was there anything about the different stimuli you realized in particular?)</small>'
 });
 
 // The 'thanks' view is crucial; never delete it; it submits the results!

@@ -51,13 +51,13 @@ const time_limit = function (data, next) {
 //     });
 // };
 // custom parameters:
-let DURATION_ANIMATION = 10000; // in ms
-let key2SelectAnswer = "y";
+const DURATION_ANIMATION = 10000; // in ms
+const key2SelectAnswer = "y";
 
-let NB_TRAIN_TRIALS = TrainStimuli.list_all.length;
-// let NB_TRAIN_TRIALS = 3;
+const NB_TRAIN_TRIALS = TrainStimuli.list_all.length;
+// const NB_TRAIN_TRIALS = 3;
 
-let TRAIN_BTTN_IDS = ['ac', 'a', 'c', 'none'];
+const TRAIN_BTTN_IDS = ['ac', 'a', 'c', 'none'];
 // custom functions:
 toggleNextIfDone = function (button, condition) {
     if(condition){
