@@ -234,6 +234,11 @@ input[type="range"].replied::-webkit-slider-thumb {
   display: flex;
   align-items: center;
   justify-content: center;
+
+}
+
+.picture{
+  max-width: 50%;
 }
 
 #buttonNext {
@@ -256,9 +261,11 @@ input[type="range"].replied::-webkit-slider-thumb {
   padding: 5px 10px;
 }
 /* change container of progress_bar, so that all fits on one screen */
-/* .progress-bar-container {
-  margin: 0 10px 0px 10px;
-} */
+.progress-bar-container {
+  margin: 5px;
+  position: absolute;
+  right: 10px;
+}
 
 .img{
   width: 50%
