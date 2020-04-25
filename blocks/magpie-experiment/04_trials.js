@@ -2,7 +2,7 @@
 var color_vision_test = [
   {
     QUD: "Please click on the button with the correct answer.",
-    question: "Is the BLUE bock on the right side?",
+    question: "Is the BLUE block on the right side?",
     picture1: "../stimuli/img/color_vision_test0.jpg",
     picture2: "../stimuli/img/color_vision_test1.jpg",
     option1: "no",
@@ -12,7 +12,7 @@ var color_vision_test = [
   },
   {
     QUD: "Please click on the button with the correct answer.",
-    question: "Is the GREEN bock on the right side?",
+    question: "Is the GREEN block on the right side?",
     picture1: "../stimuli/img/color_vision_test1.jpg",
     picture2: "../stimuli/img/color_vision_test0.jpg",
     option1: "no",
@@ -26,7 +26,7 @@ var color_vision_test = [
     picture2: "../stimuli/img/color_vision_train1.jpg",
     option1: "no",
     option2: "yes",
-    question: "Is the RED bock on the left side?",
+    question: "Is the RED block on the left side?",
     expected: "yes"
 
   },
@@ -36,7 +36,7 @@ var color_vision_test = [
     picture2: "../stimuli/img/color_vision_train1.jpg",
     option1: "no",
     option2: "yes",
-    question: "Is the YELLOW bock on the left side?",
+    question: "Is the YELLOW block on the left side?",
     expected: "no"
 
   }
