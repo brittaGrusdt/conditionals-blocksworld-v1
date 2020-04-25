@@ -57,32 +57,48 @@ const instructions_train1_colors = magpieViews.view_generator("instructions", {
          In total, you will need about 15-20 minutes to finish it.
          <br/>
          <br />
-         We will start with the first part of the training phase which consists
-         of 8 trials. You will see block arrangements similar to those you will
-         be shown later in the test phase, such that you are able to develop
-         intuitions about the physical properties and get familiar with the
-         stimuli.`,
+         The training phase comprises three short parts. We will now start with the
+         first, in which you are shown four pictures containing toy
+         blocks. Please answer the question shown below the pictures by clicking on
+         the respective button.
+         <br />
+         <br/>
+         Please note:
+         <br/>
+         Throughout the experiment, you may want to go into Full Screen Mode
+         (usually switched on/off with F11), otherwise you may need to
+         scroll down to see all buttons.`,
   buttonText: "START"
 });
-// The training phase comprises two parts. We will now start with the
-// first part in which we show you four pictures containing toy
-// blocks. We'll ask you to answer the question shown below the pictures.`,
+
+// We will start with the first part of the training phase which consists
+// of 8 trials. You will see block arrangements similar to those you will
+// be shown later in the test phase, such that you are able to develop
+// intuitions about the physical properties and get familiar with the
+// stimuli.`,
+
 
 // For most tasks, you need instructions views
 const instructions_train2 = magpieViews.view_generator("instructions", {
   trials: 1,
   name: "instructions_train2",
-  title: "Instructions Training 1",
-  // text: `Great - we will now continue with the second part of the training phase
-          // which consists of 8 trials.
-  text: `For each presented scene you will be asked to indicate which of the
+  title: "Instructions Training 2",
+  text: `Great - we will now continue with the second part of the training phase
+          which consists of 8 trials. You will see block arrangements similar
+          to those you will be shown later in the test phase, such that you are
+          able to develop intuitions about the physical properties and get
+          familiar with the stimuli.
+          <br/>
+          <br/>
+        For each presented scene you will be asked to indicate which of the
          colored blocks you think will fall by clicking on the button with the
          respective icons.
          A falling block is represented by a skewed rectangle
         and a resting block that <i>does not fall</i> is represented by a rectangle
         with a line below. Here is an exemplary icon for the event
         <br/>
-        <i>The <b>green</b> block <b>falls</b>, but the <b>yellow</b> block <b>does not fall</b></i>:
+        <i>The <b>green</b> block <b>falls</b>, but the <b>yellow</b> block
+        <b>does not fall</b></i>:
         <br/>
         <br/>
         <img src='../stimuli/img/icons/green.jpg'/>
@@ -97,24 +113,18 @@ const instructions_train2 = magpieViews.view_generator("instructions", {
              <br />
              <br />
          After you selected one of the four buttons (whose border will turn green),
-         you may click on RUN to see what actually happens; and the correct
-         button will be highlighted with a green background.
-         Then, you can proceed to the next trial.
-         <br />
-         <br/>
-         Please note:
-         <br/>
-         Throughout the experiment, you may want to go into Full Screen Mode
-         (usually switched on/off with F11), otherwise you may need to
-         scroll down to see all buttons.`,
+         you may click on RUN to see what actually happens. If you were wrong,
+         the selected button will turn red and the correct one will turn light
+         green.
+         Then, you can proceed to the next trial.`,
   buttonText: "CONTINUE"
 });
 
 const instructions_train3 = magpieViews.view_generator("instructions", {
   trials: 1,
   name: "instructions_train3",
-  title: "Instructions Training 2",
-  text: `Great - we will now proceed with the second part of the training phase
+  title: "Instructions Training 3",
+  text: `Great - we will now proceed with the last part of the training phase
   consisting of a single trial.
     <br />
   In this trial, we ask you to indicate <b>how likely</b> you think certain

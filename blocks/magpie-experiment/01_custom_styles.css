@@ -210,6 +210,17 @@ input[type="range"].replied::-webkit-slider-thumb {
   border: 8px solid #28B463 ;
 }
 
+.correct {
+  /* border: 8px solid #28B463; */
+  border: 8px solid #51DE19;
+  /* background-color: #28B463; */
+}
+
+.incorrect {
+  border: 8px solid #ff0000;
+  /* background-color: #ff0000; */
+}
+
 .magpie-view-text {
   color: rgba(0, 0, 0, 0.87);
   font-size: 17px;

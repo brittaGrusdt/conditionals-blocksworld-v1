@@ -8,6 +8,7 @@ var Engine = Matter.Engine,
 
 cols = {
       'red': '#E74C3C',
+      'strong_red': '#ff0000',
       'turquois': '#38FCFF',
       'blue': '#2471A3',
       'royal': '#0496FF',

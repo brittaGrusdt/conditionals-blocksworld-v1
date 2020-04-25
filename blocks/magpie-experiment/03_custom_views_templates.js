@@ -26,8 +26,23 @@ const animation_view1  = {
           cleared = true;
         }
       });
+      let id_bttn_selected;
       TRAIN_BTTN_IDS.forEach(function(id){
-        toggleSelected(id);
+        $('#' + id).on('click', function(e){
+        var parent = document.getElementById('TrainButtons');
+        let selected = parent.getElementsByClassName("selected");
+        let nb_selected = selected.length;
+        if(nb_selected === 1){
+          TRAIN_BTTN_IDS.forEach(function(bttn){
+            $('#' + bttn).hasClass('selected') ?
+            $('#' + bttn).removeClass('selected') : null;
+          })
+        }
+        $('#' + id).addClass('selected');
+        id_bttn_selected = id;
+        nb_selected = 1;
+        toggleNextIfDone($('#runButton'), true);
+        });
       });
 
       let animationStarted = false;
@@ -39,6 +54,13 @@ const animation_view1  = {
           //selected answers can't be changed anymore
           $(".selected").off("click");
           $(".unselected").off("click");
+
+          let c = SHUFFLED_TRAIN_STIMULI[CT].id
+          let id_button_correct = ["independent_2", "uncertain_0"].includes(c) ? "a" :
+          ['independent_1', "uncertain_1"].includes(c) ? "c" : "ac";
+          $('#' + id_button_correct).addClass("correct");
+          id_bttn_selected !== id_button_correct ?
+            $('#' + id_bttn_selected).addClass('incorrect') : null;
         }
       });
 
@@ -105,6 +127,7 @@ const animation_view2  = {
             clearWorld(animation.engine, animation.render, stop2Render=false);
           }
           let data = getSliderQA("train");
+          console.log(data)
           let trial_data = {
             trial_name: SHUFFLED_TRAIN_STIMULI[CT].id,
             trial_number: CT + 1,

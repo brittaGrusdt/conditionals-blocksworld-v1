@@ -54,8 +54,8 @@ const time_limit = function (data, next) {
 const DURATION_ANIMATION = 10000; // in ms
 const KEY2SELECTANSWER = "y";
 
-// const NB_TRAIN_TRIALS = TrainStimuli.list_all.length;
-const NB_TRAIN_TRIALS = 3;
+const NB_TRAIN_TRIALS = TrainStimuli.list_all.length;
+// const NB_TRAIN_TRIALS = 3;
 const TRAIN_BTTN_IDS = ['ac', 'a', 'c', 'none'];
 
 const TYPE_MAP = {x: 'a_implies_c', y: 'independent', z: 'a_iff_c'}
@@ -108,23 +108,6 @@ addKeyToMoveSliders = function(button2Toggle){
     }
     toggleNextIfDone(button2Toggle, repliedAll());
     return keyName;
-  });
-}
-
-toggleSelected = function(bttnID){
-  $('#' + bttnID).on('click', function(e){
-    var parent = document.getElementById('TrainButtons');
-    let selected = parent.getElementsByClassName("selected");
-    let nb_selected = selected.length;
-    if(nb_selected === 1){
-      TRAIN_BTTN_IDS.forEach(function(bttn){
-        $('#' + bttn).hasClass('selected') ?
-        $('#' + bttn).removeClass('selected') : null;
-      })
-    }
-    $('#' + bttnID).addClass('selected');
-    nb_selected = 1;
-    toggleNextIfDone($('#runButton'), true);
   });
 }
 
