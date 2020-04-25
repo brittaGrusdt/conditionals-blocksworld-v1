@@ -3,7 +3,7 @@
 var fridge_trials = [
   {
     picture: "../stimuli/img/group/a_implies_c_ll.jpg",
-    QUD: "Create your most natural sentence!",
+    QUD: "How would you describe the following scene?",
     question1: id2Question.bg,
     question2: id2Question.b,
     question3: id2Question.g,
@@ -15,7 +15,7 @@ var fridge_trials = [
   },
   {
     picture: "../stimuli/img/group/a_implies_c_lu.jpg",
-    QUD: "Create your most natural sentence!",
+    QUD: "How would you describe the following scene?",
     question1: id2Question.bg,
     question2: id2Question.b,
     question3: id2Question.g,
