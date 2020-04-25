@@ -64,9 +64,12 @@ makeRamp = function(angle, tilt_increase, wallLow){
   );
   pos.x_ball = tilt_increase ? wallTop.bounds.min.x - 4 : wallTop.bounds.max.x + 4;
 
-  let id = 'ball' + Math.abs(angle)
+  let a = Math.abs(angle)
+  let col = a=== 45 ? cols.blue : a === 30 ? cols.purple : a===25 ?
+    cols.orange : a===20 ? cols.yellow : cols.brown;
+
   let ball1 = ball(pos.x_ball, wallTop.bounds.min.y - props.balls.radius,
-                   props.balls.radius, 'ball1', cols[id]);
+                   props.balls.radius, 'ball1', col);
   Body.setAngle(ramp, -pos.shift_x * r);
   return {'tilted': ramp, 'top': wallTop, 'ball': ball1}
 }

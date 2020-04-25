@@ -32,9 +32,3 @@ cols = {
 cols.plank = cols.blue
 cols.test_blocks = [cols.green, cols.royal];
 cols.train_blocks = [cols.bordeaux, cols.darkyellow];
-
-cols.ball45 = cols.blue
-cols.ball30 = cols.purple
-cols.ball25 = cols.orange
-cols.ball20 = cols.yellow
-cols.ball15 = cols.brown
