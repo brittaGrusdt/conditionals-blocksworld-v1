@@ -19,12 +19,7 @@ OPTS = {
   'walls': {isStatic: true, render: {fillStyle: cols.grey}},
   'balls': {isStatic: false, restitution: 0, friction: 0.001, density: 0.1},
   'blocks': {isStatic: false, density: 0.006, restitution: .02}, //, friction: 0.05},
-  'seesaw_plank': {isStatic: false},
-  'ramp45' : {render: {fillStyle: cols.black}},
-  'ramp30' : {render: {fillStyle: cols.brown}},
-  'ramp25' : {render: {fillStyle: cols.purple}},
-  'ramp20' : {render: {fillStyle: cols.orange}},
-  'ramp15' : {render: {fillStyle: cols.yellow}}
+  'seesaw_plank': {isStatic: false}
 }
 
 let Relations = ['a_implies_c', 'a_iff_c', 'independent'];
