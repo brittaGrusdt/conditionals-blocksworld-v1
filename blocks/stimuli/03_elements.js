@@ -52,7 +52,9 @@ makeRamp = function(angle, tilt_increase, wallLow){
   let ramp_y = wallLow.position.y - hMiddle;
 
   let ramp_x = pos.w_low_x_edge + pos.shift_x*ramp_width/2 - pos.shift_x*overlap
-  let ramp = wall('ramp' + angle, ramp_x, ramp_y, ramp_width);
+  let id = 'ramp' + Math.abs(angle)
+  let ramp = wall('ramp' + angle, ramp_x, ramp_y, ramp_width, props.walls.h,
+    OPTS[id]);
   pos.x_edge_w_top = tilt_increase ? ramp.bounds.max.x : ramp.bounds.min.x;
 
   let wallTop_y = ramp.position.y - hMiddle + props.walls.h/2;
@@ -160,9 +162,10 @@ Walls.train.a_implies_c = [
 
 Walls.train.seesaw_trials = function(){
   let objs = seesaw(scene.w/2)
-
-  let ramp = wall('ramp', 200, 175, Math.pow(10,2)*Math.sqrt(2))
-  Body.setAngle(ramp, radians(45));
+  let angle = 45;
+  let ramp = wall('ramp', 200, 175, Math.pow(10,2)*Math.sqrt(2), props.walls.h,
+    OPTS['ramp'+angle]);
+  Body.setAngle(ramp, radians(angle));
   // first two elements are bases for blocks!
   let walls = [wall('wallTopLeft', 100, 125, 100), W7(), ramp].concat([objs.skeleton]);
   return {'walls': walls, 'dynamic': [objs.plank, objs.constraint]}
