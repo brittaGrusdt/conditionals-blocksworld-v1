@@ -30,7 +30,7 @@ $("document")
     ],
       // Here, you can specify all information for the deployment
       deploy: {
-        experimentID: "12",
+        experimentID: "14",
         serverAppURL: "https://mcmpact.ikw.uni-osnabrueck.de/magpie/api/submit_experiment/",
         // Possible deployment methods are:
         // "debug" and "directLink"
