@@ -1,4 +1,4 @@
-const DEBUG = true;
+const DEBUG = false;
 // var MODE = "color-vision"
 // var MODE = "train"
 var MODE = "test"
