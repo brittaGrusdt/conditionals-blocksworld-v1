@@ -101,8 +101,8 @@ const instructions_train2 = magpieViews.view_generator("instructions", {
         <b>does not fall</b></i>:
         <br/>
         <br/>
-        <img src='../stimuli/img/icons/green.jpg'/>
-        <img src='../stimuli/img/icons/not-yellow.jpg' />
+        <img src='stimuli/img/icons/green.jpg'/>
+        <img src='stimuli/img/icons/not-yellow.jpg' />
          <br/>
          <br/>
          A block is considered to <b><i>fall</i></b> <b>as soon as it <i>topples

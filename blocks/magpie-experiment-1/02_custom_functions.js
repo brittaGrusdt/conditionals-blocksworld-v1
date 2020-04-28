@@ -149,8 +149,8 @@ abbreviateQuestion = function(question, symbols){
 
 iconHtml2Utterance = function(question, symbols) {
   let words = question.trim().split('/');
-  let utt1 = words[4].split('.')[0]
-  let utt2 = words[8].split('.')[0]
+  let utt1 = words[3].split('.')[0]
+  let utt2 = words[6].split('.')[0]
   let utt;
   if(utt1.includes('not')){
     utt = utt2.includes('not') ? 'none' : symbols[1];
