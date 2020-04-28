@@ -101,8 +101,8 @@ const instructions_train2 = magpieViews.view_generator("instructions", {
         <b>does not fall</b></i>:
         <br/>
         <br/>
-        <img src='stimuli/img/icons/green.jpg'/>
-        <img src='stimuli/img/icons/not-yellow.jpg' />
+        <img src='stimuli/img/icons/green.png'/>
+        <img src='stimuli/img/icons/not-yellow.png' />
          <br/>
          <br/>
          A block is considered to <b><i>fall</i></b> <b>as soon as it <i>topples
@@ -205,7 +205,7 @@ const thanks = magpieViews.view_generator("thanks", {
   prolificConfirmText: "Press the button"
 });
 
-const forced_choice_custom = magpieViews.view_generator("forced_choice", {
+const sentence_choice_custom = magpieViews.view_generator("sentence_choice", {
   trials: color_vision_test.length,
   name: "color-vision",
   data: _.shuffle(color_vision_test)

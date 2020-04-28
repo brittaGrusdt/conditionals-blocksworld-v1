@@ -1,0 +1,115 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Blocks</title>
+  </head>
+  <body>
+    <h id="title"></h>
+    <p id="data"></p>
+    <ol id="utterances"></ol>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="../node_modules/matter-js/build/matter.js"></script>
+    <script src="../node_modules/underscore/underscore.js"></script>
+
+    <link type="text/css" href="styles.css" rel="stylesheet" />
+
+    <script src="00_globals.js"></script>
+    <script src="01_config.js"></script>
+    <script src="02_utils.js"></script>
+    <script src="03_elements.js"></script>
+    <script src="04_test_stimuli.js"></script>
+    <script src="05_train_stimuli.js" type="text/javascript"></script>
+    <script src="06_scene.js"></script>
+    <script src="color-vision.js"></script>
+
+    <!-- choose experimental/train stimulus -->
+    <script type="text/javascript">
+      let rel, stimulus, id;
+      if(MODE === "test") {
+        let relations = Array.from(Relations);
+        // let relations = ['independent']
+        // let relations = ['a_iff_c']
+        // let relations = ['a_implies_c']
+        rel = relations[_.random(0, relations.length-1)];
+        let p1 = _.sample(['u', 'h', 'l']);
+        // a<->c only 6 cases:  ul, hu, hl, uu, ll, hh
+        let p2 = rel === "a_iff_c" ? (p1==='u' ? 'l' :
+          p1==='h' ? _.sample(['u', 'l']) : 'l') : _.sample(['l', 'h', 'u']);
+
+        // p1 = 'h'
+        // p2 = 'h'
+        let p = p1 + p2;
+        stimulus = getTestStimulus(rel, p);
+        id =  rel + '_' + p
+      } else if(MODE === "train") {
+        let types = ["independent", "a_implies_c", "uncertain", "a_iff_c"];
+        // let types = ["a_implies_c"]
+        // let types = ["independent"];
+        // let types = ["uncertain"]
+        // let types = ["a_iff_c"];
+        rel = types[_.random(0, types.length-1)];
+        let nb = _.random(0, _.size(TrainStimuli.map_category[rel])-1);
+        // nb = 0;
+        stimulus = getTrainStimulus(rel, nb);
+        id =  rel + '_' + nb;
+      } else if (MODE == "color-vision"){
+        let ColorVisionStimuli = [];
+        let id = 1;
+        let stimuli = makeColorVisionStimuli();
+        stimulus = stimuli[id]
+      }
+      console.log(id)
+    </script>
+
+    <!-- add objects to world -->
+    <script type="text/javascript">
+      let worldElems = createWorld();
+      let render = worldElems.render
+      let engine = worldElems.engine
+      MODE === "color-vision" ? addObjs2World(stimulus.objs, engine, false) :
+        addObjs2World(stimulus.objs, engine);
+    </script>
+
+    <!-- wrapper classes -->
+    <script type="text/javascript">
+    wrapperClearWorld = function(){
+      clearWorld(engine, render);
+    }
+    wrapperRunAnimation = function(){
+      runAnimation(engine);
+    }
+    </script>
+
+    <!-- in debug mode: add expectations and data for shown stimulus -->
+    <button id="expectBttn" class="hide" onclick="expectedUtts()">expected utterances</button>
+    <button id="exitBttn" class="hide" onclick="wrapperClearWorld()">clear</button>
+    <button id="startBttn" class="hide" onclick="wrapperRunAnimation()">start</button>
+    <script src="expectations.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      if(DEBUG){
+        $('#expectBttn').toggleClass('hide');
+        $('#exitBttn').toggleClass('hide');
+        $('#startBttn').toggleClass('hide');
+
+        document.getElementById("title").innerHTML = 'stimulus id: ' + id;
+        document.getElementById("data").innerHTML =
+          'P(A): ' + stimulus.meta[0] + ' P(C): ' + stimulus.meta[1] +
+          ', relation: ' + stimulus.meta[2] +
+          ', mode: ' + MODE;
+
+        let utterances = getExpectations(stimulus);
+        expectedUtts = function(){
+          for(var i=0; i < utterances.length; i++) {
+            var li = document.createElement("LI");
+            li.setAttribute('id', 'utt'+i);
+            var utt = document.createTextNode(utterances[i]);
+            li.appendChild(utt);
+            document.getElementById("utterances").appendChild(li);
+          }
+        }
+      }
+    </script>
+    <script type="text/javascript">show(engine, render)</script>
+  </body>
+</html>

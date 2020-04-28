@@ -18,7 +18,7 @@ $("document")
       views_seq: [
       intro,
       instructions_train1_colors,
-      forced_choice_custom,
+      sentence_choice_custom,
       instructions_train2,
       animation_view1,
       instructions_train3,

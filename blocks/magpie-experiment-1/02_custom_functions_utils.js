@@ -10,23 +10,23 @@ sliderTexts = function (col1, col2, key1, key2) {
 sliderIcons = function (cols, keys) {
   let id2Html = {}
   id2Html[keys[0] + keys[1]] = `<div>` +
-    `<img src=stimuli/img/icons/` + cols[0] + `.jpg>` +
-    `<img src=stimuli/img/icons/` + cols[1] + `.jpg>` +
+    `<img src=stimuli/img/icons/` + cols[0] + `.png>` +
+    `<img src=stimuli/img/icons/` + cols[1] + `.png>` +
     `</div>`;
 
   id2Html[keys[0]] = `<div>` +
-    `<img src=stimuli/img/icons/` + cols[0] + `.jpg>` +
-    `<img src=stimuli/img/icons/not-` + cols[1] + `.jpg>` +
+    `<img src=stimuli/img/icons/` + cols[0] + `.png>` +
+    `<img src=stimuli/img/icons/not-` + cols[1] + `.png>` +
     `</div>`;
 
   id2Html[keys[1]] = `<div>` +
-    `<img src=stimuli/img/icons/not-` + cols[0] + `.jpg>` +
-    `<img src=stimuli/img/icons/` + cols[1] + `.jpg>` +
+    `<img src=stimuli/img/icons/not-` + cols[0] + `.png>` +
+    `<img src=stimuli/img/icons/` + cols[1] + `.png>` +
     `</div>`;
 
   id2Html["none"] = `<div>` +
-    `<img src=stimuli/img/icons/not-` + cols[0] + `.jpg>` +
-    `<img src=stimuli/img/icons/not-` + cols[1] + `.jpg>` +
+    `<img src=stimuli/img/icons/not-` + cols[0] + `.png>` +
+    `<img src=stimuli/img/icons/not-` + cols[1] + `.png>` +
     `</div>`;
   return id2Html;
 }
