@@ -15,8 +15,8 @@ const Dist2Side = 0
 const COLOR = {"platforms": "#B6AFBD",  // "#FFBC42",
                "distractor": "#8B4513", //"#900C3F",
                "ground": "black",
-               // "blocks": ["#1BB635", "#0496FF"],  // green, blue
-               "blocks": ["#FFA500", "#20B2AA"],  // green, blue
+               "blocks": ["#1BB635", "#0496FF"],  // green, blue
+               // "blocks": ["#FFA500", "#20B2AA"],  // tuerkis, orange
                "seesaw": {"plank": "darkorange", "stick": "darkgray"}}
 
 // density spruce (Fichte): 0.47 g/cm3

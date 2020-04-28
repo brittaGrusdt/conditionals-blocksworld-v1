@@ -81,14 +81,14 @@ let density = 0.001;
 const DENSITIES = {"default": density, "blocks": density,
   "seesawPlank": density * 1.47, "platforms": density * 16.7}
 
-// const FRICTIONS = {"default": 0.01}
+// const FRICTIONS = {"default": 0.05}
 const RESTITUITIONS = {"default": 0} // default is inelastic
 
-const BLOCKS = {"width": 50, "height": 70,
+const BLOCKS = {"width": 40, "height": 80,
                 "minDist2Edge": 5,"step": 10
                };
 // proportion of this value of the width of the block will touch the base
-const Prior2ProportionOnBase = {"low": 0.625, "high": 0.375, "uncertain": 0.5}
+const Prior2ProportionOnBase = {"low": 0.7, "high": 0.3, "uncertain": 0.5}
 let platformDist = 2 * platformW
 const PlatformProp2Val =
   {"width": {"default": platformW, "narrow": platformW / 2, "very_narrow": platformW / 3},
@@ -667,7 +667,8 @@ let render;
 let globalObjPropsBefore = {};
 let globalObjPropsAfter = {};
 
-clearWorld = function(worldObjects){
+clearWorld = function(){
+  let worldObjects = engine.world.bodies;
   removeBodies(worldObjects);
   // // World.clear(engine.world, deep = true) // doesn't remove static objects
   engine.events = {};
@@ -687,7 +688,6 @@ addStopRenderAndClearWorldEvent = function(){
   Events.on(engine, 'afterUpdate', function (event) {
     // only do this once after specified nb of ms passed
     if (engine.timing.timestamp >= SIMULATION.duration) {
-      console.log(engine.timing.timestamp)
       freezeAnimation();
       // document.getElementById("timestamp").innerHTML = "timestamp:" + engine.timing.timestamp;
       // This freezes what is rendered at this point in time
@@ -781,7 +781,7 @@ function removeBodies(arr) {
 	}
 }
 
-var forwardAnimation = function(worldObjects){
+var forwardAnimation = function(){
   var n = 0
   while(n < 500) {
     Engine.update(engine, 10.0)
@@ -895,7 +895,7 @@ var simulateProbs = function(scene, wiggles){
     sceneData.b2.x = Number(parseFloat(wiggles.block2[i]));
     worldObjects = createSceneObjs(scene["platform.type"], sceneData, false);
     setupWorld(worldObjects);
-    forwardAnimation(worldObjects);
+    forwardAnimation();
     let effects = simulationEffects();
     clearWorld(worldObjects);
     // frequencies block1, block2 touching ground
@@ -1014,7 +1014,7 @@ let wiggle = function(stimulus, N, sigma){
 run = function(N, sigma){
   let stimuli = _.uniq(_.pluck(dataAll, 'id'));
   // let stimuli = ["S1-121"];
-  // let stimuli =  ["S89-1642"];
+  stimuli =  ["S89-1642"];
   let definitions = prepareWiggleData();
   // console.log(definitions)
   let effects = [];
@@ -1036,7 +1036,8 @@ const fs = require('fs');
 let fn = 'simulationProbabilities.csv'
 const ws = fs.createWriteStream(fn, { flag: 'a' });
 // let sigmas = [1.75, 2.5]
-let sigmas = [0.5, 1, 2.5]
+// let sigmas = [0.5, 1, 2.5]
+let sigmas = [1];
 let N = 1000;
 
 let results = []
