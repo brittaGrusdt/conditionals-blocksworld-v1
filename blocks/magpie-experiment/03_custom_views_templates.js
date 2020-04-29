@@ -204,7 +204,7 @@ const fridge_generator = {
   },
 
   answer_container_gen: function (config, CT) {
-    let array = ["word1", "word2", "word3", "word4", "word5", "word6", "word7", "word8", "word9", "wordislong10"];
+    let array = ["word1", "word2", "word3", "word4", "word5", "word6", "word7", "word8", "word9", "wordislong10", "word1", "word2", "word3", "word4", "word5", "word6", "word7", "word8", "word9", "wordislong10", "word1", "word2", "word3", "word4", "word5", "word6", "word7", "word8", "word9", "wordislong10"];
     return `<div class ="fix-box multi-slider-grid"> <div class = "fridge">` + array.map((word, index) => {
       return (
         `<div class=word id=word` + index + ` >
