@@ -203,68 +203,30 @@ const fridge_generator = {
       </div>`;
   },
 
+
+
   answer_container_gen: function (config, CT) {
-    let array = ["word1", "word2", "word3", "word4", "word5", "word6", "word7", "word8", "word9", "wordislong10", "word1", "word2", "word3", "word4", "word5", "word6", "word7", "word8", "word9", "wordislong10", "word1", "word2", "word3", "word4", "word5", "word6", "word7", "word8", "word9", "wordislong10"];
-    return `<div class ="fix-box multi-slider-grid"> <div class = "fridge">` + array.map((word, index) => {
-      return (
-        `<div class=word id=word` + index + ` >
-          <p> ` +
-        word +
-        ` </p>
-        </div>`
-      ); + `</div> `
-    }) + `</div>  <div class = 'answer'> <span class ="sentence selected1"'> Your sentence: </span> <span class = "selected"> ${config.data[CT].sentence} </span> </div> </div>`
 
-    ;
+    function return_word_array(array, color) {
+      return array.map((word, index) => {
+          return (
+            `<div class="word ` + color + `" id=word` + index + ` >
+            <p> ` +
+            word +
+            ` </p>
+          </div>`
+          ); + `</div> `
+        })
+        .join('')
+    }
+    let wordArray1 = ["fall", "falls", "will", "cause", "causes", "make"]
+    let wordArray2 = ["neue worte", "ohne komma", "neue", "neue worte", "ohne komma", "neue"]
+    let wordArray3 = ["neue worte", "ohne komma", "neue", "neue worte", "ohne komma", "neue"]
+    let wordArray4 = ["neue worte", "ohne komma", "neue", "neue worte", "ohne komma", "neue"]
+    let wordArray5 = ["neue worte", "ohne komma", "neue", "neue worte", "ohne komma", "neue"]
 
-
-    //   const option1 = config.data[CT].optionLeft;
-    //   const option2 = config.data[CT].optionRight;
-    //   return `
-    //     <div class='magpie-multi-slider-grid' id='target'>
-    //
-    //       <question1 class='magpie-view-question grid-question' id ='question1'>${
-    //         config.data[CT].question1
-    //         }</question1>
-    //       <slider1 class='magpie-grid-slider' id='slider1'>
-    //         <span class='magpie-response-slider-option optionWide'>${option1}</span>
-    //           <input type='range' id='response1' name='answer1' class='magpie-response-slider' min='0' max='100'    value='50' oninput='output1.value = response1.value + "%"'/>
-    //         <span class='magpie-response-slider-option optionWide'>${option2}</span>
-    //         <output name="outputSlider1" id="output1" class="thick">50%</output>
-    //       </slider1>
-    //
-    //       <question2 class='magpie-view-question grid-question' id ='question2'>${
-    //         config.data[CT].question2
-    //       }</question2>
-    //       <slider2 class='magpie-grid-slider' id='slider2'>
-    //         <span class='magpie-response-slider-option optionWide'>${option1}</span>
-    //         <input type='range' id='response2' name='answer2' class='magpie-response-slider' min='0' max='100'  value='50' oninput='output2.value = response2.value + "%"'/>
-    //         <span class='magpie-response-slider-option optionWide'>${option2}</span>
-    //         <output name="outputSlider2" id="output2" class="thick">50%</output>
-    //       </slider2>
-    //
-    //       <question3 class='magpie-view-question grid-question' id ='question3' >${
-    //         config.data[CT].question3
-    //       }</question3>
-    //       <slider3 class='magpie-grid-slider' id='slider3'>
-    //         <span class='magpie-response-slider-option optionWide'>${option1}</span>
-    //         <input type='range' id='response3' name='answer3' class='magpie-response-slider' min='0' max='100' value='50' oninput='output3.value = response3.value + "%"'/>
-    //         <span class='magpie-response-slider-option optionWide'>${option2}</span>
-    //         <output name="outputSlider3" id="output3" class="thick">50%</output>
-    //       </slider3>
-    //
-    //       <question4 class='magpie-view-question grid-question' id ='question4'>${
-    //         config.data[CT].question4
-    //       }</question4>
-    //       <slider4 class='magpie-grid-slider' id='slider4'>
-    //         <span class='magpie-response-slider-option optionWide'>${option1}</span>
-    //         <input type='range' id='response4' name='answer4' class='magpie-response-slider' min='0' max='100' value='50' oninput='output4.value = response4.value + "%"'/>
-    //         <span class='magpie-response-slider-option optionWide'>${option2}</span>
-    //         <output name="outputSlider4" id="output4" class="thick">50%</output>
-    //       </slider4>
-    //       </div>
-    //
-    ` <button id='buttonNext' class='grid-button magpie-view-button'>Next scenario</button>`;
+    return `<div> <div class="fridge">` + return_word_array(wordArray1, "red") + return_word_array(wordArray2, "blue") + return_word_array(wordArray3, "blue") + return_word_array(wordArray4, "blue") + return_word_array(wordArray5, "blue") +
+      `</div>  <div class = 'selected1 sentence'> <span class ="sentence selected1"'> Your sentence: </span> <span class = "selected"> ${config.data[CT].sentence} </span> <button id='buttonNext' class='delete-sentence'>delete sentence</button> </div> <br><br/> </div> <button id='buttonNext' class='grid-button magpie-view-button'>Next scenario</button>`;
   },
 
   handle_response_function: function (
@@ -308,15 +270,29 @@ const fridge_generator = {
           .replace(/(\r\n|\n|\r)/gm, "")
           .trim();
         sentence_array.push(value)
-        console.log(sentence_array);
 
-        var sentence = sentence_array.toString()
-          .replace(/,/, "");
-        console.log(sentence);
-        `<div class="made-sentence"> sentence_array </div>`
+
 
         $(".selected")
-          .append(`< div class = "made-sentence" > sentence_array < /div>`)
+          .append(" " + value)
+        config.data[CT].sentence.push(value);
+        console.log(config.data[CT].sentence);
+        var sentence = sentence_array.toString()
+          .replace(/,/, "");
+        console.log(sentence.replace(/,/, ""));
+      });
+
+    $(".delete-sentence")
+      .click(function () {
+        console.log("test deletee");
+        sentence_array.push("");
+        sentence = "";
+        // var sentence = sentence_array.toString()
+        //   .replace(/,/, "");
+        // console.log(sentence);
+
+        $(".selected")
+          .empty()
         config.data[CT].sentence.push(sentence);
         console.log(config.data[CT].sentence);
 
