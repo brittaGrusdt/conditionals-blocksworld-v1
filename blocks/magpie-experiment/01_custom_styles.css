@@ -211,6 +211,11 @@ input[type="range"].replied::-webkit-slider-thumb {
   margin-top: 0px;
   margin-bottom: 0px;
 }
+
+#buttonSubmit{
+  position: absolute;
+  right: 10%;
+}
 /* change container of progress_bar, so that all fits on one screen */
 /* .progress-bar-container {
   margin: 0 10px 0px 10px;
@@ -219,10 +224,12 @@ input[type="range"].replied::-webkit-slider-thumb {
 
 /* code for fridge box */
 .fix-box {
-  width: 500px;
+  width: 80%;
   display: run-in;
   align-items: center;
   align-content: center;
+  padding-left: 10%;
+  padding-right: 10%;
 }
 
 .fridge {
@@ -230,6 +237,7 @@ input[type="range"].replied::-webkit-slider-thumb {
   justify-content: space-evenly;
   flex-wrap: wrap;
   font-size: 30px;
+  /* align-content: space-around; */
 }
 
 /* .word1,
@@ -253,10 +261,11 @@ input[type="range"].replied::-webkit-slider-thumb {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  margin: 4px 2px;
+  margin: 8px 8px;
   transition-duration: 0.4s;
   cursor: pointer;
    border: 2px solid #4CAF50;
+
 
 /* ab hier magpie-view-button optik */
    color: black;
@@ -273,9 +282,6 @@ input[type="range"].replied::-webkit-slider-thumb {
 }
 
 
-.secondCategory{
-  background-color: red
-}
 .blue{
   background-color: white;
   color: black;
@@ -286,7 +292,7 @@ input[type="range"].replied::-webkit-slider-thumb {
 .blue:hover {
   background-color: #3e56c9;
   color: white;
-    border-radius: 15px;
+  border-radius: 15px;
 }
 
 .red{
@@ -345,7 +351,19 @@ input[type="range"].replied::-webkit-slider-thumb {
   width:800px;
   display:flex;
   padding: 50px;
+}
 
+.sentence{
+  position: absolute;
+  left: 10%;
+  font-family: "Lato", "Noto Sans", sans-serif;
+}
+
+
+#buttonDelete{
+  margin: 0px;
+  position: absolute;
+  right: 10%;
 }
 
 /* .answer{
