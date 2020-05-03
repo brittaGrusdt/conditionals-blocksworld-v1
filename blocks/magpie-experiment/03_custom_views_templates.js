@@ -219,14 +219,14 @@ const fridge_generator = {
         })
         .join('')
     }
-    let wordArray1 = ["fall", "falls", "will", "cause", "causes", "make"]
-    let wordArray2 = ["neue worte", "ohne komma", "neue", "neue worte", "ohne komma", "neue"]
-    let wordArray3 = ["neue worte", "ohne komma", "neue", "neue worte", "ohne komma", "neue"]
-    let wordArray4 = ["neue worte", "ohne komma", "neue", "neue worte", "ohne komma", "neue"]
-    let wordArray5 = ["neue worte", "ohne komma", "neue", "neue worte", "ohne komma", "neue"]
+    let wordArray1 = ["fall", "falls", "will", "cause", "causes", "won't", "make", "makes", "do", "does"]
+    let wordArray2 = ["if", "and", "or", "to", "due to", "because of", "the"]
+    let wordArray3 = ["not", "neither", "nor", "no"]
+    let wordArray4 = ["block", "blocks", "green", "blue", "red", "yellow"]
+    let wordArray5 = ["maybe", "likely", "probably", "only", "rather"]
 
-    return `<div> <div class="fridge">` + return_word_array(wordArray1, "red") + return_word_array(wordArray2, "blue") + return_word_array(wordArray3, "blue") + return_word_array(wordArray4, "blue") + return_word_array(wordArray5, "blue") +
-      `</div>  <div class = 'selected1 sentence'> <span class ="sentence selected1"'> Your sentence: </span> <span class = "selected"> ${config.data[CT].sentence} </span> <button id='buttonNext' class='delete-sentence'>delete sentence</button> </div> <br><br/> </div> <button id='buttonNext' class='grid-button magpie-view-button'>Next scenario</button>`;
+    return `<div> <div class="fridge">` + return_word_array(wordArray1, "magpie-view-button green") + return_word_array(wordArray2, "red") + return_word_array(wordArray3, "orange") + return_word_array(wordArray4, "purple") + return_word_array(wordArray5, "blue") +
+      `</div>  <div class = 'selected1 sentence'> <span class ="sentence selected1"'> Your sentence: </span> <span class = "selected"> ${config.data[CT].sentence} </span> <button id='buttonNext' class=' magpie-view-button delete-sentence'>delete sentence</button> </div> <br><br/> </div> <button id='buttonNext' class='grid-button magpie-view-button'>Next scenario</button>`;
   },
 
   handle_response_function: function (
