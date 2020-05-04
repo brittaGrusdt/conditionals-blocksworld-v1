@@ -376,7 +376,34 @@ input[type="range"].replied::-webkit-slider-thumb {
   margin: 0px;
   position: absolute;
   right: 10%;
+  background-color: red;
 }
+
+#buttonSubmit{
+  margin: 0px;
+  position: absolute;
+  right: 10%;
+  background-color: green;
+}
+
+#buttonMore{
+ margin: 0px;
+ position: absolute;
+ left: 30%;
+}
+
+#buttonNext{
+ margin: 0px;
+ position: absolute;
+ right: 30%
+}
+
+
+#buttonNext {
+  /* margin-top: 0px;
+  margin-bottom: 0px; */
+}
+
 
 /* .answer{
   float:right;

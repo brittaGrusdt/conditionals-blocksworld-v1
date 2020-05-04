@@ -234,9 +234,13 @@ const fridge_generator = {
       </div> <button id='buttonDelete' class=' magpie-view-button delete-sentence'>delete sentence </button>
       <br><br/>
       <br><br/>
-
-      <div> <button id='buttonSubmit' class='magpie-view-button'> submit sentence</button>
-      <button id='buttonNext' class='magpie-view-button'>Next scenario</button> </div>
+      <button id='buttonSubmit' class='magpie-view-button submit-sentence'> submit sentence</button>
+      <br><br/>
+      <br><br/>
+      <span>
+      <button id='buttonMore' class='magpie-view-button grid-button'>Build another sentence </button>
+      <button id='buttonNext' class='magpie-view-button grid-button'>Next scenario</button>
+      </span>
       <br><br/>
 
     </div>`;
@@ -254,25 +258,6 @@ const fridge_generator = {
     let button = $("#buttonNext");
 
     let sentence_array = [];
-
-
-    // function select_word(sentence_array, word) {
-    //
-    // document.getElementById(word)
-    //     .sentence_array.push(word);
-    //   return sentence_array;
-    //
-    //   console.log(sentence_array);
-    // }
-    //
-    // console.log(sentence_array);
-
-    // addWord2Utterance = function (wordID) {
-    //   $("#" + wordID)
-    //     .click(function () {
-    //         //... do stuff here
-    //       }
-    //     }
 
     // each word which is pressed is saved in an array to build the sentence
     $(".word")
@@ -313,26 +298,30 @@ const fridge_generator = {
 
 
     // function for debugging - if "y" is pressed, the slider will change
-    // if (magpie.deploy.deployMethod === "debug") {
-    //   addShortCut2SelectAnswers(button);
-    // }
-    // addCheckResponseFunctionality(button);
-    // button.on("click", function () {
-    //   const RT = Date.now() - startingTime; // measure RT before anything else
-    //   let responseData = saveTrialQA();
-    //   let trial_data = {
-    //     trial_name: config.name,
-    //     trial_number: CT + 1,
-    //     response: responseData.responses,
-    //     utterances: responseData.questions,
-    //     RT: RT
-    //   };
-    //   trial_data = magpieUtils.view.save_config_trial_data(
-    //     config.data[CT],
-    //     trial_data
-    //   );
-    //   magpie.trial_data.push(trial_data);
-    //   magpie.findNextView();
-    // });
+    if (magpie.deploy.deployMethod === "debug") {
+      addShortCut2SelectAnswers(button);
+    }
+
+    //addCheckResponseFunctionality(button);
+
+    // here function to check if sentence is submitted, then next scenario and build another sentence are free to press
+
+    button.on("click", function () {
+      const RT = Date.now() - startingTime; // measure RT before anything else
+      let responseData = saveTrialQA();
+      let trial_data = {
+        trial_name: config.name,
+        trial_number: CT + 1,
+        response: responseData.responses,
+        utterances: responseData.questions,
+        RT: RT
+      };
+      trial_data = magpieUtils.view.save_config_trial_data(
+        config.data[CT],
+        trial_data
+      );
+      magpie.trial_data.push(trial_data);
+      magpie.findNextView();
+    });
   }
 };
