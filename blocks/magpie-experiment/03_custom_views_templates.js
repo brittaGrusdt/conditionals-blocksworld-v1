@@ -287,8 +287,10 @@ const fridge_generator = {
     $(".delete-sentence")
       .click(function () {
         console.log("test deletee");
+        sentence_array = [];
         sentence_array.push("");
         sentence = "";
+
         // var sentence = sentence_array.toString()
         //   .replace(/,/, "");
         // console.log(sentence);
