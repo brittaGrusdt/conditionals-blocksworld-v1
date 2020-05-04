@@ -62,6 +62,7 @@ toggleNextIfDone = function (button, condition) {
   if (condition) {
     button.removeClass("grid-button");
   }
+
 };
 
 automaticallySelectAnswer = function (responseID, button2Toggle) {

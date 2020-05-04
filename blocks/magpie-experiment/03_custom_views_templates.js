@@ -234,7 +234,7 @@ const fridge_generator = {
       </div> <button id='buttonDelete' class=' magpie-view-button delete-sentence'>delete sentence </button>
       <br><br/>
       <br><br/>
-      <button id='buttonSubmit' class='magpie-view-button submit-sentence'> submit sentence</button>
+      <button id='buttonSubmit' class='magpie-view-button grid-button submit-sentence '> submit sentence</button>
       <br><br/>
       <br><br/>
       <span>
@@ -256,6 +256,7 @@ const fridge_generator = {
     $(".magpie-view")
       .append(answer_container_generator(config, CT));
     let button = $("#buttonNext");
+    let submitbutton = $("#buttonSubmit");
 
     let sentence_array = [];
 
@@ -279,9 +280,8 @@ const fridge_generator = {
           .replace(/,/, "");
         console.log(sentence.replace(/,/, ""));
         // here function to check if sentence is submitted, then next scenario and build another sentence are free to press
-        _checkBuildSentence(sentence_array, button)
-        //new 4.5.
-        //sentence_array = sentence;
+        _checkBuildSentence(sentence_array, submitbutton)
+
       });
 
     $(".delete-sentence")
@@ -297,6 +297,7 @@ const fridge_generator = {
           .empty()
         config.data[CT].sentence.push(sentence);
         console.log(config.data[CT].sentence);
+        submitbutton.addClass("grid-button");
 
 
       });
@@ -309,16 +310,20 @@ const fridge_generator = {
 
     //addCheckResponseFunctionality(button);
 
+    submitbutton.on("click", function () {
+      toggleNextIfDone($("#buttonMore"), true);
+      toggleNextIfDone($("#buttonNext"), true);
+    })
 
 
     button.on("click", function () {
       const RT = Date.now() - startingTime; // measure RT before anything else
-      let responseData = saveTrialQA();
+      // let responseData = saveTrialQA();
       let trial_data = {
         trial_name: config.name,
         trial_number: CT + 1,
-        response: responseData.responses,
-        utterances: responseData.questions,
+        // response: responseData.responses,
+        // utterances: responseData.questions,
         RT: RT
       };
       trial_data = magpieUtils.view.save_config_trial_data(
