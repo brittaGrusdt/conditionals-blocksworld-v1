@@ -278,6 +278,10 @@ const fridge_generator = {
         var sentence = sentence_array.toString()
           .replace(/,/, "");
         console.log(sentence.replace(/,/, ""));
+        // here function to check if sentence is submitted, then next scenario and build another sentence are free to press
+        _checkBuildSentence(sentence_array, button)
+        //new 4.5.
+        //sentence_array = sentence;
       });
 
     $(".delete-sentence")
@@ -294,17 +298,18 @@ const fridge_generator = {
         config.data[CT].sentence.push(sentence);
         console.log(config.data[CT].sentence);
 
+
       });
 
 
     // function for debugging - if "y" is pressed, the slider will change
-    if (magpie.deploy.deployMethod === "debug") {
-      addShortCut2SelectAnswers(button);
-    }
+    // if (magpie.deploy.deployMethod === "debug") {
+    //   addShortCut2SelectAnswers(sentence, button);
+    // }
 
     //addCheckResponseFunctionality(button);
 
-    // here function to check if sentence is submitted, then next scenario and build another sentence are free to press
+
 
     button.on("click", function () {
       const RT = Date.now() - startingTime; // measure RT before anything else
