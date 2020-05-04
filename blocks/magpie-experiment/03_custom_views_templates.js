@@ -225,12 +225,21 @@ const fridge_generator = {
     let wordArray4 = ["block", "blocks", "green", "blue", "red", "yellow"]
     let wordArray5 = ["maybe", "likely", "probably", "only", "rather"]
 
-    return `<div class = "fix-box"> <div class="fridge">` + return_word_array(wordArray1, "magpie-view-button green") + return_word_array(wordArray2, "red") + return_word_array(wordArray3, "orange") + return_word_array(wordArray4, "purple") + return_word_array(wordArray5, "blue") +
-      `</div> <br><br/> <div class ="sentence selected1"'> Your sentence:  <span class = "selected"> ${config.data[CT].sentence} </span>   </div> <button id='buttonDelete' class=' magpie-view-button delete-sentence'>delete sentence </button>  <br><br/> </div>
+    return `<div class = "fix-box"> <div class="fridge">` + return_word_array(wordArray1, "magpie-view-button green") +
+      return_word_array(wordArray2, "red") + return_word_array(wordArray3, "orange") + return_word_array(wordArray4, "purple") +
+      return_word_array(wordArray5, "blue") +
+      `</div>
+      <br><br/>
+      <div class ="sentence selected1" style = "font-size: 20px"> Your sentence:  <span class = "selected-words"> ${config.data[CT].sentence} </span>
+      </div> <button id='buttonDelete' class=' magpie-view-button delete-sentence'>delete sentence </button>
+      <br><br/>
+      <br><br/>
 
-      <button id='buttonSubmit' class='grid-button magpie-view-button'>submit sentence </button>
+      <div> <button id='buttonSubmit' class='magpie-view-button'> submit sentence</button>
+      <button id='buttonNext' class='magpie-view-button'>Next scenario</button> </div>
+      <br><br/>
 
-      <button id='buttonNext' class='grid-button magpie-view-button'>Next scenario</button> </div>`;
+    </div>`;
   },
 
   handle_response_function: function (
@@ -277,7 +286,7 @@ const fridge_generator = {
 
 
 
-        $(".selected")
+        $(".selected-words")
           .append(" " + value)
         config.data[CT].sentence.push(value);
         console.log(config.data[CT].sentence);
@@ -295,7 +304,7 @@ const fridge_generator = {
         //   .replace(/,/, "");
         // console.log(sentence);
 
-        $(".selected")
+        $(".selected-words")
           .empty()
         config.data[CT].sentence.push(sentence);
         console.log(config.data[CT].sentence);

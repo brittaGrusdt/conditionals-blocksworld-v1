@@ -10,7 +10,7 @@ var fridge_trials = [
     question4: id2Question.none,
     optionLeft: "impossible event",
     optionRight: "certain event",
-    sentence: ["here", "here"]
+    sentence: [" "]
 
   },
   {
@@ -22,7 +22,7 @@ var fridge_trials = [
     question4: id2Question.none,
     optionLeft: "impossible event",
     optionRight: "certain event",
-    sentence: ["here", "here"]
+    sentence: [" "]
   }
 ]
 

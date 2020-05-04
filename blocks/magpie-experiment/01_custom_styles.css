@@ -186,11 +186,15 @@ input[type="range"].replied::-webkit-slider-thumb {
   background-color: #FFFFFF;
 }
 
+
 .selected {
   text-algin: center;
   align-self: center;
   background-color: #28B463 ;
 }
+
+
+
 
 .magpie-view-text {
   color: rgba(0, 0, 0, 0.87);
@@ -208,13 +212,13 @@ input[type="range"].replied::-webkit-slider-thumb {
 }
 
 #buttonNext {
-  margin-top: 0px;
-  margin-bottom: 0px;
+  /* margin-top: 0px;
+  margin-bottom: 0px; */
 }
 
 #buttonSubmit{
-  position: absolute;
-  right: 10%;
+  /* position: absolute;
+  right: 10%; */
 }
 /* change container of progress_bar, so that all fits on one screen */
 /* .progress-bar-container {
@@ -271,7 +275,7 @@ input[type="range"].replied::-webkit-slider-thumb {
    color: black;
    display: block;
    font-family: "Lato", "Noto Sans", sans-serif;
-   font-size: 12px;
+   /* font-size: 12px; */
    line-height: 20px;
    font-weight: 700;
    letter-spacing: 0.9px;
@@ -357,6 +361,14 @@ input[type="range"].replied::-webkit-slider-thumb {
   position: absolute;
   left: 10%;
   font-family: "Lato", "Noto Sans", sans-serif;
+}
+
+.selected-words{
+  border: 3px solid #4CAF50;
+    border-radius: 15px;
+    text-algin: center;
+    align-self: center;
+    padding: 16px 32px;
 }
 
 
