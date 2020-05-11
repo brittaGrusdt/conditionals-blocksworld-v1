@@ -286,18 +286,20 @@ const fridge_generator = {
 
     $(".delete-sentence")
       .click(function () {
-        console.log("test deletee");
-        sentence_array = [];
-        sentence_array.push("");
-        sentence = "";
+        console.log("test delete");
+        // sentence_array = [];
+        // sentence_array.push("");
+        console.log(sentence_array);
+        sentence_array.pop();
+        console.log(sentence_array);
+        //sentence = "";
 
-        // var sentence = sentence_array.toString()
-        //   .replace(/,/, "");
-        // console.log(sentence);
+        var sentence = sentence_array.toString()
+          .replace(/,/, "");
+        console.log(sentence);
 
-        $(".selected-words")
-          .empty()
-        config.data[CT].sentence.push(sentence);
+        //$(".selected-words").empty()
+        config.data[CT].sentence = sentence;
         console.log(config.data[CT].sentence);
         submitbutton.addClass("grid-button");
 
