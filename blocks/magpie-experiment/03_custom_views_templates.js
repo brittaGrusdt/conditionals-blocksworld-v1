@@ -219,15 +219,15 @@ const fridge_generator = {
         })
         .join('')
     }
-    let wordArray1 = ["fall", "falls", "will", "cause", "causes", "won't", "make", "makes", "do", "does"]
-    let wordArray2 = ["if", "and", "or", "to", "due to", "because of", "the"]
-    let wordArray3 = ["not", "neither", "nor", "no"]
-    let wordArray4 = ["block", "blocks", "green", "blue", "red", "yellow"]
-    let wordArray5 = ["maybe", "likely", "probably", "only", "rather"]
+    let wordArray1 = ["maybe", "likely", "probably", "only", "rather"]
+    let wordArray2 = ["not", "neither", "nor", "no", "won't", "but"]
+    let wordArray3 = ["if", "and", "or", "to", "due to", "because of", "the"]
+    let wordArray4 = ["block", "blocks", "green", "blue", "red", "yellow", "both"]
+    let wordArray5 = ["fall", "falls", "will", "cause", "causes", "make", "makes", "do", "does"]
 
     return `<div class = "fix-box"> <div class="fridge">` + return_word_array(wordArray1, "magpie-view-button green") +
-      return_word_array(wordArray2, "red") + return_word_array(wordArray3, "orange") + return_word_array(wordArray4, "purple") +
-      return_word_array(wordArray5, "blue") +
+      return_word_array(wordArray2, "red") + return_word_array(wordArray3, "blue") + return_word_array(wordArray4, "purple") +
+      return_word_array(wordArray5, "orange") +
       `</div>
       <br><br/>
       <div class ="sentence selected1" style = "font-size: 20px"> Your sentence:  <span class = "selected-words"> ${config.data[CT].sentence} </span>
