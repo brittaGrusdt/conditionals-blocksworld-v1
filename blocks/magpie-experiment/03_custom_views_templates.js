@@ -237,7 +237,7 @@ const fridge_generator = {
       <button id='buttonSubmit' class='magpie-view-button grid-button submit-sentence '> submit sentence</button>
       <br><br/>
       <div class = "magpie-nodisplay custom-sentence sentence" style = "font-size: 20px"> Your custom sentence:
-        <textarea name='textbox-input' cols = 50 class='magpie-response-text selected-words' />
+        <textarea id="custom-text" name='textbox-input' cols = 50 class='magpie-response-text selected-words' />
       </div>
       <br><br/>
       <br><br/>
@@ -245,7 +245,7 @@ const fridge_generator = {
       <br><br/>
       <span>
       <button id='buttonMore' class='magpie-view-button grid-button'>Build another sentence </button>
-      <button id='buttonNext' class='magpie-view-button grid-button'>Next scenario</button>
+      <button id='buttonNext' class='magpie-view-button'>Next scenario</button>
       </span>
       <br><br/>
 
@@ -265,7 +265,10 @@ const fridge_generator = {
     let submitbutton = $("#buttonSubmit");
 
     let sentence_array = [];
-    let custom_sentence_array = [];
+    let sentence = "";
+    let custom_sentence = "";
+
+    let textInput = $("textarea");
 
     // each word which is pressed is saved in an array to build the sentence
     $(".word")
@@ -279,7 +282,7 @@ const fridge_generator = {
         $(".selected-words")
           .append(" " + value)
         console.log(config.data[CT].sentence);
-        var sentence = sentence_array.toString()
+        sentence = sentence_array.toString()
           .replace(/,/, "");
         console.log(sentence.replace(/,/, ""));
         //check if sentence is submitted, next scenario and build another sentence are free to press
@@ -320,6 +323,10 @@ const fridge_generator = {
     $("#customWords")
       .on("click", function () {
         console.log("komme ich in customWords an?");
+
+        const minChars = config.data[CT].min_chars === undefined ? 10 : config.data[CT].min_chars;
+
+
         $(".custom-sentence")
           .removeClass("magpie-nodisplay");
         $(".selected1")
@@ -327,13 +334,8 @@ const fridge_generator = {
         $(".delete-word")
           .addClass("magpie-nodisplay");
 
-        let next;
-        let textInput;
-        const minChars = config.data[CT].min_chars === undefined ? 10 : config.data[CT].min_chars;
 
 
-        //next = $("#next");
-        textInput = $("textarea");
 
         // attaches an event listener to the textbox input
         textInput.on("keyup", function () {
@@ -342,39 +344,18 @@ const fridge_generator = {
           if (textInput.val()
             .trim()
             .length > minChars) {
+            console.log(textInput.val());
             submitbutton.removeClass("grid-button");
           } else {
             submitbutton.addClass("grid-button");
           }
         });
 
+        custom_sentence = document.getElementById('custom-text');
+        console.log(custom_sentence);
       });
 
-    //_checkBuildSentence(custom_sentence_array, submitbutton);
 
-    // let next;
-    // let textInput;
-    // const minChars = config.data[CT].min_chars === undefined ? 10 : config.data[CT].min_chars;
-    //
-    // $(".magpie-view")
-    //   .append(answer_container_generator(config, CT));
-    //
-    // next = $("#next");
-    // textInput = $("textarea");
-    //
-    // // attaches an event listener to the textbox input
-    // textInput.on("keyup", function () {
-    //   // if the text is longer than (in this case) 10 characters without the spaces
-    //   // the 'next' button appears
-    //   if (textInput.val()
-    //     .trim()
-    //     .length > minChars) {
-    //     next.removeClass("magpie-nodisplay");
-    //   } else {
-    //     next.addClass("magpie-nodisplay");
-    //   }
-    // });
-    //
 
     // function for debugging - if "y" is pressed, the slider will change
     // if (magpie.deploy.deployMethod === "debug") {
@@ -395,7 +376,9 @@ const fridge_generator = {
       let trial_data = {
         trial_name: config.name,
         trial_number: CT + 1,
-        //response: textInput.val().trim(),
+        response: sentence_array,
+        custom_response: custom_sentence,
+        //textInput.val().trim(),
         // response: responseData.responses,
         // utterances: responseData.questions,
         RT: RT
