@@ -231,7 +231,7 @@ const fridge_generator = {
       `</div>
       <br><br/>
       <div class ="sentence selected1" style = "font-size: 20px"> Your sentence:  <span class = "selected-words"> ${config.data[CT].sentence} </span>
-      </div> <button id='buttonDelete' class=' magpie-view-button delete-sentence'>delete sentence </button>
+      </div> <button id='buttonDelete' class=' magpie-view-button delete-word'>delete last word </button>
       <br><br/>
       <br><br/>
       <button id='buttonSubmit' class='magpie-view-button grid-button submit-sentence '> submit sentence</button>
@@ -274,7 +274,7 @@ const fridge_generator = {
 
         $(".selected-words")
           .append(" " + value)
-        config.data[CT].sentence.push(value);
+        //config.data[CT].sentence.push(value);
         console.log(config.data[CT].sentence);
         var sentence = sentence_array.toString()
           .replace(/,/, "");
@@ -284,7 +284,7 @@ const fridge_generator = {
 
       });
 
-    $(".delete-sentence")
+    $(".delete-word")
       .click(function () {
         console.log("test delete");
         // sentence_array = [];
@@ -294,14 +294,22 @@ const fridge_generator = {
         console.log(sentence_array);
         //sentence = "";
 
-        var sentence = sentence_array.toString()
-          .replace(/,/, "");
+        var sentence = sentence_array.join(" ")
+        // toString()
+        //   .replace(/,/, " ");
         console.log(sentence);
 
-        //$(".selected-words").empty()
+        $(".selected-words")
+          .empty();
+
+        $(".selected-words")
+          .append(sentence);
+
+
         config.data[CT].sentence = sentence;
         console.log(config.data[CT].sentence);
-        submitbutton.addClass("grid-button");
+        _checkBuildSentence(sentence_array, submitbutton);
+
 
 
       });

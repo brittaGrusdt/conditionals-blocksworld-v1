@@ -137,6 +137,9 @@ _checkBuildSentence = function (sentenceArray, button2Toggle) {
   if (sentenceArray.length >= 4) {
     console.log("if loop");
     toggleNextIfDone(button2Toggle, true);
+  } else {
+    button2Toggle.addClass("grid-button");
+    console.log("in if?");
   }
 }
 
