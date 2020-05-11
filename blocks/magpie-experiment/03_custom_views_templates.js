@@ -231,10 +231,16 @@ const fridge_generator = {
       `</div>
       <br><br/>
       <div class ="sentence selected1" style = "font-size: 20px"> Your sentence:  <span class = "selected-words"> ${config.data[CT].sentence} </span>
-      </div> <button id='buttonDelete' class=' magpie-view-button delete-word'>delete last word </button>
+      </div> <button id='buttonDelete' class='magpie-view-button delete-word'> delete last word </button> <button id ='customWords' class="magpie-view-button custom-words"> ? </button>
       <br><br/>
       <br><br/>
       <button id='buttonSubmit' class='magpie-view-button grid-button submit-sentence '> submit sentence</button>
+      <br><br/>
+      <div class = "magpie-nodisplay custom-sentence sentence" style = "font-size: 20px"> Your custom sentence:
+        <textarea name='textbox-input' cols = 50 class='magpie-response-text selected-words' />
+      </div>
+      <br><br/>
+      <br><br/>
       <br><br/>
       <br><br/>
       <span>
@@ -259,29 +265,25 @@ const fridge_generator = {
     let submitbutton = $("#buttonSubmit");
 
     let sentence_array = [];
+    let custom_sentence_array = [];
 
     // each word which is pressed is saved in an array to build the sentence
     $(".word")
       .click(function () {
-
         var value = $(this)
           .text()
           .replace(/(\r\n|\n|\r)/gm, "")
           .trim();
         sentence_array.push(value)
 
-
-
         $(".selected-words")
           .append(" " + value)
-        //config.data[CT].sentence.push(value);
         console.log(config.data[CT].sentence);
         var sentence = sentence_array.toString()
           .replace(/,/, "");
         console.log(sentence.replace(/,/, ""));
-        // here function to check if sentence is submitted, then next scenario and build another sentence are free to press
+        //check if sentence is submitted, next scenario and build another sentence are free to press
         _checkBuildSentence(sentence_array, submitbutton)
-
       });
 
     $(".delete-word")
@@ -315,6 +317,65 @@ const fridge_generator = {
       });
 
 
+    $("#customWords")
+      .on("click", function () {
+        console.log("komme ich in customWords an?");
+        $(".custom-sentence")
+          .removeClass("magpie-nodisplay");
+        $(".selected1")
+          .addClass("magpie-nodisplay");
+        $(".delete-word")
+          .addClass("magpie-nodisplay");
+
+        let next;
+        let textInput;
+        const minChars = config.data[CT].min_chars === undefined ? 10 : config.data[CT].min_chars;
+
+
+        //next = $("#next");
+        textInput = $("textarea");
+
+        // attaches an event listener to the textbox input
+        textInput.on("keyup", function () {
+          // if the text is longer than (in this case) 10 characters without the spaces
+          // the 'next' button appears
+          if (textInput.val()
+            .trim()
+            .length > minChars) {
+            submitbutton.removeClass("grid-button");
+          } else {
+            submitbutton.addClass("grid-button");
+          }
+        });
+
+      });
+
+    //_checkBuildSentence(custom_sentence_array, submitbutton);
+
+    // let next;
+    // let textInput;
+    // const minChars = config.data[CT].min_chars === undefined ? 10 : config.data[CT].min_chars;
+    //
+    // $(".magpie-view")
+    //   .append(answer_container_generator(config, CT));
+    //
+    // next = $("#next");
+    // textInput = $("textarea");
+    //
+    // // attaches an event listener to the textbox input
+    // textInput.on("keyup", function () {
+    //   // if the text is longer than (in this case) 10 characters without the spaces
+    //   // the 'next' button appears
+    //   if (textInput.val()
+    //     .trim()
+    //     .length > minChars) {
+    //     next.removeClass("magpie-nodisplay");
+    //   } else {
+    //     next.addClass("magpie-nodisplay");
+    //   }
+    // });
+    //
+
     // function for debugging - if "y" is pressed, the slider will change
     // if (magpie.deploy.deployMethod === "debug") {
     //   addShortCut2SelectAnswers(sentence, button);
@@ -325,7 +386,7 @@ const fridge_generator = {
     submitbutton.on("click", function () {
       toggleNextIfDone($("#buttonMore"), true);
       toggleNextIfDone($("#buttonNext"), true);
-    })
+    });
 
 
     button.on("click", function () {
@@ -334,6 +395,7 @@ const fridge_generator = {
       let trial_data = {
         trial_name: config.name,
         trial_number: CT + 1,
+        //response: textInput.val().trim(),
         // response: responseData.responses,
         // utterances: responseData.questions,
         RT: RT

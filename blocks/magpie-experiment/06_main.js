@@ -23,7 +23,7 @@ $("document")
       //instructions_train2,
       //animation_view2,
       //instructions_test,
-      multiple_slider,
+      fridge,
       post_test,
       thanks
     ],
@@ -43,7 +43,7 @@ $("document")
         in: [
         // list the view-names of the views for which you want a progress bar
         animation_view1.name,
-        multiple_slider.name
+        fridge.name
       ],
         // Possible styles are "default", "separate" and "chunks"
         style: "separate",
