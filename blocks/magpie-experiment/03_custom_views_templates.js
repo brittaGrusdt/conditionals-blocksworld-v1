@@ -235,13 +235,10 @@ const fridge_generator = {
       <br><br/>
       <br><br/>
       <button id='buttonSubmit' class='magpie-view-button grid-button submit-sentence '> submit sentence</button>
-      <br><br/>
-
-      <br><br/>
       <div class = "magpie-nodisplay custom-sentence sentence" >
         <p class="magpie-view-text">
               <label for="custom-text" style = "font-size: 20px"> Your custom sentence: </label>
-              <textarea name="textbox-input" id="custom-text" cols="50" class='magpie-response-text selected-words'></textarea>
+               <input type="text" id="custom-text" name="textbox-input" cols = 50 class='magpie-response-text selected-words'>
         </p>
       </div>
       <div class = "buttons">
@@ -269,7 +266,7 @@ const fridge_generator = {
     let sentence = "";
     let custom_sentence = "";
 
-    let textInput = $("textarea");
+    let textInput = $("#custom-text");
 
     // each word which is pressed is saved in an array to build the sentence
     $(".word")
@@ -326,11 +323,13 @@ const fridge_generator = {
           .removeClass("magpie-nodisplay");
 
         submitbutton.addClass("grid-button");
+        // $("#customWords")
+        //   .addClass("magpie-nodisplay");
 
         // attaches an event listener to the textbox input
         textInput.on("keyup", function () {
           //document.getElementById('custom-text').value = " ";
-          textInput.value = ' ';
+          //textInput.value = ' ';
           // if the text is longer than (in this case) 10 characters without the spaces
           // the 'next' button appears
           if (textInput.val()

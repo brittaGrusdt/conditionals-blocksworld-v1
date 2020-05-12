@@ -412,6 +412,10 @@ input[type="range"].replied::-webkit-slider-thumb {
   display:flex;
 }
 
+#custom-text{
+  width: 350px;
+}
+
 /* .answer{
   float:right;
   padding: 50px;
