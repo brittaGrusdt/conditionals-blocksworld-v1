@@ -231,21 +231,25 @@ const fridge_generator = {
       `</div>
       <br><br/>
       <div class ="sentence selected1" style = "font-size: 20px"> Your sentence:  <span class = "selected-words"> ${config.data[CT].sentence} </span>
-      </div> <button id='buttonDelete' class='magpie-view-button delete-word'> delete last word </button> <button id ='customWords' class="magpie-view-button custom-words"> ? </button>
+      </div> <button id='buttonDelete' class='magpie-view-button delete-word'> delete last word </button>
       <br><br/>
       <br><br/>
       <button id='buttonSubmit' class='magpie-view-button grid-button submit-sentence '> submit sentence</button>
       <br><br/>
-      <div class = "magpie-nodisplay custom-sentence sentence" style = "font-size: 20px"> Your custom sentence:
-        <textarea id="custom-text" name='textbox-input' cols = 50 class='magpie-response-text selected-words' />
+      <button id ='customWords' class="magpie-view-button custom-words grid-button"> ? </button>
+      <br><br/>
+      <div class = "magpie-nodisplay custom-sentence sentence" >
+        <p class="magpie-view-text">
+              <label for="custom-text" style = "font-size: 20px"> Your custom sentence: </label>
+              <textarea name="textbox-input" id="custom-text" cols="50" class='magpie-response-text selected-words'></textarea>
+        </p>
       </div>
       <br><br/>
       <br><br/>
       <br><br/>
       <br><br/>
       <span>
-      <button id='buttonMore' class='magpie-view-button grid-button'>Build another sentence </button>
-      <button id='buttonNext' class='magpie-view-button'>Next scenario</button>
+      <button id='buttonNext' class='magpie-view-button grid-button'>Next scenario</button>
       </span>
       <br><br/>
 
@@ -283,8 +287,8 @@ const fridge_generator = {
           .append(" " + value)
         console.log(config.data[CT].sentence);
         sentence = sentence_array.toString()
-          .replace(/,/, "");
-        console.log(sentence.replace(/,/, ""));
+          .replace(/,/, " ");
+        console.log(sentence.replace(/,/, " "));
         //check if sentence is submitted, next scenario and build another sentence are free to press
         _checkBuildSentence(sentence_array, submitbutton)
       });
@@ -300,8 +304,6 @@ const fridge_generator = {
         //sentence = "";
 
         var sentence = sentence_array.join(" ")
-        // toString()
-        //   .replace(/,/, " ");
         console.log(sentence);
 
         $(".selected-words")
@@ -310,13 +312,9 @@ const fridge_generator = {
         $(".selected-words")
           .append(sentence);
 
-
         config.data[CT].sentence = sentence;
         console.log(config.data[CT].sentence);
         _checkBuildSentence(sentence_array, submitbutton);
-
-
-
       });
 
 
@@ -325,7 +323,6 @@ const fridge_generator = {
         console.log("komme ich in customWords an?");
 
         const minChars = config.data[CT].min_chars === undefined ? 10 : config.data[CT].min_chars;
-
 
         $(".custom-sentence")
           .removeClass("magpie-nodisplay");
@@ -365,10 +362,14 @@ const fridge_generator = {
     //addCheckResponseFunctionality(button);
 
     submitbutton.on("click", function () {
-      toggleNextIfDone($("#buttonMore"), true);
       toggleNextIfDone($("#buttonNext"), true);
+      toggleNextIfDone($("#customWords"), true);
     });
 
+    $("#customWords")
+      .on("click", function () {
+        button.removeClass("magpie-nodisplay");
+      })
 
     button.on("click", function () {
       const RT = Date.now() - startingTime; // measure RT before anything else
@@ -376,9 +377,8 @@ const fridge_generator = {
       let trial_data = {
         trial_name: config.name,
         trial_number: CT + 1,
-        response: sentence_array,
-        custom_response: custom_sentence,
-        //textInput.val().trim(),
+        response: sentence, //sentence_array,
+        custom_response: custom_sentence.value,
         // response: responseData.responses,
         // utterances: responseData.questions,
         RT: RT

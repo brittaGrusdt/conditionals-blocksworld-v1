@@ -386,11 +386,6 @@ input[type="range"].replied::-webkit-slider-thumb {
   /* background-color: green; */
 }
 
-#buttonMore{
- margin: 0px;
- position: absolute;
- left: 30%;
-}
 
 #buttonNext{
  margin: 0px;
@@ -408,7 +403,7 @@ input[type="range"].replied::-webkit-slider-thumb {
 #customWords{
   margin: 15px;
   position: absolute;
-  right: 5%;
+  right: 10%;
   padding: 20px;
   font-size: 16px;
 }
