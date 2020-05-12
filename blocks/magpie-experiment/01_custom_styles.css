@@ -387,10 +387,10 @@ input[type="range"].replied::-webkit-slider-thumb {
 }
 
 
-#buttonNext{
+/* #buttonNext{
  margin: 0px;
  position: absolute;
- right: 30%
+ /* right: 30% */
 }
 
 
@@ -401,11 +401,15 @@ input[type="range"].replied::-webkit-slider-thumb {
 
 
 #customWords{
-  margin: 15px;
+  /* margin: 15px;
   position: absolute;
   right: 10%;
   padding: 20px;
-  font-size: 16px;
+  font-size: 16px; */
+}
+
+.buttons{
+  display:flex;
 }
 
 /* .answer{

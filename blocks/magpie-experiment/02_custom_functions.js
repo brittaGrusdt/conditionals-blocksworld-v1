@@ -133,13 +133,10 @@ addCheckSliderResponse = function (button2Toggle) {
 
 //MALIN FRIDGE
 _checkBuildSentence = function (sentenceArray, button2Toggle) {
-  console.log("komm ich an");
   if (sentenceArray.length >= 4) {
-    console.log("if loop");
     toggleNextIfDone(button2Toggle, true);
   } else {
     button2Toggle.addClass("grid-button");
-    console.log("in if?");
   }
 }
 

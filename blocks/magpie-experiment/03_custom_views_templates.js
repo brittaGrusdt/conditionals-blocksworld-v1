@@ -230,13 +230,13 @@ const fridge_generator = {
       return_word_array(wordArray5, "orange") +
       `</div>
       <br><br/>
-      <div class ="sentence selected1" style = "font-size: 20px"> Your sentence:  <span class = "selected-words"> ${config.data[CT].sentence} </span>
+      <div class ="sentence selected1" style = "font-size: 20px"> Your sentence:  <span class = "selected-words" id ="sentence"> ${config.data[CT].sentence} </span>
       </div> <button id='buttonDelete' class='magpie-view-button delete-word'> delete last word </button>
       <br><br/>
       <br><br/>
       <button id='buttonSubmit' class='magpie-view-button grid-button submit-sentence '> submit sentence</button>
       <br><br/>
-      <button id ='customWords' class="magpie-view-button custom-words grid-button"> ? </button>
+
       <br><br/>
       <div class = "magpie-nodisplay custom-sentence sentence" >
         <p class="magpie-view-text">
@@ -244,13 +244,10 @@ const fridge_generator = {
               <textarea name="textbox-input" id="custom-text" cols="50" class='magpie-response-text selected-words'></textarea>
         </p>
       </div>
-      <br><br/>
-      <br><br/>
-      <br><br/>
-      <br><br/>
-      <span>
-      <button id='buttonNext' class='magpie-view-button grid-button'>Next scenario</button>
-      </span>
+      <div class = "buttons">
+        <button id ='customWords' class="magpie-view-button custom-words magpie-nodisplay"> Use my own words </button>
+        <button id='buttonNext' class='magpie-view-button grid-button'>Next scenario</button>
+      </div>
       <br><br/>
 
     </div>`;
@@ -279,32 +276,32 @@ const fridge_generator = {
       .click(function () {
         var value = $(this)
           .text()
-          .replace(/(\r\n|\n|\r)/gm, "")
+          .replace(/(\r\n|\n|\r)/gm, " ")
           .trim();
         sentence_array.push(value)
+        console.log(sentence_array);
 
         $(".selected-words")
           .append(" " + value)
+        console.log(sentence_array);
         console.log(config.data[CT].sentence);
         sentence = sentence_array.toString()
           .replace(/,/, " ");
+        sentence = sentence.replace(/,/, " ");
         console.log(sentence.replace(/,/, " "));
+        console.log(config.data[CT].sentence.value);
         //check if sentence is submitted, next scenario and build another sentence are free to press
+        // new try 11.5.
+        // sentence = document.getElementById('sentence');
         _checkBuildSentence(sentence_array, submitbutton)
+        sentence = sentence.replace(/,/, " ");
+        console.log(sentence);
       });
 
     $(".delete-word")
       .click(function () {
-        console.log("test delete");
-        // sentence_array = [];
-        // sentence_array.push("");
-        console.log(sentence_array);
         sentence_array.pop();
-        console.log(sentence_array);
-        //sentence = "";
-
         var sentence = sentence_array.join(" ")
-        console.log(sentence);
 
         $(".selected-words")
           .empty();
@@ -312,8 +309,9 @@ const fridge_generator = {
         $(".selected-words")
           .append(sentence);
 
+        // dont remember if this is important
         config.data[CT].sentence = sentence;
-        console.log(config.data[CT].sentence);
+
         _checkBuildSentence(sentence_array, submitbutton);
       });
 
@@ -363,13 +361,15 @@ const fridge_generator = {
 
     submitbutton.on("click", function () {
       toggleNextIfDone($("#buttonNext"), true);
+      $("#customWords")
+        .removeClass("magpie-nodisplay");
       toggleNextIfDone($("#customWords"), true);
     });
 
-    $("#customWords")
-      .on("click", function () {
-        button.removeClass("magpie-nodisplay");
-      })
+    // $("#customWords")
+    //   .on("click", function () {
+    //     button.removeClass("magpie-nodisplay");
+    //   });
 
     button.on("click", function () {
       const RT = Date.now() - startingTime; // measure RT before anything else
@@ -377,7 +377,7 @@ const fridge_generator = {
       let trial_data = {
         trial_name: config.name,
         trial_number: CT + 1,
-        response: sentence, //sentence_array,
+        response: sentence, //config.sentence_array, //sentence, //sentence_array,
         custom_response: custom_sentence.value,
         // response: responseData.responses,
         // utterances: responseData.questions,
