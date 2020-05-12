@@ -286,15 +286,15 @@ const fridge_generator = {
         console.log(sentence_array);
         console.log(config.data[CT].sentence);
         sentence = sentence_array.toString()
-          .replace(/,/, " ");
-        sentence = sentence.replace(/,/, " ");
+          .replace(/,/g, " ");
+        //sentence = sentence.replace(/,/, " ");
         console.log(sentence.replace(/,/, " "));
         console.log(config.data[CT].sentence.value);
         //check if sentence is submitted, next scenario and build another sentence are free to press
         // new try 11.5.
         // sentence = document.getElementById('sentence');
         _checkBuildSentence(sentence_array, submitbutton)
-        sentence = sentence.replace(/,/, " ");
+        //sentence = sentence.replace(/,/, " ");
         console.log(sentence);
       });
 
@@ -324,16 +324,13 @@ const fridge_generator = {
 
         $(".custom-sentence")
           .removeClass("magpie-nodisplay");
-        $(".selected1")
-          .addClass("magpie-nodisplay");
-        $(".delete-word")
-          .addClass("magpie-nodisplay");
 
-
-
+        submitbutton.addClass("grid-button");
 
         // attaches an event listener to the textbox input
         textInput.on("keyup", function () {
+          //document.getElementById('custom-text').value = " ";
+          textInput.value = ' ';
           // if the text is longer than (in this case) 10 characters without the spaces
           // the 'next' button appears
           if (textInput.val()
@@ -352,6 +349,7 @@ const fridge_generator = {
 
 
 
+
     // function for debugging - if "y" is pressed, the slider will change
     // if (magpie.deploy.deployMethod === "debug") {
     //   addShortCut2SelectAnswers(sentence, button);
@@ -364,6 +362,12 @@ const fridge_generator = {
       $("#customWords")
         .removeClass("magpie-nodisplay");
       toggleNextIfDone($("#customWords"), true);
+      buttonDelete
+      submitbutton.addClass("magpie-nodisplay");
+      $("#buttonDelete")
+        .addClass("magpie-nodisplay");
+      $(".selected1")
+        .addClass("magpie-nodisplay");
     });
 
     // $("#customWords")
