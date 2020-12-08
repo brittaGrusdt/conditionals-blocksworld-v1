@@ -9,7 +9,7 @@
   "license": "ISC",
   "dependencies": {
     "csv-writer": "^1.6.0",
-    "fast-csv": "^4.1.1",
+    "fast-csv": "^4.3.6",
     "gaussian": "^1.1.0",
     "gulp": "^4.0.2",
     "gulp-concat": "^2.6.1",
