@@ -11,6 +11,6 @@
   "dependencies": {
     "magpie-modules": "^0.1.1",
     "matter-js": "^0.14.2",
-    "underscore": "^1.9.2"
+    "underscore": "^1.12.1"
   }
 }
